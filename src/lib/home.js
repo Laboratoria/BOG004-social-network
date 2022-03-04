@@ -7,7 +7,7 @@ export const home = () => {
   <button id="login1">INICIAR SESIÓN</button>`
   
   const divElement = document.createElement('div');
-  divElement.classList.add=('view1');
+  divElement.classList.add('view1');
   divElement.innerHTML=template;
   
    
