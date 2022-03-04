@@ -1,0 +1,15 @@
+.view1{
+    display: grid;
+    gap:50px;
+    justify-items: center;
+    align-content: center;
+    margin-top: 200px;
+    
+}
+
+.view1 img{
+    width: 75%;
+}
+
+
+
