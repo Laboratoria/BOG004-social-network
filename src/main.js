@@ -1,5 +1,16 @@
-// Este es el punto de entrada de tu aplicacion
+import {saveLogin} from './lib/index.js'
+  
+const login = document.getElementById('login')  
 
-import { myFunction } from './lib/index.js';
+login.addEventListener('submit', (e) => {
+    e.preventDefault()
+    
+    const nickname = login['nickname']
+    const email = login['email']
+    const password =  login['password']
+    
+    saveLogin(nickname.value, email.value, password.value )
 
-myFunction();
+    saveLogin.reset();
+    
+} )
