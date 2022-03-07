@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* display: flex;
+  flex-direction: column; */
+  height: 100vh;
+}
+
+#modalWindow {
+  background-color: rgb(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.modal {
+  width: 85%;
+  height: 70%;
+  background-color: white;
+  top: 10%;
+  margin: 7%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.modal img {
+  width: 6.25em;
+  height: 6.25em;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px 8px #419f00;
+}
+.modal p {
+  padding: 25px;
+  font-size: 1.2rem;
+  font-size: 1em;
+  text-align: justify;
+}
+
+#buttons {
+  width: 100%;
+  align-self: flex-end;
+  justify-content: center;
+  display: flex;
+}
+
+#sign-up,
+#log-in {
+  margin: 1.25em 0.94em;
+  width: 40%;
+  padding: 0.9em 1.25em;
+  background-color: #419f00;
+  border-radius: 3.12em;
+  font-weight: bolder;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-stretch: semi-condensed;
+  color: white;
+  text-align: center;
+}
+
+.nav-bar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  top: 0px;
+  border-bottom: 3px outset #898f8498;
+}
+
+.logout,
+.logo-mobile {
+  width: 50px;
+}
+
+.container-form {
+  /* margin-top: 100px; */
+  border: 1px solid rgba(0, 0, 0, 0.685);
+  width: 300px;
+  height: 250px;
+  margin: 30vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  line-height: 3;
+  padding-bottom: 10px;
+}
+
+form p {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+form input {
+  line-height: 3;
+  margin-bottom: 8px;
+  border: none;
+  text-align: center;
+  border-bottom: 3px outset #898f8498;
+  width: 80%;
+}
+
+#btn-register {
+  width: 60%;
+  padding: 0.4em 1.25em;
+  background-color: #419f00;
+  border-radius: 3.12em;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  font-stretch: semi-condensed;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  padding: 20px;
+  width: 100vw;
+  height: 10px;
+  background-color: blue;
+  padding: 15px;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.img-perfil {
+  width: 50px;
+}
+.img-publicacion {
+  width: 40px;
+}
+.img-busqueda {
+  width: 30px;
+}
