@@ -8,7 +8,7 @@ const content = document.getElementById('root');
 const router = (route) => {
   content.innerHTML = '';
   switch (route) {
-    case ' ': {
+    case '': {
       content.appendChild(home());
       break;
     }
