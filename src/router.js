@@ -1,37 +1,41 @@
 export default class Router {
-  constructor(routes) {
-    this.routes = routes;
-    this.loadInitialRoute();
-  }
+    constructor(routes) {
+        this.routes = routes;
+        this.loadInitialRoute();
+    }
 
-  loadRoute(...urlSegs) {
-    const matchedRoute = this.matchUrlToRoute(urlSegs);
+    loadRoute(...urlSegs) {
+        const matchedRoute = this.matchUrlToRoute(urlSegs);
 
-    const url = `/${urlSegs.join('/')}`;
-    history.pushState({}, 'texto', url);
+        const url = `/${urlSegs.join('/')}`;
+        history.pushState({}, 'texto', url);
 
-    const routerOutElm = document.querySelectorAll('[data-router]')[0];
-    routerOutElm.innerHTML = matchedRoute.template;
-  }
+        const eventoCambioRuta = new CustomEvent("cambioruta", { detail: { url: url } })
 
-  matchUrlToRoute(urlSegs) {
-    const matchedRoute = this.routes.find((route) => {
-      const routePathSegs = route.path.split('/').slice(1);
+        const routerOutElm = document.querySelectorAll('[data-router]')[0];
+        routerOutElm.innerHTML = matchedRoute.template;
+        //Dispara evento personalizado "para avisar que se cambio la ruta y se cargo la plantilla"
+        document.dispatchEvent(eventoCambioRuta);
+    }
 
-      if (routePathSegs.length !== urlSegs.length) {
-        return false;
-      }
+    matchUrlToRoute(urlSegs) {
+        const matchedRoute = this.routes.find((route) => {
+            const routePathSegs = route.path.split('/').slice(1);
 
-      return routePathSegs.every((routePathSeg, i) => routePathSeg === urlSegs[i]);
-    });
+            if (routePathSegs.length !== urlSegs.length) {
+                return false;
+            }
 
-    return matchedRoute;
-  }
+            return routePathSegs.every((routePathSeg, i) => routePathSeg === urlSegs[i]);
+        });
 
-  loadInitialRoute() {
-    const pathNameSplit = window.location.pathname.split('/');
-    const pathSegs = pathNameSplit.length > 1 ? pathNameSplit.slice(1) : '';
+        return matchedRoute;
+    }
 
-    this.loadRoute(...pathSegs);
-  }
+    loadInitialRoute() {
+        const pathNameSplit = window.location.pathname.split('/');
+        const pathSegs = pathNameSplit.length > 1 ? pathNameSplit.slice(1) : '';
+
+        this.loadRoute(...pathSegs);
+    }
 }
