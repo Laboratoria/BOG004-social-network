@@ -1,11 +1,11 @@
-export const routes = [{
-        path: '/',
-        template: '',
-    },
-    {
-        path: '/registro',
-        template: `<section id="container-register">
-    <div class="container-form">
+export const routes = [
+  {
+    path: '/',
+    template: '<h1>Página en construcción </p>',
+  },
+  {
+    path: '/registro',
+    template: `<div class="container-form">
       <form class="form" action="" method="post">
         <p>BIENVENIDO</p>
         <input type="text" placeholder="Nombre y Apellido" />
@@ -20,6 +20,6 @@ export const routes = [{
         ><i class="fa-brands fa-google"></i
       ></a>
     </p>
-  </section>`,
-    },
+  `,
+  },
 ];
