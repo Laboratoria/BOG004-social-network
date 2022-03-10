@@ -29,3 +29,14 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
+
+  // async function createUserEmailAndPassword(email, password) {
+  //   try {
+  //     const authentication = await firebase.auth().createUserWithEmailAndPassword(email, password);
+  //     return authentication; //   objeto que trae mucas cosas
+  //   } catch (error) {
+  //     let errorMessage = error.message;
+  //     return errorMessage;
+  //   }
+  // }
+  
