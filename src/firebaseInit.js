@@ -17,28 +17,5 @@
     const app = initializeApp(firebaseConfig);  
 console.log (app)
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
 
-  // async function createUserEmailAndPassword(email, password) {
-  //   try {
-  //     const authentication = await firebase.auth().createUserWithEmailAndPassword(email, password);
-  //     return authentication; //   objeto que trae mucas cosas
-  //   } catch (error) {
-  //     let errorMessage = error.message;
-  //     return errorMessage;
-  //   }
-  // }
-  //hola que paso con esto 
-  // hoal hola
   
