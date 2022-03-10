@@ -1,42 +1,71 @@
 export default class Router {
-  constructor(routes) {
-    this.routes = routes;
-    this.loadInitialRoute();
-  }
 
-  loadRoute(...urlSegs) {
-    const matchedRoute = this.matchUrlToRoute(urlSegs);
+    constructor(rutas) {
+        this.routes = rutas;
+        this.loadInitialRoute();
+    }
 
-    const url = `/${urlSegs.join('/')}`;
-    window.history.pushState({}, 'texto', url);
+    // loadRoute(...urlSegs) {
+    //   const matchedRoute = this.matchUrlToRoute(urlSegs);
 
-    const eventoCambioRuta = new CustomEvent('cambioruta', { detail: { url } });
+    //   const url = `/${urlSegs.join('/')}`;
+    //   window.history.pushState({}, 'texto', url);
 
-    const routerOutElm = document.querySelectorAll('[data-router]')[0];
-    routerOutElm.innerHTML = matchedRoute.template;
+    //   const eventoCambioRuta = new CustomEvent('cambioruta', { detail: { url } });
 
-    // Dispara evento personalizado 'para avisar que se cambio la ruta y se cargo la plantilla'
+    loadRoute(urlSegs, push = true) {
+        const matchedRoute = this.matchUrlToRoute(urlSegs);
 
-    document.dispatchEvent(eventoCambioRuta);
-  }
+        const url = `/${urlSegs}`;
+        push && window.history.pushState({}, url, url);
 
-  matchUrlToRoute(urlSegs) {
-    const matchedRoute = this.routes.find((route) => {
-      const routePathSegs = route.path.split('/').slice(1);
+        const routerOutElm = document.querySelectorAll('[data-router]')[0];
+        routerOutElm.innerHTML = matchedRoute.template;
+        matchedRoute.script()
 
-      if (routePathSegs.length !== urlSegs.length) {
-        return false;
-      }
-      return routePathSegs.every((routePathSeg, i) => routePathSeg === urlSegs[i]);
-    });
+        // const routerOutElm = document.querySelectorAll('[data-router]')[0];
+        // routerOutElm.innerHTML = matchedRoute.template;
 
-    return matchedRoute;
-  }
+        // // Dispara evento personalizado 'para avisar que se cambio la ruta y se cargo la plantilla'
 
-  loadInitialRoute() {
-    const pathNameSplit = window.location.pathname.split('/');
-    const pathSegs = pathNameSplit.length > 1 ? pathNameSplit.slice(1) : '';
+        // document.dispatchEvent(eventoCambioRuta);
 
-    this.loadRoute(...pathSegs);
-  }
+    }
+
+    // matchUrlToRoute(urlSegs) {
+    //   const matchedRoute = this.routes.find((route) => {
+    //     const routePathSegs = route.path.split('/').slice(1);
+
+    //     if (routePathSegs.length !== urlSegs.length) {
+    //       return false;
+    //     }
+    //     return routePathSegs.every((routePathSeg, i) => routePathSeg === urlSegs[i]);
+    //   });
+
+    //   return matchedRoute;
+    // }
+
+    matchUrlToRoute(urlSegs) {
+        return this.routes.find((ruta) =>
+            this.removeSlash(ruta.path) === urlSegs
+        )
+    }
+
+    // loadInitialRoute() {
+    //   const pathNameSplit = window.location.pathname.split('/');
+    //   const pathSegs = pathNameSplit.length > 1 ? pathNameSplit.slice(1) : '';
+
+    //   this.loadRoute(...pathSegs);
+    // }
+
+    loadInitialRoute() {
+        const ruta = this.removeSlash(window.location.pathname)
+        this.loadRoute(ruta, false);
+
+    }
+
+    removeSlash(path) {
+        return path.substring(1)
+    }
+
 }
