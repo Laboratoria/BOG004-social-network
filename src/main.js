@@ -56,9 +56,11 @@ iniciarFirebase();
 window.addEventListener('popstate', (event) => {
     const removePath = router.removeSlash(window.location.pathname)
     router.loadRoute(removePath, false);
-    // console.log(window.location.pathname);
-    // const url = event.detail.url;
-    // confiWindow(url);
+
+    // window.addEventListener('popstate', () => {
+    //   const removePath = window.location.pathname.substring(1);
+    //   router.loadRoute(removePath);
+    //   confiWindow(window.location.pathname);
 });
 
 // // boton primera vista
