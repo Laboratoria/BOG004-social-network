@@ -27,11 +27,11 @@ export const routes = [
     template: `<div class='container-form'>
         <form class='form' action='' method='post'>
           <p>BIENVENIDO</p>
-          <input type='text' class="name" placeholder='Nombre y Apellido' autocomplete="off"/>
-          <input type='email' class="email" placeholder='Correo' autocomplete="off" />
-          <span id="emailOK"></span>
-          <input type='password' class="password" placeholder='Contraseña' autocomplete="off" />
-          <span id="passOK"></span>
+          <input type='text' class='name' placeholder='Nombre y Apellido' autocomplete='off'/>
+          <input type='email' class='email' placeholder='Correo' autocomplete='off' />
+          <span id='emailOK'></span>
+          <input type='password' class='password' placeholder='Contraseña' autocomplete='off' />
+          <span id='passOK'></span>
           <button type='submit' id='btn-register' >Registrarse</button>
         </form>
       </div>
