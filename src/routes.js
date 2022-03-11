@@ -1,5 +1,5 @@
 import { router } from './lib/index.js';
-import { signInGoogle } from './auth-google.js';
+import { signInGoogle } from './lib/auth-google.js';
 
 export const routes = [
   {

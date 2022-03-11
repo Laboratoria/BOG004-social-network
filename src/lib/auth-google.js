@@ -3,7 +3,7 @@ import {
     signInWithPopup,
     GoogleAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { router } from './lib/index.js';
+import { router } from './index.js';
 
 export const signInGoogle = () => {
     const provider = new GoogleAuthProvider();
