@@ -1,18 +1,15 @@
+import { changeView } from './lib/viewController.js';
 import { saveTask } from './lib/index.js';
 
-const ROUTER = new Router(PATHS)
+const init = () => {
+    
+    window.addEventListener('hashchange', () => changeView(window.location.hash) )
+}
 
-let signUpbtn = document.getElementById('signUp');
-signUpbtn.addEventListener('click', () => {
-    ROUTER.load('signUp')
-})
+window.addEventListener('load', init)
 
-let taskFormpbtn = document.getElementById('taskForm');
-taskFormpbtn.addEventListener('click', () => {
-    ROUTER.load('taskForm')
-})
 
-const taskForm = document.getElementById('task-form');
+/*const taskForm = document.getElementById('task-form');
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -23,6 +20,6 @@ taskForm.addEventListener('submit', (e) => {
 
     taskForm.reset();
 
-})
+})*/
 
 

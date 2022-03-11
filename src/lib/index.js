@@ -25,7 +25,7 @@ const dataBase = getDatabase(app);
 export const saveTask = (title, description) =>
   addDoc(collection(db, 'tasks'), { title, description })
 
-const signUpForm = document.getElementById('signUpForm');
+/*const signUpForm = document.getElementById('signUpForm');
 signUpForm.addEventListener('submit', (e) => {
   e.preventDefault();
   
@@ -46,4 +46,4 @@ signUpForm.addEventListener('submit', (e) => {
       alert(errorMessage)
       // ..
     });
-})
+})*/
