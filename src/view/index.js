@@ -1,15 +1,15 @@
 import Accessories from './accessories.js';
-import Catalogue from './catalogue.js';
+import login from './login.js';
 import Home from './home.js';
-import Places from './places.js';
+import Register from './register.js';
 import Different from './404.js';
 
 
 const components = {
     accesorios: Accessories,
-    catalogo: Catalogue,
+    login: login,
     home: Home,
-    lugares: Places,
+    register: Register,
     different: Different
 }
 

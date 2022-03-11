@@ -6,37 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Codering</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-  <div>Hola</div>
-  <script type="module" src="main.js"></script>
-=======
-  <header>
-    <div class="header background color padding">
-        <a class="link color" href="#/">
-            <h1 class="not-margin">Codering</h1>
-        </a>
-        <nav>
-            <ul class="menu flex">
-                <li class="container-link">
-                    <a class="link color" href="#/login">Iniciar Sesión</a>
-                </li>
-                <li class="container-link">
-                    <a class="link color" href="#/register">Registrarse</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
 <section id="container" class="flex margin-top"></section>
 <footer class="footer">
     <div class="background color flex padding">
-        <p class="not-margin">Creado por @betsyvies</p>
+        <p class="not-margin">Creado por Triada SN2</p>
     </div>
 </footer>
-
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBJtw3lXFlwC3RjQWzPOceVAjKEmdfzz50",
+      authDomain: "codering-36ab8.firebaseapp.com",
+      projectId: "codering-36ab8",
+      storageBucket: "codering-36ab8.appspot.com",
+      messagingSenderId: "755982923302",
+      appId: "1:755982923302:web:54dd9bebe85b32756518e7",
+      measurementId: "G-GE5M612J5R"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 <script type="module" src="main.js"></script>
->>>>>>> 4037299 (codigo base)
 </body>
 </html>
