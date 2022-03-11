@@ -1,3 +1,6 @@
+import {auth} from "./firebaseInit.js"
+import {register} from "./firebaseController.js"
+
 const join= document.querySelector(".join");
 
 join.addEventListener("click", (e) => {
@@ -5,14 +8,39 @@ join.addEventListener("click", (e) => {
 
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
+    console.log (auth);
 
-    auth 
-        .createUserWithEmailAndPassword(email, password)
-        .then(userCredential => {
+    register(auth, email, password)
+        .then((userCredential) => {
+        //Signed in
             console.log("Join")
+            const user = userCredential.user;
         })
-})
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        })
 
+
+})
+    
+
+    
+    // auth
+    //     .createUserWithEmailAndPassword(email, password)
+    //     .then(userCredential => {
+    //        
+    //   })
+
+//createUserWithEmailAndPassword(auth, email, password)
+//.then((userCredential) => {
+//Signed in
+//const user = userCredential.user;
+// })
+// .catch((error) => {
+//   const errorCode = error.code;
+//   const errorMessage = error.message;
+// })
 
 
 
