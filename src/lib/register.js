@@ -6,7 +6,7 @@ export const register = () => {
   <header>
   <img src='image/logo2.png' alt='social-trip-png'>
   </header>
-  <form onsubmit=${submithandler(e.target.name.email, e.target.name.password)} id='formregister' class='formregister' autocomplete='off'> 
+  <form id='formregister' class='formregister' autocomplete='off'> 
   <label for='name'>Nombres y Apellidos</label>
   <input type='name' id='name' maxlength='20' >
   <label for='username'>Nombre de Usuario</label>
@@ -37,6 +37,7 @@ export const register = () => {
   
   bottomregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
+    submithandler(email.value, password.value)
   })
   bottomclose.addEventListener('click',()=>{
     modalwindow.classList.remove('active') 
