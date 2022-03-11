@@ -1,4 +1,5 @@
 export default class Router {
+
     constructor(rutas) {
         this.routes = rutas;
         this.loadInitialRoute();
@@ -8,7 +9,10 @@ export default class Router {
         const matchedRoute = this.matchUrlToRoute(urlSegs);
 
         const url = `/${urlSegs}`;
-        push && window.history.pushState({}, url, url);
+
+        if (push == true) {
+            window.history.pushState({}, url, url);
+        }
 
         const routerOutElm = document.querySelectorAll('[data-router]')[0];
         routerOutElm.innerHTML = matchedRoute.template;
@@ -29,6 +33,8 @@ export default class Router {
     }
 
     // seccion 404.
+
+
 
 
 
