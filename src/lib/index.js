@@ -23,4 +23,5 @@ const router = (route) => {
       break;
   }
 };
+
 export { router };
