@@ -1,26 +1,36 @@
 import firebaseApp from '../Configfirebase/confiFirebase.js';
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, sendSignInLinkToEmail } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const auth = getAuth(firebaseApp);
 export async function submithandler(email, password) {
   const users = await createUserWithEmailAndPassword(auth, email, password);
-  return users;
+  
+  const actionCodeSettings = {
+  
+    url: 'https://social-trip-d4874.firebaseapp.com/__/auth/action',
+    
+    handleCodeInApp: true
+  };
+  
+  const emailSend= sendSignInLinkToEmail(auth, email, actionCodeSettings)
+  firebase.auth().invalidemail = 'INVALID_EMAIL';
+  firebase.auth().sendSignInLinkToEmail(email)
+  .then(() => {
+    window.localStorage.setItem('emailForSignIn', email);
+    // ... 
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = users.invalidemail;
+    // ...
+    alert(errorCode,errorMessage, 'Correo Invalido')
+  })
+  
+  
+  return users,emailSend;
 }
-const actionCodeSettings = {
-  
-  url: 'https://social-trip-d4874.firebaseapp.com/__/auth/action',
-  
-  handleCodeInApp: true,
-  iOS: {
-    bundleId: 'com.example.ios'
-  },
-  android: {
-    packageName: 'com.example.android',
-    installApp: true,
-    minimumVersion: '12'
-  },
-  dynamicLinkDomain: 'example.page.link'
-};
+
+
 
    
 
