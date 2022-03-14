@@ -26,7 +26,7 @@ export default {
       <button type='button' id='logIn'>Ingresar</button>
     </form>
       <p id='btnSignInGoogle'>
-      Ingresar con:  
+      Ingresar con:   
       <img src='https://img.icons8.com/color/30/000000/google-logo.png'/>
       </p>
     </div>
