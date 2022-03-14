@@ -1,3 +1,3 @@
-import { myFunction } from './lib/index.js';
+import { poyo } from './lib/index.js';
 
-myFunction();
+
