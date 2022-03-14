@@ -22,9 +22,8 @@ export const register = () => {
   <button><img src='image/botongoogle.png' alt='logo-google'>Inicia sesión con Google</button>
 
   <section id='modal' class='modal'>
-  <div id='btnclose' class='btnclose'>x</div>
   <p id='confirmation' class='confirmation'> Verifica tu correo electrónico. Gracias por unirte a nuestra red de viajeros. Social Trip te ofrece todo para que puedas compartir, recomendar y opinar sobre los sitios que has visitado. Para acceder a tu cuenta, crear y editar post, has click en verificar.</p>
-  <button id='btnconfirmation' class='btnconfirmation'>VERIFICAR</button>
+  <button id='btnconfirmation' class='btnconfirmation'>ACEPTAR</button>
   </section>`;
   // aqui tu codigo
  
@@ -33,7 +32,7 @@ export const register = () => {
 
   const bottomregister = divElement.querySelector('#btnregister');
   const modalwindow = divElement.querySelector('.modal');
-  const bottomclose=divElement.querySelector('.btnclose');
+  const bottomclose=divElement.querySelector('.btnconfirmation');
   
   bottomregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
