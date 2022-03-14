@@ -1,4 +1,4 @@
-import SignUp from './signUp.js'
+import SignUp from './signUp.js' // C
 
 const components  = {
     upSign: SignUp,

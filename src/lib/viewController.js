@@ -1,5 +1,5 @@
 import { components } from './components.js'
-
+//C
 const changeView = (route) => {
     const container = document.getElementById('container');
     container.innerHTML = '';
