@@ -1,5 +1,8 @@
+
 export default () => {
-    const viewHome = `
+    const divRegister = document.createElement("div");
+    divRegister.setAttribute ("class", "container-div-register");
+    const viewRegister = `
     <h1>THE DAILY PROPHET</h1>
        <H2> WELCOME WIZARDS</H2>
        <div class="main__div--Login">
@@ -7,21 +10,18 @@ export default () => {
            <br class="espacio">
            <input type="text" placeholder="Password" id="password">
            <p>REVELIO The Daily Prophet</p>
-           <button class="join"> Join </button>
+           <button id="join"> Join </button>
            <p><hr>or<hr></p>
            <p>Continue with Google</p><!-- Imagen e icono  -->         
         </div>
        <p>Already a member? ALOHOMORA</p>
-       <button class="Login"> Login </button> `
+       <a href="#/login"><button id="login" class="Login"> Login </button></a> `
 
-    const divElem = document.createElement("div")
-    divElem.innerHTML = viewHome
+    
+    divRegister.innerHTML = viewRegister;
+    //const btnRegister = divRegister.querySelector('#btn-register');
+     
+    return divRegister;
 
-    return divElem;
 
 }
-
-
-
-
-
