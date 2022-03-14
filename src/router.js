@@ -1,42 +1,41 @@
 export default class Router {
+  constructor(rutas) {
+    this.routes = rutas;
+    this.loadInitialRoute();
+  }
 
-    constructor(rutas) {
-        this.routes = rutas;
-        this.loadInitialRoute();
+  loadRoute(urlSegs, push = true) {
+    console.log(this.routes, urlSegs);
+    const matchedRoute = this.matchUrlToRoute(urlSegs);
+
+    const url = `/${urlSegs}`;
+
+    if (push === true) {
+      window.location.hash = url;
     }
 
-    loadRoute(urlSegs, push = true) {
-        const matchedRoute = this.matchUrlToRoute(urlSegs);
+    const routerOutElm = document.querySelectorAll('[data-router]')[0];
+    routerOutElm.innerHTML = matchedRoute.template;
+    matchedRoute.script();
+  }
 
-        const url = `/${urlSegs}`;
+  matchUrlToRoute(urlSegs) {
+    return this.routes.find((ruta) => this.removeSlash(ruta.path) === urlSegs);
+  }
 
-        if (push == true) {
-            window.history.pushState({}, url, url);
-        }
+  loadInitialRoute() {
+    const ruta = this.removeSlash(window.location.hash);
+    console.log(window.location);
+    this.loadRoute(ruta, false);
+  }
 
-        const routerOutElm = document.querySelectorAll('[data-router]')[0];
-        routerOutElm.innerHTML = matchedRoute.template;
-        matchedRoute.script();
-    }
+  // eslint-disable-next-line class-methods-use-this
+  removeSlash(path) {
+    return path.substring(1);
+  }
 
-    matchUrlToRoute(urlSegs) {
-        return this.routes.find((ruta) => this.removeSlash(ruta.path) === urlSegs);
-    }
-
-    loadInitialRoute() {
-        const ruta = this.removeSlash(window.location.pathname);
-        this.loadRoute(ruta, false);
-    }
-
-    removeSlash(path) {
-        return path.substring(1);
-    }
-
-    // seccion 404.
-
-
-
-
-
-
+  // seccion 404.
 }
+
+// import { routes } from './routes.js';
+// export const router = new Router(routes)
