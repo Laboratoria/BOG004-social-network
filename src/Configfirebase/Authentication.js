@@ -7,23 +7,26 @@ export async function submithandler(email, password) {
   
   const actionCodeSettings = {
   
-    url: 'https://social-trip-d4874.firebaseapp.com/__/auth/action',
-    
+    //url: 'https://social-trip-d4874.firebaseapp.com/__/auth/action',
+    url: 'http://localhost:3000/#login',
     handleCodeInApp: true
   };
   
   const emailSend= sendSignInLinkToEmail(auth, email, actionCodeSettings)
-  firebase.auth().invalidemail = 'INVALID_EMAIL';
-  firebase.auth().sendSignInLinkToEmail(email)
   .then(() => {
     window.localStorage.setItem('emailForSignIn', email);
-    // ... 
+    window.location.href = 'http://localhost:3000'
   })
   .catch((error) => {
+    
+    console.log(error.code)
     const errorCode = error.code;
-    const errorMessage = users.invalidemail;
+    const errorMessage = error.message;
+    if(errorMessage === 'auth/invalid-email'){
+      alert('correo invalido' )
+    }
     // ...
-    alert(errorCode,errorMessage, 'Correo Invalido')
+    console.log(errorCode,errorMessage, 'Correo Invalido')
   })
   
   

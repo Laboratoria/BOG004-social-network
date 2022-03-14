@@ -41,5 +41,6 @@ export const register = () => {
   bottomclose.addEventListener('click',()=>{
     modalwindow.classList.remove('active') 
   })  
-  return divElement;
+
+    return divElement;
 };
