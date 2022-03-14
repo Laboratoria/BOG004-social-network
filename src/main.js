@@ -18,7 +18,7 @@ const inputs = document.querySelectorAll('#form input');
 
 const expresiones = {
   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-  password: /^.{6,12}$/, // 6 a 12 digitos.
+  password: /^.{6,15}$/, // 6 a 15 digitos.
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 };
 
