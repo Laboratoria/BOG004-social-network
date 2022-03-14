@@ -1,0 +1,35 @@
+*{
+    font-family: calibri;
+}
+
+body{
+ margin: 0;
+}
+
+.firstPage{
+ background-image: url("/src/img/E24Skm_WYAQk1qW.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+ padding: 26%;
+}
+
+.user{
+    position: relative;
+    top: 0;
+    left: 500px;
+    color: white;
+}
+
+.password{
+    position: relative;
+    top: -71px;
+    left: 750px;
+    color: white;
+}
+
+.btnEnter{
+    position: relative;
+    top: -92px;
+    left: 950px;
+    color: white;
+}
