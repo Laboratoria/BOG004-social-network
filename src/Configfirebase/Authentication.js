@@ -15,15 +15,16 @@ export async function submithandler(email, password) {
   const emailSend= sendSignInLinkToEmail(auth, email, actionCodeSettings)
   firebase.auth().invalidemail = 'INVALID_EMAIL';
   firebase.auth().sendSignInLinkToEmail(email)
-  .then(() => {
+  .then((data) => {
     window.localStorage.setItem('emailForSignIn', email);
+   console.log(data);
     // ... 
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = users.invalidemail;
     // ...
-    alert(errorCode,errorMessage, 'Correo Invalido')
+    console.log(errorCode,errorMessage, 'Correo Invalido')
   })
   
   
