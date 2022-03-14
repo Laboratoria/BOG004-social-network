@@ -1,6 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { router } from './lib/index.js';
+import { router } from './routes.js';
 import { iniciarFirebase } from './lib/firebase.js';
 
 // firebase
@@ -77,11 +77,15 @@ const validarForm = (e) => {
     case 'password':
       validateField(expresiones.password, e.target, 'password');
       break;
-      default:
+    default:
   }
 };
 
 inputs.forEach((input) => {
   input.addEventListener('keyup', validarForm);
   input.addEventListener('blur', validarForm);
+});
+
+window.addEventListener('hashchange', () => {
+  router.loadRoute(router.removeSlash(window.location.hash), false);
 });
