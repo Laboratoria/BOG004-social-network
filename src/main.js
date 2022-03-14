@@ -18,7 +18,7 @@ const inputs = document.querySelectorAll('#form input');
 
 const expresiones = {
   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-  password: /^.{4,12}$/, // 4 a 12 digitos.
+  password: /^.{6,12}$/, // 6 a 12 digitos.
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 };
 
@@ -26,6 +26,7 @@ const campos = {
   name: false,
   email: false,
   password: false,
+
 };
 
 const validateField = (expresion, input, campo) => {
@@ -66,10 +67,11 @@ const validateField = (expresion, input, campo) => {
   }
 };
 
+// valida la seccion de registro
 const validarForm = (e) => {
   switch (e.target.name) {
-    case 'nombre':
-      validateField(expresiones.name, e.target, 'nombre');
+    case 'name':
+      validateField(expresiones.name, e.target, 'name');
       break;
     case 'email':
       validateField(expresiones.email, e.target, 'email');
