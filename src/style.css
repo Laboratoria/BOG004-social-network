@@ -49,7 +49,7 @@
 }
 
 #sign-up,
-#log-in {
+#log-in, #logIn {
   margin: 0em 0.94em;
   width: 40%;
   padding: 0.6em 1em;
@@ -128,22 +128,12 @@ form p {
   width: 100%;
   height: 100%;
   background-color: white;
-  font-family: "Sansita Swashed", cursive;
+  font-family: 'Secular One', sans-serif;
   color: #2e2c2f;
   text-align: center;
   font-size: 2.18em;
   margin-bottom: 0.5rem;
   border-radius: 15px 15px 0px 0px;
-}
-
-form input {
-  line-height: 3;
-  margin-bottom: 8px;
-  border: none;
-  text-align: center;
-  border-bottom: 3px outset #898f8498;
-  width: 80%;
-  font-size: 1em;
 }
 
 #btn-register {
@@ -166,7 +156,6 @@ form input {
   align-items: center;
   justify-content: center;
 }
-
 
 
 /* aqui inicia codigo falcon master */
