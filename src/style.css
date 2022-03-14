@@ -15,8 +15,8 @@ body{
 
 .user{
     position: relative;
-    top: 0;
-    left: 500px;
+    top: 3px;
+    left: 550px;
     color: white;
 }
 
@@ -32,4 +32,20 @@ body{
     top: -92px;
     left: 950px;
     color: white;
+}
+
+.register{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: white;
+    left: 270px;
+    top: -60px;
+}
+
+.organize{
+    position: relative;
+    top: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
