@@ -4,7 +4,7 @@ import {
   GoogleAuthProvider,
 } from './firebase.auth-util.js';
 
-import { router } from './index.js';
+// import { router } from '../router.js';
 
 export const signInGoogle = () => {
   const provider = new GoogleAuthProvider();
@@ -18,7 +18,7 @@ export const signInGoogle = () => {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user', JSON.stringify(user));
 
-      router.loadRoute('construccion');
+      window.location.hash = 'post';
       // ...
     })
     .catch((error) => {
