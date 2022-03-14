@@ -1,6 +1,18 @@
-// aqui exportaras las funciones que necesites
+import { components } from '../views/index.js';
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
+const changeView = (route) => {
+  const container = document.getElementById('root');
+  container.innerHTML = '';
+  switch (route) {
+    case '':
+      container.appendChild(components.record());
+      break;
+    case '#login':
+      container.appendChild(components.login());
+      break;
+    default:
+      console.log(window.location.hash);
+  }
 };
+
+export { changeView };
