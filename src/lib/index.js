@@ -13,7 +13,7 @@ const router = (route) => {
       break;
     }
     case '#login':
-      console.log(login());
+      content.appendChild(login());
       break;
     case '#register':
       content.appendChild(register());

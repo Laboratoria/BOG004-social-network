@@ -1,7 +1,7 @@
-import { submithandler }  from '../Configfirebase/Authentication.js';
- 
+import { submithandler, emailSend, SignGoogle }  from '../Configfirebase/Authentication.js';
+
 export const register = () => {
-  const divElement = document.createElement('div'); 
+ const divElement = document.createElement('div'); 
  const template = `
   <header>
   <img src='image/logo2.png' alt='social-trip-png'>
@@ -19,7 +19,7 @@ export const register = () => {
   <button  type='submit' id='btnregister'>REGISTRATE</button>
   <p>Al registrarte, aceptas nuestras condiciones, la politica de datos, y la politica de cookies.</p>
   <h1>O</h1>
-  <button><img src='image/botongoogle.png' alt='logo-google'>Inicia sesión con Google</button>
+  <button id='google' class='google'><img src='image/botongoogle.png' alt='logo-google'>Registrate con Google</button>
 
   <section id='modal' class='modal'>
   <p id='confirmation' class='confirmation'> Verifica tu correo electrónico. Gracias por unirte a nuestra red de viajeros. Social Trip te ofrece todo para que puedas compartir, recomendar y opinar sobre los sitios que has visitado. Para acceder a tu cuenta, crear y editar post, has click en verificar.</p>
@@ -33,14 +33,19 @@ export const register = () => {
   const bottomregister = divElement.querySelector('#btnregister');
   const modalwindow = divElement.querySelector('.modal');
   const bottomclose=divElement.querySelector('.btnconfirmation');
-  
+  const bottomGoogle = divElement.querySelector('#google');
+
   bottomregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
     submithandler(email.value, password.value)
   })
   bottomclose.addEventListener('click',()=>{
     modalwindow.classList.remove('active') 
-  })  
+    emailSend(email.value)
+  })
+  bottomGoogle.addEventListener('click', ()=>{
+    SignGoogle()
+  })
 
     return divElement;
 };
