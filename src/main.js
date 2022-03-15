@@ -1,5 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
+import { poyo } from './lib/index.js';
 
-import { myFunction } from './lib/index.js';
 
-myFunction();
