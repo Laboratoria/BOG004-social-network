@@ -1,10 +1,10 @@
 export default () => {
-  const viewMostRecent = `  
+  const viewDifferent = `  
     <section id="login-user">
-      MOST RECENT
+      404
     </section>
           `;
   const divElement = document.createElement('section');
-  divElement.innerHTML = viewMostRecent;
+  divElement.innerHTML = viewDifferent;
   return divElement;
 };
