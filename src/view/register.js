@@ -1,8 +1,8 @@
 export default () => {
     const viewRegister = `
-    <div class="contenedor-register"
+    <div class="contenedor-register">
       
-      <div class="navbar">
+      <div class="navbar-pantalla">
         <button class="atras">
         <a href="#/"> <img clas="img-atras" src="../img/icono_atras.png" alt="Atrás"> </a>
         </button>
@@ -47,22 +47,7 @@ export default () => {
         const user = divElemt.querySelector('#usuarioRegister').value;
         const password = divElemt.querySelector('#contraseñaRegister').value;
 
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-        
-        const auth = getAuth(email,user,password);
-
-        auth
-          .createUserWithEmailAndPassword(email,user,password)
-          .then((userCredential) => {
-            console.log('registrando')
-          })
-          // .catch((error) => {
-          //   const errorCode = error.code;
-          //   const errorMessage = error.message;
-          //   // ..
-          // });
-
-      console.log(correoRegister, usuarioRegister, contraseñaRegister);
+      console.log(email, user, password);
     });
 
     return divElemt;
