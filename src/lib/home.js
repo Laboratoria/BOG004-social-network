@@ -1,3 +1,5 @@
+mainjs
+
  registerjs
 
 loginjs
@@ -10,5 +12,6 @@ configurationfb
 main
 main
  main
+main
 main
 main

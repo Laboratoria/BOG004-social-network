@@ -1,3 +1,5 @@
+ mainjs
+
 registerjs
 
 loginjs
@@ -11,5 +13,6 @@ homejs
  main
  main
 main
+ main
  main
  main

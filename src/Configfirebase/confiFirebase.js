@@ -1,3 +1,6 @@
+ mainjs
+
 registerjs
 
+main
 main
