@@ -1,17 +1,26 @@
-mainjs
+// aqui exportaras las funciones que necesites
 
- registerjs
+export const home = () => {
+  const divElement = document.createElement('div');
+  const template = `
+  <img src='image/logo11.png' alt='social-trip1-png'>
+  <button id="register1">¡REGISTRARTE!</button>
+  <button id="login1">INICIAR SESIÓN</button> `;
 
-loginjs
+  divElement.classList.add('view1');
+  divElement.innerHTML = template;
 
- indexjs
+  const btnregister = divElement.querySelector('#register1')
+  const btnlogin = divElement.querySelector('#login1')
 
-css
+  btnregister.addEventListener('click', () => {
+    window.location.href = 'http://localhost:3000/#register'});
+  
+  btnlogin.addEventListener('click', () => {
+    window.location.href = 'http://localhost:3000/#login'});  
 
-configurationfb
-main
-main
- main
-main
-main
-main
+
+
+
+  return divElement;
+};
