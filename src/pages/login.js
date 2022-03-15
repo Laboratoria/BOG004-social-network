@@ -26,10 +26,10 @@ export default {
       <button type='button' id='logIn'>Ingresar</button>
     </form>
     <button id='btnSignInGoogle'>
-      <img src='https://img.icons8.com/color/30/000000/google-logo.png'/> Ingresar con Google.
-    </button>
+    <img src='https://img.icons8.com/color/30/000000/google-logo.png'/> 
+    <p>Ingresar con Google.</p>
+  </button>
     </div>
-    
               `,
   script: () => {
     const btn = document.querySelector('#logIn');

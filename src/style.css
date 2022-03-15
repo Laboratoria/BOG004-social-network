@@ -46,13 +46,13 @@
   align-self: flex-end;
   justify-content: center;
   display: flex;
+  
 }
 
 #sign-up,
 #log-in, #logIn {
   margin: 0em 0.94em;
-  width: 40%;
-  padding: 0.6em 1em;
+  padding: 0.4em 1em;
   background-color: #8aea92;
   border-radius: 3.12em;
   font-weight: bolder;
@@ -60,7 +60,14 @@
   font-size: 1.2rem;
   color: #2e2c2f;
   text-align: center;
+  cursor: pointer;
 }
+
+#sign-up:hover, #log-in:hover, #logIn:hover {
+  background-color: #119200;
+  color: white;
+}
+
 
 .nav-bar {
   display: flex;
@@ -68,7 +75,7 @@
   align-items: center;
   width: 100vw;
   height: 12vh;
-  border-bottom: 5px outset #898f8498;
+  border-bottom: 3px solid rgb(187, 187, 187);
   position: fixed;
   z-index: 300;
   background-color: white;
@@ -76,7 +83,7 @@
 
 .logout,
 .logo-mobile {
-  width: 14vh;
+  height: 90%;
 }
 .nav-bar a {
   visibility: hidden;
@@ -108,11 +115,13 @@
 .container-form {
   width: 85vw;
   height: auto;
-  align-self: center;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   border-radius: 0.62rem;
   position: absolute;
   top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -139,12 +148,18 @@ form p {
 #btn-register {
   margin-top: 5%;
   padding: 0.6em 1em;
-  background-color: #8aea92;
+  background-color: #8aea92 ;
   border-radius: 15em;
   font-weight: bolder;
   font-size: 1.1rem;
   color: #2e2c2f;
   text-align: center;
+  cursor: pointer;
+}
+
+#btn-register:hover {
+  background-color: #119200;
+  color: white;
 }
 /* .google {
   border: 1px solid red;
@@ -154,30 +169,37 @@ form p {
 
 #btnSignInGoogle {
   margin-top: 5%;
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-family: "san-serif";
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 10%;
+  border-radius: 15em;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  /* position: absolute;
+  right: 25%; */
 }
 
 
 .form__group-input {
 	position: relative;
+ 
 }
 
 .form__input {
   line-height: 3;
-	width: 80%;
+	width: 70%;
   margin-bottom: 8px;
 	background: #fff;
   border: none;
   text-align: center;
-	border: 3px outset #898f8498;
-	border-radius: 3px;
+	border: none;
+  border-bottom: 3px outset whitesmoke;
+	/* border-radius: 3px red; */
 	height: 45px;
 	line-height: 45px;
-	padding: 0 40px 0 10px;
+	padding: 0 40px 0 40px;
 	transition: .3s ease all;
 }
 /* 
@@ -227,7 +249,7 @@ form input {
 	height: 45px;
 	line-height: 45px;
 	background: #F66060;
-	padding: 0 15px;
+	padding: 0 10px;
 	border-radius: 3px;
 	display: none;
 }
@@ -264,7 +286,7 @@ form input {
 } */
 
 .form__message-success {
-	font-size: 14px;
+	font-size: 12px;
 	color: #119200;
 	display: none;
 }
@@ -289,7 +311,7 @@ form input {
 }
 
 .form__group-incorrect .form__input {
-	border: 3px solid #bb2929;
+	border: 2px solid #bb2929;
 }
 
 /* footer */
@@ -323,7 +345,8 @@ width: 40vw;
   }
   body {
     height: 100vh;
-    background-color: #8aea92;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 3%, rgba(138,234,146,0.9976365546218487) 68%);
   }
 
   .paws-image .paws {
