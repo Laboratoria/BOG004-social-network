@@ -146,6 +146,11 @@ form p {
   color: #2e2c2f;
   text-align: center;
 }
+/* .google {
+  border: 1px solid red;
+  background-color: rgb(211, 208, 208);
+  
+} */
 
 #btnSignInGoogle {
   margin-top: 5%;
