@@ -1,0 +1,3 @@
+registerjs
+
+main

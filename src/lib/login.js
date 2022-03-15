@@ -1,3 +1,5 @@
+registerjs
+
 indexjs
 
 homejs
@@ -10,5 +12,6 @@ authenticationjs
 main
 main
 main
+ main
  main
  main
