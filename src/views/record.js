@@ -1,15 +1,7 @@
 export default () => {
   const viewRecord = `  
     <section id="record-user">
-
-RECORD
-      </section> `;
-  const divElement = document.createElement('section');
-  divElement.innerHTML = viewRecord;
-  return divElement;
-};
-
-/* <div class="section-left">
+    <div class="section-left">
 <img src="img/logo.png" alt="logo-mommi" class="logo-mommi">
 <h1 class="welcome-text">Te damos la bienvenida a mommi</h1>
 <h2 class="slogan">Maternidad y crianza</h2>
@@ -41,4 +33,9 @@ RECORD
 <div class="section-picture-picture">
 <img src="img/picturemom.png" alt="logo-mommi" class="poster-mommi">
 </div>
-*/
+    </section> `;
+
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewRecord;
+  return divElement;
+};

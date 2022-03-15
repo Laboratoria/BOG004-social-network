@@ -1,17 +1,7 @@
 export default () => {
   const viewLogin = `  
     <section id="login-user">
-
-
-    LOGIN
-  </section>
-          `;
-  const divElement = document.createElement('section');
-  divElement.innerHTML = viewLogin;
-  return divElement;
-};
-
-/*    <div class="section-left">
+    <div class="section-left">
 
       <img src="img/logo.png" alt="logo-mommi" class="logo-mommi">
       <h1 class="welcome-text">Te damos la bienvenida a mommi</h1>
@@ -44,4 +34,9 @@ export default () => {
     <div class="section-picture-picture">
       <img src="img/picturemom.png" alt="logo-mommi" class="poster-mommi">
     </div>
-*/
+    </section>
+          `;
+  const divElement = document.createElement('section');
+  divElement.innerHTML = viewLogin;
+  return divElement;
+};
