@@ -1,77 +1,13 @@
-import {auth} from "./firebaseInit.js"
-import {register} from "./firebaseController.js"
+// //import {register} from "./lib/firebaseController.js"
 
-const join= document.querySelector(".join");
+import register from './lib/views/register.js';
+import { changeRoute } from './lib/router.js';
 
-join.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
-    console.log (auth);
-
-    register(auth, email, password)
-        .then((userCredential) => {
-        //Signed in
-            console.log("Join")
-            const user = userCredential.user;
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        })
-
-
-})
-    
-
-    
-    // auth
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then(userCredential => {
-    //        
-    //   })
-
-//createUserWithEmailAndPassword(auth, email, password)
-//.then((userCredential) => {
-//Signed in
-//const user = userCredential.user;
-// })
-// .catch((error) => {
-//   const errorCode = error.code;
-//   const errorMessage = error.message;
-// })
-
-
-
-
-
-
-// // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-
-// myFunction();
-// const auth = getAuth();
-// createUserWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ..
-//   });
-
-  // async function createUserEmailAndPassword(email, password) {
-  //   try {
-  //     const authentication = await firebase.auth().createUserWithEmailAndPassword(email, password);
-  //     return authentication; //   objeto que trae mucas cosas
-  //   } catch (error) {
-  //     let errorMessage = error.message;
-  //     return errorMessage;
-  //   }
-  //}
-  
+const init = () => {
+    document.getElementById("container").appendChild(register());
+    changeRoute(window.location.hash);
+    window.addEventListener('hashchange', () => {
+        changeRoute(window.location.hash);
+    });
+};
+window.addEventListener('load', init);
