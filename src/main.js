@@ -1,12 +1,17 @@
-// Este es el punto de entrada de tu aplicacion
+registerjs
 
-import { router } from './lib/index.js';
+loginjs
 
-/* Colocamos el router antes para que cuanto arranque
-la app nos muestre nuestro inicio o home */
+indexjs
 
-router(window.location.hash);
-window.addEventListener('hashchange', () => {
-  router(window.location.hash);
-});
+homejs
 
+css
+
+configurationfb
+main
+main
+main
+main
+ main
+main
