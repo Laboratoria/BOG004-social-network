@@ -6,12 +6,12 @@ export default () => {
 <h1 class="welcome-text">Te damos la bienvenida a mommi</h1>
 <h2 class="slogan">Maternidad y crianza</h2>
 
-<form action="" method="" class="form-validation">
+<form onsubmit="return false;" class="form-validation">
 
-  <input type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation"><br>
-  <input type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
+  <input id="registerUsername" type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation"><br>
+  <input id="registerPassword" type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
 
-  <button class="btn btn-record">Registrarse</button>
+  <button id="registerBtn" class="btn btn-record">Registrarse</button>
 
   <p>O</p>
 
