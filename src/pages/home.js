@@ -14,7 +14,7 @@ export default {
     PAWS la unica red social que te permite interactuar, publicar y enterarte de las ultimas noticias sobre la proteccion y cuidado de los animales.
 </p>
 <div id='buttons'>
-    <button id='sign-up'>Registrar</button>
+    <button id='sign-up'>Registrarse</button>
     <button id='log-in'>Ingresar</button>
 </div>
 </div>`,

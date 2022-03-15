@@ -18,17 +18,16 @@ export default {
       </div>
       <div class='form__group' id='group__password'>
         <div class='form__group-input'>
-          <input type='password' class='form__input' name='passwordLogin' id='passwordLogin'>
+          <input type='password' class='form__input' name='passwordLogin' id='passwordLogin' placeholder='Ingresa contraseña'>
           <i class='form__validation-state fas fa-times-circle'></i>
         </div>
         <p class='form__input-error'>Contraseña incorrecta.</p>
     </div>
       <button type='button' id='logIn'>Ingresar</button>
     </form>
-      <p id='btnSignInGoogle'>
-      Ingresar con:   
-      <img src='https://img.icons8.com/color/30/000000/google-logo.png'/>
-      </p>
+    <button id='btnSignInGoogle'>
+      <img src='https://img.icons8.com/color/30/000000/google-logo.png'/> Ingresar con Google.
+    </button>
     </div>
     
               `,
