@@ -3,208 +3,222 @@
   padding: 0px;
   font-family: 'Abel', sans-serif;
 }
-
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 a{
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
-header{
-  width: 100%;
-  height: 100%;
-  background-color: #E2E2E2;
-  justify-content: center;
-  align-items: center;
+a:visited {
+    text-decoration: none;
 }
 
-#container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#container {
+    height: 830px;
+    width: 390px;
+    border: 1px solid #ccc;
 }
 
 /* PANTALLA HOME */
 
 .contenedor-home{
-  display: flex;
-  width: 390px;
-  height: 844px;
-  background-image: url('./img/fondo_pantalla.jpeg');  
-  background-size: cover;
-  align-items: flex-end;
-  justify-content: center;
+    height: 830px;
+    width: 390px;
+    background-image: url(./img/fondo_pantalla.jpeg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.logo-home,
+.botones-home {
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.4); // Make sure this color has an opacity of less than 1
 }
 
-.botones-home{
-margin-left: auto;
-margin-right: auto;
-width: 100%;
-padding-bottom: 30px;
-opacity: 80%;
-background-color: #E2E2E2;
-padding: 50px 10px 50px 10px;
-display: flex;
-justify-content: center;
-flex-direction: row;
-flex-wrap: wrap;
-align-content: center;
-align-items: center;
+.logo-home img {
+    width: 248px;
+    height: 80px;
+    margin: 50px 0px 0px 0px;
 }
 
-.botones-home button{
-  width: 160px;
-  height: 35px;
-  background: #3134A1;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-  margin: 10px;
+.botones-home button {
+    margin: 20px 5px 50px 5px;
+    width: 160px;
+    height: 35px;
+    background-color: #3134A1;
+    border-radius: 10px;
+    font-weight: bold;
 }
-
 
 /* PANTALLA LOGIN */
-.navbar-login{
-  display: flex;
-  align-items: center;
-  width: 390px;
-  height: 96px;
-  background-color: #E2E2E2;
-  padding: 10px;
+.navbar-pantalla2{
+    height: 96px;
+    width: 390px;
+    background-color: #E2E2E2;
+    display: flex;
+    align-content: center;
+    margin: 0px 0px 100px 0px
 }
 
-.navbar-login img{
-  width: 40px;
-  height: 40px;
-  border-style: none;
-}
-.navbar-login button{
-  border-style: none;
-  background: none;
-}
-
-.formulario-login{
-  max-width: 500px;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #D4F6FF;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px;
-}
-.logo-codering{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-}
-.logo-codering img{
-  width: 50%;
+.logo-login,
+#formularioLogin,
+.separador-login,
+.gyf-login {
+    background-color: #D4F6FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
 }
 
-.formulario-login label{
-  color: black;
-  font-family: 'Abel', sans-serif;
-  font-weight: 200;
-  align-items:flex-start;
+.logo-login{
+    padding: 30px 0px 30px 0px;
+    border-radius: 10px 10px 0px 0px;
 }
 
-.inputs-login{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 120px;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 30px;
-}
-.inputs-login button{
-  background: #3134A1;
-  color: white;
+#formularioLogin button{
+    width: 160px;
+    height: 35px;
+    background-color: #3134A1;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px 20px 0px;
 }
 
-.inputs-login label{
-  font-weight: bold;
+#formularioLogin input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
 }
 
-.inputs-login input{
-  width: 250px;
-  height: 35px;
-  border-radius: 10px;
+.logo-login img {
+    width: 248px;
+    height: 80px;
 }
 
-.hr{
-  margin-top: 20px;
+.separador-login img {
+    width: 250px;
+    height: 14px;
+    margin: 10px 0px 10px 0px;
+}
+.gyf-login {
+    padding: 20px 0px 20px 0px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
 }
 
-.btn{
-  display: flex;
-  border-radius: 10px;
-  margin-top: 10px;
-  background-color: white;
-  color: black;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 50px;
-  font-weight: bold;
-}
-.btn-gyf{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+.gyf-login button {
+    width: 250px;
+    height: 35px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
 }
 
-.btn-gyf img{
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  margin: 5px;
+.boton-login img {
+    width: 15px;
+    height: 15px;
 }
 
 /* PANTALLA REGISTRO */
 
-.formulario-register{
-  max-width: 500px;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #E2E2E2;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px;
+.contenedor-register {
+    height: 830px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.inputs-registro{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 120px;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 30px;
-}
-.inputs-registro button{
-  background: #3134A1;
-  color: white;
+.navbar-pantalla{
+    height: 96px;
+    width: 390px;
+    background-color: #E2E2E2;
+    display: flex;
+    align-content: center;
+    margin: 0px 0px 70px 0px
 }
 
-.inputs-registro label{
-  font-weight: bold;
+.atras {
+    background-color: transparent;
+    border: none;
+    margin: 0px 0px 0px 20px;
 }
 
-.inputs-registro input{
-  width: 250px;
-  height: 35px;
-  border-radius: 10px;
+.atras img{
+    width: 40px;
+    height: 40px;
+}
+
+.logo-formulario,
+#formularioRegister,
+.separador,
+.gyf-register {
+    background-color: #E2E2E2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.logo-formulario{
+    padding: 30px 0px 30px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#formularioRegister button{
+    width: 160px;
+    height: 35px;
+    background-color: #3134A1;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px 20px 0px;
+}
+
+#formularioRegister input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
+}
+
+.logo-formulario img {
+    width: 248px;
+    height: 80px;
+}
+
+.separador img {
+    width: 250px;
+    height: 14px;
+    margin: 10px 0px 10px 0px;
+}
+.gyf-register {
+    padding: 20px 0px 20px 0px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.gyf-register button {
+    width: 250px;
+    height: 35px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
+}
+
+.boton-gyf img {
+    width: 15px;
+    height: 15px;
 }
