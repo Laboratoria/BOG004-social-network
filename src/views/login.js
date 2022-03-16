@@ -12,7 +12,7 @@ export default () => {
         <input id= "loginEmail" type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation"><br>
         <input id= "loginPassword" type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
         <p>¿Olvidaste tu contraseña?</p>
-        <button id= "loginBtn" class="btn btn-login">Iniciar Sesión</button>
+        <button id="loginBtn" class="btn btn-login">Iniciar Sesión</button>
 
         <p>O</p>
 
