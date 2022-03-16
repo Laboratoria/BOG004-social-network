@@ -21,19 +21,6 @@ export default () => {
         <input type="password" id="contraseñaRegister" class="formulario"></input>
         <button type="submit" class="botones">REGISTRARME</button>
       </form>
-
-      <div class="separador">
-        <img src="../img/separador1.png" alt="Separador">
-      </div>
-
-      <div class="gyf-register">
-        <button type="submit" class="boton-gyf">
-        <img src="../img/google.png" alt="Google"> Registrarme con Google</button>
-        <button type="submit" class="boton-gyf">
-        <img src="../img/facebook.png" alt="Facebook"> Registrarme con Facebook</button>
-      </div>
-    </div>
-
     `;
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewRegister;

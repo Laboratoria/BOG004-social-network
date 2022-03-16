@@ -1,3 +1,5 @@
+import { auth, newLogin } from "../FirebaseConfig.js";
+
 export default () => {
   const viewLogin = `
     <div class="contenedor-register">
@@ -35,7 +37,23 @@ export default () => {
   `;
 
   const divElemt = document.createElement('div');
-  divElemt.classList.add('position');
   divElemt.innerHTML = viewLogin;
+  const formularioLogin = divElemt.querySelector('#formularioLogin');
+  formularioLogin.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const email = divElemt.querySelector('#correoLogin').value;
+    const password = divElemt.querySelector('#contraseñaLogin').value;
+    formularioLogin.reset();
+    newLogin(auth, email, password)
+    .then((userCredential) => {
+      console.log('logueado...');
+      const user = userCredential.user;
+      console.log(user);
+      
+    })
+    .catch((error) => {
+      alert('Por favor verifique sus credenciales')
+    });
+  })
   return divElemt;
 };
