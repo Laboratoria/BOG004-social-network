@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-#signUpForm, #task-form, #initView {
+#signUpForm, #task-form, #initView, #signInForm {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -12,8 +12,7 @@
     width: 30%;
     }
     
-    h1, a {
+    h1, a, h4 {
         justify-self: center;
     } 
-
 

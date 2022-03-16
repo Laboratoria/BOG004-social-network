@@ -1,11 +1,13 @@
-import {login} from './firebase.js' //Camila
-
+import {SignUpUser, observer} from './firebase.js';
+import { changeView } from './viewController.js';
 
 export default () => {
     const viewSignUp = `<form id="signUpForm">
     <input type="email" id="email" placeholder="email">
     <input type="password" id="password" placeholder="password">
     <input type="submit" value="Sign Up">
+    
+
   </form>`
 
   const signUp_container = document.createElement('div');
@@ -16,17 +18,15 @@ export default () => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    login(email,password)
-    console.log('cargando')
+    SignUpUser(email,password)
+        .then(()=> {changeView('#/home')} )
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage)
+        });
+    observer();
+    
   })
   return signUp_container;
-
-  /*const signUpForm = document.getElementById('signUpForm');
-  signUpForm.addEventListener('submit', (e) => { hola
-    e.preventDefault();
-    console.log('cargando')
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    login(email,password)
-  })*/
 }
