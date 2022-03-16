@@ -8,7 +8,7 @@ export default {
   <img class='paws' src='images/animalsBackground.png' alt='paws' />
 </div>
   <div class='container-form'>
-    <form action='' class='form' id='form'>
+    <form action='' class='form' id='form' >
       <p>BIENVENIDO</p>
       <div class='form__group' id='group__name'>
         <div class='form__group-input'>

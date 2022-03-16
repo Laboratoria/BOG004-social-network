@@ -17,7 +17,9 @@ export default {
     <button id='sign-up'>Registrarse</button>
     <button id='log-in'>Ingresar</button>
 </div>
-</div>`,
+</div>
+
+    `,
   script: () => {
     const btnModal = document.querySelector('#sign-up');
     btnModal.addEventListener('click', () => {
