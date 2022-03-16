@@ -20,6 +20,8 @@ const init = () => {
   const app = initializeApp(firebaseConfig);
   console.log('app', app);
 
+  // Funcionalidad enlaces y botones de la sección y registro.
+
   const registerBtn = document.getElementById('registerBtn');
 
   console.log(`Cargando el boton ${registerBtn}`);
