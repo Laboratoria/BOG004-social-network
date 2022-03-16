@@ -1,5 +1,5 @@
 export default () => {
-    const viewRegister = `
+  const viewRegister = `
     <div class="contenedor-register">
       
       <div class="navbar-pantalla">
@@ -35,23 +35,17 @@ export default () => {
     </div>
 
     `;
-  
-    const divElemt = document.createElement('div');
-    // divElemt.classList.add('position')---> hay que ver si lo usamos
-    divElemt.innerHTML = viewRegister;
+  const divElemt = document.createElement('div');
+  divElemt.innerHTML = viewRegister;
+  const formularioRegister = divElemt.querySelector('#formularioRegister');
+  formularioRegister.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = divElemt.querySelector('#correoRegister').value;
+    const user = divElemt.querySelector('#usuarioRegister').value;
+    const password = divElemt.querySelector('#contraseñaRegister').value;
 
-    const formularioRegister = divElemt.querySelector('#formularioRegister');
-      formularioRegister.addEventListener('submit',(e) => {
-      e.preventDefault();
-        const email = divElemt.querySelector('#correoRegister').value;
-        const user = divElemt.querySelector('#usuarioRegister').value;
-        const password = divElemt.querySelector('#contraseñaRegister').value;
+    console.log(email, user, password);
+  });
 
-      console.log(email, user, password);
-    });
-
-    return divElemt;
+  return divElemt;
 };
-
-
-

@@ -1,5 +1,5 @@
 export default () => {
-    const viewLogin = `
+  const viewLogin = `
     <div class="contenedor-register">
       
       <div class="navbar-pantalla2">
@@ -34,8 +34,8 @@ export default () => {
 
   `;
 
-    const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    divElemt.innerHTML = viewLogin;
-    return divElemt;
+  const divElemt = document.createElement('div');
+  divElemt.classList.add('position');
+  divElemt.innerHTML = viewLogin;
+  return divElemt;
 };

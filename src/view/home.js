@@ -1,5 +1,5 @@
 export default () => {
-    const viewHome = `
+  const viewHome = `
     <div class="contenedor-home">
       <div class="logo-home">
           <img src="../img/Logo-codering.png" alt="Logo Codering">
@@ -10,8 +10,8 @@ export default () => {
       </div>
     </div>
   `;
-    const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    divElemt.innerHTML = viewHome;
-    return divElemt;
+  const divElemt = document.createElement('div');
+  divElemt.classList.add('position');
+  divElemt.innerHTML = viewHome;
+  return divElemt;
 };

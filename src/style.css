@@ -39,7 +39,8 @@ a:visited {
 .botones-home {
     display: flex;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.4); // Make sure this color has an opacity of less than 1
+    background: rgba(255, 255, 255, 0.4); 
+    /* // Make sure this color has an opacity of less than 1 */
 }
 
 .logo-home img {
