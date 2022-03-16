@@ -81,6 +81,14 @@
   background-color: white;
 }
 
+a p{
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 3;
+  font-weight: bolder;
+  text-align: center;
+}
+
 .logout,
 .logo-mobile {
   height: 90%;
@@ -414,7 +422,7 @@ width: 40vw;
     display: flex;
     justify-content: space-between;
     margin-right: 5%;
-    width: 50%;
+    width: 25%;
   }
   .nav-bar a {
     visibility: visible;
