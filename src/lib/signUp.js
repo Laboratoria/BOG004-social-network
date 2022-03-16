@@ -15,6 +15,7 @@ export default () => {
             Privacy Policy, and Cookie Policy. 
       </h6>
       <input type="submit" class="submitSignUp" value="Sign Up">
+
     </div>
     <footer> Made by Viviana, Camila & Paula</footer>
   
