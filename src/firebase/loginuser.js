@@ -4,8 +4,8 @@ const auth = getAuth();
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
-    console.log('Usuario registrado');
-    const user = userCredential.user;
+        const user = userCredential.user;
+        console.log('Usuario registrado');
     // ...
   })
   .catch((error) => {
