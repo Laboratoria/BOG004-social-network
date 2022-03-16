@@ -110,9 +110,8 @@ form .signUpForm{
 }
 
  .containerForm h1{
-    padding-right: 7rem;
+    padding-right: 10rem;
     letter-spacing: 15px;
-    font-weight:bold;
 }
 
 
@@ -122,20 +121,18 @@ input[type="email"],
 input[type="password"]
 
 {
-    border: 1px;
-    border-style: none;
+    width: 20%;
+    border: 100rem;
     border-bottom: 2px solid rgb(47, 151, 151);
     border-radius: 1px;
     outline: none;
     background-color: transparent;
     font-size: 1rem;
     color: white;
-    margin: 3rem 1rem;
-    padding-right: 10rem;
-
-    
-    
+    margin: 2rem 1rem;    
 }
+
+
 
 
 
@@ -166,6 +163,7 @@ input[type="password"]
 ::placeholder{
     text-align: left;
     color: white;
+    
     
 }
 

@@ -9,7 +9,7 @@ export default () => {
       </figure>
       <h1>SIGN UP</h1>
       <input type="text" class="nickname" id="nickname" placeholder="nickname"><br>
-      <input type="email" class="email" id="email" placeholder="email"><br>
+      <input type="email" class="email" id="email" placeholder="email" required minlength="8"> <br>
       <input type="password" class="password" id="password" placeholder="password"><br>
       <h6>  By clicking Agree & Join, you agree to the  User Agreement, <br>
             Privacy Policy, and Cookie Policy. 
