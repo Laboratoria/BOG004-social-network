@@ -1,3 +1,5 @@
+import { auth, newRegister } from "../FirebaseConfig.js";
+
 export default () => {
   const viewRegister = `
     <div class="contenedor-register">
@@ -15,8 +17,6 @@ export default () => {
       <form id="formularioRegister">
         <label>Correo electrónico</label>
         <input type="email" id="correoRegister" class="formulario"></input>
-        <label>Usuario</label>
-        <input type="text" id="usuarioRegister" class="formulario"></input>
         <label>Contraseña</label>
         <input type="password" id="contraseñaRegister" class="formulario"></input>
         <button type="submit" class="botones">REGISTRARME</button>
@@ -41,10 +41,20 @@ export default () => {
   formularioRegister.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = divElemt.querySelector('#correoRegister').value;
-    const user = divElemt.querySelector('#usuarioRegister').value;
     const password = divElemt.querySelector('#contraseñaRegister').value;
+    formularioRegister.reset();
 
-    console.log(email, user, password);
+    newRegister(auth, email, password)
+    .then((userCredential) => {
+      console.log('registrado');
+      const user = userCredential.user;
+      alert('Usuario registrado exitosamente')
+    })
+    .catch((error) => {
+      alert('Usuario ya existe, por favor intente nuevamente')
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+    });
   });
 
   return divElemt;
