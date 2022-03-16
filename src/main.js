@@ -1,11 +1,16 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-console */
+/* eslint-disable indent */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
 // Este es el punto de entrada de tu aplicacion
 import { changeView } from './lib/router.js';
 import createUser from './firebase/newloginuser.js';
+import loginUserjs from './firebase/loginuser.js';
 
 const init = () => {
-  changeView(window.location.hash);
+  const currentHash = window.location.hash
+  changeView(currentHash);
   window.addEventListener('hashchange', () => changeView(window.location.hash));
   const firebaseConfig = {
     apiKey: 'AIzaSyCzpRPSooaA1jjcXSKCj1hCV7kJqZj3Dfc',
@@ -19,8 +24,12 @@ const init = () => {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   console.log('app', app);
+  if (currentHash === '') registerUser();
+  if (currentHash === '/#login') loginUser();
+};
 
-  // Funcionalidad enlaces y botones de la sección y registro.
+function registerUser() {
+    // Funcionalidad enlaces y botones de la sección y registro.
 
   const registerBtn = document.getElementById('registerBtn');
 
@@ -36,11 +45,10 @@ const init = () => {
 
     createUser(emailValidation, passwordValidation);
   });
-};
-
-window.addEventListener('load', init);
-
-const loginBtn = document.getElementById('loginBtn');
+}
+function loginUser() {
+  console.log('loginUser Runs');
+  const loginBtn = document.getElementById('loginBtn');
 
   console.log(`Cargando el boton ${loginBtn}`);
 
@@ -52,8 +60,7 @@ const loginBtn = document.getElementById('loginBtn');
     const loginEmailValidation = document.getElementById('loginEmail').value;
     const loginPasswordValidation = document.getElementById('loginPassword').value;
 
-    createUser(loginEmailValidation, loginpasswordValidation);
+    loginUserjs(loginEmailValidation, loginPasswordValidation);
   });
-
-
+}
 window.addEventListener('load', init);
