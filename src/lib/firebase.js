@@ -16,17 +16,18 @@ export const SignUpUser = (email, password) => {
       return user;
       // ...
     })
-    .then ((user)=> {
+    .then((user) => {
       sendEmailVerification(user)
         .then(() => {
-        // Email verification sent!
+          // Email verification sent!
           const msg = 'An email verification link has been sent to ' + user.email;
-          alert(msg) });
+          alert(msg)
+        });
     })
-    
-} 
 
-export const SignInUser = (email,password) => {
+}
+
+export const SignInUser = (email, password) => {
   const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -43,16 +44,16 @@ export const SignInUser = (email,password) => {
 
 export const observer = () => {
   const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    const uid = user.uid;
-    console.log('login')
-   
-  } else {
-    // User is signed out
-   
-  }
-});
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      const uid = user.uid;
+      console.log('login')
+
+    } else {
+      // User is signed out
+
+    }
+  });
 
 }
