@@ -8,11 +8,10 @@ const createUser = (email, password) => {
       // const user = userCredential.user;
       // eslint-disable-next-line no-console
       console.log('El usuario fue creado!!!');
-      // ...
     })
     .catch((error) => {
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
+      const errorCode = error.code;
+      const errorMessage = error.message;
       // eslint-disable-next-line no-console
       console.error(`${error.code} ${error.message}`);
     });
