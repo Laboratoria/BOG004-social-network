@@ -6,10 +6,11 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase
 // Este es el punto de entrada de tu aplicacion
 import { changeView } from './lib/router.js';
 import createUser from './firebase/newloginuser.js';
-import loginUserjs from './firebase/loginuser.js';
+import existingUser from './firebase/loginuser.js';
+
 
 const init = () => {
-  const currentHash = window.location.hash
+  const currentHash = (window.location.hash);
   changeView(currentHash);
   window.addEventListener('hashchange', () => changeView(window.location.hash));
   const firebaseConfig = {
@@ -60,7 +61,7 @@ function loginUser() {
     const loginEmailValidation = document.getElementById('loginEmail').value;
     const loginPasswordValidation = document.getElementById('loginPassword').value;
 
-    loginUserjs(loginEmailValidation, loginPasswordValidation);
+    existingUser(loginEmailValidation, loginPasswordValidation);
   });
 }
 window.addEventListener('load', init);
