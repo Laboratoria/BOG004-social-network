@@ -9,7 +9,11 @@ const firebaseConfig = {
   projectId: 'thedailyprophet-prueba',
   storageBucket: 'thedailyprophet-prueba.appspot.com',
   messagingSenderId: '861904852247',
+<<<<<<< HEAD
   appId: '1:861904852247:web:e43702a3cbba18134a5352',
+=======
+  appId: '1:861904852247:web:e43702a3cbba18134a5352'
+>>>>>>> 1267c24d7e22068e06e8b8415aee1ee53aa147fe
 };
 const app = initializeApp(firebaseConfig);
 console.log(app);
