@@ -36,24 +36,24 @@ const init = () => {
 
     createUser(emailValidation, passwordValidation);
   });
-
-  //
-  const loginButton = document.getElementById('loginBtn');
-
-  console.log(`Cargando el boton ${loginButton}`);
-
-  const capturarUsuario = () => {
-  // 1. Traer los inputs de la vista y luego .value
-  // 2. Validar?
-  // 3. Llamar a la funcion createUserWith..blablabla
-
-    const loginEmailValidation = document.getElementById('loginEmail').value || ' ';
-    const loginPasswordValidation = document.getElementById('loginPassword').value || ' ';
-
-    createUser(loginEmailValidation, loginPasswordValidation);
-  };
-
-  loginButton.addEventListener('click', capturarUsuario);
 };
+
+window.addEventListener('load', init);
+
+const loginBtn = document.getElementById('loginBtn');
+
+  console.log(`Cargando el boton ${loginBtn}`);
+
+  loginBtn.addEventListener('click', () => {
+    // 1. Traer los inputs de la vista y luego .value
+    // 2. Validar?
+    // 3. Llamar a la funcion createUserWith..blablabla
+
+    const loginEmailValidation = document.getElementById('loginEmail').value;
+    const loginPasswordValidation = document.getElementById('loginPassword').value;
+
+    createUser(loginEmailValidation, loginpasswordValidation);
+  });
+
 
 window.addEventListener('load', init);
