@@ -6,7 +6,8 @@ const changeView = (route) => {
     container.innerHTML = '';
     switch (route) {
         case '#/signUp': {return container.appendChild(components.upSign())}
-
+        case '#/signIn': {return container.appendChild(components.inSign())}
+        case '#/home': {return container.appendChild(components.Home())}
         default:
             break;
     }
