@@ -9,8 +9,8 @@ const init = () => {
 window.addEventListener('load', init)
 
 
-/*const taskForm = document.getElementById('task-form');
-taskForm.addEventListener('submit', (e) => {
+const taskForm = document.getElementById('task-form');
+/* taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const title = taskForm['task-title'];
@@ -20,6 +20,6 @@ taskForm.addEventListener('submit', (e) => {
 
     taskForm.reset();
 
-})*/
+}) */
 
 

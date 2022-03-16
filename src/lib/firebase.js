@@ -10,23 +10,17 @@ import {
 export const SignUpUser = (email, password) => {
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      return user;
-      // ...
-    })
-    .then ((user)=> {
-      sendEmailVerification(user)
-        .then(() => {
-        // Email verification sent!
-          const msg = 'An email verification link has been sent to ' + user.email;
-          alert(msg) });
-    })
-    
-} 
+  .then((userCredential) => {
+    const user = userCredential.user;
+  sendEmailVerification(user)
+  .then (()=> {
+    alert('Se ha enviado un correo de verificación a ' + user.email)
+  })
+  })
+ 
+}
 
-export const SignInUser = (email,password) => {
+export const SignInUser = (email, password) => {
   const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -43,16 +37,16 @@ export const SignInUser = (email,password) => {
 
 export const observer = () => {
   const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    const uid = user.uid;
-    console.log('login')
-   
-  } else {
-    // User is signed out
-   
-  }
-});
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      const uid = user.uid;
+      console.log('login')
+
+    } else {
+      // User is signed out
+
+    }
+  });
 
 }

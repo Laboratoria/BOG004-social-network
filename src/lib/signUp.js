@@ -20,10 +20,11 @@ export default () => {
     const password = document.getElementById('password').value;
     SignUpUser(email,password)
         .then(()=> {changeView('#/home')} )
-        .catch ((error) => {
+        .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;},
-          alert('usuario ya existente'))
+          const errorMessage = error.message;
+          alert(errorMessage)
+        });
     observer();
     
   })
