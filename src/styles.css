@@ -20,7 +20,7 @@ main {
 .main__div--login {
     border: #272121 solid 2px;
     width: 350px;
-    height: 390px;
+    height: 460px;
     margin: auto;
 }
 
@@ -125,4 +125,10 @@ main {
 .alohomora {
     margin-top: 30px;
     font-size: 20px;
+}
+
+#modalMessage {
+    margin: auto;
+    background-color: red;
+    text-align: center;
 }
