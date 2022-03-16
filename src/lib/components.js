@@ -1,7 +1,10 @@
-import SignUp from './signUp.js'
+import SignUp from './signUp.js';
+import buttons from './buttons.js';
 
-const components  = {
+const components = {
+    buttons: buttons,
     upSign: SignUp,
+
 }
 
-export {components}
+export { components }

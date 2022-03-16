@@ -1,12 +1,12 @@
-import { components } from './components.js'
-
-
+import { components } from './components.js';
 const changeView = (route) => {
     const container = document.getElementById('container');
     container.innerHTML = '';
     switch (route) {
-        case '#/signUp': {return container.appendChild(components.upSign())}
-
+        case '#/home': { return container.appendChild(components.buttons()) }
+            break;
+        case '#/signUp': { return container.appendChild(components.upSign()) }
+            break;
         default:
             break;
     }

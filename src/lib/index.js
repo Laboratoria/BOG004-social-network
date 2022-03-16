@@ -22,5 +22,3 @@ const dataBase = getDatabase(app);
 
 export const saveTask = (title, description) =>
   addDoc(collection(db, 'tasks'), { title, description })
-
-
