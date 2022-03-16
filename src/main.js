@@ -26,7 +26,7 @@ const init = () => {
   const app = initializeApp(firebaseConfig);
   console.log('app', app);
   if (currentHash === '') registerUser();
-  if (currentHash === '/#login') loginUser();
+  if (currentHash === '#login') loginUser();
 };
 
 function registerUser() {
