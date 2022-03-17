@@ -7,7 +7,7 @@ export default () => {
       <h1 class="welcome-text">Te damos la bienvenida a mommi</h1>
       <h2 class="slogan">Maternidad y crianza</h2>
 
-      <form action="" method="" class="form-validation">
+      <form onsubmit="return false;" class="form-validation">
 
         <input id= "loginEmail" type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation"><br>
         <input id= "loginPassword" type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
