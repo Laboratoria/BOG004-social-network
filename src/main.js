@@ -5,12 +5,12 @@ import { iniciarFirebase } from './lib/firebase.js';
 
 // firebase
 window.addEventListener('hashchange', () => {
-  router.loadRoute(router.removeSlash(window.location.hash), false);
+  router.loadRoute(router.removeSlash(window.location.hash));
 });
 
 iniciarFirebase();
 
 window.addEventListener('popstate', () => {
   const removePath = router.removeSlash(window.location.pathname);
-  router.loadRoute(removePath, false);
+  router.loadRoute(removePath);
 });
