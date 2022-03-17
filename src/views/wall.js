@@ -23,6 +23,7 @@ export default () => {
       </div>
     </div>
     </div>
+    <button id="logoutBtn">Cerrar sesion</button>
     </section>`;
   const divElement = document.createElement('div');
   divElement.innerHTML = viewWall;

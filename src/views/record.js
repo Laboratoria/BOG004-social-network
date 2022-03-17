@@ -25,7 +25,7 @@ export default () => {
     Continuar con Facebook
   </button>
 
-  <p>¿Ya eres miembro? Iniciar sesión</p>
+  <p>¿Ya eres miembro?<a href="#login">Iniciar sesión</a></p>
 
 </form>
 </div>
