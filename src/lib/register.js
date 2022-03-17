@@ -4,7 +4,7 @@ export const register = () => {
  const divElement = document.createElement('div'); 
  const template = `
   <header>
-  <img src='image/logo2.png' alt='social-trip-png'>
+  <img src='image/logo2.png' alt='social-trip-png' class = 'logo-H'>
   </header>
   <form id='formregister' class='formregister' autocomplete='off'> 
   <label for='name'>Nombres y Apellidos</label>

@@ -13,7 +13,6 @@ export const login = () => {
   <input type='password' id='password' name='password' minlength='8' maxlength='16'>
   <p>¿Has olvidado tu contraseña?</p>
   </form> 
-  <p id=texterror> </p>
   <button  type='submit' id='btnlogin'>INICIA SESIÓN</button>
   <h1>O</h1>
   <button id='google' class='google'><img src='image/botongoogle.png' alt='logo-google'>Inicia sesión con Google</button>`

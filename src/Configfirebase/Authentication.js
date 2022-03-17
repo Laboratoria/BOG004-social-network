@@ -13,11 +13,31 @@ export const submithandler = (email, password) => {
     })
     .catch((error) => {
       const errorMessage = error.message;
+      const errorCode = error.code;
       console.log(errorMessage, 'hola error')
-      if (error.message = 'Error (auth/invalid-email)') {
-        alert('Por favor escribe un correo valido')
-      }
-    });
+      console.log(errorCode,'este es el codigo')
+      switch(error.code){
+        case 'auth/invalid-email': 
+        console.log('vaso');
+          alert('Oops! Por favor escribe un correo valido');
+          break;
+        case 'auth/email-already-in-use':
+        console.log('ya existe este usuario');
+          alert('Oops! Parece que ya estas registrado');
+          break;
+        case 'auth/weak-password':
+          console.log('esta contraseña es muy corta');
+            alert('Oops! Tu contraseña es muy corta');
+            break;  
+          default:
+          console.log('Esto no sirve.');
+        
+        
+      /*if (error.message = 'Error (auth/invalid-email)') {
+        alert('Por favor escribe un correo valido')}*/
+      
+    }
+  });
 }
 const actionCodeSettings = {
   url: 'http://localhost:3000/#login',
@@ -60,18 +80,33 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
     const user = userCredential.user;
     console.log(user, 'inicie sesion')
     // ...
-  })
-  .catch((error) => {
-    const errorMessage = error.message;
-    console.log(errorMessage, 'este es un error');
-    const messageerror= document.getElementById('texterror');
-    messageerror.innerHTML=' ';
-    if (error.message === 'Error (auth/user-not-found)') {
-      messageerror.innerHTML='Usuario no registrado'
-    }else if(error.message === 'Error (auth/wrong-password)') {
-      messageerror.innerHTML='Contraseña incorrecta'
-    }else{
-      messageerror.innerHTML='bienvenido'
+  }) 
+    .catch((error) => {
+      const errorMessage = error.message;
+      const errorCode = error.code;
+      console.log(errorMessage, 'hola error')
+      console.log(errorCode,'este es el codigo')
+      switch(error.code){
+        case 'auth/wrong-password': 
+        console.log('vaso');
+          alert('Oops! Contraseña incorrecta, verifica tus datos.');
+          break;
+        case 'auth/user-not-found':
+        console.log('ya existe este usuario');
+          alert('Oops! Antes de inicar sesión debes registrarte, por favor verifica tus datos');
+          break;
+          case 'auth/invalid-email': 
+          console.log('vaso');
+            alert('Oops! Por favor escribe un correo valido');
+            break; 
+            case 'auth/internal-error': 
+          console.log('vaso');
+            alert('Oops! Por favor completa todos los campos');
+            break; 
+          default:
+          console.log('Esto no sirve.');
+          
     }
-
-  });
+    });
+  
+  
