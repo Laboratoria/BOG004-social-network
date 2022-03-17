@@ -13,7 +13,7 @@ export default () => {
 
   <button id="registerBtn" class="btn btn-record">Registrarse</button>
 
-  <p>O</p>
+  <p id = "message-record">O</p>
 
   <button class="btn btn-continue-with btn-goo">
     <img src="img/google.png" alt="google">

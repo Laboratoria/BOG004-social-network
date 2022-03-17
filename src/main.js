@@ -10,9 +10,9 @@ import existingUser from './firebase/loginuser.js';
 import observerUserState from './firebase/observer.js';
 import closeSession from './firebase/closesession.js';
 
-function onChangeView(){
+function onChangeView() {
   const currentHash = (window.location.hash);
-  console.log('currentHash', currentHash);  
+  console.log('currentHash', currentHash);
   changeView(currentHash);
   if (currentHash === '') registerUser();
   if (currentHash === '#login') loginUser();
@@ -20,8 +20,8 @@ function onChangeView(){
 }
 
 const init = () => {
-  onChangeView();  //Este se llama solo la primera vez
-  window.addEventListener('hashchange', onChangeView);//Esto es para cuando cambie despues de la primera carga
+  onChangeView(); // Este se llama solo la primera vez
+  window.addEventListener('hashchange', onChangeView);// Esto es para cuando cambie despues de la primera carga
   const firebaseConfig = {
     apiKey: 'AIzaSyCzpRPSooaA1jjcXSKCj1hCV7kJqZj3Dfc',
     authDomain: 'mommi-1bf76.firebaseapp.com',
@@ -33,8 +33,8 @@ const init = () => {
   };
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  console.log('app', app);  
-  observerUserState();  
+  console.log('app', app);
+  observerUserState();
 };
 
 function registerUser() {
@@ -65,24 +65,28 @@ function loginUser() {
     // 1. Traer los inputs de la vista y luego .value
     // 2. Validar?
     // 3. Llamar a la funcion createUserWith..blablabla
-   
+
     const loginEmailValidation = document.getElementById('loginEmail').value;
     const loginPasswordValidation = document.getElementById('loginPassword').value;
+
+    const capLogin = loginEmailValidation.value;
+    const messageRecord = document.getElementById('message-record');
+
+    if (capLogin === ' ') return selectMensaje.innerHtml = ' Por favor ingrese su correo';
 
     existingUser(loginEmailValidation, loginPasswordValidation);
   });
 }
 
-function registerCloseSession(){
+function registerCloseSession() {
   console.log('logoutBtn Runs');
   const logoutBtn = document.getElementById('logoutBtn');
 
   console.log(`Cargando el boton logout ${logoutBtn}`);
 
-  logoutBtn.addEventListener('click', () => {    
+  logoutBtn.addEventListener('click', () => {
     closeSession();
   });
-  
 }
 
 window.addEventListener('load', init);
