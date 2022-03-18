@@ -8,9 +8,8 @@ import { changeView } from './lib/router.js';
 import createUser from './firebase/newloginuser.js';
 import existingUser from './firebase/loginuser.js';
 import observerUserState from './firebase/observer.js';
-// import signInWithPopup from './firebase/authgoogle.js';
+import {signInWithGoogle} from './firebase/authgoogle.js';
 import closeSession from './firebase/closesession.js';
-
 
 
 function onChangeView() {
@@ -89,7 +88,7 @@ googleBtn.addEventListener('click', () => {
   // 2. Validar?
   // 3. Llamar a la funcion createUserWith..blablabla
 
-  authAddGoogle(auth, provider);
+  signInWithGoogle();
 });
 }
 
