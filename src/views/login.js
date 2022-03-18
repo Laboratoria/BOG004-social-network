@@ -14,19 +14,16 @@ export default () => {
         <p>¿Olvidaste tu contraseña?</p>
         <button id="loginBtn" class="btn btn-login">Iniciar Sesión</button>
 
-        <p>O</p>
+        <div id="id-message-error" class="message-error">
+        
+        </div>
 
         <button class="btn btn-continue-with btn-goo">
           <img src="img/google.png" alt="google">
           Continuar con Google
         </button>
 
-        <button class="btn btn-continue-with btn-face">
-          <img src="img/facebook.png" alt="facebook">
-          Continuar con Facebook
-        </button>
-
-        <p>¿Aún no estás en mommi? Regístrate</p>
+        <p>¿Aún no estás en mommi? <a href=""> Regístrate</p>
 
       </form>
     </div>

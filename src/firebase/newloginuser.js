@@ -13,7 +13,9 @@ const createUser = (email, password) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // eslint-disable-next-line no-console
-      console.error(`${error.code} ${error.message}`);
+      console.error(`${errorCode} ${errorMessage}`);
+      const getDivError = document.getElementById('id-message-error-record');
+      getDivError.innerHTML = '<p>Por favor ingresar correo electronico y contraseña validos</p>';
     });
 };
 

@@ -55,6 +55,9 @@ function registerUser() {
     createUser(emailValidation, passwordValidation);
   });
 }
+
+//
+
 function loginUser() {
   console.log('loginUser Runs');
   const loginBtn = document.getElementById('loginBtn');
@@ -62,22 +65,14 @@ function loginUser() {
   console.log(`Cargando el boton ${loginBtn}`);
 
   loginBtn.addEventListener('click', () => {
-    // 1. Traer los inputs de la vista y luego .value
-    // 2. Validar?
-    // 3. Llamar a la funcion createUserWith..blablabla
-
     const loginEmailValidation = document.getElementById('loginEmail').value;
     const loginPasswordValidation = document.getElementById('loginPassword').value;
 
-    const capLogin = loginEmailValidation.value;
-    const messageRecord = document.getElementById('message-record');
-
-    if (capLogin === ' ') return selectMensaje.innerHtml = ' Por favor ingrese su correo';
-
     existingUser(loginEmailValidation, loginPasswordValidation);
-  });
+});
 }
 
+//
 function registerCloseSession() {
   console.log('logoutBtn Runs');
   const logoutBtn = document.getElementById('logoutBtn');

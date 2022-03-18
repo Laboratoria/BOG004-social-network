@@ -8,21 +8,22 @@ export default () => {
 
 <form onsubmit="return false;" class="form-validation">
 
-  <input id="registerUsername" type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation"><br>
-  <input id="registerPassword" type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
+<input id="registerName" type="text" placeholder="Ingrese sus Nombres y Apellidos" class="btn input-validation">
+
+<input id="registerUsername" type="text" placeholder="Ingrese su correo electrónico" class="btn input-validation">
+
+<input id="registerPassword" type="password" placeholder="Ingrese su contraseña" class="btn input-validation">
+
 
   <button id="registerBtn" class="btn btn-record">Registrarse</button>
 
-  <p id = "message-record">O</p>
+  <div id="id-message-error-record" class="message-error">
+        
+  </div>
 
   <button class="btn btn-continue-with btn-goo">
     <img src="img/google.png" alt="google">
     Continuar con Google
-  </button>
-
-  <button class="btn btn-continue-with btn-face">
-    <img src="img/facebook.png" alt="facebook">
-    Continuar con Facebook
   </button>
 
   <p>¿Ya eres miembro?<a href="#login">Iniciar sesión</a></p>
