@@ -12,7 +12,7 @@ function observerUserState() {
       // ...
     } else {
       // User is signed out
-      if( window.location.hash === "#wall"){
+      if (window.location.hash === "#wall") {
         window.location.hash = '';
       }
       console.log('good bye!');

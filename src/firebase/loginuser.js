@@ -13,7 +13,9 @@ function existingUser(email, password) {
       const errorCode = error.code;
       const errorMessage = error.message;
       // eslint-disable-next-line no-console
-      console.error(`${error.code} ${error.message}`);
+      console.error(`${errorCode} ${errorMessage}`);
+      const getDivError = document.getElementById('id-message-error');
+      getDivError.innerHTML = '<p>Usuario o contraseña invalidos, por favor ingresar nuevamente</p>';
     });
 }
 export default existingUser;

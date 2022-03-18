@@ -80,6 +80,12 @@ body {
   border: none;
 }
 
+.message-error > p{
+  padding: 10px;
+  background-color: white;
+  color: rgba(255, 112, 131, 1);
+}
+
 .btn-goo {
   background-color: white;
   font-weight: bolder;
