@@ -1,7 +1,7 @@
 // import { router } from '../router.js';
 
 export default {
-  path: '/post',
+  path: '#post',
   template: `
   <header class="nav-bar">
   <img

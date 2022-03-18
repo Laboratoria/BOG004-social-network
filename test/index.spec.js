@@ -1,9 +1,9 @@
-// // importamos la funcion que vamos a testear
+// // // importamos la funcion que vamos a testear
 
 import Router from '../src/router.js';
 // import { routes } from '../src/routes.js';
 
-// jest.mock('../../src/lib/firebase.auth-util.js')
+// // jest.mock('../../src/lib/firebase.auth-util.js')
 
 const rutas = [{
         path: '/',

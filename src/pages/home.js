@@ -2,7 +2,7 @@
 // import { router } from '../routes.js';
 
 export default {
-  path: '/',
+  path: '#',
   template: `
   <div class='paws-image'>
   <img class='paws' src='images/animalsBackground.png' alt='paws' />
