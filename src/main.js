@@ -8,7 +8,10 @@ import { changeView } from './lib/router.js';
 import createUser from './firebase/newloginuser.js';
 import existingUser from './firebase/loginuser.js';
 import observerUserState from './firebase/observer.js';
+// import signInWithPopup from './firebase/authgoogle.js';
 import closeSession from './firebase/closesession.js';
+
+
 
 function onChangeView() {
   const currentHash = (window.location.hash);
@@ -17,6 +20,8 @@ function onChangeView() {
   if (currentHash === '') registerUser();
   if (currentHash === '#login') loginUser();
   if (currentHash === '#wall') registerCloseSession();
+  if (currentHash === '') authAddGoogle();
+  if (currentHash === '#login') authAddGoogle();
 }
 
 const init = () => {
@@ -71,6 +76,24 @@ function loginUser() {
     existingUser(loginEmailValidation, loginPasswordValidation);
 });
 }
+
+function authAddGoogle() {
+  // Funcionalidad enlaces y botones de la sección autenticacion con google.
+
+const googleBtn = document.getElementById('googleBtn');
+
+console.log(`autenticando con google ${googleBtn}`);
+
+googleBtn.addEventListener('click', () => {
+  // 1. Traer los inputs de la vista y luego .value
+  // 2. Validar?
+  // 3. Llamar a la funcion createUserWith..blablabla
+
+  authAddGoogle(auth, provider);
+});
+}
+
+
 
 //
 function registerCloseSession() {

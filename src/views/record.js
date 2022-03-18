@@ -21,7 +21,7 @@ export default () => {
         
   </div>
 
-  <button class="btn btn-continue-with btn-goo">
+  <button id="googleBtn" class ="btn btn-continue-with btn-goo">
     <img src="img/google.png" alt="google">
     Continuar con Google
   </button>
