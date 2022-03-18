@@ -1,4 +1,5 @@
-import {SignInUser,observer} from './firebase.js';
+import {SignInUser} from './firebase.js';
+import { changeView } from './viewController.js';
 
 export default () => {
     const viewSignIn = `
@@ -20,8 +21,12 @@ export default () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     SignInUser(email,password)
-    observer();
-    
+    .then(()=> {changeView('#/home')})
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage)
+    });    
   })
   return signIn_container;
 }

@@ -1,6 +1,6 @@
-import { login } from "../firebase.js";
+import { changeView } from "../viewController.js"
 
-const login = (email,password) => {
+const changeView = (route) => {
     return {};
 }
 
