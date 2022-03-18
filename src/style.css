@@ -1,0 +1,44 @@
+
+*{
+    font-family: Bebas Kai;
+}
+
+body{
+    background-image: url(img/dogss.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+.buttonsStart{
+    text-align: right;
+    margin-top: 300px;
+    border-radius: 10px;
+    margin-right: 160px;
+    
+}
+
+.btnSignIn{
+    background-color:black;
+    height: 40px;
+    width: 130px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.btnSignUp{
+    border-radius: 10px;
+    background:white;
+    height: 40px;
+    width: 130px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.btnSignUp:hover{
+    color: rgb(177, 240, 76);
+}
