@@ -9,6 +9,10 @@ const changeView = (route) => {
         case '#/register':
             components.register();
             break;
+
+        case '#/login':
+            components.login();
+            break;    
         default:
             break;
     }
