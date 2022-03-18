@@ -1,4 +1,4 @@
-import { auth, newLogin } from "../FirebaseConfig.js";
+import { auth, newLogin, provider, googlePopUp } from "../FirebaseConfig.js";
 
 export default () => {
   const viewLogin = `
@@ -27,7 +27,7 @@ export default () => {
       </div>
 
       <div class="gyf-login">
-        <button type="submit" class="boton-gyf">
+        <button type="submit" class="boton-gyf" id="btnGoogle">
         <img src="../img/google.png" alt="Google"> Iniciar sesión con Google</button>
         <button type="submit" class="boton-gyf">
         <img src="../img/facebook.png" alt="Facebook"> Iniciar sesión con Facebook</button>
@@ -49,11 +49,35 @@ export default () => {
       console.log('logueado...');
       const user = userCredential.user;
       console.log(user);
-      
     })
     .catch((error) => {
       alert('Por favor verifique sus credenciales')
     });
   })
+  const btnGoogle= divElemt.querySelector('#btnGoogle');
+  btnGoogle.addEventListener('click', (e) =>{
+    e.preventDefault();
+    // const auth = getAuth();
+    googlePopUp(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+        console.log('logueado con google')
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
+  
   return divElemt;
 };

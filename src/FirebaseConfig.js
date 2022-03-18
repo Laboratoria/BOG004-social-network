@@ -1,11 +1,13 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyBWHUz2SSjPIDRByCe41qqMYgh4DBnEIgQ",
   authDomain: "codering-b533c.firebaseapp.com",
@@ -26,4 +28,8 @@ export const newRegister = (auth, email, password) =>{
 };
 export const newLogin = ( auth, email, password) =>{
   return signInWithEmailAndPassword(auth, email, password)
+};
+export const provider = new GoogleAuthProvider();
+export const googlePopUp = (auth,provider) => {
+  return signInWithPopup(auth, provider)
 };
