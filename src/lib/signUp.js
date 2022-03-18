@@ -1,4 +1,4 @@
-import {SignUpUser, observer} from './firebase.js';
+import {SignUpUser} from './firebase.js';
 import { changeView } from './viewController.js';
 
 export default () => {
@@ -25,8 +25,6 @@ export default () => {
           const errorMessage = error.message;
           alert(errorMessage)
         });
-    observer();
-    
   })
   return signUp_container;
 }
