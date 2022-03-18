@@ -16,15 +16,21 @@ export default class Router {
   }
 
   loadRoute(ruta) {
-    console.log('bbbbbbb', ruta);
     const matchedRoute = this.matchUrlToRoute(ruta);
+    console.log(matchedRoute);
     const routerOutElm = document.getElementById('container');
-    routerOutElm.innerHTML = matchedRoute.template;
-    matchedRoute.script();
+    if (matchedRoute === undefined) {
+      routerOutElm.innerHTML = `<div class="no404"> <figure>
+      <img src="https://res.cloudinary.com/dtaq1ip2g/image/upload/v1647617297/404-removebg-preview_rdmlwg.png" alt="Trulli" style="width:100%">
+      </figure></div>
+      <footer></footer>`;
+    } else {
+      routerOutElm.innerHTML = matchedRoute.template;
+      matchedRoute.script();
+    }
   }
 
   matchUrlToRoute(ruta) {
-    console.log('aaaaaaaaaaaaaaaaaa', ruta);
     return this.routes.find((rout) => this.removeSlash(rout.path) === ruta);
   }
 }

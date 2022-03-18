@@ -23,7 +23,7 @@
 }
 
 .modal img {
-  margin-top: -10%;
+  margin-top: 5%;
   width: 90%;
 }
 
@@ -79,6 +79,11 @@
   position: fixed;
   z-index: 300;
   background-color: white;
+}
+
+.no404 {
+  /* background: red; */
+  margin-top: 250px;
 }
 
 a p{
