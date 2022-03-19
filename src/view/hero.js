@@ -5,21 +5,21 @@ export const hero = () => {
   const view = `
         <div id="viewHero">
             <a href="#/"></a>
-            <div id="logoRes">
-              <img src="/images/ninja-logo-responsive.svg">
+            <div>
+              <img id="logoRes" src="/images/ninja-logo-responsive.svg">
             </div>
             <p id="text-intro">SI ERES UN CRACK, AQUÍ CONECTARÁS CON EMPRESAS QUE NECESITEN TUS CONSULTORÍAS, Y SI ERES EMPRESA, AQUÍ ENCONTRARÁS A LA PERSONA INDICADA PARA RESOLVER TUS DUDAS.</p>
             <div id="buttons-hero">
-              <button id="btn-register" class="btn-border">REGÍSTRATE</button>
-              <button id="btn-loginhero" class="btn-background">INICIAR SESIÓN</button>
+              <button id="btn-registerHero" class="btn-border">REGÍSTRATE</button>
+              <button id="btn-loginHero" class="btn-background">INICIAR SESIÓN</button>
             </div>
         </div>
     `;
   viewHeroHtml.innerHTML = view;
-  document.querySelector("#btn-register").addEventListener("click", () => {
+  document.querySelector("#btn-registerHero").addEventListener("click", () => {
     changeView("#/register");
   });
-  document.querySelector("#btn-loginhero").addEventListener("click", () => {
+  document.querySelector("#btn-loginHero").addEventListener("click", () => {
     changeView("#/login");
   });
   return viewHeroHtml;
