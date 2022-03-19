@@ -3,7 +3,7 @@ import { components } from "../view/components.js";
 const changeView = (route) => {
     switch (route) {
         case '#/':
-            components.home();
+            components.hero();
             break;
 
         case '#/register':
