@@ -1,36 +1,41 @@
 import { changeView } from '../view-controler/controler.js'
 
 export const login = () => {
-  const viewLoginHtml = document.getElementById("root");
-  const view = `
+    const viewLoginHtml = document.getElementById("root");
+    const view = `
     <div id="viewLogin">
         <a href="#/login"></a>
-        <div id="logoRes-signUp"><img src="/images/logo-ninja-signup-responsive.svg"></div>
+        <div id="logoRes-signUp">
+          <img src="/images/logo-ninja-signup-responsive.svg">
+        </div>
+        <div class="box-form">
         <form action="">
-            <label for="email">Ingresa tu correo registrado</label>
-            <input id= "email" type="email" placeholder="ejemplo@gmail.com">
-            <label for="password">Contraseña</label>
-            <input id= "password" type="password">
+            <label class="labels" for="email">Ingresa tu correo registrado</label>
+            <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com">
+            <label class="labels" for="password">Contraseña</label>
+            <input class="inputs" id= "password" type="password">
             <h3>o ingresa con: </h3> 
             <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
         </form>
-        <section>
+        </div>
+        <section class="align-buttons">
+          <div class="question-button">
           <p>¿Eres un usuario nuevo?</p>
           <button id="btn-register-signUp" class="btn-border">REGÍSTRATE</button>
+          </div>
           <button id="btn-feed" class="btn-background">INGRESAR</button>
-            
         </section>
     </div>
     `;
-  viewLoginHtml.innerHTML = view;
-  document.querySelector("#btn-feed").addEventListener("click", () => {
-      //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
-    changeView("#/");
-  });
+    viewLoginHtml.innerHTML = view;
+    document.querySelector("#btn-feed").addEventListener("click", () => {
+        //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
+        changeView("#/");
+    });
 
-  document.querySelector("#btn-register-signUp").addEventListener("click", () => {
-    changeView("#/register");
-});
+    document.querySelector("#btn-register-signUp").addEventListener("click", () => {
+        changeView("#/register");
+    });
 
-  return viewLoginHtml;
+    return viewLoginHtml;
 };

@@ -1,17 +1,17 @@
-body{
+body {
     margin: 0;
     font-family: Roboto, Helvetica, sans-serif;
 }
 
-p{
-font-size: 12px;
+p {
+    font-size: 12px;
+    margin-left: 0;
 }
 
-
-
-
 @media screen and (max-width: 740px) {
-    #viewHero, #viewRegister, #viewLogin{
+    #viewHero,
+    #viewRegister,
+    #viewLogin {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -20,16 +20,13 @@ font-size: 12px;
         background-size: cover;
         text-align: center;
     }
-    
-    #viewHero #logoRes{
-        margin:72px 0 72px 0;
+    #viewHero #logoRes {
+        margin: 72px 0 72px 0;
     }
-    
-    #logoRes-signUp{
-        margin:76px 0 30px 0;
+    #logoRes-signUp {
+        margin: 76px 0 30px 0;
     }
-
-    .box-form{
+    .box-form {
         background-color: rgba(74, 154, 159, 0.35);
         width: 352px;
         height: 400px;
@@ -37,18 +34,36 @@ font-size: 12px;
         padding: 40px 32px 40px 32px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        text-align: left;
     }
-
-    #text-intro{
-        margin:0 54px 72px 54px;
+    .labels {
+        font-size: 14px;
     }
-
-    #buttons-home{
+    .inputs {
+        width: 96%;
+        height: 34px;
+    }
+    #text-intro {
+        margin: 0 54px 72px 54px;
+    }
+    #buttons-hero {
         display: inline-block;
     }
-
-    .btn-border{
+    .align-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+    .question-button {
+        margin-right: 20px;
+        align-items: center;
+    }
+    #btn-feed {
+        margin-top: 38px;
+    }
+    #btn-register {
+        margin-top: 38px;
+    }
+    .btn-border {
         border: solid;
         border-width: 2px;
         border-radius: 4px;
@@ -57,10 +72,9 @@ font-size: 12px;
         color: #04033B;
         width: 166px;
         height: 52px;
-        margin-right:20px;
         font-size: 14px;
     }
-    .btn-background{
+    .btn-background {
         border: none;
         border-radius: 4px;
         background-color: #04033B;
@@ -69,18 +83,12 @@ font-size: 12px;
         height: 52px;
         font-size: 14px;
     }
-
-    .btn-icon{
+    .btn-icon {
         width: 34px;
         height: 34px;
-
     }
-  }
+}
 
-@media screen and (min-width:740px) { 
-  }
-  
-@media screen and (min-width: 992px) {
-  }
-  
-  
+@media screen and (min-width:740px) {}
+
+@media screen and (min-width: 992px) {}
