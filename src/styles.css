@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #272121;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background-image: url("./img/background.png");
+}
+
+main {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.main__div--login {
+    border: #272121 solid 2px;
+    width: 350px;
+    height: 460px;
+    margin: auto;
+}
+
+.main__div--login input {
+    width: 320px;
+    height: 45px;
+    border: #272121 solid 3px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.459);
+}
+
+.p_join {
+    margin-top: 25px;
+    font-size: 23px;
+    font-family: serif;
+}
+
+.join {
+    margin-top: 20px;
+    width: 320px;
+    height: 45px;
+    border-radius: 15px;
+    border-style: solid;
+    border: none;
+    background-color: #272121;
+    color: beige;
+    font-size: 16px;
+}
+
+.Login {
+    margin-top: 10px;
+    width: 320px;
+    height: 45px;
+    border-radius: 15px;
+    border-style: solid;
+    border: #272121 solid 2px;
+    background-color: rgba(255, 255, 255, 0.829);
+    color: #272121;
+    font-size: 16px;
+}
+
+.third_hr{
+    width: 50px;
+    margin: auto;
+    margin-top: 15px;
+}
+   
+.fourth_hr {
+    width: 50px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.welcome-wizards {
+    font-size: 37px;
+}
+
+.main__div--tittle {
+    width: 350px;
+    height: 125px;
+    margin: auto
+}
+
+.div-or {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.or {
+    position:relative;
+    display:inline-block;
+}
+
+.or::before, .or::after {
+    content:' ';
+    display:block;
+    position:absolute; top:50%; left:-120px;
+    width:100px; /* 100px line on either side */
+    border-bottom:1px solid rgb(0, 0, 0);
+}
+
+.or::after {
+    left:auto; right:-120px;
+}
+
+.continue-with-google {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 300px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.hand {
+    width: 50px;
+    height: 27px;
+}
+
+.alohomora {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#modalMessage {
+    margin: auto;
+    background-color: red;
+    text-align: center;
+}
