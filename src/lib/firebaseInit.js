@@ -1,9 +1,6 @@
 // Add Firebase products that you want to use
-// import { auth } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js'
-// import { firestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'
-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrYZ67zhwpOS_Hfqv6FKtfRXFMNp5W7bY',
@@ -19,4 +16,8 @@ console.log(app);
 export const auth = getAuth();
 console.log(auth);
 
+export const provider = new GoogleAuthProvider();
+console.log(provider);
+
 // const db = getFirestore(app);
+// console.log(db);
