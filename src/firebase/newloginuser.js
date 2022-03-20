@@ -10,13 +10,19 @@ const createUser = (email, password) => {
       console.log('El usuario fue creado!!!');
     })
     .catch((error) => {
+      const getDivError = document.getElementById('id-message-error-record');
       const errorCode = error.code;
       const errorMessage = error.message;
       // eslint-disable-next-line no-console
-      console.error(`${errorCode} ${errorMessage}`);
-      const getDivError = document.getElementById('id-message-error-record');
-      getDivError.innerHTML = '<p>Por favor ingresar correo electronico y contraseña validos</p>';
-    });
+      console.error(errorCode);
+      console.error(errorMessage);
+      if (errorCode === 'auth/email-already-in-use'){
+        getDivError.innerHTML = '<p>El usuario ya existe, inicie sesión</p>';
+      
+      if (errorCode === 'auth/weak-password'){
+      getDivError.innerHTML = '<p>Por favor ingresar contraseña de al menos 6 digitos</p>';
 };
 
+    };
+}
 export default createUser;
