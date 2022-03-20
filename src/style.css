@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    font-family: Roboto, Helvetica, sans-serif;
+}
+/*Responsive Mobile*/
+@media screen and (max-width: 740px) {
+    body{
+        margin: 0;
+    }
+    p {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    #viewHero, #viewRegister, #viewLogin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left:60px;
+        padding-right:60px;
+        background-image: url("/images/background-responsive.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+    }
+    #viewHero #logoRes {
+        margin: 72px 0 72px 0;
+    }
+    #logoRes-signUp {
+        margin: 76px 0 30px 0;
+    }
+    .box-form {
+        padding: 40px 32px 40px 32px;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background-color: rgba(74, 154, 159, 0.35);
+        border-radius: 20px;
+    }
+    .labels {
+        font-size: 14px;
+    }
+    .inputs {
+        padding: 0 20px 0 20px;
+        width: 92%;
+        height: 34px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+    }
+    #text-intro {
+        margin: 0 54px 72px 54px;
+    }
+    #buttons-hero {
+        display: inline-block;
+        margin: 0 0 54px 0;
+        align-self: center;
+    }
+    .align-buttons {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+    .question-button {
+        margin: 20px 20px 0 0;
+        align-items: center;
+    }
+    #btn-registerHero {
+        margin-right: 20px;
+    }
+    #btn-feed {
+        margin-top: 34px;
+    }
+    #btn-register {
+        margin: 34px 10px 0 0;
+    }
+    .btn-border {
+        width: 166px;
+        height: 52px; 
+        font-size: 14px;
+        font-weight: 500;
+        color: #04033B;
+        border: solid;
+        border-width: 2px;
+        border-radius: 6px;
+        border-color: #04033B;
+        background-color: #fff;
+    }
+    .btn-background {
+        width: 166px;
+        height: 52px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        background-color: #04033B;
+    }
+    .btn-icon {
+        width: 34px;
+        height: 34px;
+    }
+}
+/*Responsive Laptop*/
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    p {
+        margin-left: 0;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    #viewHero, #viewRegister, #viewLogin {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding-left:300px;
+        padding-right:300px;
+        background-image: url("/images/background-responsive.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #viewHero #logoRes {
+        margin: 156px 0 104px 0;
+        width: 500px;
+    }
+    #logoRes-signUp {
+        margin: 54px 0 54px 0;
+        width: 460px; 
+    }
+    #buttons-hero {
+        margin: 104px 0 188px 0;
+        display: inline-block;
+        align-self: center;
+    }
+    #btn-registerHero {
+        margin-right: 102px;
+    }
+    #btn-feed {
+        margin-top:64px;
+    }
+    #btn-register {
+        margin-top:64px;
+    }
+    #form-register{
+        padding-bottom:30px;
+    }
+    .box-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 548px;
+        padding: 40px 32px 40px 32px;
+        background-color: rgba(74, 154, 159, 0.35);
+        border-radius: 20px;
+        text-align: left;
+    }
+    .labels {
+        font-size: 22px;
+    }
+    .inputs {
+        width: 90%;
+        height: 68px;
+        padding: 0 30px 0 30px;
+        font-size: 22px;
+        border: none;
+        border-radius: 20px;
+    }
+    .align-buttons {
+        margin-bottom: 86px;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+    .question-button {
+        margin-top: 44px;
+        margin-right: 102px;
+        align-items: center;
+    }
+    .btn-border {
+        width: 244px;
+        height: 86px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #04033B;
+        border: solid;
+        border-width: 2px;
+        border-radius: 6px;
+        border-color: #04033B;
+        background-color: #fff;
+    }
+    .btn-background {
+        width: 244px;
+        height: 86px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+        background-color: #04033B;
+        border: none;
+        border-radius: 6px;
+    }
+    .btn-icon {
+        width: 72px;
+        height: 72px;
+    }
+
+
+}
