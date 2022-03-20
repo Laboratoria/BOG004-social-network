@@ -1,5 +1,5 @@
 import firebaseApp from '../Configfirebase/confiFirebase.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from './firebase-imports.js';
 
 const auth = getAuth(firebaseApp);
 export const submithandler = (email, password) => {

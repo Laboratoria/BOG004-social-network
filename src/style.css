@@ -13,12 +13,8 @@
 
 body {
     margin:0px;
-    /* display: grid;
-    gap:50px;
-    grid-auto-rows: 22rem;
-    grid-template-columns: repeat(auto-fill, minmax(15rem,1fr)); */
 }
-
+/* HOME */
 .view1{
     display: grid;
     gap:50px;   
@@ -29,7 +25,7 @@ body {
 }
 
 .view1 img{
-    width: 350px;
+    width:350px;
 }
 
 #register1{
@@ -67,8 +63,8 @@ body {
                 0px 0px 8px #00A8FF;
 }
 
+/* POP UP REGISTER */
 .modal{
-    
     display: none;
     position:absolute;
     top: -150%;
@@ -104,7 +100,9 @@ body {
     cursor: pointer;
 }
 
-.view2{
+/* REGISTER */
+
+.view2{  
     display: grid;
     gap:50px;   
     justify-items: center;
@@ -112,21 +110,18 @@ body {
     width: 100vw;
     height: 100vh; 
 }
+
 .view2 header{
-    margin-top: 100px;
+    margin-top: 300px;
 }
-.logo-H{
-    /* display: grid;  */
-    margin-top: 50px;
-    max-width: 50vw;
-    min-width: 90vw;
-    /* justify-items: center; */
+
+.logo-R{
+    max-width: 80vw;
 }
 
 .formregister{
     display: grid;
-    max-width: 50vw;
-    min-width:90vw;
+    min-width:70vw;
     line-height: 30px;
     color:#525252;
     font-family: Barlow-Semibold;
@@ -158,4 +153,122 @@ input{
     font-family: Barlow-regular;
     font-size: 15px;
 }
+/* LOGIN */
+.view3{
+    display: grid;
+    gap:50px;   
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh; 
+}
 
+.view3 header{
+    margin-top: 20px;
+}
+.logo-L{
+    max-width: 80vw; 
+}
+#btnlogin{
+    background-color: #c5c5c5;    
+    color: #525252;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Barlow-Bold;
+    font-style: bold;
+    border: none;
+}
+#btnlogin:hover{
+    box-shadow: 0px 0px 8px #00A8FF,
+                0px 0px 8px #00A8FF,
+                0px 0px 8px #00A8FF;
+}
+
+.google{
+    display:flex;
+    background-color: #c5c5c5;    
+    color: #525252;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Barlow-Bold;
+    font-style: bold;
+    border: none;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.texto{
+    color: #525252;
+    font-size: 20px;
+    font-family: Barlow-Bold;
+    font-style: bold;
+    margin: 0px 30px 0px 30px;
+    text-align: center;
+
+}
+
+/* H1 DE REGISTER Y LOGIN */
+h1{
+    margin:0;
+    color: #525252;
+    font-size: 20px;
+    font-family: Barlow-Bold;
+    font-style: bold;  
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+
+h1::after,h1::before{
+    background-color:#c5c5c5;
+    content:'';
+    position: absolute;
+    width: 120px;
+    height:3px;
+    top:0.6em;
+}
+
+h1::before{
+    left:-140px;
+}
+
+h1::after{
+    right:-140px;
+}
+
+#login2{
+        display:flex;
+        background-color: #c5c5c5;    
+        color: #525252;
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-family: Barlow-SemiBold;
+        font-style: bold;
+        border: none;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+@media screen and (min-width:800px){
+
+    .logo-R{
+        margin-top: 50px;
+        min-width: 45vw;
+    }
+    .logo-L{
+        min-width: 45vw; 
+    }
+    .formregister{
+        min-width:40vw;
+        
+    }
+
+}
