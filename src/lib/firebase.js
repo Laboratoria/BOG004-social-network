@@ -2,58 +2,45 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4",
+  authDomain: "social-network-ac42d.firebaseapp.com",
+  projectId: "social-network-ac42d",
+  storageBucket: "social-network-ac42d.appspot.com",
+  messagingSenderId: "301187927033",
+  appId: "1:301187927033:web:6bf303b353329946510b28"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+const dataBase = getDatabase(app);
+const auth = getAuth();
 
 export const SignUpUser = (email, password) => {
-  const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
+
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      return user;
-      // ...
-    })
-    .then((user) => {
       sendEmailVerification(user)
         .then(() => {
-          // Email verification sent!
-          const msg = 'An email verification link has been sent to ' + user.email;
-          alert(msg)
-        });
+          alert('Se ha enviado un correo de verificación a ' + user.email)
+        })
     })
-
 }
 
 export const SignInUser = (email, password) => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password)
+  return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
       console.log('ingreso exitoso')
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert('usuario o contraseña incorrecta')
     });
 }
 
-export const observer = () => {
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      const uid = user.uid;
-      console.log('login')
-
-    } else {
-      // User is signed out
-
-    }
-  });
-
-}
+export const saveTask = (title, description) =>
+  addDoc(collection(db, 'tasks'), { title, description })

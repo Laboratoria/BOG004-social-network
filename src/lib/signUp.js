@@ -1,4 +1,4 @@
-import {SignUpUser, observer} from './firebase.js';
+import {SignUpUser} from './firebase.js';
 import { changeView } from './viewController.js';
 
 export default () => {
@@ -20,12 +20,11 @@ export default () => {
     const password = document.getElementById('password').value;
     SignUpUser(email,password)
         .then(()=> {changeView('#/home')} )
-        .catch ((error) => {
+        .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;},
-          alert('usuario ya existente'))
-    observer();
-    
+          const errorMessage = error.message;
+          alert(errorMessage)
+        });
   })
   return signUp_container;
 }
