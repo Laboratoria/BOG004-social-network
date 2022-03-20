@@ -8,9 +8,8 @@ import { changeView } from './lib/router.js';
 import createUser from './firebase/newloginuser.js';
 import existingUser from './firebase/loginuser.js';
 import observerUserState from './firebase/observer.js';
-import {signInWithGoogle} from './firebase/authgoogle.js';
+import { signInWithGoogle } from './firebase/authgoogle.js';
 import closeSession from './firebase/closesession.js';
-
 
 function onChangeView() {
   const currentHash = (window.location.hash);
@@ -91,10 +90,8 @@ googleBtn.addEventListener('click', () => {
   signInWithGoogle();
 });
 }
-
-
-
 //
+
 function registerCloseSession() {
   console.log('logoutBtn Runs');
   const logoutBtn = document.getElementById('logoutBtn');
