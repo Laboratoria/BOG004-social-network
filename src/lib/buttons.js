@@ -1,4 +1,3 @@
-
 export default () => {
     const viewButtons = `
 <div class="initView" id="initView">
@@ -9,7 +8,7 @@ export default () => {
     <h1 class="branding">EDUCATION IS THE FUTURE <h1><br>
     <a class="signUp" href="#/signUp">SIGN UP</a><br>
     <a class="buttonGoogle" href="#/buttonGoogle">CONTINUE WITH GOOGLE</a> <br>
-    <a class="signIn" href="#/taskContainer">SIGN IN</a>
+    <a class="signIn" href="#/signIn">SIGN IN</a>
 </div>
 <footer> Made by Viviana, Camila & Paula</footer>
 `
