@@ -1,9 +1,5 @@
-/*// código firebase para registro de nuevos usuarios
+// código firebase para registro de nuevos usuarios
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-
-// codigo para uso de firestore
-//import { initializeApp } from "firebase/app";
-//import { getFirestore } from "firebase/firestore";
 
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
@@ -51,4 +47,3 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-*/
