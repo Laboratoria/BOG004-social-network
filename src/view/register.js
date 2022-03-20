@@ -2,6 +2,7 @@ import { changeView } from "../view-controler/controler.js";
 
 export const register = () => {
     const viewRegisterHtml = document.getElementById("root");
+    const formRegister = document.querySelector('#form-register');
     const view = `
         <div id="viewRegister">
           <a href="#/register"></a>
@@ -11,24 +12,24 @@ export const register = () => {
             <div class="box-form">
               <form id="form-register" action="">
                   <label class="labels" for="">Nombre</label>
-                  <input class="inputs" id="nameRegister" type="text">
+                  <input class="inputs" id="nameRegister" type="text" required>
                   <label class="labels" for="">Apellido</label>
-                  <input class="inputs" id="lastNameRegister" type="text">
+                  <input class="inputs" id="lastNameRegister" type="text" required>
                   <label class="labels" for="">Correo Electrónico</label>
-                  <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com">
+                  <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com" required>
                   <label class="labels" for="">Contraseña</label>
-                  <input class="inputs" id="passwordRegister" type="password">
+                  <input class="inputs" id="passwordRegister" type="password" required>
+                <section class="align-buttons">
+                    <div class="question-button">
+                        <p>¿Ya tienes cuenta?</p>
+                        <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
+                    </div>
+                    <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
+                </section>
               </form>
               <h3>o registrate con:</h3> 
               <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
             </div>
-            <section class="align-buttons">
-            <div class="question-button">
-                <p>¿Ya tienes cuenta?</p>
-                <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
-                </div>
-                <button id="btn-register" class ="btn-background">REGISTRAR CUENTA</button>
-            </section>
         </div>
     `;
     viewRegisterHtml.innerHTML = view;
@@ -37,9 +38,16 @@ export const register = () => {
         changeView("#/login");
     });
 
-    document.querySelector("#btn-register").addEventListener("click", () => {
-        changeView("#/register");
+    //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER
+    //No esta funcionando pues con el controlador hay un break y retorna a la pantalla de hero
+    formRegister.addEventListener('submit',(e)=> {
+    e.preventDefault();
+    const nameRegister = document.querySelector('#nameRegister').value;
+    const lastNameRegister = document.querySelector('#lastNameRegister').value;
+    const emailRegister = document.querySelector('#emailRegister').value;
+    const passwordRegister = document.querySelector('#passwordRegister').value;
+    console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
+    
     });
-
     return viewRegisterHtml;
 };

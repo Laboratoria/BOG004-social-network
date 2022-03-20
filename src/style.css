@@ -128,12 +128,15 @@
     }
     .nav-btn {
         display: inline-block;
-        height: 40px;
-        margin: 0px 4px;
+        margin: 4px 4px;
         padding: 10px;
+        text-decoration: none;
+        color: #fff;
+        align-self: center;
     }
     .nav-btn-border {
             display: inline-block;
+            align-self: center;
             height: 40px;
             margin: 0px 4px;
             padding: 10px;
@@ -147,6 +150,7 @@
     }
     .nav-btn-bg {
             display: inline-block;
+            align-self: center;
             height: 40px;
             margin: 0px 4px;
             padding: 10px;

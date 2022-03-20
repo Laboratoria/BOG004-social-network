@@ -5,11 +5,9 @@ const changeView = (route) => {
         case '#/':
             components.hero();
             break;
-
         case '#/register':
             components.register();
             break;
-
         case '#/login':
             components.login();
             break;    

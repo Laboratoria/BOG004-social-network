@@ -9,11 +9,11 @@ export const login = () => {
           <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
         </div>
         <div class="box-form">
-        <form action="">
+        <form id="form-login" action="">
             <label class="labels" for="email">Ingresa tu correo registrado</label>
-            <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com">
+            <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com" required>
             <label class="labels" for="password">Contraseña</label>
-            <input class="inputs" id= "password" type="password">
+            <input class="inputs" id= "password" type="password" required>
             <h3>o ingresa con: </h3> 
             <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
         </form>
@@ -23,7 +23,7 @@ export const login = () => {
           <p>¿Eres un usuario nuevo?</p>
           <button id="btn-register-signUp" class="btn-border">REGÍSTRATE</button>
           </div>
-          <button id="btn-feed" class="btn-background">INGRESAR</button>
+          <button id="btn-feed" class="btn-background" type="submit">INGRESAR</button>
         </section>
     </div>
     `;

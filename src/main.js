@@ -32,5 +32,6 @@ import { changeView } from './view-controler/controler.js';
 // };
 
 // window.addEventListener('load', start);
-
 changeView('#/');
+
+

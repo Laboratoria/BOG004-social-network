@@ -1,7 +1,7 @@
-// código firebase para registro de nuevos usuarios
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 const auth = getAuth();
+
+//Función FIREBASE para registro de nuevos usuarios
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
@@ -14,11 +14,7 @@ createUserWithEmailAndPassword(auth, email, password)
     // ..
   });
 
-  //Código firebase para acceso de usuarios existentes
-
-  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-
-const auth = getAuth();
+//Función FIREBASE para acceso de usuarios existentes
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
@@ -30,11 +26,7 @@ signInWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
   });
 
-  //código firebase para estado de autenticación y obtener datos del usuario
-
-  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-
-const auth = getAuth();
+//Función FIREBASE para estado de autenticación y obtener datos del usuario
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
