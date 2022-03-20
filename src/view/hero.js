@@ -8,7 +8,7 @@ export const hero = () => {
             <div>
               <img id="logoRes" src="/images/ninja-logo-responsive.svg">
             </div>
-            <h1>Ninja - Red Social de Tics</h1>
+            <h1>Red Social de Tics</h1>
             <p id="text-intro">SI ERES UN CRACK, AQUÍ CONECTARÁS CON EMPRESAS QUE NECESITEN TUS CONSULTORÍAS, Y SI ERES EMPRESA, AQUÍ ENCONTRARÁS A LA PERSONA INDICADA PARA RESOLVER TUS DUDAS.</p>
             <div id="buttons-hero">
               <button id="btn-registerHero" class="btn-border">REGÍSTRATE</button>
