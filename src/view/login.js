@@ -5,8 +5,8 @@ export const login = () => {
     const view = `
     <div id="viewLogin">
         <a href="#/login"></a>
-        <div id="logoRes-signUp">
-          <img src="/images/logo-ninja-signup-responsive.svg">
+        <div>
+          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
         </div>
         <div class="box-form">
         <form action="">

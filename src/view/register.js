@@ -5,11 +5,11 @@ export const register = () => {
     const view = `
         <div id="viewRegister">
           <a href="#/register"></a>
-          <div id="logoRes-signUp">
-            <img src="/images/logo-ninja-signup-responsive.svg">
+          <div>
+            <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
           </div>
             <div class="box-form">
-              <form action="">
+              <form id="form-register" action="">
                   <label class="labels" for="">Nombre</label>
                   <input class="inputs" id="nameRegister" type="text">
                   <label class="labels" for="">Apellido</label>
@@ -18,9 +18,9 @@ export const register = () => {
                   <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com">
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password">
+              </form>
               <h3>o registrate con:</h3> 
               <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
-              </form>
             </div>
             <section class="align-buttons">
             <div class="question-button">
