@@ -7,7 +7,7 @@ export const register = () => {
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
-            <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
+          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
           </div>
             <div class="box-form">
               <form id="form-register" action="">
@@ -38,7 +38,7 @@ export const register = () => {
         changeView("#/login");
     });
 
-    //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER
+    //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER ---OJOOO NO SE SI SE INGRESARÍA AQUÍ
     //No esta funcionando pues con el controlador hay un break y retorna a la pantalla de hero
     formRegister.addEventListener('submit',(e)=> {
     e.preventDefault();
@@ -47,7 +47,22 @@ export const register = () => {
     const emailRegister = document.querySelector('#emailRegister').value;
     const passwordRegister = document.querySelector('#passwordRegister').value;
     console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
-    
+
+    auth
+        .createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
+        .then((userCredential) => {
+            //Borrar datos del formulario al crear un usuario
+            formRegister.reset();
+            // Signed in
+            console.log("Sign Up registrado");
+            //aqui debemos crear un redireccionamiento al feed o a una pantalla de confirmación de creación de cuenta cuando ya se ha creado una cuenta 
+            //changeView("#/login"); 
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
     });
     return viewRegisterHtml;
 };
