@@ -1,4 +1,5 @@
-import { saveTask } from './firebase.js';
+import { saveTask, userSignOut } from './firebase.js';
+import { changeView } from './viewController.js';
 
 export default () => {
     const post = `
@@ -7,6 +8,7 @@ export default () => {
 
 <textarea id="task-description" rows="3" placeholder="Task description"></textarea>
 <button id="btn_task_save">Publish!</button>
+<button id="logout">Log out</button>
 </form>`
 
     const taskContainer = document.createElement('div');
@@ -19,6 +21,15 @@ export default () => {
         const description = document.getElementById('task-description');
         saveTask(title.value, description.value);
         taskForm.reset();
+
+    })
+
+    const buttonSignOut = taskContainer.querySelector('#logout');
+    buttonSignOut.addEventListener('click', (e) => {
+        e.preventDefault();
+        userSignOut();
+        console.log(userSignOut);
     })
     return taskContainer;
+
 }
