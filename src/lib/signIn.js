@@ -1,4 +1,4 @@
-import {SignInUser} from './firebase.js';
+import { SignInUser } from './firebase.js';
 import { changeView } from './viewController.js';
 
 export default () => {
@@ -9,24 +9,23 @@ export default () => {
     <input type="password" id="password" placeholder="password">
     <input type="submit" value="Sign in">
     
-
   </form>`
 
-  const signIn_container = document.createElement('div');
-  signIn_container.innerHTML = viewSignIn;
-  
-  const formSignIn = signIn_container.querySelector('#signInForm');
-  formSignIn.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    SignInUser(email,password)
-    .then(()=> {changeView('#/home')})
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage)
-    });    
-  })
-  return signIn_container;
+    const signIn_container = document.createElement('div');
+    signIn_container.innerHTML = viewSignIn;
+
+    const formSignIn = signIn_container.querySelector('#signInForm');
+    formSignIn.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        SignInUser(email, password)
+            .then(() => { changeView('#/post') })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
+    })
+    return signIn_container;
 }
