@@ -3,7 +3,7 @@
 export const home = () => {
   const divElement = document.createElement('div');
   const template = `
-  <img src='image/logo11.png' alt='social-trip1-png'>
+  <img src='image/logo1.png' alt='social-trip1-png'>
   <button id="register1">¡REGISTRARTE!</button>
   <button id="login1">INICIAR SESIÓN</button> `;
 
