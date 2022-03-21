@@ -23,6 +23,7 @@ export const signInEmail = (email, password) => {
       const errorCode = error.code;
       alert('Correo ya registrado, por favor intente con otro correo.');
       const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
 
       // ..
     });
