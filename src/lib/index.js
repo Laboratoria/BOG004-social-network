@@ -1,6 +1,7 @@
 import { home } from './home.js';
 import { login } from './login.js';
 import { register } from './register.js';
+import { wall } from './wall.js';
 
 const content = document.getElementById('root');
 const router = (route) => {
@@ -15,6 +16,9 @@ const router = (route) => {
       break;
     case '#register':
       content.appendChild(register());
+      break;
+    case '#wall':
+      content.appendChild(wall());
       break;
     default:
       console.log('404');

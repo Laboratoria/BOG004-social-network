@@ -15,7 +15,7 @@ export const register = () => {
   <input type='email' id='email' name='email'>
   <label for='password'>Contraseña</label>
   <input type='password' id='password' name='password' minlength='8' maxlength='16'>
-  </form> 
+  </form>
   <button  type='submit' id='btnregister'>REGISTRATE</button>
   <p class='texto'>Al registrarte, aceptas nuestras condiciones, la politica de datos, y la politica de cookies.</p>
   <h1>O</h1>
@@ -34,7 +34,8 @@ export const register = () => {
   const modalwindow = divElement.querySelector('.modal');
   const bottomclose=divElement.querySelector('.btnconfirmation');
   const bottomGoogle = divElement.querySelector('#google');
-  const bottomlogin2= divElement.querySelector('#login2')
+  const bottomlogin2= divElement.querySelector('#login2');
+  const bottomhome = divElement.querySelector('.logo-R')
 
   bottomregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
@@ -49,6 +50,9 @@ export const register = () => {
   })
   bottomlogin2.addEventListener('click', ()=>{
     window.location.href = 'http://localhost:3000/#login'
+  })
+  bottomhome.addEventListener('click', () =>{
+    window.location.href = 'http://localhost:3000'
   })
 
     return divElement;

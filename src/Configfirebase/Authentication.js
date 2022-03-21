@@ -77,7 +77,8 @@ export const SignGoogle = () =>{ signInWithPopup(auth, provider)
 export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
-    const user = userCredential.user;
+    const user = userCredential.user;    
+    window.location.href = 'http://localhost:3000/#wall'
     console.log(user, 'inicie sesion')
     // ...
   }) 
