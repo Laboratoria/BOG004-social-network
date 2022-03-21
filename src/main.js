@@ -43,6 +43,8 @@ googleButton.addEventListener("click", e => {
   })
 })
 
+
+
 const init = () => {
     changeView(window.location.hash)
     window.addEventListener("hashchange", () => changeView(window.location.hash))
