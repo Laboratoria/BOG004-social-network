@@ -22,6 +22,7 @@ export const login = () => {
 
   const bottomlogin = divElement.querySelector('#btnlogin')
   const bottomGoogle = divElement.querySelector('#google');
+  const bottomhome = divElement.querySelector('.logo-L')
 
   bottomlogin.addEventListener('click', ()=>{
     loginUser(email.value, password.value)
@@ -29,6 +30,10 @@ export const login = () => {
 
   bottomGoogle.addEventListener('click', ()=>{
     SignGoogle()
+  })
+
+  bottomhome.addEventListener('click', () =>{
+    window.location.href = 'http://localhost:3000'
   })
 
   return divElement;
