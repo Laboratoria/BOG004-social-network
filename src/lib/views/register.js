@@ -21,22 +21,6 @@ export default () => {
               <div id='textModal'></div>            
           </div>
         </form>
-  
-        <div id='errorMessageJoin'></div>
-  
-        <p class="p_join"><b>REVELIO<b> The Daily Prophet</p>
-        <button class="join"> Join </button>
-        <div class="div-or">
-         <p class="or">or</p>
-        </div>
-        <div class="continue-with-google">
-          <p>Continue with Google</p>
-          <img src="./img/hand.png" class="hand">
-          <img src="./img/google.png">
-        </div>
-
-      </form>
-
       <div id='errorMessageJoin'></div>
 
       <p class="p_join"><b>REVELIO<b> The Daily Prophet</p>
