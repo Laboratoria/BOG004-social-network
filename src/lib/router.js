@@ -1,7 +1,7 @@
 // importamos todas las vistas, llamamos los templates y exportamos el cambio de ruta
 import Register from './views/register.js';
-// import {login} from "./lib/views/login.js";
-// import {daily} from "./lib/views/daily.js"
+import login from './views/login.js';
+import daily from './views/daily.js';
 
 const showTemplate = (hash) => {
   const containerRoot = document.getElementById('container');
@@ -11,11 +11,22 @@ const showTemplate = (hash) => {
     case '':
       containerRoot.appendChild(Register());
       break;
-    default: containerRoot.innerHTML = 'Oops Error 404';
+    case '#/register':
+      containerRoot.appendChild(login());
+      break;
+    case '#/home':
+      containerRoot.appendChild(daily());
+      break;
+    default:
+      containerRoot.innerHTML = 'Oops Error 404';
   }
 };
 export const changeRoute = (hash) => {
   if (hash === '#/Login') {
+    return showTemplate(hash);
+  } if (hash === '#/register') {
+    return showTemplate(hash);
+  } if (hash === '#/daily') {
     return showTemplate(hash);
   }
   return showTemplate(hash);

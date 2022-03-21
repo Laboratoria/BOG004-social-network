@@ -1,5 +1,3 @@
-// //import {register} from "./lib/firebaseController.js"
-
 import register from './lib/views/register.js';
 import { changeRoute } from './lib/router.js';
 
