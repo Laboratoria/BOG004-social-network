@@ -1,6 +1,23 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0 auto;
+    background: linear-gradient(180deg, #233233 36.98%, #2B4E4D 69.27%, #3F978F 100%);
+    color: aliceblue;
+}
+
+.logo{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    margin:  0 auto;
+    padding-top: 10rem;
+    
 }
 
 #signUpForm, #task-form, #initView, #signInForm {

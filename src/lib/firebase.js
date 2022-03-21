@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
@@ -20,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const dataBase = getDatabase(app);
-const auth = getAuth();
+export const auth = getAuth();
 
 export const SignUpUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -41,5 +42,12 @@ export const SignInUser = (email, password) => {
     });
 }
 
-export const saveTask = (title, description) =>
-  addDoc(collection(db, 'tasks'), { title, description })
+export const savePost = (title, description) =>
+  addDoc(collection(db, 'Post'), { title, description })
+
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+  

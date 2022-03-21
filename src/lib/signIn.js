@@ -21,7 +21,7 @@ export default () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     SignInUser(email,password)
-    .then(()=> {changeView('#/home')})
+    .then(()=> {changeView('#/post')})
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
