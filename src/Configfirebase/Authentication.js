@@ -14,8 +14,8 @@ export const submithandler = (email, password) => {
     .catch((error) => {
       const errorMessage = error.message;
       const errorCode = error.code;
-      console.log(errorMessage, 'hola error')
-      console.log(errorCode,'este es el codigo')
+      //console.log(errorMessage, 'hola error')
+      //console.log(errorCode,'este es el codigo')
       switch(error.code){
         case 'auth/invalid-email': 
         console.log('vaso');
@@ -30,7 +30,7 @@ export const submithandler = (email, password) => {
             alert('Oops! Tu contraseña es muy corta');
             break;  
           default:
-          console.log('Esto no sirve.');
+          //console.log('Esto no sirve.');
         
         
       /*if (error.message = 'Error (auth/invalid-email)') {
@@ -47,7 +47,7 @@ export const emailSend = (email) => {
   sendSignInLinkToEmail(auth, email, actionCodeSettings)
   .then(() => {
     window.localStorage.setItem('emailForSignIn', email);
-    window.location.href = 'http://localhost:3000'
+    window.location = ''
   })
   .catch((error) => {
     const errorMessage = error.message;
@@ -78,8 +78,8 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;    
-    window.location.href = 'http://localhost:3000/#wall'
-    console.log(user, 'inicie sesion')
+    window.location = '#wall'
+    //console.log(user, 'inicie sesion')
     // ...
   }) 
     .catch((error) => {

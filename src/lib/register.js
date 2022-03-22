@@ -30,29 +30,32 @@ export const register = () => {
   divElement.classList.add('view2');
   divElement.innerHTML = template; 
 
-  const bottomregister = divElement.querySelector('#btnregister');
+  const buttonregister = divElement.querySelector('#btnregister');
   const modalwindow = divElement.querySelector('.modal');
-  const bottomclose=divElement.querySelector('.btnconfirmation');
-  const bottomGoogle = divElement.querySelector('#google');
-  const bottomlogin2= divElement.querySelector('#login2');
-  const bottomhome = divElement.querySelector('.logo-R')
-
-  bottomregister.addEventListener('click',()=>{
+  const buttonclose=divElement.querySelector('.btnconfirmation');
+  const buttonGoogle = divElement.querySelector('#google');
+  const buttonlogin2= divElement.querySelector('#login2');
+  const buttonhome = divElement.querySelector('.logo-R');
+  const email = divElement.querySelector('#email')
+  const password = divElement.querySelector('#password')
+  
+  
+  buttonregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
     submithandler(email.value, password.value)
   })
-  bottomclose.addEventListener('click',()=>{
+  buttonclose.addEventListener('click',()=>{
     modalwindow.classList.remove('active') 
     emailSend(email.value)
   })
-  bottomGoogle.addEventListener('click', ()=>{
+  buttonGoogle.addEventListener('click', ()=>{
     SignGoogle()
   })
-  bottomlogin2.addEventListener('click', ()=>{
-    window.location.href = 'http://localhost:3000/#login'
+  buttonlogin2.addEventListener('click', ()=>{
+    window.location = '#login'
   })
-  bottomhome.addEventListener('click', () =>{
-    window.location.href = 'http://localhost:3000'
+  buttonhome.addEventListener('click', () =>{
+    window.location = ''
   })
 
     return divElement;

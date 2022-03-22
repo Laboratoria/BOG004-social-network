@@ -6,14 +6,32 @@ describe('register',()=>{
     it('', ()=>{
     const result = register(); 
 
-    const mail = result.getElementById('email');
-    const pass = result.querySelector('#password');
-    console.log(mail,pass)
-    // mail.value = 'hola@gmail.com'
-    // pass.value = '123456789'
+    const email = result.querySelector('#email');
+    const password = result.querySelector('#password');
+    email.value = 'hola@gmail.com'
+    password.value = '123456789'
+     //console.log(email.value,password.value)
+    const btn = result.querySelector('#btnregister');
+    btn.dispatchEvent(new Event('click'));
+    //console.log(btn.dispatchEvent(new Event('click')))
+    })
 
-    // const btn = result.querySelector('#btnregister');
-    // btn.dispatchEvent(new Event('click'));
+    it('', ()=>{
+        const result = register(); 
+        const btn = result.querySelector('.btnconfirmation');
+        btn.dispatchEvent(new Event('click'));
+    })
+
+    it('', ()=>{
+        const result = register(); 
+        const btn = result.querySelector('#login2');
+        btn.dispatchEvent(new Event('click'));
+    })
+
+    it('', ()=>{
+        const result = register(); 
+        const btn = result.querySelector('.logo-R');
+        btn.dispatchEvent(new Event('click'));
     })
 })
 
