@@ -11,10 +11,10 @@ const showTemplate = (hash) => {
     case '':
       containerRoot.appendChild(Register());
       break;
-    case '#/register':
+    case '#/login':
       containerRoot.appendChild(login());
       break;
-    case '#/home':
+    case '#/daily':
       containerRoot.appendChild(daily());
       break;
     default:
@@ -22,9 +22,9 @@ const showTemplate = (hash) => {
   }
 };
 export const changeRoute = (hash) => {
-  if (hash === '#/Login') {
+  if (hash === '#/') {
     return showTemplate(hash);
-  } if (hash === '#/register') {
+  } if (hash === '#/login') {
     return showTemplate(hash);
   } if (hash === '#/daily') {
     return showTemplate(hash);
