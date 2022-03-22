@@ -1,8 +1,8 @@
 export default () => {
-    const viewHome = `
- <h2 class="text.center"> perfil</h2>`;
- const divElem = document.createElement("div")
- divElem.innerHTML = viewHome
- divElem.classList.add("position")
+    const viewProfile = `
+ <h2 class="welcome-text">Perfil</h2>`;
+ const divElem = document.createElement("div");
+ divElem.innerHTML = viewProfile;
+ divElem.classList.add("position");
  return divElem;
 }
