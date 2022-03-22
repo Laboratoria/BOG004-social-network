@@ -2,26 +2,26 @@ import { components } from "../view/index.js";
 
 
 const changeView = (hash) =>{
- const id =hash.split('/')[1];
- const sectionMain = document.getElementById("container")
- sectionMain.innerHTML="";
+//  const id =hash.split('/')[1];
+ const container = document.getElementById("container")
+ container.innerHTML="";
 switch (hash) {
     case '':
     case '#':
     case '#/':
-    { return sectionMain.appendChild(components.home()); }
+    { return container.appendChild(components.home()); }
     case '#/createUser': 
-    { return sectionMain.appendChild(components.createUser()); }
+    { return container.appendChild(components.createUser()); }
     case '#/login':
-    { return sectionMain.appendChild(components.login()); }
+    { return container.appendChild(components.login()); }
     case '#/profile': 
-    { return sectionMain.appendChild(components.profile()); }
+    { return container.appendChild(components.profile()); }
     case '#/feed': 
-    { return sectionMain.appendChild(components.feed()); }
+    { return container.appendChild(components.feed()); }
     case '#/interest': 
-    { return sectionMain.appendChild(components.interest()); }
+    { return container.appendChild(components.interest()); }
     default:
-        return sectionMain.appendChild(components.different())
+        return container.appendChild(components.different())
         
    
 }
