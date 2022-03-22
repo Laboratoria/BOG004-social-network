@@ -19,6 +19,8 @@ export default {
 </div>
 </div>
 
+
+
     `,
   script: () => {
     const btnModal = document.querySelector('#sign-up');

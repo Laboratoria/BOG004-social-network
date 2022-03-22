@@ -3,7 +3,8 @@ import { logInEmail } from '../lib/login-user.js';
 
 export default {
   path: '#Login',
-  template: `<div class='paws-image'>
+  template: `
+  <div class='paws-image'>
     <img class='paws' src='images/animalsBackground.png' alt='paws' />
   </div>
     <div class='container-form'>
@@ -16,6 +17,7 @@ export default {
         </div>
         <p class='form__input-error'>Verifica tu correo.</p>
       </div>
+  
       <div class='form__group' id='group__password'>
         <div class='form__group-input'>
           <input type='password' class='form__input' name='passwordLogin' id='passwordLogin' placeholder='Ingresa contraseña'>
@@ -29,7 +31,9 @@ export default {
     <img src='https://img.icons8.com/color/30/000000/google-logo.png'/> 
     <p>Ingresar con Google.</p>
   </button>
-    </div>
+ </div>
+  
+   
               `,
   script: () => {
     const btn = document.querySelector('#logIn');

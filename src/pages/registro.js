@@ -4,7 +4,8 @@ import { expresiones, validateField } from '../utils.js';
 
 export default {
   path: '#registro',
-  template: `<div class='paws-image'>
+  template: `
+  <div class='paws-image'>
   <img class='paws' src='images/animalsBackground.png' alt='paws' />
 </div>
   <div class='container-form'>
@@ -39,7 +40,9 @@ export default {
       <p>Ingresar con Google.</p>
       </button>
     </div>
-  </div>
+    </div>
+  
+  
 `,
   script: () => {
     const btn = document.querySelector('#btn-register');
