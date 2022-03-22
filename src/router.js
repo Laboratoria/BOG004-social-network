@@ -17,7 +17,7 @@ export default class Router {
 
   loadRoute(ruta) {
     const matchedRoute = this.matchUrlToRoute(ruta);
-    console.log(matchedRoute);
+    // console.log(matchedRoute);
     const routerOutElm = document.getElementById('container');
     if (matchedRoute === undefined) {
       routerOutElm.innerHTML = `<div class="no404"> <figure>
