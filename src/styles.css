@@ -8,6 +8,7 @@
 
 body {
     background-image: url("./img/background.png");
+    min-width: 250px;
 }
 
 main {
@@ -16,21 +17,16 @@ main {
     text-align: center;
 }
 
+#container {
+    width: 100%;
+}
+
 
 .main__div--login {
     border: #272121 solid 2px;
     width: 350px;
     height: 460px;
     margin: auto;
-}
-
-.main__div--login input {
-    width: 320px;
-    height: 45px;
-    border: #272121 solid 3px;
-    margin: auto;
-    margin-top: 30px;
-    background-color: rgba(255, 255, 255, 0.459);
 }
 
 .p_join {
@@ -80,9 +76,12 @@ main {
 }
 
 .main__div--tittle {
+    background-image: url("./img/title.png");
+    background-repeat: no-repeat;
     width: 350px;
     height: 125px;
-    margin: auto
+    margin: auto;
+    margin-top: 10px;
 }
 
 .div-or {
@@ -131,4 +130,28 @@ main {
     margin: auto;
     background-color: red;
     text-align: center;
+}
+
+#formNewRegister input{
+     width: 320px;
+    height: 45px;
+    border: #272121 solid 3px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.459);
+}
+
+@media screen and (min-width: 800px) {
+    main {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .main__div--container {
+        margin: auto;
+    }
+    
+    .main__div--tittle {
+        margin: auto;
+    }
 }

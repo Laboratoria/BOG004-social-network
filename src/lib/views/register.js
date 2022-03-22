@@ -5,23 +5,22 @@ export default () => {
   const divRegister = document.createElement('div');
   divRegister.setAttribute('class', 'container-div-register');
   const viewRegister = `
-    <main>
-    <div class="main__div--tittle">
-      <img src="./img/title.png">
-    </div>
-    <h2 class="welcome-wizards"><b> WELCOME WIZARDS</b></h2>
-    <div class="main__div--login">
-      <form id='formNewRegister'>  
-        <input type="text" placeholder="Name" id="name">
-        <input type="text" placeholder="Email" id="email">
-        <br class="espacio">
-        <input type="PASSWORD" placeholder="Password" id="password">
+  <main>
+  <div class="main__div--tittle"></div>
+  <div class= "main__div--container">
+      <h2 class="welcome-wizards"><b> WELCOME WIZARDS</b></h2>
 
-        <div id='modalMessage'>
-            <div id='textModal'></div>            
-        </div>
-      </form>
-
+      <div class="main__div--login">
+        <form id='formNewRegister'> 
+          <input type="text" placeholder="Name" id="name">
+          <input type="text" placeholder="Email" id="email">
+          <br class="espacio">
+          <input type="PASSWORD" placeholder="Password" id="password">
+  
+          <div id='modalMessage'>
+              <div id='textModal'></div>            
+          </div>
+        </form>
       <div id='errorMessageJoin'></div>
 
       <p class="p_join"><b>REVELIO<b> The Daily Prophet</p>
@@ -34,12 +33,13 @@ export default () => {
         <img src="./img/hand.png" class="hand">
         <button type='button' id='googleButton' class='btn-google'>
         <img src="./img/google.png" id='img-google'>
-        </button>      
+        </button>
       </div>
-    </div>
-    <p class="alohomora">Already a member? ALOHOMORA</p>
-    <a href='#/Login'><button class="Login"> Login </button></a>
-  </main>
+      <p class="alohomora">Already a member? ALOHOMORA</p>
+      <a href='#/Login'><button class="Login"> Login </button></a>
+  </div>
+  
+</main>
   `;
   divRegister.innerHTML = viewRegister;
 
