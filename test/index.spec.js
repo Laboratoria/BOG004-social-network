@@ -1,8 +1,15 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import {SignInUser} from '../src/lib/firebase.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock('../src/lib/firebase-imports.js');
+// Función signIn
+describe('Función para ingresar con correo electrónico', () => {
+  it('Debería ser una función', () => {
+    expect(typeof SignInUser).toBe('function');
   });
+  it('Debe logearse con correo y contraseña', () => SignInUser('viviana.perez28@gmail.com', '123456')
+    .then((user) => {
+      console.log(user); 
+      expect(user.email).toBe('viviana.perez28@gmail.com');
+    }));
 });

@@ -7,10 +7,10 @@ import {
   GoogleAuthProvider,
   signOut,
 
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+} from './firebase-imports.js';
+import { initializeApp } from "./firebase-imports.js";
+import { getFirestore, collection, addDoc } from "./firebase-imports.js";
+import { getDatabase } from "./firebase-imports.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4",
@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const dataBase = getDatabase(app);
 const auth = getAuth();
-const provider = new GoogleAuthProvider();
+/*const provider = new GoogleAuthProvider();*/
 
 
 export const SignUpUser = (email, password) => {
@@ -43,11 +43,11 @@ export const SignInUser = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log('ingreso exitoso')
+      console.log(user)
     });
 }
 
-export const googleSignWithPopup = () => {
+/*export const googleSignWithPopup = () => {
   return signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -68,18 +68,17 @@ export const googleSignWithPopup = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
-}
+}*/
 
 
-export const saveTask = (title, description) =>
-  addDoc(collection(db, 'tasks'), { title, description })
+export const saveTask = (description) =>
+  addDoc(collection(db, 'Post'), {description})
 
 
 export const userSignOut = () => {
-  const auth = getAuth();
-  signOut(auth).then(() => {
-    // Sign-out successful.
+  return signOut(auth).then(() => {
+    console.log('Estas fuera')
   }).catch((error) => {
-    // An error happened.
+    console.log('Hubo un error')
   });
 }

@@ -14,12 +14,10 @@ export default () => {
     const taskContainer = document.createElement('div');
     taskContainer.innerHTML = post;
     const taskForm = taskContainer.querySelector('#task-form');
-    console.log(taskForm);
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const title = document.getElementById('task-title');
         const description = document.getElementById('task-description');
-        saveTask(title.value, description.value);
+        saveTask(description.value);
         taskForm.reset();
 
     })
@@ -27,8 +25,8 @@ export default () => {
     const buttonSignOut = taskContainer.querySelector('#logout');
     buttonSignOut.addEventListener('click', (e) => {
         e.preventDefault();
-        userSignOut();
-        console.log(userSignOut);
+        userSignOut()
+        .then(() => { changeView('#/home') })
     })
     return taskContainer;
 
