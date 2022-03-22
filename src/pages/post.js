@@ -19,7 +19,12 @@ export default {
 
 <div class='container-publicar'>
 <div class='container-post'>
-<textarea class='form-publicar'></textarea>
+<textarea
+        id='form__postCreate-text'
+        rows='4' cols='50' maxlength='300'
+        class='form__postCreate-text'
+        placeholder='Escribe tu comentario...'>
+      </textarea>
 <div class='option-post'>
 <i class="fa-solid fa-paperclip"></i>
 <input class='attachment'type='file'></input>

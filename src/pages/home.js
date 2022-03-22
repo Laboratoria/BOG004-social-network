@@ -29,7 +29,7 @@ export default {
     });
     const btnLogin = document.querySelector('#log-in');
     btnLogin.addEventListener('click', () => {
-      window.location.hash = 'Login';
+      window.location.hash = 'login';
     });
   },
 };

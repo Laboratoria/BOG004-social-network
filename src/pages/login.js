@@ -2,14 +2,14 @@ import { signInGoogle } from '../lib/auth-google.js';
 import { logInEmail } from '../lib/login-user.js';
 
 export default {
-  path: '#Login',
+  path: '#login',
   template: `
   <div class='paws-image'>
     <img class='paws' src='images/animalsBackground.png' alt='paws' />
   </div>
     <div class='container-form'>
       <form action='' class='form' id='form'>
-      <p>BIENVENIDO</p>
+      <p class='p-login'>Inicia sesión.</p>
       <div class='form__group' id='group__email'>
         <div class='form__group-input'>
           <input type='email' class='form__input' name='emailLogin' id='emailLogin' placeholder='correo@email.com'>
