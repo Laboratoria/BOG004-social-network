@@ -4,7 +4,8 @@ import { components } from '../views/index.js';
 const changeView = (route) => {
   const container = document.getElementById('root');
   container.innerHTML = '';
-
+  // eslint-disable-next-line no-console
+  console.log(window.location.hash);
   switch (route) {
     case '':
     { return container.appendChild(components.record()); }
@@ -36,8 +37,6 @@ const changeView = (route) => {
     default:
     { return container.appendChild(components.different()); }
   }
-  // eslint-disable-next-line no-console
-  console.log(window.location.hash);
 };
 
 export { changeView };

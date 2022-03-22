@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 function observerUserState() {
@@ -6,13 +7,13 @@ function observerUserState() {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      //TODO: ponerlo en una variable global para poder hacer cosas cheveres
+      // const uid = user.uid;
+      // TODO: ponerlo en una variable global para poder hacer cosas cheveres
       window.location.hash = '#wall';
       // ...
     } else {
       // User is signed out
-      if (window.location.hash === "#wall") {
+      if (window.location.hash === '#wall') {
         window.location.hash = '';
       }
       console.log('good bye!');

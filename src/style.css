@@ -33,7 +33,7 @@ body {
 }
 
 .welcome-text {
-  font-family: "Dancing Script";
+  font-family: "Dancing Script",  Arial, sans-serif;
   font-size: 2rem;
   margin-bottom: 0px;
   margin-top: 0.5rem;
