@@ -10,11 +10,19 @@
     body{
         margin: 0;
     }
+    h1{
+        font-size: 18px;
+    }
+    h1 .relevant{
+        color: blue;
+        font-size: 18px;
+    }
     p {
         margin: 0;
         font-size: 12px;
         font-weight: 500;
     }
+    
     #viewHero, #viewRegister, #viewLogin {
         display: flex;
         flex-direction: column;
@@ -159,6 +167,13 @@
             background-color: #04033B;
             border: none;
             border-radius: 6px;
+    }
+    h1{
+        font-size: 28px;
+    }
+    h1 .relevant{
+        color: blue;
+        font-size: 28px;
     }
     p {
         margin-left: 0;

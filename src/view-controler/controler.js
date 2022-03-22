@@ -11,10 +11,10 @@ const changeView = (route) => {
         case '#/login':
             components.login();
             break;    
-        default:
+        default :
+            components.hero();
             break;
     }
-    console.log(route);
 }
 
 export { changeView }

@@ -2,10 +2,14 @@
 <html lang="en">
 
     <nav class="nav">
-		<div class="nav-title"><img class="nav-logo" src="\images\logo-ninja-signup-responsive.svg"></div>
+		<div class="nav-title">
+            <a href="#/">
+            <img class="nav-logo" src="\images\logo-ninja-signup-responsive.svg">
+            </a>
+        </div>
 		<div class="nav-items">
-			<button class="nav-btn-border">REGISTRARSE</button>
-			<button class="nav-btn-bg">INICIAR SESIÓN</button>
+			<button class="nav-btn-border" onclick="window.location.href='#/register';">REGISTRARSE</button>
+			<button class="nav-btn-bg" onclick="window.location.href='#/login';">INICIAR SESIÓN</button>
             <a class="nav-btn" href="#">Cerrar Sesión</a>
 			<a class="nav-btn" href="#">FEED</a>
             <a class="nav-btn" href="#">PERFIL</a>
@@ -13,7 +17,7 @@
 	</nav>
 
 <head>
-    <title>Ninja Red Social de Tics</title>
+    <title>Ninja Red Social para proveedores y clientes de servicios Tics</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +29,8 @@
     <header>
     </header>
     <div id="root"></div>
-    <script type="module" src="Firebase/firebase.js"></script>
+    <script type="module" src="Firebase/auth.js"></script>
+    <script type="module" src="Firebase/firestore.js"></script>
     <script type="module" src="main.js"></script>
     
 </body>
