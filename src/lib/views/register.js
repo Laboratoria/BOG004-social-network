@@ -55,17 +55,17 @@ export default () => {
     const errorMessageJoin = document.querySelector('#errorMessageJoin');
     errorMessageJoin.innerHTML = '';
 
-    newRegister(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        console.log('Joined');
-        userCredential.user;
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    // newRegister(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     console.log('Joined');
+    //     userCredential.user;
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log(errorCode, errorMessage);
+    //   });
     if (name !== '') {
       newRegister(auth, email, password, name)
         .then((userCredential) => {
