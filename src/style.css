@@ -196,7 +196,9 @@ form p {
   /* position: absolute;
   right: 25%; */
 }
-
+.p-login{
+  font-size: 18px;
+}
 .form__group-input {
   position: relative;
 }
@@ -370,15 +372,32 @@ footer i {
     width: 300px;
     margin-top: 45%;
 }
-.form-publicar {
-  height: 15vh;
-  width: 100%;
-  text-align: center;
-  padding: 6%;
-  font-size: 0.5em;
-  font-family: "Fredoka", sans-serif;
-  text-align: justify;
-  box-sizing: border-box;
+.form__postCreate-text {
+  background-color: #dddddd8a;
+  color: whitesmoke;
+  padding: 1em;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 200px;
+  height: 100px;
+  transition: all 0.2s;
+}
+
+.form__postCreate-text:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.form__postCreate-text:focus {
+  cursor: text;
+  color: #333333;
+  background-color: white;
+  border-color: #333333;
 }
 .option-post{  
     display: flex;
