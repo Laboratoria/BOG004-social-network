@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
+// import { getFirestore, collection, addDoc } from './firebase-imports.js';
 import { initializeApp } from './firebase-imports.js';
+
 // import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -13,6 +15,20 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
+/*const db = getFirestore();
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+} */
+// export const savePost = (post) => addDoc(collection(db,'post'),{post});
+//   console.log(post,'hola')
 // const analytics = getAnalytics(app);
-export default firebaseApp;
+

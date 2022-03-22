@@ -1,4 +1,3 @@
-
 export const wall= ()=>{
     const divElement = document.createElement('div'); 
     const template = `
@@ -16,6 +15,11 @@ export const wall= ()=>{
     
      divElement.classList.add('view4');
      divElement.innerHTML = template;
+
+     const buttonPost= divElement.querySelector('#btnpost')
+     buttonPost.addEventListener('submit', ()=>{
+         console.log(savePost(post))
+     })
 
     
      return divElement;

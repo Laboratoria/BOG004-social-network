@@ -1,4 +1,4 @@
-import { SignGoogle, loginUser }  from '../Configfirebase/Authentication.js';
+import { SignGoogle, loginUser, }  from '../Configfirebase/Authentication.js';
 
 export const login = () => {
   const divElement = document.createElement('div');
@@ -27,7 +27,7 @@ export const login = () => {
   const password = divElement.querySelector('#password')
 
   buttonlogin.addEventListener('click', ()=>{
-    loginUser(email.value, password.value)
+    loginUser(email.value, password.value);
   })
 
   buttonGoogle.addEventListener('click', ()=>{

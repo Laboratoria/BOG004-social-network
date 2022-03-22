@@ -14,10 +14,10 @@ export const home = () => {
   const btnlogin = divElement.querySelector('#login1')
 
   btnregister.addEventListener('click', () => {
-    window.location.href = 'http://localhost:3000/#register'});
+    window.location = '#register'});
   
   btnlogin.addEventListener('click', () => {
-    window.location.href = 'http://localhost:3000/#login'});  
+    window.location = '#login'});  
 
 
 
