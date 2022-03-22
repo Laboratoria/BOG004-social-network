@@ -2,7 +2,6 @@ import { changeView } from "../view-controler/controler.js";
 
 export const register = () => {
     const viewRegisterHtml = document.getElementById("root");
-    const formRegister = document.querySelector('#form-register');
     const view = `
         <div id="viewRegister">
           <a href="#/register"></a>
@@ -40,19 +39,21 @@ export const register = () => {
     document.querySelector("#btn-login").addEventListener("click", () => {
       window.location.hash="/login";
     });
-    document.querySelector("#btn-register").addEventListener("click", () => {
-      console.log("funciona o no");
-    });
-    //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER ---OJOOO NO SE SI SE INGRESARÍA AQUÍ
-    //No esta funcionando pues con el controlador hay un break y retorna a la pantalla de hero
-    // formRegister.addEventListener('submit',(e)=> {
+    // document.querySelector("#btn-register").addEventListener("click", (e) => {
     //   e.preventDefault();
     //   console.log("funciona o no");
-    // const nameRegister = document.querySelector('#nameRegister').value;
-    // const lastNameRegister = document.querySelector('#lastNameRegister').value;
-    // const emailRegister = document.querySelector('#emailRegister').value;
-    // const passwordRegister = document.querySelector('#passwordRegister').value;
-    // console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
+    // });
+    //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER ---OJOOO NO SE SI SE INGRESARÍA AQUÍ
+    //No esta funcionando pues con el controlador hay un break y retorna a la pantalla de hero
+    const formRegister = document.querySelector('#form-register');
+    formRegister.addEventListener('submit',(e)=> {
+      e.preventDefault();
+      console.log("funciona o no");
+    const nameRegister = document.querySelector('#nameRegister').value;
+    const lastNameRegister = document.querySelector('#lastNameRegister').value;
+    const emailRegister = document.querySelector('#emailRegister').value;
+    const passwordRegister = document.querySelector('#passwordRegister').value;
+    console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
 
     // auth
     //     .createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
@@ -68,7 +69,7 @@ export const register = () => {
     //         const errorCode = error.code;
     //         const errorMessage = error.message;
     //         // ..
-    //      });
+         });
         return viewRegisterHtml;
     }
     
