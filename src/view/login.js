@@ -47,7 +47,7 @@ export default () => {
     newLogin(auth, email, password)
     .then((userCredential) => {
       console.log('logueado...');
-      window.location.assign('#/accesorios')
+      window.location.assign('#/feed')
       const user = userCredential.user;
       console.log(user);
     })

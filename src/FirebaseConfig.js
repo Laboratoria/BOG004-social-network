@@ -1,6 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -43,7 +44,7 @@ export const googleLogin = () => {
         // The signed-in user info.
         const user = result.user;
         // ...
-        window.location.assign('#/accesorios')
+        window.location.assign('#/feed')
         console.log('logueado con google')
       }).catch((error) => {
         // Handle Errors here.
@@ -55,5 +56,47 @@ export const googleLogin = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-      console.log('probando')
+};
+
+export const logOut = () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.assign('#')
+  }).catch((error) => {
+    // An error happened.
+  });
+  console.log('adiós, vuelve pronto')
+};
+
+//aca se empieza a usar Firestore
+const db = getFirestore(app);
+const setupPosts = data => {
+  if (data.length) {
+    let html ='';
+    data.forEach(doc => {
+      const post = doc.data();
+      console.log(Post) 
+      const contenido = `
+        <h3>
+      `
+    }
+    )
+  }
+  else {}
+}
+export const reglaUno = () => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+      db.collection('Posts')
+        .get()
+        .then((snapshot) => {
+          setupPost(snapshot.docs)
+        })
+      console.log('estado:logueado')
+    } else {
+      console.log('estado:no logueado')
+    }
+  });
 }
