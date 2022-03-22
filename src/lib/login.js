@@ -20,20 +20,22 @@ export const login = () => {
   divElement.classList.add('view3');
   divElement.innerHTML = template;
 
-  const bottomlogin = divElement.querySelector('#btnlogin')
-  const bottomGoogle = divElement.querySelector('#google');
-  const bottomhome = divElement.querySelector('.logo-L')
+  const buttonlogin = divElement.querySelector('#btnlogin')
+  const buttonGoogle = divElement.querySelector('#google');
+  const buttonhome = divElement.querySelector('.logo-L');
+  const email = divElement.querySelector('#email')
+  const password = divElement.querySelector('#password')
 
-  bottomlogin.addEventListener('click', ()=>{
+  buttonlogin.addEventListener('click', ()=>{
     loginUser(email.value, password.value)
   })
 
-  bottomGoogle.addEventListener('click', ()=>{
+  buttonGoogle.addEventListener('click', ()=>{
     SignGoogle()
   })
 
-  bottomhome.addEventListener('click', () =>{
-    window.location.href = 'http://localhost:3000'
+  buttonhome.addEventListener('click', () =>{
+    window.location = ''
   })
 
   return divElement;
