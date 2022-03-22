@@ -35,8 +35,8 @@
     height: 28px;
     border:0;
     border-radius: 10px;
-    background-color:#005d161e;
-    color: #9d9d9d;
+    background-color:#E1F0DC;
+    color: #838181;
     text-align: center;
 } 
 #inputEmail{
@@ -84,4 +84,72 @@
     color: #838181;
     font-size: 14px;
     font-weight: 600;
+}
+.gridHeaderAccount {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.logoAccount {
+    height: 78px;
+    width: 87.35px;
+}
+.tittleAccount {
+    margin-top: 0;
+    font-size: 40px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.gridBodyAccount {
+    display: grid;
+    row-gap: 20px;
+    justify-items: center;
+}
+#inputName {
+    margin-top: 20px;
+}
+#viewWall {
+    margin-top: 40px;
+}
+@media (min-width: 700px) {
+
+.gridHeader{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 0;
+    margin-left: 300px;
+    margin-right: 300px;
+    justify-items: center
+}
+
+    .tittle{
+        margin-top: 0px;
+        font-size: 120px;
+        font-weight: 500;
+    }
+    .logo{
+        height: 180px;
+        width: 203.38px;
+    }
+    .inputStyle{
+        width: 991px;
+        height: 50px;
+        color: #aca5a5;
+        text-align: center;
+        font-size: 25px;
+
+    } 
+    #inputPassword {
+        margin-top: 8px;
+    }
+    .btnLogin{
+        margin-top: 13px;
+        width: 367px;
+        height: 50px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+
 }
