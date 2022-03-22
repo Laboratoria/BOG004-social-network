@@ -34,35 +34,41 @@ export const register = () => {
     `;
     viewRegisterHtml.innerHTML = view;
 
-    document.querySelector("#btn-login").addEventListener("click", () => {
-        changeView("#/login");
+    document.querySelector("#logoRes-signUp").addEventListener("click", () => {
+      window.location.hash="/";
     });
-
+    document.querySelector("#btn-login").addEventListener("click", () => {
+      window.location.hash="/login";
+    });
+    document.querySelector("#btn-register").addEventListener("click", () => {
+      console.log("funciona o no");
+    });
     //FUNCION PARA LLAMADO DE DATOS DE FORM REGISTER ---OJOOO NO SE SI SE INGRESARÍA AQUÍ
     //No esta funcionando pues con el controlador hay un break y retorna a la pantalla de hero
-    formRegister.addEventListener('submit',(e)=> {
-    e.preventDefault();
-    const nameRegister = document.querySelector('#nameRegister').value;
-    const lastNameRegister = document.querySelector('#lastNameRegister').value;
-    const emailRegister = document.querySelector('#emailRegister').value;
-    const passwordRegister = document.querySelector('#passwordRegister').value;
-    console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
+    // formRegister.addEventListener('submit',(e)=> {
+    //   e.preventDefault();
+    //   console.log("funciona o no");
+    // const nameRegister = document.querySelector('#nameRegister').value;
+    // const lastNameRegister = document.querySelector('#lastNameRegister').value;
+    // const emailRegister = document.querySelector('#emailRegister').value;
+    // const passwordRegister = document.querySelector('#passwordRegister').value;
+    // console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
 
-    auth
-        .createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
-        .then((userCredential) => {
-            //Borrar datos del formulario al crear un usuario
-            formRegister.reset();
-            // Signed in
-            console.log("Sign Up registrado");
-            //aqui debemos crear un redireccionamiento al feed o a una pantalla de confirmación de creación de cuenta cuando ya se ha creado una cuenta 
-            //changeView("#/login"); 
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-          });
-    });
-    return viewRegisterHtml;
-};
+    // auth
+    //     .createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
+    //     .then((userCredential) => {
+    //         //Borrar datos del formulario al crear un usuario
+    //         formRegister.reset();
+    //         // Signed in
+    //         console.log("Sign Up registrado");
+    //         //aqui debemos crear un redireccionamiento al feed o a una pantalla de confirmación de creación de cuenta cuando ya se ha creado una cuenta 
+    //         //changeView("#/login"); 
+    //       })
+    //       .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         // ..
+    //      });
+        return viewRegisterHtml;
+    }
+    

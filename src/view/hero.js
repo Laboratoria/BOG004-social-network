@@ -8,7 +8,7 @@ export const hero = () => {
             <div>
               <img id="logoRes" src="/images/ninja-logo-responsive.svg">
             </div>
-            <h1>Red Social de Tics</h1>
+            <h1>Ninja Red Social para<span class="relevant"> ofrecer y encontrar servicios </span>en tecnologías de la información y la comunicación,<span class="relevant"> (TICS).</span></h1>
             <p id="text-intro">SI ERES UN CRACK, AQUÍ CONECTARÁS CON EMPRESAS QUE NECESITEN TUS CONSULTORÍAS, Y SI ERES EMPRESA, AQUÍ ENCONTRARÁS A LA PERSONA INDICADA PARA RESOLVER TUS DUDAS.</p>
             <div id="buttons-hero">
               <button id="btn-registerHero" class="btn-border">REGÍSTRATE</button>
@@ -18,10 +18,10 @@ export const hero = () => {
     `;
   viewHeroHtml.innerHTML = view;
   document.querySelector("#btn-registerHero").addEventListener("click", () => {
-    changeView("#/register");
+    window.location.hash="/register";
   });
   document.querySelector("#btn-loginHero").addEventListener("click", () => {
-    changeView("#/login");
+    window.location.hash="/login";
   });
   return viewHeroHtml;
-};
+}

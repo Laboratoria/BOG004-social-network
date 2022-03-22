@@ -30,11 +30,11 @@ export const login = () => {
     viewLoginHtml.innerHTML = view;
     document.querySelector("#btn-feed").addEventListener("click", () => {
         //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
-        changeView("#/");
+        window.location.hash="/";
     });
 
     document.querySelector("#btn-register-signUp").addEventListener("click", () => {
-        changeView("#/register");
+        window.location.hash="/register";
     });
 
     return viewLoginHtml;
