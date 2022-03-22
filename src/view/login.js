@@ -1,4 +1,4 @@
-import { auth, newLogin, provider, googlePopUp } from "../FirebaseConfig.js";
+import { auth, newLogin, googleLogin } from "../FirebaseConfig.js"
 
 export default () => {
   const viewLogin = `
@@ -47,6 +47,7 @@ export default () => {
     newLogin(auth, email, password)
     .then((userCredential) => {
       console.log('logueado...');
+      window.location.assign('#/accesorios')
       const user = userCredential.user;
       console.log(user);
     })
@@ -57,26 +58,7 @@ export default () => {
   const btnGoogle= divElemt.querySelector('#btnGoogle');
   btnGoogle.addEventListener('click', (e) =>{
     e.preventDefault();
-    // const auth = getAuth();
-    googlePopUp(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // ...
-        console.log('logueado con google')
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+    googleLogin();
   });
   
   return divElemt;
