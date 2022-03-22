@@ -12,7 +12,7 @@ export const changeTmp = (hash) => {
     { return sectionMain.appendChild(components.home()); }
     case '#/login':
     case '#/register':
-    case '#/lugares':
+    case '#/feed':
     { return sectionMain.appendChild(components[id]()); }
     default:
       return sectionMain.appendChild(components.different());

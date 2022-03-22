@@ -226,3 +226,57 @@ a:visited {
     width: 15px;
     height: 15px;
 }
+
+/* PANTALLA FEED */
+.contenedor-feed {
+    height: 830px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbar-pantalla3{
+    height: 96px;
+    width: 390px;
+    background-color: #E2E2E2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#imgCodering{
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+.navbar-pantalla3 button {
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    margin: 10px
+}
+#buscar{
+    width: 193px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
+}
+
+#imgBotonIr,
+#imgLogout {
+    height: 30px;
+    width: 30px;
+}
+.barra{
+    width: 390px;
+    height: 40px;
+    background-color: #D4F6FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.barra img{
+    height: 20px;
+    width: 20px;
+}

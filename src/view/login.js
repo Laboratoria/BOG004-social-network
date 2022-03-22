@@ -1,4 +1,4 @@
-import { auth, newLogin } from "../FirebaseConfig.js";
+import { auth, newLogin, googleLogin } from "../FirebaseConfig.js"
 
 export default () => {
   const viewLogin = `
@@ -27,7 +27,7 @@ export default () => {
       </div>
 
       <div class="gyf-login">
-        <button type="submit" class="boton-gyf">
+        <button type="submit" class="boton-gyf" id="btnGoogle">
         <img src="../img/google.png" alt="Google"> Iniciar sesión con Google</button>
         <button type="submit" class="boton-gyf">
         <img src="../img/facebook.png" alt="Facebook"> Iniciar sesión con Facebook</button>
@@ -47,13 +47,19 @@ export default () => {
     newLogin(auth, email, password)
     .then((userCredential) => {
       console.log('logueado...');
+      window.location.assign('#/feed')
       const user = userCredential.user;
       console.log(user);
-      
     })
     .catch((error) => {
       alert('Por favor verifique sus credenciales')
     });
   })
+  const btnGoogle= divElemt.querySelector('#btnGoogle');
+  btnGoogle.addEventListener('click', (e) =>{
+    e.preventDefault();
+    googleLogin();
+  });
+  
   return divElemt;
 };
