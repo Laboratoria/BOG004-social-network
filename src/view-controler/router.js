@@ -14,7 +14,14 @@ const changeView = (hash) => {
                 sectionMain.appendChild(components.user.createFormUser());
                 components.user.saveUser();
             }
-
+        case '#/login':
+            { return sectionMain.appendChild(components.login()); }
+        case '#/profile':
+            { return sectionMain.appendChild(components.profile()); }
+        case '#/feed':
+            { return sectionMain.appendChild(components.feed()); }
+        case '#/interest':
+            { return sectionMain.appendChild(components.interest()); }
         default:
             return sectionMain.appendChild(components.different())
     }

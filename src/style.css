@@ -1,0 +1,145 @@
+#signup-form, #google{
+    display: none;
+}
+footer{
+    background-color: #F6E1E8;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color:rgb(141, 137, 137);
+}
+/*HOME*/
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+.leftColumn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 0px;
+}
+.rightColumn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 0px;
+}
+
+/*COLUMNA IZQUIERDA*/
+.leftColumn{
+    border-radius: 100% 20% 100% 20%;
+}
+.leftColumn h2{
+    font-family: 'Amatic SC', cursive;
+    color: #FFA8BE;
+    float: left;
+    font-size: 100px;
+    padding: 0px;
+    padding-left: 300px;
+    margin: 0px;
+}
+.leftColumn p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: rgb(141, 137, 137);
+    text-align: center;
+    font-size: 15px;
+}
+#homeImg{
+    width: 550px;
+}
+#loginBtn, #createUserBtn{
+    width: 200px;
+    border: none;
+    border-radius: 20px;
+    margin: 10px; 
+    padding: 6px 20px 6px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#loginBtn{
+    background-color: #FFA8BE; 
+    color: white;
+}
+#createUserBtn{
+    background-color: #A6CF98;
+    color: white;
+}
+#nibblesLogo{
+    display: block;
+    width: 30%;
+    margin-bottom: 50px ;
+}
+
+.rightColumn p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: rgb(112, 110, 110);
+    font-size: 12px;
+    padding-top: 70px;
+    margin: 0px;
+}
+hr {
+    padding: 0px;
+    height: 0.25px;
+    width: 20%;
+    background-color: rgb(179, 177, 177);
+}
+.googleLogo{
+    width: 40px;
+}
+/* Escritorio extra grande */
+@media only screen and (min-width: 992px){
+    body{
+        background-image: url(./img/background-home.png);
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+        padding: 100px 0px;
+        width: 70%;
+        height: 500px;
+    }
+}
+/*TABLETS*/
+@media only screen and (min-width: 576px) and (max-width: 992px){
+    .leftColumn{
+        display: none;
+    }
+}
+/* TELÉFONOS */
+@media only screen and (max-width: 575px){
+    .leftColumn{
+        display: none;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 76px 0px 76px 0px;
+    }
+
+    .googleLogo{
+        margin: 20px;
+    }
+    #nibblesLogo{
+        width: 40%;
+    }
+    footer{
+        display: none;
+    }
+}
