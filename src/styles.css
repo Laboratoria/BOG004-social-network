@@ -159,5 +159,8 @@ main {
     
     .main__div--tittle {
         margin: auto;
+        background-image: url(./img/Logo\ Desktop.png);
+        width: 350px;
+        height: 480px;
     }
 }
