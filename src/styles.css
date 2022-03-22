@@ -9,6 +9,13 @@
 body {
     background-image: url("./img/background.png");
     min-width: 250px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 main {
@@ -128,12 +135,11 @@ main {
 
 #modalMessage {
     margin: auto;
-    background-color: red;
     text-align: center;
 }
 
 #formNewRegister input{
-     width: 320px;
+    width: 320px;
     height: 45px;
     border: #272121 solid 3px;
     margin: auto;
@@ -162,5 +168,22 @@ main {
         background-image: url(./img/Logo\ Desktop.png);
         width: 350px;
         height: 480px;
+        margin-top: 70px;
     }
+}
+
+#errorMessageJoin {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
+}
+
+#textModal {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
 }
