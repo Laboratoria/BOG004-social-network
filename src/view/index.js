@@ -1,5 +1,5 @@
 import home from "./home.js";
-import createUser from "./createUser.js";
+import { createFormUser, saveUser } from "./user.js";
 import different from "./404.js";
 
 
@@ -7,7 +7,7 @@ import different from "./404.js";
 
 const components = {
     home: home,
-    createUser: createUser,
+    user: { createFormUser, saveUser },
     different: different,
 }
  

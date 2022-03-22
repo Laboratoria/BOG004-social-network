@@ -11,7 +11,8 @@ export const register = (email, password) =>{
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("registro exitoso");
+        console.log("registro erroneo");
+        console.log(errorMessage);
         // ..
     })
 }
