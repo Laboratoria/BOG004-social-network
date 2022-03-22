@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const createUser = (email, password) => {
@@ -7,7 +8,7 @@ const createUser = (email, password) => {
       // Signed in
       // const user = userCredential.user;
       // eslint-disable-next-line no-console
-      console.log('El usuario fue creado!!!');
+      console.log(`El usuario ${userCredential} fue creado!!!`);
     })
     .catch((error) => {
       const getDivError = document.getElementById('id-message-error-record');
@@ -16,13 +17,14 @@ const createUser = (email, password) => {
       // eslint-disable-next-line no-console
       console.error(errorCode);
       console.error(errorMessage);
-      if (errorCode === 'auth/email-already-in-use'){
+      if (errorCode === 'auth/email-already-in-use') {
         getDivError.innerHTML = '<p>El usuario ya existe, inicie sesión</p>';
-      
-      if (errorCode === 'auth/weak-password'){
-      getDivError.innerHTML = '<p>Por favor ingresar contraseña de al menos 6 digitos</p>';
+      } else if (errorCode === 'auth/weak-password') {
+        getDivError.innerHTML = '<p>Por favor ingresar contraseña de al menos 6 digitos</p>';
+      } else {
+        getDivError.innerHTML = `<p>Error (${errorCode}): ${errorMessage}</p>`;
+      }
+    });
 };
 
-    };
-}
 export default createUser;

@@ -1,6 +1,6 @@
 export default () => {
   const viewPicture = `  
-    <section id="login-user">
+    <section id='login-user'>
       PICTURE
     </section>
           `;

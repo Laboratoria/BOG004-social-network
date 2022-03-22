@@ -1,5 +1,5 @@
 export default () => {
-  const viewPeople= `  
+  const viewPeople = `  
     <section id="login-user">
       PEOPLE
     </section>

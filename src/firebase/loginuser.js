@@ -1,4 +1,5 @@
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+// eslint-disable-next-line import/no-unresolved
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 function existingUser(email, password) {
   const auth = getAuth();
@@ -6,7 +7,7 @@ function existingUser(email, password) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log('Login extitoso');
+      console.log(`El usuario ${user} se ha autenticado!!!`);
       // ...
     })
     .catch((error) => {

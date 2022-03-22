@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
-/* eslint-disable indent */
+// eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
 // Este es el punto de entrada de tu aplicacion
@@ -41,7 +41,7 @@ const init = () => {
 };
 
 function registerUser() {
-    // Funcionalidad enlaces y botones de la sección y registro.
+  // Funcionalidad enlaces y botones de la sección y registro.
 
   const registerBtn = document.getElementById('registerBtn');
 
@@ -72,23 +72,23 @@ function loginUser() {
     const loginPasswordValidation = document.getElementById('loginPassword').value;
 
     existingUser(loginEmailValidation, loginPasswordValidation);
-});
+  });
 }
 
 function authAddGoogle() {
   // Funcionalidad enlaces y botones de la sección autenticacion con google.
 
-const googleBtn = document.getElementById('googleBtn');
+  const googleBtn = document.getElementById('googleBtn');
 
-console.log(`autenticando con google ${googleBtn}`);
+  console.log(`autenticando con google ${googleBtn}`);
 
-googleBtn.addEventListener('click', () => {
+  googleBtn.addEventListener('click', () => {
   // 1. Traer los inputs de la vista y luego .value
   // 2. Validar?
   // 3. Llamar a la funcion createUserWith..blablabla
 
-  signInWithGoogle();
-});
+    signInWithGoogle();
+  });
 }
 //
 

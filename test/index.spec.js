@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { changeView } from '../src/lib/router.js';
 
-describe('myFunction', () => {
+describe('changeView', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof changeView).toBe('function');
   });
 });
