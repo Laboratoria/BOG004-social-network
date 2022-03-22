@@ -1,5 +1,4 @@
 // codigo para uso de firestore
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,7 +15,7 @@ const firebaseConfig = {
     appId: "1:831935966918:web:1d6c8a571c41c911bf31c7",
     measurementId: "G-C0G4TLFDJK"
   };
-  
+
 //constante de inicializacion de firestore
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
