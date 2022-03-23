@@ -1,21 +1,5 @@
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-//REGISTRO
-export const register = (email, password) =>{
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        console.log("registro exitoso");
-        const user = userCredential.user;
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("registro erroneo");
-        console.log(errorMessage);
-        // ..
-    })
-}
+import { changeView } from "../view-controler/router.js";
 //LOGIN
 export const login = (email, password) => {
     const auth = getAuth();

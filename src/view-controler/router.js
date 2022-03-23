@@ -8,22 +8,55 @@ const changeView = (hash) => {
         case '':
         case '#':
         case '#/':
-            { return sectionMain.appendChild(components.home()); }
+            {
+                if (localStorage.getItem("token")) {
+                    return sectionMain.appendChild(components.feed());
+                } else {
+                    return sectionMain.appendChild(components.home());
+                }
+            }
         case '#/createUser':
             {
                 sectionMain.appendChild(components.user.createFormUser());
-               return components.user.saveUser();
+                return components.user.saveUser();
             }
         case '#/login':
             { return sectionMain.appendChild(components.login()); }
         case '#/profile':
-            { return sectionMain.appendChild(components.profile()); }
+            {
+                if (localStorage.getItem("token")) {
+                    return sectionMain.appendChild(components.profile());
+                } else {
+                    return sectionMain.appendChild(components.home());
+                }
+            }
         case '#/feed':
-            { return sectionMain.appendChild(components.feed()); }
+            {
+                if (localStorage.getItem("token")) {
+                    return sectionMain.appendChild(components.feed());
+                } else {
+                    return sectionMain.appendChild(components.home());
+                }
+            }
         case '#/interest':
-            { return sectionMain.appendChild(components.interest()); }
+            {
+                if (localStorage.getItem("token")) {
+                    return sectionMain.appendChild(components.interest());
+                } else {
+                    return sectionMain.appendChild(components.home());
+                }
+            }
+        case '#/cerrar-sesion':
+            {
+                console.log("usuario cerró sesion");
+                localStorage.removeItem("token");
+                localStorage.removeItem("name");
+                return sectionMain.appendChild(components.home());
+            }
         default:
             return sectionMain.appendChild(components.different())
+
+
     }
 };
 export { changeView }
