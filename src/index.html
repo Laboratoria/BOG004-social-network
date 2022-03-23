@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <script type="module" src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css" media="screen, print"></style>
+    <title>PetShare</title>
+  </head>
+  <style>
+    @import url("http://fonts.cdnfonts.com/css/bebas-kai");
+  </style>
+
+  <body>
+    <!--<div class="buttonsStart">
+      <h1>Welcome to Petshare</h1>
+      <button class="btnSignIn">Sign In</button>
+      <button class="btnSignUp">Sign Up</button>
+    </div>
+
+    <div class="contaninerGeneral">
+      <div class="containerEmail">
+        <h1>Login</h1>
+        <input type="text" required />
+        <label>Email:</label>
+      </div>
+
+      <div class="containerPassword">
+        <input type="text" required />
+        <label>Password:</label>
+      </div>
+
+      <input type="submit" value="Login">
+    </div> -->
+
+    <header>
+      <input id="toggle" type="checkbox"></input>
+        <label for="toggle" class="hamburger">
+          <div class="top-bun"></div>
+          <div class="meat"></div>
+          <div class="bottom-bun"></div>
+        </label>
+        <div class="nav">
+          <div class="nav-wrapper">
+            <nav>
+              <ul class="list-bar" style="list-style-type: none;">
+                <li id="homie">
+                  <a href="#/" style="color: white;" onmouseover="this.style.color='rgb(177, 240, 76)';" onmouseout="this.style.color='white';" >PetShare</a>
+                </li>
+              <li id="in">
+                <a href="#/signIn" style="color: white;" onmouseover="this.style.color='rgb(177, 240, 76)';" onmouseout="this.style.color='white';" >Sign In</a>
+              </li>
+              <li id="up">
+                <a href="#/signUp" style="color: white;" onmouseover="this.style.color='rgb(177, 240, 76)';" onmouseout="this.style.color='white';" >Sign Up</a>
+              </li>
+                <!--<li>
+                  <a href="#/error">Error 404</a>
+                </li>-->
+              </ul>
+            </nav>
+          </div>
+        </div>
+    </header>
+    <section id="container">
+    </section>
+    <br>
+    
+    <footer id="footby">Creado por Laura Castellanos, Catalina Quintero y Susana Martínez.</footer>
+    
+    <!--FIREBASE SCRIPTS-->
+    <!--TODO: Add SDKs for Firebase products that you want to use-->
+    <!--https://firebase.google.com/docs/web/setup#available-libraries-->
+
+
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
