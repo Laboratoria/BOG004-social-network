@@ -1,64 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <link rel='stylesheet' href='style.css' />
+  <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap' rel='stylesheet'>
   <title>Nibbles</title>
 </head>
 <body>
   <header>
-    <nav id="menuHtml">
+    <nav id='menuHtml'>
       <ul>
         <li>
-        <a href="#/">home</a>
+        <a href='#/'>home</a>
         </li>
         <li>
-          <a href="#/createUser">Create User</a>
+          <a href='#/createUser'>Create User</a>
         </li>
         <li>
-          <a href="#/login">Login</a>
+          <a href='#/login'>Login</a>
         </li>
         <li>
-          <a href="#/profile">profile</a>
+          <a href='#/profile'>profile</a>
         </li>
         <li>
-          <a href="#/feed">feed</a>
+          <a href='#/feed'>feed</a>
         </li>
         <li>
-          <a href="#/interest">interest</a>
+          <a href='#/interest'>interest</a>
         </li>
         <li>
-          <a href="#/cerrar-sesion">cerrar-sesion</a>
+          <a href='#/cerrar-sesion'>cerrar-sesion</a>
         </li>
       </ul>
     </nav>
   </header>
-  <button id="google">Google</button>
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-    import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
-     
-    const firebaseConfig = {
-      apiKey: 'AIzaSyCD3vDNvAc4fuPUfuqxSUlLO1oPpe8UQGg',
-      authDomain: 'nibbles-sn4.firebaseapp.com',
-      projectId: 'nibbles-sn4',
-      storageBucket: 'nibbles-sn4.appspot.com',
-      messagingSenderId: '103067776601',
-      appId: '1:103067776601:web:a0593480ba20b6d76ae348',
-      measurementId: 'G-SST87CF4S1',
-    };
-     
-    const app = initializeApp(firebaseConfig);
-    const baseDeDatos = getFirestore(app);
-     
-    
-    </script>
-  <script type="module" src="main.js"></script>
-  <section id="container"></section>
+  <button id='google'>Google</button>
+  <script type='module' src='../lib/firebase-init.js'></script>
+  <script type='module' src='main.js'></script>
+  <section id='container'></section>
   <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
 </body>
 </html>
