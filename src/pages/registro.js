@@ -1,5 +1,4 @@
-import { signInGoogle } from '../lib/auth-google.js';
-import { signInEmail } from '../lib/auth-email.js';
+import { signInGoogle, signInEmail } from '../lib/firebase.js';
 import { expresiones, validateField } from '../utils.js';
 
 export default {
