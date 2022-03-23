@@ -1,4 +1,9 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "./firebase-import.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "./firebase-import.js";
 const auth = getAuth();
 
 //Función FIREBASE para registro de nuevos usuarios
@@ -38,4 +43,3 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });
-
