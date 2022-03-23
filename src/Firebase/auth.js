@@ -4,24 +4,24 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 //Función FIREBASE para registro de nuevos usuarios
 export let registerUser = (email, password) => {
     const auth = getAuth();
-   return createUserWithEmailAndPassword(auth, email, password)
-  
+    return createUserWithEmailAndPassword(auth, email, password)
+
     .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      if(user){
-        return true;
-      } else{
-        return false;
-      }
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      return false;
-    });
+            // Signed in
+            const user = userCredential.user;
+            // ...
+            if (user) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            return false;
+        });
 }
 
 
@@ -50,4 +50,3 @@ export let registerUser = (email, password) => {
 //     // ...
 //   }
 // });
-

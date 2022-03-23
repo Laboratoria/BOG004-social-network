@@ -1,5 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import  { registerUser }  from "../Firebase/auth.js";
+import { registerUser } from "../Firebase/auth.js";
 
 export const register = () => {
     const viewRegisterHtml = document.getElementById("root");
@@ -35,21 +35,21 @@ export const register = () => {
     viewRegisterHtml.innerHTML = view;
 
     document.querySelector("#logoRes-signUp").addEventListener("click", () => {
-      window.location.hash="/";
+        window.location.hash = "/";
     });
     document.querySelector("#btn-login").addEventListener("click", () => {
-      window.location.hash="/login";
+        window.location.hash = "/login";
     });
     const formRegister = document.querySelector('#form-register');
-    formRegister.addEventListener('submit',(e)=> {
-      e.preventDefault();
-      const nameRegister = document.querySelector('#nameRegister').value;
-      const lastNameRegister = document.querySelector('#lastNameRegister').value;
-      const emailRegister = document.querySelector('#emailRegister').value;
-      const passwordRegister = document.querySelector('#passwordRegister').value;
-      //console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
+    formRegister.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameRegister = document.querySelector('#nameRegister').value;
+        const lastNameRegister = document.querySelector('#lastNameRegister').value;
+        const emailRegister = document.querySelector('#emailRegister').value;
+        const passwordRegister = document.querySelector('#passwordRegister').value;
+        console.log(nameRegister, lastNameRegister, emailRegister, passwordRegister);
 
-        console.log(registerUser(emailRegister, passwordRegister));
+        // console.log(registerUser(emailRegister, passwordRegister));
         //   .then((userCredential) => {
         //     //Borrar datos del formulario al crear un usuario
         //     formRegister.reset();
@@ -63,8 +63,6 @@ export const register = () => {
         //     const errorMessage = error.message;
         //     // ..
         //  });
-        });
-        return viewRegisterHtml;
-    }
-
-     
+    });
+    return viewRegisterHtml;
+}
