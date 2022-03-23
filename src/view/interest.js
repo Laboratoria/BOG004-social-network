@@ -1,5 +1,5 @@
 export default () => {
-    document.getElementById("menuHtml").style.display = "block";
+    // document.getElementById("menuHtml").style.display = "block";
     const containerInterest = document.createElement("div");
     containerInterest.classList.add("containerInterest");
 

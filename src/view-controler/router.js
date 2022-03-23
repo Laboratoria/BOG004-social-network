@@ -1,6 +1,5 @@
 import { components } from "../view/index.js";
 
-
 const changeView = (hash) => {
     const id = hash.split('/')[1];
     const sectionMain = document.getElementById("container")

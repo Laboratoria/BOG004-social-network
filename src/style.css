@@ -35,7 +35,7 @@ body{
     padding-bottom: 0px;
 }
 
-/*COLUMNA IZQUIERDA*/
+/*columna izquierda*/
 .leftColumn{
     border-radius: 100% 20% 100% 20%;
 }
@@ -81,7 +81,7 @@ body{
     width: 30%;
     margin-bottom: 50px ;
 }
-
+/*columna derecha*/
 .rightColumn p{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
