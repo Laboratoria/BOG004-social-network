@@ -280,3 +280,31 @@ a:visited {
     height: 20px;
     width: 20px;
 }
+.parrafoFeed{
+    padding: 10px;
+    display: flex;
+    height: 80px;
+    width: 90%;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Abel', sans-serif;
+    font-size: x-large;
+    border-style:none;
+}
+
+.titleFeed{
+    padding: 10px;
+    display: flex;
+    height: 20px;
+    width: 90%;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Abel', sans-serif;
+    font-size: xx-large;
+    border-style: none;
+    color: #3134A1;
+}
+
+input [type = checkbox]{
+    border-radius: 100px;
+}

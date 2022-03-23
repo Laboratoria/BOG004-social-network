@@ -17,8 +17,9 @@ export default () => {
     </div>
     <div class="posts" id="posts">
       <div>
-        <h3 id="titulo">titulo</h3>
-        <textarea></textarea>
+        <input class="titleFeed" type="text">
+        <input class="parrafoFeed" type="text">
+        <input class="likeFeed" type="checkbox">
         <input type="file">
         <button type="submit">Publicar</button>
       </div>
