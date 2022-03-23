@@ -1,4 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
+import  { registerUser }  from "../Firebase/auth.js";
 
 export const register = () => {
     const viewRegisterHtml = document.getElementById("root");
@@ -42,28 +43,28 @@ export const register = () => {
     const formRegister = document.querySelector('#form-register');
     formRegister.addEventListener('submit',(e)=> {
       e.preventDefault();
-      
       const nameRegister = document.querySelector('#nameRegister').value;
       const lastNameRegister = document.querySelector('#lastNameRegister').value;
       const emailRegister = document.querySelector('#emailRegister').value;
       const passwordRegister = document.querySelector('#passwordRegister').value;
-      console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
-      // const auth = getAuth();
-      // auth
-      //   .createUserWithEmailAndPassword(auth, emailRegister, passwordRegister);
-      //   .then((userCredential) => {
-      //       //Borrar datos del formulario al crear un usuario
-      //       formRegister.reset();
-      //       // Signed in
-      //       console.log("Sign Up registrado");
-      //       //aqui debemos crear un redireccionamiento al feed o a una pantalla de confirmación de creación de cuenta cuando ya se ha creado una cuenta 
-      //       //changeView("#/login"); 
-      //     })
-      //     .catch((error) => {
-      //       const errorCode = error.code;
-      //       const errorMessage = error.message;
-      //       // ..
-         });
+      //console.log (nameRegister,lastNameRegister, emailRegister, passwordRegister);
+
+        console.log(registerUser(emailRegister, passwordRegister));
+        //   .then((userCredential) => {
+        //     //Borrar datos del formulario al crear un usuario
+        //     formRegister.reset();
+        //     // Signed in
+        //     console.log("Sign Up registrado");
+        //     //aqui debemos crear un redireccionamiento al feed o a una pantalla de confirmación de creación de cuenta cuando ya se ha creado una cuenta 
+        //     //changeView("#/login"); 
+        //   })
+        //   .catch((error) => {
+        //     const errorCode = error.code;
+        //     const errorMessage = error.message;
+        //     // ..
+        //  });
+        });
         return viewRegisterHtml;
     }
-    
+
+     
