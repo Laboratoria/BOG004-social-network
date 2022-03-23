@@ -14,7 +14,7 @@ const createFormUser = () => {
         let fullName = document.createElement("input");
         fullName.setAttribute("type", "text");
         fullName.setAttribute("name", "Full Name");
-        fullName.setAttribute("placeholder", "Nombre Completa");
+        fullName.setAttribute("placeholder", "Nombre Completo");
         fullName.setAttribute("class", "formulario");
 
 
