@@ -3,13 +3,12 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
+import {
+  registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
+} from './controlerview.js';
+
 // Este es el punto de entrada de tu aplicacion
 import { changeView } from './lib/router.js';
-import createUser from './firebase/newloginuser.js';
-import existingUser from './firebase/loginuser.js';
-import observerUserState from './firebase/observer.js';
-import { signInWithGoogle } from './firebase/authgoogle.js';
-import closeSession from './firebase/closesession.js';
 
 function onChangeView() {
   const currentHash = (window.location.hash);
@@ -39,68 +38,5 @@ const init = () => {
   console.log('app', app);
   observerUserState();
 };
-
-function registerUser() {
-  // Funcionalidad enlaces y botones de la sección y registro.
-
-  const registerBtn = document.getElementById('registerBtn');
-
-  console.log(`Cargando el boton ${registerBtn}`);
-
-  registerBtn.addEventListener('click', () => {
-    // 1. Traer los inputs de la vista y luego .value
-    // 2. Validar?
-    // 3. Llamar a la funcion createUserWith..blablabla
-
-    const emailValidation = document.getElementById('registerUsername').value;
-    const passwordValidation = document.getElementById('registerPassword').value;
-
-    createUser(emailValidation, passwordValidation);
-  });
-}
-
-//
-
-function loginUser() {
-  console.log('loginUser Runs');
-  const loginBtn = document.getElementById('loginBtn');
-
-  console.log(`Cargando el boton ${loginBtn}`);
-
-  loginBtn.addEventListener('click', () => {
-    const loginEmailValidation = document.getElementById('loginEmail').value;
-    const loginPasswordValidation = document.getElementById('loginPassword').value;
-
-    existingUser(loginEmailValidation, loginPasswordValidation);
-  });
-}
-
-function authAddGoogle() {
-  // Funcionalidad enlaces y botones de la sección autenticacion con google.
-
-  const googleBtn = document.getElementById('googleBtn');
-
-  console.log(`autenticando con google ${googleBtn}`);
-
-  googleBtn.addEventListener('click', () => {
-  // 1. Traer los inputs de la vista y luego .value
-  // 2. Validar?
-  // 3. Llamar a la funcion createUserWith..blablabla
-
-    signInWithGoogle();
-  });
-}
-//
-
-function registerCloseSession() {
-  console.log('logoutBtn Runs');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  console.log(`Cargando el boton logout ${logoutBtn}`);
-
-  logoutBtn.addEventListener('click', () => {
-    closeSession();
-  });
-}
 
 window.addEventListener('load', init);
