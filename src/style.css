@@ -17,6 +17,7 @@ body{
     margin: 0px;
     padding: 0px;
     height: 100%;
+    
 }
 
 .leftColumn{
@@ -146,14 +147,25 @@ li a {
     padding: 8px;
 }
 
+
+/* INTEREST */
+.interest-img{
+    width: 200px;
+    margin: 0px 20px 0px 20px;
+    border-radius: 15px 0px 0px 15px;
+}
+.interestContainer{
+    display: flex;
+    padding: 0px;
+}
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px){
-    body{
+    /* body{
         background-image: url(./img/background-home.png);
         background-attachment: fixed;
         background-position: center center;
         background-size: cover;
-    }
+    } */
     .container{
         display: grid;
         grid-template-columns: 1fr 1fr;
