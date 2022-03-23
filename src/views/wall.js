@@ -1,6 +1,6 @@
 export default () => {
   const viewWall = `  
-    <section id="wall-user">
+    <section id="wall-user"> Wall
     <div id="wall-content">
     <div id="editPost">
       <textarea id="thinksuseredit" rows="4" cols="50" placeholder="¿Que estas pensado?..."></textarea>
