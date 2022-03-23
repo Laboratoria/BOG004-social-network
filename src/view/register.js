@@ -25,9 +25,9 @@ export const register = () => {
                     </div>
                     <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
                 </section>
+                <h3>o registrate con:</h3> 
+                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
               </form>
-              <h3>o registrate con:</h3> 
-              <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
             </div>
         </div>
     `;
