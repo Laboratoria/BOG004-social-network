@@ -33,7 +33,7 @@ export const register = () => {
     `;
   viewRegisterHtml.innerHTML = view;
 
-  document.querySelector("#logoRes-signUp").addEventListener("click", () => {
+  document.querySelector("#logoRes-signUp").addEventListener("click", () => {n
     window.location.hash = "/";
   });
   document.querySelector("#btn-login").addEventListener("click", () => {
