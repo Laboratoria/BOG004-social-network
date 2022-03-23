@@ -1,5 +1,4 @@
-import { signInGoogle } from '../lib/auth-google.js';
-import { logInEmail } from '../lib/login-user.js';
+import { signInGoogle, logInEmail } from '../lib/firebase.js';
 
 export default {
   path: '#login',
