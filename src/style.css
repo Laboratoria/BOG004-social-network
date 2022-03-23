@@ -99,6 +99,53 @@ hr {
 .googleLogo{
     width: 40px;
 }
+header {
+    background-color: #F6E1E8;
+    padding: 24px;
+    text-decoration: none;
+
+}
+ul {
+    display: flex;
+    text-decoration: none;
+
+}
+ul li {
+    list-style:none;
+    margin: 5px;
+}
+
+li a {
+    text-decoration: none;
+}
+
+#register-form{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.formulario{
+    background-color: #A6CF98;
+    color: white;
+     margin:12px;
+     border-radius: 10px;
+     border:none;
+     padding: 8px;
+
+}
+.text-center{
+    text-align: center;
+    color:fff;
+}
+.btn-submit{
+    color: fff;
+    background-color: #FFA8BE;
+    margin:12px;
+    border-radius: 10px;
+    border:none;
+    padding: 8px;
+}
+
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px){
     body{

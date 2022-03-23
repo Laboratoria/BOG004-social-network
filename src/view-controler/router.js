@@ -12,7 +12,7 @@ const changeView = (hash) => {
         case '#/createUser':
             {
                 sectionMain.appendChild(components.user.createFormUser());
-                components.user.saveUser();
+               return components.user.saveUser();
             }
         case '#/login':
             { return sectionMain.appendChild(components.login()); }
