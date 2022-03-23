@@ -1,65 +1,73 @@
 import { register } from '../lib/auth.js'
- 
+
 const createFormUser = () => {
     const divElem = document.createElement("div");
-    const viewCreateUser = `<h2 class="text.center"> Crea una cuenta en Nibbles</h2>`;
+    const viewCreateUser = `<h2 class="text-center"> Crea una cuenta en Nibbles</h2>`;
     divElem.innerHTML = viewCreateUser;
     const htmlFormRegister = () => {
- 
-        let titleForm = document.createElement("h3");
-        titleForm.innerText = "Register";
+
+
         let form = document.createElement("form");
         form.setAttribute("method", "post");
         form.setAttribute("id", "register-form");
- 
+
         let fullName = document.createElement("input");
         fullName.setAttribute("type", "text");
-        fullName.setAttribute("name", "fullName");
-        fullName.setAttribute("placeholder", "Full Name");
- 
+        fullName.setAttribute("name", "Full Name");
+        fullName.setAttribute("placeholder", "Nombre Completa");
+        fullName.setAttribute("class", "formulario");
+
+
         let email = document.createElement("input");
         email.setAttribute("type", "text");
         email.setAttribute("name", "email");
-        email.setAttribute("placeholder", "E-Mail");
+        email.setAttribute("placeholder", "correo");
         email.setAttribute("id", "register-email");
- 
- 
+        email.setAttribute("class", "formulario");
+
+
+
         let password = document.createElement("input");
         password.setAttribute("type", "password");
         password.setAttribute("name", "password");
-        password.setAttribute("placeholder", "Password");
+        password.setAttribute("placeholder", "contraseña");
         password.setAttribute("id", "register-password");
- 
- 
+        password.setAttribute("class", "formulario");
+
+
+
         let repeatPassword = document.createElement("input");
         repeatPassword.setAttribute("type", "password");
-        repeatPassword.setAttribute("name", "RepeatPassword");
-        repeatPassword.setAttribute("placeholder", "Repeat Password");
+        repeatPassword.setAttribute("name", "Repeat Password");
+        repeatPassword.setAttribute("placeholder", " repite la contraseña");
         repeatPassword.setAttribute("id", "register-repeat-password");
- 
- 
+        repeatPassword.setAttribute("class", "formulario");
+
+
         let submit = document.createElement("input");
         submit.setAttribute("type", "submit");
-        submit.setAttribute("value", "Submit");
- 
+        submit.setAttribute("value", "registrarse");
+        submit.setAttribute("class", "btn-submit");
+
+
         form.appendChild(fullName);
- 
+
         form.appendChild(email);
- 
+
         form.appendChild(password);
- 
+
         form.appendChild(repeatPassword);
- 
+
         form.appendChild(submit);
- 
+
         divElem.appendChild(form);
     }
     htmlFormRegister();
- 
- 
+
+
     return divElem;
 }
- 
+
 const saveUser = () => {
     const signupForm = document.querySelector("#register-form");
     signupForm.addEventListener("submit", (e) => {

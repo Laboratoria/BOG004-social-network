@@ -1,5 +1,3 @@
-import { authGoogle } from "../lib/auth.js";
-import { GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 export default () => {
     const container = document.createElement("div");
     container.classList.add("container");
@@ -15,7 +13,7 @@ export default () => {
     const rightColumn = document.createElement("div");
     rightColumn.classList.add("rightColumn");
     const viewRight = `
-    <img id="nibblesLogo" src="../img/logo-nibbles.png" alt="logo-nibbles">
+    <img id="nibblesLogo" src="../img/nibblesLogo.png" alt="logo-nibbles">
     <button id="loginBtn">Ingresa</button>
     <button id="createUserBtn">Crear cuenta</button>
     <p>Conéctate con</p>
@@ -26,16 +24,12 @@ export default () => {
 
     const loginBtn = container.querySelector("#loginBtn");  
     loginBtn.addEventListener("click", () => {
+        console.log("hola");
         location.hash = "#/login";
     });
-    const createUsernBtn = container.querySelector("#createUserBtn");  
-    createUsernBtn.addEventListener("click", () => {
-        location.hash = "#/createUser";
-    });
-    const googleButton = container.querySelector(".googleLogo");
-    const provider = new GoogleAuthProvider();
-    googleButton.addEventListener("click", e => {
-        authGoogle(provider);
+    const GooglenBtn = container.querySelector("#googleLogo");  
+    loginBtn.addEventListener("click", () => {
+     console.log("hola");
     })
  return container;
 }
