@@ -4,9 +4,9 @@ import Account from './createAccount.js';
 import NotFound from './notFound.js';
 
 const components = {
-    register: Register,
-    ecotraveler: Ecotraveler, 
-    account: Account, 
-    notFound: NotFound,
-}
-export { components }
+  register: Register,
+  ecotraveler: Ecotraveler,
+  account: Account,
+  notFound: NotFound,
+};
+export { components };

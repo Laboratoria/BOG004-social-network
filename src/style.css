@@ -85,6 +85,12 @@
     font-size: 14px;
     font-weight: 600;
 }
+a:link{
+    text-decoration: none;
+}
+a:visited {
+    color: #838181;
+  }
 .gridHeaderAccount {
     display: grid;
     align-items: center;
@@ -96,6 +102,7 @@
 }
 .tittleAccount {
     margin-top: 0;
+    margin-bottom: 10px;
     font-size: 40px;
     color: #154D14;
     font-weight: 500;
@@ -110,8 +117,9 @@
     margin-top: 20px;
 }
 #viewWall {
-    margin-top: 40px;
+    margin-top: 15px;
 }
+
 @media (min-width: 700px) {
 
 .gridHeader{
@@ -122,34 +130,89 @@
     margin-right: 300px;
     justify-items: center
 }
-
-    .tittle{
-        margin-top: 0px;
-        font-size: 120px;
-        font-weight: 500;
+.tittle{
+    margin-top: 0px;
+    font-size: 120px;
+    font-weight: 500;
     }
     .logo{
-        height: 180px;
-        width: 203.38px;
+    height: 180px;
+    width: 203.38px;
     }
     .inputStyle{
-        width: 991px;
-        height: 50px;
-        color: #aca5a5;
-        text-align: center;
-        font-size: 25px;
-
+    width: 991px;
+    height: 50px;
+    color: #aca5a5;
+    text-align: center;
+    font-size: 25px;
     } 
     #inputPassword {
-        margin-top: 8px;
+    margin-top: 8px;
     }
     .btnLogin{
-        margin-top: 13px;
-        width: 367px;
-        height: 50px;
-        font-size: 25px;
-        font-weight: 600;
+    margin-top: 13px;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
     }
-
-
+.textGoogle{
+    font-size: 25px;
+    font-weight: 350;
+    margin-top: 25px;
+    margin-bottom: 0;
+    }
+    .googleLogo{
+    height: 50px;
+    width: 50px;
+    margin-top:10px;
+    margin-bottom: 20px;
+    }
+    .gridRegister{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: baseline;
+        /* justify-items: center; */
+    }
+    .textAccount{
+    font-size: 25px;
+    font-weight: 350;
+    justify-self: end;
+    margin-right: 40px;
+    }
+    .btnRegister{
+    height: 50px;
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 25px;
+    font-weight: 600;
+    justify-self: start;
+    margin-left: 20px;
+    }
+    a:link{
+    text-decoration: none;
+    box-shadow: none; 
+    }
+    a:visited {
+    color: #838181;
+      }
+    #viewWall {
+    margin-top: 15px;
+    justify-self: center;
+    }
+.logoAccount {
+    height: 84px;
+    width: 93.35px;
+    }
+    .tittleAccount {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 60px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+    }
 }
