@@ -26,6 +26,7 @@ const firebaseConfig = {
 export const iniciarFirebase = () => {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  // console.log(app);
 };
 
 // registrarse con cualquier correo
