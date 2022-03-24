@@ -57,8 +57,8 @@ export default () => {
 
     if (name !== '') {
       newRegister(auth, email, password, name)
-        .then((userCredential) => {
-          const user = userCredential.user;
+        .then(() => {
+          //const user = userCredential.user;
 
           document.querySelector('#modalMessage').style.display = 'block';
           document.querySelector('#textModal').innerHTML = 'WELCOME TO THE DAILY PROPHET';
@@ -89,7 +89,7 @@ export default () => {
           }
         });
     } else {
-      errorMessageJoin.innerHTML = '⚠️ Name is a require field';
+      errorMessageJoin.innerHTML = 'Name is a require field';
       console.log('No ingresó nombre');
     }
   });
@@ -99,20 +99,8 @@ export default () => {
     e.preventDefault();
     console.log('Click en Google');
     loginGoogle(auth, provider)
-      .then((result) => {
+      .then(() => {
         window.location.hash = '#/daily';
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      // // The email of the user's account used.
-      // const email = error.email;
-      // // The AuthCredential type that was used.
-      // const credential = GoogleAuthProvider.credentialFromError(error);
       });
   });
   return divRegister;
