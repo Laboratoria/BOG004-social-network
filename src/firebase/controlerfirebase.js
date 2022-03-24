@@ -15,11 +15,11 @@ const createUser = (email, password) => {
     })
     .catch((error) => {
       const getDivError = document.getElementById('id-message-error-record');
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      const errorCode = error.code === undefined ? '' : error.code;
+      const errorMessage = error.message === undefined ? '' : error.message;
       // eslint-disable-next-line no-console
-      console.error(errorCode);
-      console.error(errorMessage);
+      console.log(errorCode);
+      console.log(errorMessage);
       if (errorCode === 'auth/email-already-in-use') {
         getDivError.innerHTML = '<p>El usuario ya existe, inicie sesión</p>';
       } else {
@@ -80,13 +80,10 @@ const closeSession = () => {
     });
 };
 
-const provider = new GoogleAuthProvider();
-
-console.log('provider: ', provider);
-
 const signInWithGoogle = () => {
   const auth = getAuth();
-
+  const provider = new GoogleAuthProvider();// TODO: solucionar el bug
+  console.log('provider: ', provider);
   signInWithPopup(auth, provider)
     .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
