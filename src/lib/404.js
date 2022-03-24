@@ -1,7 +1,7 @@
 export default () => {
     const viewError = `
-        <h2>404</h2>
-        <h1>Página no encontrada</h1>`
+        <h1>404</h1>
+        <h>Page Not Found</h1>`
 
     const divElement = document.createElement("div")
     divElement.setAttribute("id", "message");
