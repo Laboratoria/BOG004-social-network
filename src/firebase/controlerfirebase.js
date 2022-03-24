@@ -2,7 +2,7 @@ import {
   getAuth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+} from './firebase-utils.js';
 
 const createUser = (email, password) => {
   const auth = getAuth();
