@@ -1,9 +1,9 @@
-import login from '../../src/view/login';
+import { googleLogin } from "../../src/FirebaseConfig";
 
-jest.mock('../../src/FirebaseConfig.js');
+jest.mock('../../src/FirebaseConfig');
 
-describe('login', () => {
+describe('googleLogin', () => {
   it('', () => {
-    const result = login();
+    const result = googleLogin();
   });
 });

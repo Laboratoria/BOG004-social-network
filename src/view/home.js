@@ -11,7 +11,6 @@ export default () => {
     </div>
   `;
   const divElemt = document.createElement('div');
-  divElemt.classList.add('position');
   divElemt.innerHTML = viewHome;
   return divElemt;
 };
