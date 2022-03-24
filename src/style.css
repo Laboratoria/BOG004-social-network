@@ -133,12 +133,12 @@
     }
 
     #footby{
-        font-size: 12px;
+        font-size: 11px;
         text-align: center;
         position: fixed;
         bottom: 0;
-        height: 20px;
-        padding: 30px;
+        height: 8px;
+        padding: 40px;
         font-weight: 100;
     }
 }
