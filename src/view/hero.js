@@ -18,10 +18,10 @@ export const hero = () => {
     `;
   viewHeroHtml.innerHTML = view;
   document.querySelector("#btn-registerHero").addEventListener("click", () => {
-    window.location.hash="/register";
+    window.location.hash = "/register";
   });
   document.querySelector("#btn-loginHero").addEventListener("click", () => {
-    window.location.hash="/login";
+    window.location.hash = "/login";
   });
   return viewHeroHtml;
-}
+};

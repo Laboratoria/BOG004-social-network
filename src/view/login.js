@@ -1,8 +1,8 @@
-import { changeView } from '../view-controler/controler.js'
+import { changeView } from "../view-controler/controler.js";
 
 export const login = () => {
-    const viewLoginHtml = document.getElementById("root");
-    const view = `
+  const viewLoginHtml = document.getElementById("root");
+  const view = `
     <div id="viewLogin">
         <a href="#/login"></a>
         <div>
@@ -14,6 +14,9 @@ export const login = () => {
                 <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com" required>
                 <label class="labels" for="password">Contraseña</label>
                 <input class="inputs" id= "password" type="password" required>
+                <section id="alertMessageLogin" >
+                  <p id="errorMessageLogin">Mensaje de alerta</p>
+                </section>
                 <section class="align-buttons">
                     <div class="question-button">
                         <p>¿Eres un usuario nuevo?</p>
@@ -27,15 +30,17 @@ export const login = () => {
         </div>  
     </div>
     `;
-    viewLoginHtml.innerHTML = view;
-    document.querySelector("#btn-feed").addEventListener("click", () => {
-        //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
-        window.location.hash="/";
+  viewLoginHtml.innerHTML = view;
+  document.querySelector("#btn-feed").addEventListener("click", () => {
+    //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
+    window.location.hash = "/feed";
+  });
+
+  document
+    .querySelector("#btn-register-signUp")
+    .addEventListener("click", () => {
+      window.location.hash = "/register";
     });
 
-    document.querySelector("#btn-register-signUp").addEventListener("click", () => {
-        window.location.hash="/register";
-    });
-
-    return viewLoginHtml;
+  return viewLoginHtml;
 };

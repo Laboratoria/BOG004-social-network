@@ -6,7 +6,7 @@ export let registerUser = (email, password) => {
     const auth = getAuth();
     return createUserWithEmailAndPassword(auth, email, password)
 
-    .then((userCredential) => {
+    /* .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
             // ...
@@ -21,7 +21,7 @@ export let registerUser = (email, password) => {
             const errorMessage = error.message;
             // ..
             return false;
-        });
+        }); */
 }
 
 
