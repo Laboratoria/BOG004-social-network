@@ -36,7 +36,7 @@ export default () => {
         </button>
       </div>
       <p class="alohomora">Already a member? ALOHOMORA</p>
-      <button class="Login"> Login </button>
+      <a href='#/login'><button class="Login">Login</button></a>
   </div>
   
 </main>
@@ -46,7 +46,7 @@ export default () => {
   const join = divRegister.querySelector('.join');
   join.addEventListener('click', (e) => {
     e.preventDefault();
-    // console.log('click');
+    // console.log('click join');
 
     const formNewRegister = document.querySelector('#formNewRegister');
     const name = document.querySelector('#name').value;
@@ -60,14 +60,14 @@ export default () => {
         .then((userCredential) => {
           const user = userCredential.user;
 
-          document.querySelector('#modalMessage').style.display = 'flex';
+          document.querySelector('#modalMessage').style.display = 'block';
           document.querySelector('#textModal').innerHTML = 'WELCOME TO THE DAILY PROPHET';
           setTimeout(() => {
             document.querySelector('#modalMessage').style.display = 'none';
+            window.location.hash = '#/daily';
           }, 8000);
           formNewRegister.reset();
           console.log('Join');
-          window.location.hash = '#/daily';
         })
         .catch((error) => {
           const errorCode = error.code;

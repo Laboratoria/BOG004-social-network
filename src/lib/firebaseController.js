@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
+  signInWithEmailAndPassword,
 }
   // eslint-disable-next-line import/no-unresolved
   from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
@@ -13,8 +14,6 @@ export const loginGoogle = (auth, provider) => {
   return signInWithPopup(auth, provider)
 };
 
-// funcion para crear usuario con google
-// export const signupGoogleEvent = () => {
-//   const auth = getAuth();
-//   return signInWithPopup(auth, provider);
-// };
+export const loginWithEmailAndPassword = (auth, email, password) => {
+  return signInWithEmailAndPassword(auth, email, password)
+};
