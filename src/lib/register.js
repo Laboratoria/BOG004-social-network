@@ -38,11 +38,13 @@ export const register = () => {
   const buttonhome = divElement.querySelector('.logo-R');
   const email = divElement.querySelector('#email')
   const password = divElement.querySelector('#password')
+  const username = divElement.querySelector('#username')
+ 
   
   
   buttonregister.addEventListener('click',()=>{
     modalwindow.classList.add('active')
-    submithandler(email.value, password.value)
+    submithandler(email.value, password.value, username.value)
   })
   buttonclose.addEventListener('click',()=>{
     modalwindow.classList.remove('active') 

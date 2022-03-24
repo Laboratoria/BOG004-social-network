@@ -1,5 +1,6 @@
 import { firebaseApp } from '../Configfirebase/confiFirebase.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from './firebase-imports.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider,
+  createUserWithEmailAndPassword, onAuthStateChanged, sendSignInLinkToEmail, signInWithEmailAndPassword } from './firebase-imports.js';
 
 /* Autenticacion de email y contraseña */
 const auth = getAuth(firebaseApp);
@@ -8,8 +9,8 @@ export const submithandler = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      document.getElementById("modal").style.display = 'block'
-      console.log(user, 'hola usuario')
+      document.getElementById('modal').style.display = 'block';
+      console.log(user, 'hola usuario');
       // ...
     })
     .catch((error) => {
@@ -47,18 +48,7 @@ const actionCodeSettings = {
   url: 'http://localhost:3000/#login',
   handleCodeInApp: true
 };
-/* 
-export const emailSendVerification=() =>{
-if (isSignInWithEmailLink(auth, window.location)) {
-    
-  let email = window.localStorage.getItem('emailForSignIn');
-  if (!email) {
-    
-    email = window.prompt('Please provide your email for confirmation');
-  }
-}
-}
-  */ 
+
 export const emailSend = (email) => {
   sendSignInLinkToEmail(auth, email, actionCodeSettings)
   .then(() => {
@@ -71,11 +61,10 @@ export const emailSend = (email) => {
   })
 }
 
-/* 
+
 export const userActive = () => {
   onAuthStateChanged(auth, (user) => {
   if (user) {
-    
     const uid = user.uid;
     console.log("user", uid)
     // ...
@@ -84,7 +73,7 @@ export const userActive = () => {
     // ...
   }
 });
-} */
+}
 
 /* Autenticacion inicio de sesion con google */
 
@@ -113,7 +102,7 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;    
-    // window.location = '#wall'
+    window.location = '#wall'
     //console.log(user, 'inicie sesion')
     // ...
   }) 
