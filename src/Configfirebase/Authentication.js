@@ -113,7 +113,7 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;    
-    // window.location = '#wall'
+     window.location = '#wall'
     //console.log(user, 'inicie sesion')
     // ...
   }) 

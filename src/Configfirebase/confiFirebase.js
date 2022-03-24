@@ -16,19 +16,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
-/*const db = getFirestore();
-
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-} */
-// export const savePost = (post) => addDoc(collection(db,'post'),{post});
-//   console.log(post,'hola')
 // const analytics = getAnalytics(app);
+export default firebaseApp;
 
