@@ -71,7 +71,7 @@ const saveUser = () => {
     if (password === repeatPassword) {
       register(email, password);
     } else {
-      console.log('la contraseña no coinciden');
+      return'la contraseña no coinciden';
     }
   });
 };

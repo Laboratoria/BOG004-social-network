@@ -42,16 +42,22 @@ export const register = (email, password) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log('registro exitoso');
+      register.innerHtml='registro exitoso';
       const user = userCredential.user;
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log('registro erroneo');
-      // ..
+      errorCode.innerHTML='registro erroneo';
+      errorMessage.innerHTML='el mensaje es erroneo';
+      
     });
+    const expresiones = {
+      email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
+      password:/^.{4,12}$/,
+      RepeatPassword:/^.{4,12}$/,
+    }
 };
 
 // GOOGLE
