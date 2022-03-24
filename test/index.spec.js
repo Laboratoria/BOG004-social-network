@@ -1,8 +1,22 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { changeRoute } from '../src/lib/router';
 
-describe('myFunction', () => {
+describe('changeRoute', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    document.body.innerHTML = '<div id="container"></div>'
+    const components = {
+      register: () => {
+        const divLogin = document.createElement('div');
+        divLogin.innerHTML = 'Hola mundo';
+        return divLogin;
+      },
+      error404: () => {
+        const divLogin = document.createElement('div');
+        divLogin.innerHTML = 'errooooooor';
+        return divLogin;
+      }
+    }
+    changeRoute('#register', components);
+    //expect(t).toBe('function');
   });
 });
