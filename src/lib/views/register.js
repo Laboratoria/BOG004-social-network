@@ -36,7 +36,7 @@ export default () => {
         </button>
       </div>
       <p class="alohomora">Already a member? ALOHOMORA</p>
-      <a href='#/Login'><button class="Login"> Login </button></a>
+      <button class="Login"> Login </button>
   </div>
   
 </main>
@@ -55,21 +55,10 @@ export default () => {
     const errorMessageJoin = document.querySelector('#errorMessageJoin');
     errorMessageJoin.innerHTML = '';
 
-    newRegister(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        console.log('Joined');
-        userCredential.user;
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
     if (name !== '') {
       newRegister(auth, email, password, name)
         .then((userCredential) => {
-          userCredential.user;
+          const user = userCredential.user;
 
           document.querySelector('#modalMessage').style.display = 'flex';
           document.querySelector('#textModal').innerHTML = 'WELCOME TO THE DAILY PROPHET';
@@ -78,6 +67,7 @@ export default () => {
           }, 8000);
           formNewRegister.reset();
           console.log('Join');
+          window.location.hash = '#/daily';
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -110,6 +100,7 @@ export default () => {
     console.log('Click en Google');
     loginGoogle(auth, provider)
       .then((result) => {
+        window.location.hash = '#/daily';
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
