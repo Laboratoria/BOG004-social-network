@@ -31,7 +31,6 @@ describe('registro', () => {
     document.body.innerHTML = '<div id="container" ></div>';
     const router = new Router(rutas);
     router.loadRoute('registro');
-    console.log(document.body);
     // router.loadRoute('registro');
     expect(document.querySelector('#saludo')).toBeTruthy();
   });
@@ -39,13 +38,11 @@ describe('registro', () => {
     document.body.innerHTML = '<div id="container" ></div>';
     const router = new Router(rutas);
     router.loadRoute('registro');
-    console.log(document.body);
     expect(document.getElementById('container').textContent).toEqual('Hola mundo');
   });
   it('el template de registr debería ser imagen', () => {
     const router = new Router(rutas);
     router.loadRoute('registr');
-    console.log(document.body);
     const div404 = document.querySelector('.no404');
     expect(div404).toBeTruthy();
   });

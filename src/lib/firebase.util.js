@@ -10,6 +10,8 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 export {
-  initializeApp, getAnalytics, getAuth, signInWithPopup, GoogleAuthProvider,
+  initializeApp,
+  getAnalytics, 
+  getAuth, signInWithPopup, GoogleAuthProvider,
   createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
 };
