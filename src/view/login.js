@@ -14,6 +14,9 @@ export const login = () => {
                 <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com" required>
                 <label class="labels" for="password">Contraseña</label>
                 <input class="inputs" id= "password" type="password" required>
+                <section id="alertMessageLogin" >
+                  <p id="errorMessageLogin">Mensaje de alerta</p>
+                </section>
                 <section class="align-buttons">
                     <div class="question-button">
                         <p>¿Eres un usuario nuevo?</p>
@@ -30,7 +33,7 @@ export const login = () => {
   viewLoginHtml.innerHTML = view;
   document.querySelector("#btn-feed").addEventListener("click", () => {
     //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
-    window.location.hash = "/";
+    window.location.hash = "/feed";
   });
 
   document

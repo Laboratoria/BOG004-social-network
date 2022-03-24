@@ -18,6 +18,9 @@ export const register = () => {
                   <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com" required>
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password" required>
+                <section id="alertMessage" >
+                  <p id="errorMessage">Mensaje de alerta</p>
+                </section>
                 <section class="align-buttons">
                     <div class="question-button">
                         <p>¿Ya tienes cuenta?</p>
