@@ -14,7 +14,7 @@ export default () => {
         <p>¿Olvidaste tu contraseña?</p>
         <button id="loginBtn" class="btn btn-login">Iniciar Sesión</button>
 
-        <div id="id-message-error" class="message-error">
+        <div id="id-message-error-login" class="message-error">
         
         </div>
 
