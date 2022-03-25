@@ -8,25 +8,30 @@ const createFormUser = () => {
     const form = document.createElement('form');
     form.setAttribute('method', 'post');
     form.setAttribute('id', 'register-form');
+    const message = document.createElement('p');
+    message.setAttribute('id', 'message');
+    message.innerText = '';
 
-    // const fullName = document.createElement('input');
-    // fullName.setAttribute('type', 'text');
-    // fullName.setAttribute('name', 'fullname');
-    // fullName.setAttribute('placeholder', 'Nombre Completo');
-    // fullName.setAttribute('class', 'formulario');
-    // fullName.setAttribute('autocomplete', 'off');
-
+    const contenedorEmail = document.createElement('div');
     const email = document.createElement('input');
 
     email.setAttribute('type', 'text');
     email.setAttribute('name', 'email');
     email.setAttribute('placeholder', 'correo');
     email.setAttribute('id', 'register-email');
-    email.setAttribute('class', 'formulario' );
+    email.setAttribute('class', 'formulario');
     email.setAttribute('autocomplete', 'off');
-    
-    
 
+    const errorEmail = document.createElement('p');
+    errorEmail.innerText = 'Ingresa un email valido';
+    errorEmail.setAttribute('id', 'error-message-email');
+    errorEmail.setAttribute('class', 'error-message-hidden');
+
+    contenedorEmail.appendChild(email);
+    // contenedorEmail.appendChild(errorEmail);
+
+
+   
     const password = document.createElement('input');
     password.setAttribute('type', 'password');
     password.setAttribute('name', 'password');
@@ -35,6 +40,7 @@ const createFormUser = () => {
     password.setAttribute('class', 'formulario');
     password.setAttribute('autocomplete', 'off');
 
+    const contenedorPassword = document.createElement('div');
     const repeatPassword = document.createElement('input');
     repeatPassword.setAttribute('type', 'password');
     repeatPassword.setAttribute('name', 'repeatpassword');
@@ -43,19 +49,31 @@ const createFormUser = () => {
     repeatPassword.setAttribute('class', 'formulario');
     repeatPassword.setAttribute('autocomplete', 'off');
 
+
+    
+
     const submit = document.createElement('input');
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'registrarse');
     submit.setAttribute('class', 'btn-submit');
 
-    // form.appendChild(fullName);
-
-    form.appendChild(email);
-
+    const errorPassword = document.createElement('p');
+    errorPassword.innerText = 'La contraseña no coincide';
+    errorPassword.setAttribute('id', 'error-message-password');
+    errorPassword.setAttribute('class', 'error-message-hidden');
+     
+    form.appendChild(errorEmail);
+    form.appendChild(errorPassword);
+    form.appendChild(message);
+    form.appendChild(contenedorEmail);
+    form.appendChild(contenedorPassword);
     form.appendChild(password);
-
     form.appendChild(repeatPassword);
 
+    // contenedorPassword.appendChild(errorPassword);
+    // contenedorPassword.appendChild(password);
+
+  
     form.appendChild(submit);
 
     divElem.appendChild(form);
@@ -70,56 +88,55 @@ const saveUser = () => {
   const inputs = document.querySelectorAll('#register-form input:not([type="submit"])');
 
   const expresiones = {
-    password: /^.{4,12}$/, // 4 a 12 digitos.
-    repeatpassword: /^.{4,12}$/, // 4 a 12 digitos.
+    password: /^.{6,12}$/, // 4 a 12 digitos.
+    repeatpassword: /^.{6,12}$/, // 4 a 12 digitos.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
   }
 
   const validarFormulario = (e) => {
-    switch (e.target.name) {
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    switch (inputName) {
       case "email":
-        if (expresiones.email.test(e.target.value)) {
-          document.getElementById('register-email').classList.add('with-error');
-          document.getElementById('register-email').classList.remove('with-error');
-          // document.getElementById('register-email').classList.remove('remove-message-activo');
-
-        
-
-
+        const emailInput = document.getElementById('register-email');
+        const errorMessage = document.getElementById('error-message-email');
+        if (expresiones.email.test(inputValue)) {
+          emailInput.classList.remove('with-error'); // quite el color rojo
+          errorMessage.classList.add('error-message-hidden'); // ocultar mensaje de error
         } else {
-          document.getElementById('register-email').classList.remove('with-error');
-          document.getElementById('register-email').classList.add('with-error');
-          // document.getElementById('register-email').classList.add('remove-message-activo');
-
+          emailInput.classList.add('with-error');
+          errorMessage.classList.remove('error-message-hidden'); // mostrar mensaje de error
         }
         break;
       case "password":
-        if(expresiones.password.test(e.target.value)){
-          document.getElementById('register-password').classList.add('with-error');
+        if (expresiones.password.test(inputValue)) {
+
           document.getElementById('register-password').classList.remove('with-error');
 
-        }else{
-          document.getElementById('register-password').classList.remove('with-error');
+        } else {
+
           document.getElementById('register-password').classList.add('with-error');
 
         }
         break;
       case "repeatpassword":
-        if(expresiones.repeatpassword.test(e.target.value)){
-          document.getElementById('register-repeat-password').classList.add('with-error');
+        if (expresiones.repeatpassword.test(inputValue)) {
+
           document.getElementById('register-repeat-password').classList.remove('with-error');
 
-        }else{
-          document.getElementById('register-repeat-password').classList.remove('with-error');
+
+        } else {
+
           document.getElementById('register-repeat-password').classList.add('with-error');
-      }
+
+        }
         break;
-      // default:
-      //   break;
+      default:
+        break;
     }
   }
 
-  console.log(inputs);
+
   inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
@@ -129,20 +146,22 @@ const saveUser = () => {
 
   signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const email = document.querySelector('#register-email').value;
     const password = document.querySelector('#register-password').value;
     const repeatPassword = document.querySelector(
       '#register-repeat-password',
     ).value;
-   
-    console.log(email, password);
+
+
     if (password === repeatPassword) {
       register(email, password);
     } else {
-      return 'la contraseña no coinciden';
+      const errorMessage = document.getElementById('error-message-password');
+      errorMessage.classList.remove('error-message-hidden'); // ocultar mensaje de error
+
     }
   });
-
 
 };
 

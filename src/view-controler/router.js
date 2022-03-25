@@ -16,6 +16,7 @@ const changeView = (hash) => {
       return sectionMain;
     }
     case '#/login': {
+      
       return sectionMain.appendChild(components.Login());
     }
     case '#/profile': {

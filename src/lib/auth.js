@@ -6,57 +6,79 @@ import {
   signInWithPopup,
 } from './firebase-utils.js';
 import { changeView } from '../view-controler/router.js';
+
 // LOGIN
+
 export const login = (email, password) => {
   const auth = getAuth();
+
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('login exitoso');
       const user = userCredential.user;
-      console.log(user);
       changeView('#/feed');
     })
+
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      // console.log('login erroneo  ');
-      // console.log(errorCode, 'hola error');
-      // console.log(errorMessage, 'error prueba');
-      switch (error.code) {
+      console.log(errorCode);
+      switch (errorCode) {
+        case 'auth/user-not-found':
+          document.querySelector('#messageAlert').innerText = 'Usuario incorrecto';
+          console.log('Usuario incorrecto');
+          break;
+
+        case 'auth/wrong-password':
+          console.log('contraseña incorrecta');
+          document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
+          break;
         case 'auth/invalid-email':
-          console.log('emailfail');
-          alert('Por favor ingresa un email válido');
-          break;
-        case 'auth/invalid-password':
-          console.log('Tu contraseña no es correcta');
-          alert('Tu contraseña no es correcta');
-          break;
+          console.log('correo invalido');
+          document.querySelector('#messageAlert').innerText = 'correo invalido';
+
         default:
-          console.log('ejecutandoError');
+          break;
       }
     });
 };
+
 
 // REGISTRO
 export const register = (email, password) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      register.innerHtml='registro exitoso';
+      console.log('registro exitoso');
       const user = userCredential.user;
-      // ...
+      changeView('#/feed');
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-  
-      
+      switch (errorCode) {
+        case 'auth/email-already-in-use':
+          document.getElementById('message').innerText = 'Este correo ya esta registrado';
+          break;
+        case 'auth/weak-password':
+          document.getElementById('message').innerText = 'La contraseña debe tener mínimo 6 caracteres';
+          break;
+        case 'auth/invalid-email':
+          document.getElementById('message').innerText = 'El correo es inválido';
+          break;
+        default:
+          break;
+      }
+
+      console.log(errorCode);
+      console.log(errorMessage);
+      console.log('registro erroneo');
+
     });
-//     const expresiones = {
-//       email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
-//       password:/^.{4,12}$/,
-//       RepeatPassword:/^.{4,12}$/,
-//     }
+  //     const expresiones = {
+  //       email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
+  //       password:/^.{4,12}$/,
+  //       RepeatPassword:/^.{4,12}$/,
+  //     }
 };
 
 // GOOGLE
