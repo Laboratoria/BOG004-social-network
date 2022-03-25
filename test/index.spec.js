@@ -2,7 +2,7 @@
 import { changeRoute } from '../src/lib/router';
 
 describe('changeRoute', () => {
-  it('debería ser una función', () => {
+  it('deberia cambia', () => {
     document.body.innerHTML = '<div id="container"></div>'
     const components = {
       register: () => {
@@ -14,9 +14,9 @@ describe('changeRoute', () => {
         const divLogin = document.createElement('div');
         divLogin.innerHTML = 'errooooooor';
         return divLogin;
-      }
-    }
+      },
+    };
     changeRoute('#register', components);
-    //expect(t).toBe('function');
+    expect(components.register).not.toBe(components.error404);
   });
 });
