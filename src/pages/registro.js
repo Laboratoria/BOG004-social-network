@@ -51,9 +51,10 @@ export default {
     btnSignInGoogle.addEventListener('click', signInGoogle);
 
     btn.addEventListener('click', () => {
+      const name = document.querySelector('#name').value;
       const email = document.querySelector('#email').value;
       const password = document.querySelector('#password').value;
-      signInEmail(email, password);
+      signInEmail(email, password, name);
     });
 
     const validarForm = (e) => {

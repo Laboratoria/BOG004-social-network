@@ -50,7 +50,7 @@
 
 #sign-up,
 #log-in,
-#logIn {
+#logIn, .btnSingOut {
   margin: 0em 0.94em;
   padding: 0.4em 1em;
   background-color: #8aea92;
@@ -358,7 +358,15 @@ footer i {
 }
 
 /* post */
-
+.allPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #2e2c2f;
+}
 .container-publicar {
   width: 100%;
   height: 100vh;
@@ -415,6 +423,19 @@ footer i {
   font-size: 0.7rem;
   color: #2e2c2f;
   cursor: pointer;
+}
+.container-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile{
+  margin-top: 30%;
+  width: 50%;
+}
+.nameUser{
+  font-size: 1em;
 }
 
 @media (min-width: 1280px) {
