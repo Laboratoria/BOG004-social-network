@@ -1,5 +1,7 @@
 // Add Firebase products that you want to use
+// eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+// eslint-disable-next-line import/no-unresolved
 import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const firebaseConfig = {

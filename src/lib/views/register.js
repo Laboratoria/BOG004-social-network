@@ -58,7 +58,7 @@ export default () => {
     if (name !== '') {
       newRegister(auth, email, password, name)
         .then(() => {
-          //const user = userCredential.user;
+          // const user = userCredential.user;
 
           document.querySelector('#modalMessage').style.display = 'block';
           document.querySelector('#textModal').innerHTML = 'WELCOME TO THE DAILY PROPHET';
