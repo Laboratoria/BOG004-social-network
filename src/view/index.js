@@ -1,5 +1,5 @@
 import home from './home.js';
-import { createFormUser, saveUser } from './user.js';
+import { createFormUser, saveUser } from './register.js';
 import login from './login.js';
 import profile from './profile.js';
 import feed from './feed.js';
