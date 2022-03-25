@@ -3,6 +3,7 @@ import { authGoogle } from '../lib/auth.js';
 
 export default () => {
   document.querySelector('header').style.display = 'none';
+  document.querySelector('#sectionGrid').style.display = 'block';
   const container = document.createElement('div');
   container.classList.add('container');
 

@@ -10,37 +10,39 @@
   <title>Nibbles</title>
 </head>
 <body>
-  <header>
-    <nav id='menuHtml'>
-      <ul>
-        <li>
-        <a href='#/'></a>
-        </li>
-        <li>
-          <a href='#/createUser'></a>
-        </li>
-        <li>
-          <a href='#/login'></a>
-        </li>
-        <li>
-          <a href='#/profile'>perfil</a>
-        </li>
-        <li>
-          <a href='#/feed'>feed</a>
-        </li>
-        <li>
-          <a href='#/interest'>intereses</a>
-        </li>
-        <li>
-          <a href='#/cerrar-sesion'>cerrar sesion</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <button id='google'>Google</button>
+  <div id='sectionGrid'>
+    <header>
+      <nav id='menuHtml'>
+        <img id='navMenuLogo'src='./img/logo-nibbles.png' alt='logo-nibbles'>
+        <ul>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/profile'>perfil</a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/interest'>intereses</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id='container'></section>
+  </div>
+  <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
   <script type='module' src='../lib/firebase-init.js'></script>
   <script type='module' src='main.js'></script>
-  <section id='container'></section>
-  <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
 </body>
 </html>

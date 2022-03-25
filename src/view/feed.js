@@ -1,5 +1,6 @@
 export default () => {
   document.querySelector('header').style.display = 'block';
+  document.querySelector('#sectionGrid').style.display = 'grid';
   const viewHome = `
  <h2 class='text.center'> feed</h2>`;
  const divElem = document.createElement('div')
