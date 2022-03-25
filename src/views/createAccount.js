@@ -14,7 +14,11 @@ export default () => {
         <input class='inputStyle' id='inputBirthdate' type='text' placeholder='Fecha de Nacimiento' onfocus="(this.type='date')">
         <input class='inputStyle' id='inputPassword' type='password' placeholder='Contraseña'>
         <input class='inputStyle' id='inputConfirm' type='password' placeholder='Confirmar Contraseña'>
-        <button class='btnRegister' id='viewWall'><a href='#/ecoTraveler'>Regístrate</a></button>
+        <p class='alertMessage' id='errorMessage'></p>
+        <p class='alertMessage' id='errorInput'></p>
+        <p class='alertMessage' id='errorPassword'></p>
+        <h1 id='successRegister'></h1>
+        <button class='btnRegister' id='viewWall'>Regístrate</button>
       </div>
     </div>`;
 
@@ -24,19 +28,21 @@ export default () => {
   const btnViewRegister = divAccount.querySelector('#viewWall');
   // creamos un evento al boton registrate
   btnViewRegister.addEventListener('click', () => {
+      /* creamos constantes para capturar los datos ingresados por el usuario*/
     const userName = document.getElementById('inputName').value;
     const birthDate = document.getElementById('inputBirthdate').value;
     const passwordConfirm = document.getElementById('inputConfirm').value;
+    const errorMessageInput = document.getElementById('errorInput');
+    const errorPasswordInput = document.getElementById('errorPassword');
     console.log(userName);
-    /* creamos 2 constantes para capturar los datos ingresado
-    por el usuario de email y contraseña en los inputs */
+  
     const email = document.getElementById('inputE').value;
     const password = document.getElementById('inputPassword').value;
     if (userName, birthDate, passwordConfirm, email, password.trim() == '') {
-      alert ('Debes ingresar un valor en el campo');
+      errorMessageInput.innerHTML = 'Debes ingresar un valor en el campo';
     }
     if (password != passwordConfirm) {
-      alert ('Tus contraseñas no coinciden, intentalo de nuevo');
+      errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
     }
     /* llamamos la funcion createUser con los argumentos de email
     y contraseñas guardados en las constantes anteriores */
