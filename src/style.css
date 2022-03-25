@@ -4,11 +4,7 @@ header{
 .liDelete {
   display: none;
 }
-#sectionGrid {
-  display: grid;
-  grid-template-columns: 0.7fr 5fr; 
-  height: 100%;
-}
+
 /*MENU*/
 #menuHtml {
   display: block;
@@ -16,7 +12,6 @@ header{
   font-family: 'Roboto', sans-serif;
   background-color: #f6e1e8;
   text-align: center;
-  padding: 20px 0px 20px 0px;
 }
 #navMenuLogo{
   width: 100px;
@@ -233,6 +228,23 @@ input :focus {
         background-position: center center;
         background-size: cover;
     } */
+    #menuHtml {
+      padding: 20px 0px 20px 0px;
+    }
+    #sectionGrid {
+      display: grid;
+      grid-template-columns: 0.7fr 5fr; 
+      height: 100%;
+    }
+    .navDesktop{
+      display: inline-block;
+    }
+    .navMobile{
+      display: none;
+    }
+    .menuBtn{
+      display: none;
+    }
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,12 +262,29 @@ input :focus {
 }
 /* TELÉFONOS */
 @media only screen and (max-width: 575px) {
-  #menuHtml {
-    display: none;
-  }
   #sectionGrid{
     display: block;
   }
+  .navDesktop, #navMenuLogo{
+    display: none;
+  }
+  .navMobile{
+    display: none;
+  }
+  
+  .menuBtn{
+    display: inline;
+    width: 30px;
+    float: right;
+    top: 0px;
+    
+  }
+  li {
+    padding: 10px 20px 10px 20px;
+  }
+  /* #navMenuLogo{
+    width: 50px;
+  } */
   .leftColumn {
     display: none;
   }

@@ -1,4 +1,6 @@
 export default () => {
+  const menuMobile = document.getElementById('navMobile');
+  menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
   document.querySelector('#sectionGrid').style.display = 'grid';
   const viewHome = `

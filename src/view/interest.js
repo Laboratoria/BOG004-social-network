@@ -108,6 +108,8 @@
 //     return containerInterest;
 // }
 export default () => {
+    const menuMobile = document.getElementById('navMobile');
+  menuMobile.style.display = 'none';
     document.querySelector('header').style.display = 'block';
     const viewHome = `
    <h2 class='text.center'>intereses</h2>`;
