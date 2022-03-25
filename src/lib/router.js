@@ -1,7 +1,7 @@
 // importamos todas las vistas, llamamos los templates y exportamos el cambio de ruta
-import { components } from '../index.js';
+// import { components } from '../index.js';
 
-const changeRoute = (hash) => {
+const changeRoute = (hash, components) => {
   const containerRoot = document.getElementById('container');
   containerRoot.innerHTML = '';
 

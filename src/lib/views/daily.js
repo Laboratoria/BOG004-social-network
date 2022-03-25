@@ -1,4 +1,6 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
+
+
 export default () => {
   const divDaily = document.createElement('div');
   divDaily.setAttribute('class', 'container-div-daily');
