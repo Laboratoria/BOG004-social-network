@@ -22,6 +22,9 @@ export const login = (email, password) => {
     .catch((error) => {
       const errorCode = error.code;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
       console.log(errorCode);
       switch (errorCode) {
         case 'auth/user-not-found':
@@ -29,23 +32,32 @@ export const login = (email, password) => {
           console.log('Usuario incorrecto');
           break;
 
+<<<<<<< HEAD
 =======
       switch (errorCode) {
         case 'auth/user-not-found':
           document.querySelector('#messageAlert').innerText = 'Correo incorrecto';
           break;
 >>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
+=======
+>>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
         case 'auth/wrong-password':
           console.log('contraseña incorrecta');
           document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
           break;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
         case 'auth/invalid-email':
           console.log('correo invalido');
           document.querySelector('#messageAlert').innerText = 'correo invalido';
 
+<<<<<<< HEAD
 =======
 >>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
+=======
+>>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
         default:
           break;
       }
@@ -103,18 +115,20 @@ export const authGoogle = (provider) => {
       const user = result.user;
       console.log('usuario ingresa');
       console.log(user);
-      localStorage.setItem('token', token);
-      localStorage.setItem('name', user.displayName);
-      localStorage.setItem('creationTime', user.metadata.creationTime);
-      localStorage.setItem('lastSignInTime', user.metadata.lastSignInTime);
+      location.hash = '#/feed';
+      // changeView('#/feed');
+      // localStorage.setItem('token', token);
+      // localStorage.setItem('name', user.displayName);
+      // localStorage.setItem('creationTime', user.metadata.creationTime);
+      // localStorage.setItem('lastSignInTime', user.metadata.lastSignInTime);
 
-      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-        console.log('usuario ingresó por primera vez');
-        changeView('#/profile');
-      } else {
-        console.log('usuario ya había ingresado');
-        changeView('#/feed');
-      }
+      // if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+      //   console.log('usuario ingresó por primera vez');
+      //   changeView('#/profile');
+      // } else {
+      //   console.log('usuario ya había ingresado');
+      //   changeView('#/feed');
+      // }
       // location.hash = '#/interest';
       // ...
       // ...

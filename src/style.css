@@ -1,7 +1,44 @@
-#signup-form,
-#google {
+header{
   display: none;
 }
+.liDelete {
+  display: none;
+}
+
+/*MENU*/
+#menuHtml {
+  display: block;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f6e1e8;
+  text-align: center;
+}
+#navMenuLogo{
+  width: 100px;
+}
+ul {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+  padding: 30px 20px 30px 20px;
+}
+#menuHtml a {
+  color: rgb(141, 137, 137);
+  font-weight: 500;
+  text-decoration: none;
+}
+#menuHtml a:focus {
+  color: white;
+  font-weight: 550;
+}
+#menuHtml a:hover {
+  color: white;
+  font-weight: 550;
+}
+
 footer {
   background-color: #f6e1e8;
   height: 60px;
@@ -9,7 +46,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: rgb(141, 137, 137);
 }
@@ -40,7 +77,7 @@ body {
     border-radius: 100% 20% 100% 20%;
 }
 .leftColumn h2 {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   color: #ffa8be;
   float: left;
   font-size: 100px;
@@ -49,7 +86,7 @@ body {
   margin: 0px;
 }
 .leftColumn p {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: rgb(141, 137, 137);
   text-align: center;
@@ -65,7 +102,7 @@ body {
   border-radius: 20px;
   margin: 10px;
   padding: 6px 20px 6px 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -101,26 +138,6 @@ hr {
 .googleLogo {
   width: 40px;
 }
-header {
-    background-color: #F6E1E8;
-    padding: 24px;
-    text-decoration: none;
-
-}
-ul {
-    display: flex;
-    text-decoration: none;
-
-}
-ul li {
-    list-style:none;
-    margin: 5px;
-}
-
-li a {
-    text-decoration: none;
-}
-
 #register-form{
  display: flex;
  flex-direction: column;
@@ -133,7 +150,6 @@ li a {
      border-radius: 10px;
      border:none;
      padding: 8px;
-
 }
 .text-center{
     text-align: center;
@@ -148,17 +164,6 @@ li a {
     padding: 8px;
 }
 
-
-/* INTEREST */
-.interest-img {
-  width: 200px;
-  margin: 0px 20px 0px 20px;
-  border-radius: 15px 0px 0px 15px;
-}
-.interestContainer {
-  display: flex;
-  padding: 0px;
-}
 
 /*REGISTER*/
 #register-form {
@@ -201,13 +206,13 @@ li a {
   border-radius: 20px;
   margin: 10px;
   padding: 6px 20px 6px 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
  
 }
 
 h2 {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   color: #ffa8be;
   font-size: 50px;
   padding: 0px;
@@ -235,6 +240,23 @@ input:focus {
         background-position: center center;
         background-size: cover;
     } */
+    #menuHtml {
+      padding: 20px 0px 20px 0px;
+    }
+    #sectionGrid {
+      display: grid;
+      grid-template-columns: 0.7fr 5fr; 
+      height: 100%;
+    }
+    .navDesktop{
+      display: inline-block;
+    }
+    .navMobile{
+      display: none;
+    }
+    .menuBtn{
+      display: none;
+    }
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -252,6 +274,29 @@ input:focus {
 }
 /* TELÉFONOS */
 @media only screen and (max-width: 575px) {
+  #sectionGrid{
+    display: block;
+  }
+  .navDesktop, #navMenuLogo{
+    display: none;
+  }
+  .navMobile{
+    display: none;
+  }
+  
+  .menuBtn{
+    display: inline;
+    width: 30px;
+    float: right;
+    top: 0px;
+    
+  }
+  li {
+    padding: 10px 20px 10px 20px;
+  }
+  /* #navMenuLogo{
+    width: 50px;
+  } */
   .leftColumn {
     display: none;
   }
@@ -260,14 +305,10 @@ input:focus {
     grid-template-columns: 1fr;
     padding: 76px 0px 76px 0px;
   }
-
   .googleLogo {
     margin: 20px;
   }
   #nibblesLogo {
     width: 40%;
-  }
-  footer {
-    display: none;
   }
 }

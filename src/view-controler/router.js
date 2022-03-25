@@ -30,9 +30,7 @@ const changeView = (hash) => {
     }
     case '#/cerrar-sesion': {
       console.log('usuario cerró sesion');
-      localStorage.removeItem('token');
-      localStorage.removeItem('name');
-      return sectionMain.appendChild(components.Home());
+      location.hash = '#/';
     }
     default:
       return sectionMain.appendChild(components.Different());

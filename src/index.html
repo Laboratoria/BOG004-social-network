@@ -10,47 +10,64 @@
   <title>Nibbles</title>
 </head>
 <body>
-  <header>
-    <nav id='menuHtml'>
-      <ul>
-        <li>
-        <a href='#/'>home</a>
-        </li>
-        <li>
-          <a href='#/createUser'>Create User</a>
-        </li>
-        <li>
-          <a href='#/login'>Login</a>
-        </li>
-        <li>
-          <a href='#/profile'>profile</a>
-        </li>
-        <li>
-          <a href='#/feed'>feed</a>
-        </li>
-        <li>
-          <a href='#/interest'>interest</a>
-        </li>
-        <li>
-          <a href='#/cerrar-sesion'>cerrar-sesion</a>
-        </li>
-      </ul>
-    </nav>
-
-
-    <!-- <form action="">
-      <div>
-        <input type="text" id="register-email">
-        <span class="register-email-active-error register-email-inactive-error">El correo es inválido</span>
-      </div>
-      
-      <input type="text">
-    </form> -->
-  </header>
-  <button id='google'>Google</button>
+  <div id='sectionGrid'>
+    <header>
+      <nav id='menuHtml'>
+        <img id='navMenuLogo'src='./img/logo-nibbles.png' alt='logo-nibbles'>
+        <!-- <button id='menuBtn' class='menuBtn'>Menú</button> -->
+        <img id='menuBtn' class='menuBtn' src='./img/menu-nav.png' alt='menu-mobile'>
+        <ul class='navDesktop'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/profile'>perfil</a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/interest'>intereses</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+        <ul id='navMobile' class='navMobile'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/profile'>perfil</a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/interest'>intereses</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id='container'></section>
+  </div>
+  <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
   <script type='module' src='../lib/firebase-init.js'></script>
   <script type='module' src='main.js'></script>
-  <section id='container'></section>
-  <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
 </body>
 </html>
