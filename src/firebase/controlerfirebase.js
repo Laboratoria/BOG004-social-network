@@ -38,11 +38,12 @@ function existingUser(email, password) {
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      const getDivError = document.getElementById('id-message-error-login');
+      const errorCode = error.code === undefined ? '' : error.code;
+      const errorMessage = error.message === undefined ? '' : error.message;
       // eslint-disable-next-line no-console
-      console.error(`${errorCode} ${errorMessage}`);
-      const getDivError = document.getElementById('id-message-error');
+      console.log(errorCode);
+      console.log(errorMessage);
       getDivError.innerHTML = '<p>Usuario o contraseña invalidos, por favor ingresar nuevamente</p>';
     });
 }
