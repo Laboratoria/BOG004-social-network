@@ -3,8 +3,8 @@ import { registerUser } from "../Firebase/auth.js";
 import { feed } from "./feed.js";
 
 export const register = () => {
-  const viewRegisterHtml = document.getElementById("root");
-  const view = `
+    const viewRegisterHtml = document.getElementById("root");
+    const view = `
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
@@ -23,12 +23,14 @@ export const register = () => {
                 <section id="alertMessage" >
                   <p id="errorMessage"></p>
                 </section>
-                <section class="align-buttons">
+                <section id="align-buttons">
+                <div id="btns">
                     <div class="question-button">
                         <p>¿Ya tienes cuenta?</p>
                         <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
                     </div>
                     <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
+                <div>
                 </section>
                 <h3>o registrate con:</h3> 
                 <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
@@ -36,52 +38,53 @@ export const register = () => {
             </div>
         </div>
     `;
-  viewRegisterHtml.innerHTML = view;
+    viewRegisterHtml.innerHTML = view;
 
-  document.querySelector("#logoRes-signUp").addEventListener("click", () => {
-    n;
-    window.location.hash = "/";
-  });
-  document.querySelector("#btn-login").addEventListener("click", () => {
-    window.location.hash = "/login";
-  });
+    document.querySelector("#logoRes-signUp").addEventListener("click", () => {
+        n;
+        window.location.hash = "/";
+    });
+    document.querySelector("#btn-login").addEventListener("click", () => {
+        window.location.hash = "/login";
+    });
 
-  const formRegister = document.querySelector("#form-register");
-  formRegister.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nameRegister = document.querySelector("#nameRegister").value;
-    const lastNameRegister = document.querySelector("#lastNameRegister").value;
-    const emailRegister = document.querySelector("#emailRegister").value;
-    const passwordRegister = document.querySelector("#passwordRegister").value;
-    formRegister.reset();
+    const formRegister = document.querySelector("#form-register");
+    formRegister.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nameRegister = document.querySelector("#nameRegister").value;
+        const lastNameRegister = document.querySelector("#lastNameRegister").value;
+        const emailRegister = document.querySelector("#emailRegister").value;
+        const passwordRegister = document.querySelector("#passwordRegister").value;
+        formRegister.reset();
 
-   /*  console.log(
-      nameRegister,
-      lastNameRegister,
-      emailRegister,
-      passwordRegister
-    ); */
+        /*  console.log(
+           nameRegister,
+           lastNameRegister,
+           emailRegister,
+           passwordRegister
+         ); */
 
-    registerUser(emailRegister, passwordRegister)
-    .then(() => {
-      changeView("#/feed")
-      console.log("registro exitoso :)");
-     })
-    .catch((error) => {
-      console.log("error");
-      const codeError = error.code;
-      const messageError = document.querySelector('#errorMessage');
-      switch (codeError) {
-        case 'auth/email-already-in-use':
-          messageError.innerHTML = "Este correo ya está registrado";
-          break;
-        case 'auth/weak-password' :
-          messageError.innerHTML = "La contraseña debe tener mínimo 6 caracteres";
-          break;
-        default:
-          break;
-      }
-    })
-  });
-  return viewRegisterHtml;
+        registerUser(emailRegister, passwordRegister)
+            .then(response => {
+                changeView("#/feed")
+                console.log("registro exitoso :)");
+                // console.log(response);
+            })
+            .catch((error) => {
+                console.log("error");
+                const codeError = error.code;
+                const messageError = document.querySelector('#errorMessage');
+                switch (codeError) {
+                    case 'auth/email-already-in-use':
+                        messageError.innerHTML = "Este correo ya está registrado";
+                        break;
+                    case 'auth/weak-password':
+                        messageError.innerHTML = "La contraseña debe tener mínimo 6 caracteres";
+                        break;
+                    default:
+                        break;
+                }
+            })
+    });
+    return viewRegisterHtml;
 }
