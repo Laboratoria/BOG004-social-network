@@ -5,11 +5,11 @@ import error from './404.js';
 import timeline from './timeline.js';
 
 const components = {
-  home: home,
-  signUp: signUp,
-  signIn: signIn,
-  error: error,
-  timeline: timeline
-}
+  home,
+  signUp,
+  signIn,
+  error,
+  timeline,
+};
 
 export { components };
