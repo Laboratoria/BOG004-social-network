@@ -12,7 +12,7 @@ const changeView = (hash) => {
     }
     case '#/createUser': {
       sectionMain.appendChild(components.User.createFormUser());
-      components.user.saveUser();
+      components.User.saveUser();
       return sectionMain;
     }
     case '#/login': {
@@ -29,9 +29,7 @@ const changeView = (hash) => {
     }
     case '#/cerrar-sesion': {
       console.log('usuario cerró sesion');
-      localStorage.removeItem('token');
-      localStorage.removeItem('name');
-      return sectionMain.appendChild(components.Home());
+      location.hash = '#/';
     }
     default:
       return sectionMain.appendChild(components.Different());

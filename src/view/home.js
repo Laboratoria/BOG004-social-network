@@ -1,8 +1,8 @@
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
 import { authGoogle } from '../lib/auth.js';
-import { changeView } from '../view-controler/router.js';
 
 export default () => {
+  document.querySelector('header').style.display = 'none';
   const container = document.createElement('div');
   container.classList.add('container');
 
@@ -28,11 +28,11 @@ export default () => {
 
   const loginBtn = container.querySelector('#loginBtn');
   loginBtn.addEventListener('click', () => {
-    changeView('#/login');
+    location.hash = '#/login';
   });
   const createUsernBtn = container.querySelector('#createUserBtn');
   createUsernBtn.addEventListener('click', () => {
-    changeView('#/createUser');
+    location.hash = '#/createUser';
   });
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();

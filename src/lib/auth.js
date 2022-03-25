@@ -66,18 +66,20 @@ export const authGoogle = (provider) => {
       const user = result.user;
       console.log('usuario ingresa');
       console.log(user);
-      localStorage.setItem('token', token);
-      localStorage.setItem('name', user.displayName);
-      localStorage.setItem('creationTime', user.metadata.creationTime);
-      localStorage.setItem('lastSignInTime', user.metadata.lastSignInTime);
+      location.hash = '#/feed';
+      // changeView('#/feed');
+      // localStorage.setItem('token', token);
+      // localStorage.setItem('name', user.displayName);
+      // localStorage.setItem('creationTime', user.metadata.creationTime);
+      // localStorage.setItem('lastSignInTime', user.metadata.lastSignInTime);
 
-      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-        console.log('usuario ingresó por primera vez');
-        changeView('#/profile');
-      } else {
-        console.log('usuario ya había ingresado');
-        changeView('#/feed');
-      }
+      // if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+      //   console.log('usuario ingresó por primera vez');
+      //   changeView('#/profile');
+      // } else {
+      //   console.log('usuario ya había ingresado');
+      //   changeView('#/feed');
+      // }
       // location.hash = '#/interest';
       // ...
       // ...

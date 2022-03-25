@@ -1,4 +1,5 @@
 export default () => {
+  document.querySelector('header').style.display = 'block';
   const viewHome = `
  <h2 class='text.center'> feed</h2>`;
  const divElem = document.createElement('div')
