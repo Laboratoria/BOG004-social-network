@@ -6,6 +6,7 @@ import {
   signInWithPopup,
 } from './firebase-utils.js';
 import { changeView } from '../view-controler/router.js';
+
 // LOGIN
 export const login = (email, password) => {
   const auth = getAuth();
@@ -18,21 +19,16 @@ export const login = (email, password) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      // console.log('login erroneo  ');
-      // console.log(errorCode, 'hola error');
-      // console.log(errorMessage, 'error prueba');
-      switch (error.code) {
-        case 'auth/invalid-email':
-          console.log('emailfail');
-          alert('Por favor ingresa un email válido');
+      switch (errorCode) {
+        case 'auth/user-not-found':
+          document.querySelector('#messageAlert').innerText = 'Correo incorrecto';
           break;
-        case 'auth/invalid-password':
-          console.log('Tu contraseña no es correcta');
-          alert('Tu contraseña no es correcta');
+        case 'auth/wrong-password':
+          console.log('contraseña incorrecta');
+          document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
           break;
         default:
-          console.log('ejecutandoError');
+          break;
       }
     });
 };

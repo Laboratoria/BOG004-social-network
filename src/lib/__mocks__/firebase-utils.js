@@ -1,11 +1,11 @@
 const collection = jest.fn((db, collection) => {
-  return {};
+  return  ;
 });
 
-const getDocs = (collection) => { return Promise.resolve( docs: [],});
+// const getDocs = (collection) => { return Promise.resolve(docs, [],);
 
-const getAuth = () => { return Promise.resolve({});};
-
+const getAuth = () => { return Promise.resolve({});
+};
 const signInWithEmailAndPassword = () => {
   return Promise.resolve({});
 };
