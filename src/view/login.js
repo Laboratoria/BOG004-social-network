@@ -1,4 +1,4 @@
-import { auth, newLogin, googleLogin } from "../FirebaseConfig.js"
+import { auth, newLogin, googleLogin } from '../view-controller/controllers.js';
 
 export default () => {
   const viewLogin = `
@@ -16,7 +16,7 @@ export default () => {
 
       <form id="formularioLogin">
         <label>Correo electrónico</label>
-        <input type="email" id="correoLogin" class="formulario"></input>
+        <input type="text" id="correoLogin" class="formulario"></input>
         <label>Contraseña</label>
         <input type="password" id="contraseñaLogin" class="formulario"></input>
         <button type="submit" class="botones">INICIAR SESIÓN</button>
@@ -39,27 +39,17 @@ export default () => {
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewLogin;
   const formularioLogin = divElemt.querySelector('#formularioLogin');
-  formularioLogin.addEventListener('submit', (e) =>{
+  formularioLogin.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = divElemt.querySelector('#correoLogin').value;
     const password = divElemt.querySelector('#contraseñaLogin').value;
     formularioLogin.reset();
-    newLogin(auth, email, password)
-    .then((userCredential) => {
-      console.log('logueado...');
-      window.location.assign('#/feed')
-      const user = userCredential.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      alert('Por favor verifique sus credenciales')
-    });
-  })
-  const btnGoogle= divElemt.querySelector('#btnGoogle');
-  btnGoogle.addEventListener('click', (e) =>{
+    newLogin(auth, email, password);
+  });
+  const btnGoogle = divElemt.querySelector('#btnGoogle');
+  btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogin();
   });
-  
   return divElemt;
 };

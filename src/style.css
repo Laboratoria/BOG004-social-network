@@ -308,3 +308,52 @@ a:visited {
 input [type = checkbox]{
     border-radius: 100px;
 }
+.flex{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal{
+    display: none;
+    position: absolute;
+     z-index: 1;
+     overflow: auto;
+     left: 0;
+     top: 20%;
+     width: 100%;
+     height: auto;
+     background: rgba ( 0,0,0,0.452);
+}
+
+.contenidoModal{
+    position:relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 30%;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+@keyframes modal{
+    from{top: -330px; opacity: 0;}
+    to{top: 0; opacity: 1;}
+}
+.cerrar{
+    color:#f2f2f2 ;
+    font-size: 30px;
+    font-weight: bold;
+}
+.cerrar:hover{
+    color:#7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modalHeader{
+    padding: 8px 16px;
+    background: #34495e;
+    color:#f2f2f2;
+}
+.modalBody p{
+    text-align: justify;
+}

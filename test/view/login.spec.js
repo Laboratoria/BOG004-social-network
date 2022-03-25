@@ -1,4 +1,4 @@
-import { googleLogin } from "../../src/FirebaseConfig";
+import { googleLogin } from '../../src/FirebaseConfig';
 
 jest.mock('../../src/FirebaseConfig');
 
@@ -7,3 +7,6 @@ describe('googleLogin', () => {
     const result = googleLogin();
   });
 });
+
+//test de funciones puras
+//manipulacion del dom

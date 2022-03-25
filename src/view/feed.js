@@ -1,4 +1,4 @@
-import { logOut , auth, reglaUno } from "../FirebaseConfig.js";
+import { logOut } from '../view-controller/controllers.js';
 
 export default () => {
   const viewFeed = `
@@ -29,13 +29,10 @@ export default () => {
 
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewFeed;
-  
   const btnLogout = divElemt.querySelector('#imgLogout');
   btnLogout.addEventListener('click', () => {
     logOut();
-    
   });
-
 
   return divElemt;
 };
