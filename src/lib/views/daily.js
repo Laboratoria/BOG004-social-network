@@ -4,7 +4,7 @@ export default () => {
   divRegister.setAttribute('class', 'container-div-daily');
   const viewRegister = `
     <main>
-    <div class="main__div--tittle">
+    <div class="main__div--tittle-daily">
         <img src="./img/title.png">
     </div>
     </main>
@@ -12,3 +12,5 @@ export default () => {
   divRegister.innerHTML = viewRegister;
   return divRegister;
 };
+
+
