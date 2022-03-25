@@ -21,6 +21,7 @@ export const login = (email, password) => {
 
     .catch((error) => {
       const errorCode = error.code;
+<<<<<<< HEAD
       console.log(errorCode);
       switch (errorCode) {
         case 'auth/user-not-found':
@@ -28,14 +29,23 @@ export const login = (email, password) => {
           console.log('Usuario incorrecto');
           break;
 
+=======
+      switch (errorCode) {
+        case 'auth/user-not-found':
+          document.querySelector('#messageAlert').innerText = 'Correo incorrecto';
+          break;
+>>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
         case 'auth/wrong-password':
           console.log('contraseña incorrecta');
           document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
           break;
+<<<<<<< HEAD
         case 'auth/invalid-email':
           console.log('correo invalido');
           document.querySelector('#messageAlert').innerText = 'correo invalido';
 
+=======
+>>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
         default:
           break;
       }
