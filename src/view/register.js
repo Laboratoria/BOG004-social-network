@@ -1,3 +1,5 @@
+//import { authenticate } from "../view-controler/firebase.js";
+
 export default () => {
   const viewRegister = `
     <h2 class= 'text-center'> Aquí te puedes registrar en ¡Hi,baby! </h2>
