@@ -5,7 +5,6 @@
     color: #272121;
     font-family: 'Oswald', sans-serif;
 }
-
 body {
     background-image: url("./img/background.png");
     min-width: 250px;
@@ -17,31 +16,25 @@ body {
     overflow-x: hidden;
     width: 100%;
 }
-
 main {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
     text-align: center;
 }
-
 #container {
     width: 100%;
 }
-
-
 .main__div--login {
     border: #272121 solid 2px;
     width: 350px;
     height: 460px;
     margin: auto;
 }
-
 .p_join {
     margin-top: 25px;
     font-size: 23px;
     font-family: serif;
 }
-
 .join {
     margin-top: 20px;
     width: 320px;
@@ -53,7 +46,6 @@ main {
     color: beige;
     font-size: 16px;
 }
-
 .Login {
     margin-top: 10px;
     width: 320px;
@@ -65,23 +57,19 @@ main {
     color: #272121;
     font-size: 16px;
 }
-
 .third_hr{
     width: 50px;
     margin: auto;
     margin-top: 15px;
 }
-   
 .fourth_hr {
     width: 50px;
     margin: auto;
     margin-top: 15px;
 }
-
 .welcome-wizards {
     font-size: 37px;
 }
-
 .main__div--tittle {
     background-image: url("./img/title.png");
     background-repeat: no-repeat;
@@ -90,17 +78,14 @@ main {
     margin: auto;
     margin-top: 10px;
 }
-
 .div-or {
     margin-top: 20px;
     text-align: center;
 }
-
 .or {
     position:relative;
     display:inline-block;
 }
-
 .or::before, .or::after {
     content:' ';
     display:block;
@@ -108,11 +93,9 @@ main {
     width:100px; /* 100px line on either side */
     border-bottom:1px solid rgb(0, 0, 0);
 }
-
 .or::after {
     left:auto; right:-120px;
 }
-
 .continue-with-google {
     display: flex;
     flex-direction: row;
@@ -122,22 +105,18 @@ main {
     margin: auto;
     margin-top: 5px;
 }
-
 .hand {
     width: 50px;
     height: 27px;
 }
-
 .alohomora {
     margin-top: 30px;
     font-size: 20px;
 }
-
 #modalMessage {
     margin: auto;
     text-align: center;
 }
-
 #formNewRegister input{
     width: 320px;
     height: 45px;
@@ -146,23 +125,26 @@ main {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.459);
 }
-
+#formLogin input{
+    width: 320px;
+    height: 45px;
+    border: #272121 solid 3px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.459);
+}
 .btn-google{
     background-color: transparent;
     border-color: transparent;
-
 }
-
 @media screen and (min-width: 800px) {
     main {
         display: flex;
         flex-direction: row-reverse;
     }
-
     .main__div--container {
         margin: auto;
     }
-    
     .main__div--tittle {
         margin: auto;
         background-image: url(./img/Logo\ Desktop.png);
@@ -172,15 +154,22 @@ main {
         
     }
 }
-
 #errorMessageJoin {
     margin: auto;
     margin-top: 5px;
     height: 3px;
     /* font-weight: bolder; */
     font-size: 20px;
+    background-image: url(./img/warning.png);
 }
-
+#errorMessageLogin {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
+    background-image: url(./img/warning.png);
+}
 #textModal {
     margin: auto;
     margin-top: 5px;

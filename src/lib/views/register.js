@@ -36,7 +36,7 @@ export default () => {
         </button>
       </div>
       <p class="alohomora">Already a member? ALOHOMORA</p>
-      <a href='#/Login'><button class="Login"> Login </button></a>
+      <a href='#/login'><button class="Login">Login</button></a>
   </div>
   
 </main>
@@ -46,7 +46,7 @@ export default () => {
   const join = divRegister.querySelector('.join');
   join.addEventListener('click', (e) => {
     e.preventDefault();
-    // console.log('click');
+    // console.log('click join');
 
     const formNewRegister = document.querySelector('#formNewRegister');
     const name = document.querySelector('#name').value;
@@ -57,13 +57,14 @@ export default () => {
 
     if (name !== '') {
       newRegister(auth, email, password, name)
-        .then((userCredential) => {
-          userCredential.user;
+        .then(() => {
+          // const user = userCredential.user;
 
-          document.querySelector('#modalMessage').style.display = 'flex';
+          document.querySelector('#modalMessage').style.display = 'block';
           document.querySelector('#textModal').innerHTML = 'WELCOME TO THE DAILY PROPHET';
           setTimeout(() => {
             document.querySelector('#modalMessage').style.display = 'none';
+            window.location.hash = '#/daily';
           }, 8000);
           formNewRegister.reset();
           console.log('Join');
@@ -88,7 +89,7 @@ export default () => {
           }
         });
     } else {
-      errorMessageJoin.innerHTML = '⚠️ Name is a require field';
+      errorMessageJoin.innerHTML = 'Name is a require field';
       console.log('No ingresó nombre');
     }
   });
@@ -98,19 +99,8 @@ export default () => {
     e.preventDefault();
     console.log('Click en Google');
     loginGoogle(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      // // The email of the user's account used.
-      // const email = error.email;
-      // // The AuthCredential type that was used.
-      // const credential = GoogleAuthProvider.credentialFromError(error);
+      .then(() => {
+        window.location.hash = '#/daily';
       });
   });
   return divRegister;
