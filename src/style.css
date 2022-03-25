@@ -211,10 +211,19 @@ h2 {
   text-align: center;
 }
 
-input :focus {
+input:focus {
   outline: none;
 }
 
+.with-error {
+  border: 3px solid rgb(241, 110, 110);
+  opacity: 0.3px;
+  background-color: rgb(8, 8, 8);
+}
+.remove-message{
+  display: block;
+
+}
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
   /* body{

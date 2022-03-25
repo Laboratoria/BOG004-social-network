@@ -49,15 +49,14 @@ export const register = (email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorCode.innerHTML='registro erroneo';
-      errorMessage.innerHTML='el mensaje es erroneo';
+  
       
     });
-    const expresiones = {
-      email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
-      password:/^.{4,12}$/,
-      RepeatPassword:/^.{4,12}$/,
-    }
+//     const expresiones = {
+//       email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
+//       password:/^.{4,12}$/,
+//       RepeatPassword:/^.{4,12}$/,
+//     }
 };
 
 // GOOGLE
@@ -98,4 +97,4 @@ export const authGoogle = (provider) => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
-};
+}
