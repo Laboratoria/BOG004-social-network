@@ -80,10 +80,11 @@ const closeSession = () => {
     });
 };
 
+const provider = new GoogleAuthProvider();// TODO: solucionar el bug
+console.log('provider: ', provider);
+
 const signInWithGoogle = () => {
   const auth = getAuth();
-  const provider = new GoogleAuthProvider();// TODO: solucionar el bug
-  console.log('provider: ', provider);
   signInWithPopup(auth, provider)
     .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.

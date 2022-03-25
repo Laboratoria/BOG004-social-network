@@ -13,7 +13,7 @@
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest.out": "npm run eslint",
+    "pretest": "npm run eslint",
     "test": "jest --coverage --env=jsdom",
     "start": "serve -s src/"
   },
