@@ -1,28 +1,44 @@
+import { userSignIn } from "../firebase.js"
+import { googleLogIn } from "../firebase.js"
 export default () => {
     const viewSignIn =  `
-    <h1 class = "text-align: "right"></h1>
-    <div class="signInForm">
-        <div class="signIn">
-            <input id="email" type="email" class="input-blanco" placeholder="Enter your email" required>
-        </div>
-        <div class="signIn">
-            <input id="password" type="password" class="input-blanco" placeholder="Enter your password" required>
-        </div>
-        <div class="signIn">
-            <button id="logIn" class="btnLogIn"> Sign In </button>
-            
-        </div>
-        <div>
-            <p class="center-text">
-                <a href="" id="recoverBtn" class="recover-pass">Forgot your password?</a>
-            </p>
-        </div>
-    </div> 
-         `
+  <div class="container">
+    <form action="action_page.php" method="post">
+        <label for="umail"><b>UserEmail</b></label>
+            <input type="text" id="userMail" placeholder="Enter email" name="uname" required>
 
-    const divElement = document.createElement("div")
-    divElement.classList.add("position")
+        <label for="psw"><b>Password</b></label>
+            <input type="password" id="userPass" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit" id="loginSignIn">Login</button>
+            <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        <button type="submit" id="loginWithG">Login With Google</button>
+            <label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+        <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+
+  <div class="imgcontainer">
+    <img src="./img/pic-of-dog.png" width="200" height="200" style="padding:55px" alt="Avatar" class="avatar">
+  </div>
+    </form> `
+
+    const divElement = document.createElement("div");
     divElement.innerHTML = viewSignIn;
 
+    divElement.querySelector('#loginSignIn').addEventListener('click', () => {
+        const usersEmail = document.getElementById('userMail').value;
+        const usersPassword = document.getElementById('userPass').value;
+
+        userSignIn(usersEmail, usersPassword);
+    });
+
+    divElement.querySelector('#loginWithG').addEventListener('click', () => {
+        googleLogIn();
+    })
     return divElement;
 }

@@ -10,9 +10,10 @@ const changeViews = (route) => {
             { return container.appendChild(components.signUp()) }
         case '#/signIn': 
             { return container.appendChild(components.signIn()) }
-        case '#/error': 
-            { return container.appendChild(components.error()) }
+        case '#/timeline':
+            { return container.appendChild(components.timeline()) }
         default:
+            { return container.appendChild(components.error()) }
             break;
     }
     console.log(route)

@@ -1,3 +1,4 @@
+import { signingUp } from "../firebase.js"
 export default () => {
     const viewSignUp = `
     <h1 class = "text-align: "right"></h1>
@@ -8,20 +9,28 @@ export default () => {
         <div class="signUp">
           <input id="lastName" type="text" class="input-blanco" placeholder="Last Name" required>
         </div>
-          <input id="email" type="email" class="input-blanco" placeholder="Enter your email" required>
+          <input id="usersEmail" type="email" class="input-blanco" placeholder="Enter your email" required>
         </div>
         <div class="signUp">
-          <input id="password" type="password" class="input-blanco" placeholder="Enter your password" required>
+          <input id="userPassword" type="password" class="input-blanco" placeholder="Enter your password" required>
         </div> 
         <div class="signUp">
-          <button id="logIn" class="btn-naranjo"> Sign Up</button><div class="signUp">
+          <button class= "signUpBtn" id="signUpBttn" class="btn-naranjo"> Sign Up</button><div class="signUp">
         </div>   
     </div> 
          `
 
     const divElement = document.createElement("div")
-    divElement.classList.add("position")
     divElement.innerHTML = viewSignUp;
+    
+    divElement.querySelector('#signUpBttn').addEventListener('click', () => {
+      const nameFirst = document.getElementById('firstName').value;
+      const nameLast = document.getElementById('lastName').value;
+      const email = document.getElementById('usersEmail').value;
+      const password = document.getElementById('userPassword').value;
+
+      signingUp(nameFirst, nameLast, email, password);
+    })
 
     return divElement;
 }

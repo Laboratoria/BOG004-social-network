@@ -10,7 +10,6 @@ export default () => {
         `
 
     const divElement = document.createElement("div")
-    divElement.classList.add("position");
     divElement.innerHTML = viewHomePage;
 
     return divElement;
