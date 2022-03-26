@@ -30,7 +30,6 @@ h1 .relevant {
 }
 
 #viewHero {
-    display: grid;
     grid-column: 2/3;
     align-items: center;
     text-align: center;
@@ -78,7 +77,6 @@ h1 .relevant {
 
 #viewRegister {
     margin: 10% 0;
-    display: grid;
     grid-column: 2/3;
     align-items: center;
     text-align: center;
@@ -95,6 +93,10 @@ h1 .relevant {
     text-align: left;
     background-color: rgba(109, 184, 223, 0.5);
     border-radius: 20px;
+}
+
+.box-form .box-input{   
+    margin: 0 0 10px 0;
 }
 
 .labels {

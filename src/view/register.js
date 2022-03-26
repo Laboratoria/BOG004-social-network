@@ -12,14 +12,22 @@ export const register = () => {
           </div>
             <div class="box-form">
               <form id="form-register" action="">
+                <div class="box-input">
                   <label class="labels" for="">Nombre</label>
                   <input class="inputs" id="nameRegister" type="text" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Apellido</label>
                   <input class="inputs" id="lastNameRegister" type="text" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Correo Electrónico</label>
                   <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password" required>
+                </div>
                 <section id="alertMessage">
                   <p id="errorMessage"></p>
                 </section>
