@@ -37,7 +37,7 @@ export const register = () => {
                         <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
                 </section>
                 <section id="register-google">
-                <h3>o registrate con:</h3> 
+                <h3>O registrate con:</h3> 
                 <a href=""><img id="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
                 </section>
               </form>
