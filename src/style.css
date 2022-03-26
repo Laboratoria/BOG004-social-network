@@ -123,6 +123,7 @@ h1 .relevant {
     grid-template-rows: 40% 60%;
     text-align: center;
 }
+
 #guide-button{
     grid-row: 1/2;
     grid-column: 1/2;
