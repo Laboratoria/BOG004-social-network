@@ -20,20 +20,18 @@ export const register = () => {
                   <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com" required>
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password" required>
-                <section id="alertMessage" >
+                <section id="alertMessage">
                   <p id="errorMessage"></p>
                 </section>
-                <section id="align-buttons">
-                <div id="btns">
-                    <div class="question-button">
-                        <p>¿Ya tienes cuenta?</p>
+                <section class="align-buttons">
+                        <p id="guide-button">¿Ya tienes cuenta?</p>
                         <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
-                    </div>
-                    <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
-                <div>
+                        <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
                 </section>
+                <section id="register-google">
                 <h3>o registrate con:</h3> 
-                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                <a href=""><img id="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                </section>
               </form>
             </div>
         </div>
