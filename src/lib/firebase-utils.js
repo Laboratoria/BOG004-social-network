@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithRedirect,
+  sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 export {
@@ -14,4 +15,5 @@ export {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithRedirect,
+  sendEmailVerification,
 };

@@ -4,75 +4,58 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  sendEmailVerification,
 } from './firebase-utils.js';
 import { changeView } from '../view-controler/router.js';
-
 // LOGIN
 
 export const login = (email, password) => {
   const auth = getAuth();
-
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log('login exitoso');
       const user = userCredential.user;
-      changeView('#/feed');
-    })
-
-    .catch((error) => {
+      if (user.emailVerified) {
+        console.log('login exitoso');
+        location.hash = '#/feed';
+      } else {
+        document.querySelector('#messageAlert').innerText = 'Su correo no ha sido verificado, por favor revise su email';
+      }
+    }).catch((error) => {
       const errorCode = error.code;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
       console.log(errorCode);
       switch (errorCode) {
         case 'auth/user-not-found':
           document.querySelector('#messageAlert').innerText = 'Usuario incorrecto';
           console.log('Usuario incorrecto');
           break;
-
-<<<<<<< HEAD
-=======
-      switch (errorCode) {
-        case 'auth/user-not-found':
-          document.querySelector('#messageAlert').innerText = 'Correo incorrecto';
-          break;
->>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
-=======
->>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
         case 'auth/wrong-password':
           console.log('contraseña incorrecta');
           document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
           break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
         case 'auth/invalid-email':
           console.log('correo invalido');
           document.querySelector('#messageAlert').innerText = 'correo invalido';
-
-<<<<<<< HEAD
-=======
->>>>>>> ad6a296b4e32a5ad660e0486287977ef99e185ae
-=======
->>>>>>> 06c19330d1c2f93163631afb7346e9de5066ad7b
+          break;
         default:
+          console.log('Error al iniciar sesión ' + errorCode);
           break;
       }
     });
 };
 
-
-// REGISTRO
+// // REGISTRO
 export const register = (email, password) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('registro exitoso');
       const user = userCredential.user;
-      changeView('#/feed');
+      sendEmailVerification(user).then(() => {
+        console.log("Se ha enviado un mensaje al correo: " + user.email + " para verificar la creación de la cuenta ");
+        location.hash = '#/feed';
+      }).catch(error => {
+        console.log("Error enviando correo de verificación: " + error);
+      });
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -88,19 +71,12 @@ export const register = (email, password) => {
           document.getElementById('message').innerText = 'El correo es inválido';
           break;
         default:
+          console.log(errorCode);
+          console.log(errorMessage);
+          console.log('registro erroneo');
           break;
       }
-
-      console.log(errorCode);
-      console.log(errorMessage);
-      console.log('registro erroneo');
-
     });
-  //     const expresiones = {
-  //       email: /^[a-zA-ZO-9_.+-]+@[a-zA-ZO-9-.]+$/,
-  //       password:/^.{4,12}$/,
-  //       RepeatPassword:/^.{4,12}$/,
-  //     }
 };
 
 // GOOGLE
@@ -108,30 +84,12 @@ export const authGoogle = (provider) => {
   const auth = getAuth();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
       console.log('usuario ingresa');
       console.log(user);
       location.hash = '#/feed';
-      // changeView('#/feed');
-      // localStorage.setItem('token', token);
-      // localStorage.setItem('name', user.displayName);
-      // localStorage.setItem('creationTime', user.metadata.creationTime);
-      // localStorage.setItem('lastSignInTime', user.metadata.lastSignInTime);
-
-      // if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-      //   console.log('usuario ingresó por primera vez');
-      //   changeView('#/profile');
-      // } else {
-      //   console.log('usuario ya había ingresado');
-      //   changeView('#/feed');
-      // }
-      // location.hash = '#/interest';
-      // ...
-      // ...
     })
     .catch((error) => {
       // Handle Errors here.

@@ -4,7 +4,7 @@ export default () => {
   const viewLogin = `
     <div class='containerLogin'>
     <h2 class='text.center'> ¡Hola! </h2>
-    <form class= 'formLogin'>
+    <form class='formLogin' id="login-form">
      <input type='text' id='loginEmail' class='inputForm' placeholder='e-mail' required input/>
      <input type='password' id='loginPassword' class='inputForm' placeholder='Contraseña' required></input>
      <p id='messageAlert'></p>
@@ -14,8 +14,9 @@ export default () => {
 
   const divLogin = document.createElement('div');
   divLogin.innerHTML = viewLogin;
-  divLogin.querySelector('#btnLogin').addEventListener('click', () => {
-    console.log('hola');
+
+  divLogin.querySelector('#login-form').addEventListener('submit', (e) => {
+    e.preventDefault(); // previene la recarga por defecto de la página
     const email = divLogin.querySelector('#loginEmail').value;
     const password = divLogin.querySelector('#loginPassword').value;
     console.log(email, password);

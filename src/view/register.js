@@ -28,10 +28,7 @@ const createFormUser = () => {
     errorEmail.setAttribute('class', 'error-message-hidden');
 
     contenedorEmail.appendChild(email);
-    // contenedorEmail.appendChild(errorEmail);
-
-
-   
+       
     const password = document.createElement('input');
     password.setAttribute('type', 'password');
     password.setAttribute('name', 'password');
@@ -48,9 +45,6 @@ const createFormUser = () => {
     repeatPassword.setAttribute('id', 'register-repeat-password');
     repeatPassword.setAttribute('class', 'formulario');
     repeatPassword.setAttribute('autocomplete', 'off');
-
-
-    
 
     const submit = document.createElement('input');
     submit.setAttribute('type', 'submit');
@@ -69,10 +63,6 @@ const createFormUser = () => {
     form.appendChild(contenedorPassword);
     form.appendChild(password);
     form.appendChild(repeatPassword);
-
-    // contenedorPassword.appendChild(errorPassword);
-    // contenedorPassword.appendChild(password);
-
   
     form.appendChild(submit);
 
