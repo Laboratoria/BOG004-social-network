@@ -8,7 +8,7 @@ export const register = () => {
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
-          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
+          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.png">
           </div>
             <div class="box-form">
               <form id="form-register" action="">
@@ -28,7 +28,7 @@ export const register = () => {
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password" required>
                 </div>
-                <section id="alertMessage">
+                <section id="alertMessage" class="center-message">
                   <p id="errorMessage"></p>
                 </section>
                 <section class="align-buttons">

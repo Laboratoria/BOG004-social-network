@@ -117,6 +117,14 @@ h1 .relevant {
     border-radius: 6px;
 }
 
+.center-message {
+    display: flex;
+    flex-direction: row;
+    color: red;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
 .align-buttons {
     display: grid;
     grid-template-columns: 50% 50%;
