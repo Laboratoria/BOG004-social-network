@@ -83,7 +83,7 @@ export default () => {
           }
         });
     } else {
-      errorMessageJoin.innerHTML = 'Name is a require field';
+      errorMessageJoin.innerHTML = '⚠️ Name is a require field';
       console.log('No ingresó nombre');
     }
   });
