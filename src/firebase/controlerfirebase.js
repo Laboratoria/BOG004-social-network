@@ -86,6 +86,19 @@ const signInWithGoogle = () => {
     });
 };
 
+/**
+ * Esta funcion va a conectarse a fuirestore
+ * Luego con el resultado que es una suscripcion (aun no sabes)
+ * va a pintar en pantalla el resultado
+ */
+const getPostList = () => {
+   document.getElementybById("wall")//tpca verificar
+}
+
+const editPosts = (pst) => {
+
+}
+
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession,
 };
