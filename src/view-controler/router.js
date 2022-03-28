@@ -1,6 +1,6 @@
-// import { components } from '../view/index.js';
+import { components } from '../view/index.js';
 
-const changeView = (hash, components) => {
+const changeView = (hash) => {
   // const id = hash.split('/')[1];
   const sectionMain = document.getElementById('container');
   sectionMain.innerHTML = '';
@@ -16,7 +16,6 @@ const changeView = (hash, components) => {
       return sectionMain;
     }
     case '#/login': {
-      
       return sectionMain.appendChild(components.Login());
     }
     case '#/profile': {
@@ -37,3 +36,4 @@ const changeView = (hash, components) => {
   }
 };
 export { changeView };
+
