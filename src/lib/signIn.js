@@ -1,9 +1,9 @@
-import { userSignIn } from "../firebase.js"
-import { googleLogIn } from "../firebase.js"
+import { userSignIn, googleLogIn } from '../firebase.js';
+
 export default () => {
-    const viewSignIn =  `
+  const viewSignIn = `
   <div class="container">
-    <form action="action_page.php" method="post">
+    
         <label for="umail"><b>UserEmail</b></label>
             <input type="text" id="userMail" placeholder="Enter email" name="uname" required>
 
@@ -25,20 +25,20 @@ export default () => {
   <div class="imgcontainer">
     <img src="./img/pic-of-dog.png" width="200" height="200" style="padding:55px" alt="Avatar" class="avatar">
   </div>
-    </form> `
+    </form> `;
 
-    const divElement = document.createElement("div");
-    divElement.innerHTML = viewSignIn;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewSignIn;
 
-    divElement.querySelector('#loginSignIn').addEventListener('click', () => {
-        const usersEmail = document.getElementById('userMail').value;
-        const usersPassword = document.getElementById('userPass').value;
+  divElement.querySelector('#loginSignIn').addEventListener('click', () => {
+    const usersEmail = document.getElementById('userMail').value;
+    const usersPassword = document.getElementById('userPass').value;
 
-        userSignIn(usersEmail, usersPassword);
-    });
+    userSignIn(usersEmail, usersPassword);
+  });
 
-    divElement.querySelector('#loginWithG').addEventListener('click', () => {
-        googleLogIn();
-    })
-    return divElement;
-}
+  divElement.querySelector('#loginWithG').addEventListener('click', () => {
+    googleLogIn();
+  });
+  return divElement;
+};

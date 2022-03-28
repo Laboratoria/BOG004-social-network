@@ -1,6 +1,7 @@
-import { signingUp } from "../firebase.js"
+import { signingUp } from '../firebase.js';
+
 export default () => {
-    const viewSignUp = `
+  const viewSignUp = `
     <h1 class = "text-align: "right"></h1>
     <div class="signUpForm">
         <div class="signUp">
@@ -9,28 +10,28 @@ export default () => {
         <div class="signUp">
           <input id="lastName" type="text" class="input-blanco" placeholder="Last Name" required>
         </div>
-          <input id="usersEmail" type="email" class="input-blanco" placeholder="Enter your email" required>
+          <input id="usersEmail" type="email" class="input-blanco" placeholder="Enter your email">
         </div>
         <div class="signUp">
-          <input id="userPassword" type="password" class="input-blanco" placeholder="Enter your password" required>
+          <input id="userPassword" type="password" class="input-blanco" placeholder="Enter your password">
         </div> 
         <div class="signUp">
-          <button class= "signUpBtn" id="signUpBttn" class="btn-naranjo"> Sign Up</button><div class="signUp">
-        </div>   
+          <button type= "submit" id="signUpBttn">Sign Up</button></div class="signUp">
+        </>   
     </div> 
-         `
+         `;
 
-    const divElement = document.createElement("div")
-    divElement.innerHTML = viewSignUp;
-    
-    divElement.querySelector('#signUpBttn').addEventListener('click', () => {
-      const nameFirst = document.getElementById('firstName').value;
-      const nameLast = document.getElementById('lastName').value;
-      const email = document.getElementById('usersEmail').value;
-      const password = document.getElementById('userPassword').value;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewSignUp;
 
-      signingUp(nameFirst, nameLast, email, password);
-    })
+  divElement.querySelector('#signUpBttn').addEventListener('click', () => {
+    const nameFirst = document.getElementById('firstName').value;
+    const nameLast = document.getElementById('lastName').value;
+    const email = document.getElementById('usersEmail').value;
+    const password = document.getElementById('userPassword').value;
 
-    return divElement;
-}
+    signingUp(nameFirst, nameLast, email, password);
+  });
+
+  return divElement;
+};
