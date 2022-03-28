@@ -26,7 +26,7 @@ export default () => {
         changeView('#/post');
       })
       .catch((error) => {
-      // eslint-disable-next-line no-unused-vars
+        // eslint-disable-next-line no-unused-vars
         const errorCode = error.code;
         const errorMessage = error.message;
         // eslint-disable-next-line no-alert
