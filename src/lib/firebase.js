@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-unresolved */
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -6,9 +9,20 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-
-  initializeApp, getFirestore, collection, addDoc, getDatabase,
-} from './firebase-imports.js';
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4',
@@ -43,7 +57,6 @@ export const googleSignWithPopup = () => signInWithPopup(auth, provider)
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
-    console.log(user);
     // ...
   })
   .catch((error) => {
@@ -57,10 +70,15 @@ export const googleSignWithPopup = () => signInWithPopup(auth, provider)
     // ...
   });
 
-export const saveTask = (description) => addDoc(collection(db, 'Post'), { description });
-
 export const userSignOut = () => signOut(auth).then(() => {
-  console.log('Estas fuera');
+  console.log('SIGN OUT !');
 }).catch((error) => {
-  console.log('Hubo un error');
+  console.log('ERROR !');
 });
+
+export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
+export const getComments = () => getDocs(collection(db, 'comments'));
+export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
+export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
+export const getComment = (id) => getDoc(doc(db, 'comments', id));
+export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);
