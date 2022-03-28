@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
@@ -9,14 +10,13 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-import {
+  initializeApp,
   getFirestore,
   collection,
   addDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
+  getDatabase,
+} from './firebase-imports.js';
+import { changeView } from './viewController.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4',
@@ -36,8 +36,11 @@ const provider = new GoogleAuthProvider();
 export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then(
     (userCredential) => {
-      const user = userCredential.user;
-      sendEmailVerification(user).then(() => {
+      sendEmailVerification(auth.currentUser).then(() => {
+        const user = userCredential.user;
+        if (!user.emailVerified) {
+          changeView('#/signIn');
+        }
         // eslint-disable-next-line no-alert
         alert(`Se ha enviado un correo de verificación a ${user.email}`);
       });
@@ -45,13 +48,11 @@ export const SignUpUser = (email, password) => createUserWithEmailAndPassword(au
   );
 
 export const SignInUser = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then(
+  signInWithEmailAndPassword(auth, email, password);
+  /*   .then(
       (userCredential) => {
-        const user = userCredential.user;
-        console.log('ingreso exitoso');
       },
-    );
+    ); */
   return signInWithEmailAndPassword(auth, email, password);
 };
 

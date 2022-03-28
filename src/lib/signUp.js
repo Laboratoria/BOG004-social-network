@@ -1,6 +1,5 @@
-import { SignUpUser } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
-import { changeView } from './viewController.js';
+import { SignUpUser } from './firebase.js';
 
 export default () => {
   const viewSignUp = ` <form class='signUpForm' id='signUpForm'>
@@ -15,7 +14,7 @@ export default () => {
     <h6>  By clicking Agree & Join, you agree to the  User Agreement, <br>
           Privacy Policy, and Cookie Policy. 
     </h6>
-    <input type='submit' class='submitSignUp' value='Sign Up'>
+    <input type='submit' class='submitSignUp-' value='Sign Up'>
   </div>
   <footer> Made by Viviana, Camila & Paula</footer>
 </form>`;
@@ -29,7 +28,7 @@ export default () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     SignUpUser(email, password)
-      .then(() => { changeView('#/post'); })
+      // .then(() => { changeView('#/post'); })
       .catch((error) => {
         // eslint-disable-next-line no-unused-vars
         const errorCode = error.code;

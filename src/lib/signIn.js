@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { SignInUser } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { changeView } from './viewController.js';
@@ -21,9 +22,17 @@ export default () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     SignInUser(email, password)
-      .then(() => {
-        changeView('#/post');
-      })
+      .then(
+        (userCredential) => {
+          const user = userCredential.user;
+          if (!user.emailVerified) {
+            // eslint-disable-next-line no-alert
+            alert('Por favor, verifica tu correo');
+          } else {
+            changeView('#/post');
+          }
+        },
+      )
       .catch((error) => {
         // eslint-disable-next-line no-unused-vars
         const errorCode = error.code;
