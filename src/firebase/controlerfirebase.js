@@ -52,20 +52,10 @@ function observerUserState() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      // const uid = user.uid;
-      // TODO: ponerlo en una variable global para poder hacer cosas cheveres
       window.location.hash = '#wall';
-      // ...
-    } else {
+    } else if (window.location.hash === '#wall') {
       // User is signed out
-      if (window.location.hash === '#wall') {
-        window.location.hash = '';
-      }
-      console.log('good bye!');
-      // window.location.hash = '';
-      // ...
+      window.location.hash = '';
     }
   });
 }
@@ -76,29 +66,21 @@ const closeSession = () => {
     .then(() => {
     })
     .catch((error) => {
-      const errorCode = error.code;
-      console.error(errorCode);
+      console.error(error);
     });
 };
 
-const provider = new GoogleAuthProvider();// TODO: solucionar el bug
+const provider = new GoogleAuthProvider();
 console.log('provider: ', provider);
 
 const signInWithGoogle = () => {
   const auth = getAuth();
   signInWithPopup(auth, provider)
     .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-      // const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
       console.log(`El usuario ${user} se ha autenticado!!!`);
     // ...
     }).catch((error) => {
-    // Handle Errors here.
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
       // eslint-disable-next-line no-console
       console.error(error);
     });

@@ -20,3 +20,5 @@ export const signInWithEmailAndPassword = (_, email, password) => new Promise(
 export const onAuthStateChanged = () => Promise.resolve({});
 export const signInWithPopup = () => Promise.resolve({});
 export class GoogleAuthProvider {}
+
+export const signOut = () => Promise.resolve({});
