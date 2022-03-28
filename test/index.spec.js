@@ -1,8 +1,8 @@
-import { register } from '../src/view/register.js';
+import { registerUser } from "../src/Firebase/auth.js";
 // importamos la funcion que vamos a testear
 // import { myFunction } from '../src/lib/index';
 
-jest.mock('../Firebase/firebase-import.js')
+jest.mock('../src/Firebase/firebase-import.js')
 
 
 // describe('myFunction', () => {
@@ -11,10 +11,12 @@ jest.mock('../Firebase/firebase-import.js')
 //     });
 // });
 
-describe('register', () => {
-    it ('', () => {
-        document.body.innerHTML
-    })
+describe('registerUser', () => {
+    it('', () => {
+        const register = registerUser();
+        const email = register.querySelector('#emailRegister');
+        const password = register.querySelector('#passwordRegister');
 
-
-})
+        console.log(email.innerHTML)
+    });
+});
