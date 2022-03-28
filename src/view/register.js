@@ -1,4 +1,4 @@
-//import { authenticate } from "../view-controler/firebase.js";
+//import { authenticate } from '../view-controler/firebase.js';
 
 export default () => {
   const viewRegister = `
