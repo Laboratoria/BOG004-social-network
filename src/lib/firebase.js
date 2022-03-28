@@ -14,16 +14,18 @@ import {
   getFirestore,
   addDoc,
   getDocs,
+  getDoc,
   onSnapshot,
   deleteDoc,
   doc,
+  updateDoc,
+  serverTimestamp,
+  query, orderBy,
 } from './firebase.util.js';
-
 
 // import profile from '../pages/profile.js';
 
 // // console.log('profile', profile.template);
-
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDIRrQ_iwja7mfLbiFMCFyAzdhDcgcsoRI',
@@ -119,9 +121,13 @@ export const logInEmail = (email, password) => {
       const errorMessage = error.message;
     });
 };
-
-export const savePost = (postDescription) => addDoc(collection(db, 'post'), { postDescription });
+const newCollection = collection(db, 'post');
+export const savePost = (postDescription) => addDoc(collection(db, 'post'), { postDescription, createdAt: serverTimestamp() });
+const q = query(newCollection, orderBy('createdAt', 'desc'));
 // console.log('probando', collection(db, 'post'));
 export const getPost = () => getDocs(collection(db, 'post'));
-export const onGetPost = (callback) => onSnapshot(collection(db, 'post'), callback);
+export const onGetPost = (callback) => onSnapshot(q, collection(db, 'post'), callback);
 export const deletePost = (id) => deleteDoc(doc(db, 'post', id));
+export const getOnlyPost = (id) => getDoc(doc(db, 'post', id));
+
+export const updatePost = (id, newfields) => updateDoc(doc(db, 'post', id), newfields);
