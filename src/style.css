@@ -172,3 +172,13 @@ input[type="password"]
     font-size: 10px;
 }
 
+.like__btn {
+    padding: 10px 15px;
+    background: #627477;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
