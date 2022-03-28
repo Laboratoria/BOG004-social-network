@@ -69,7 +69,7 @@ export default () => {
           //   console.log(errorCode, errorMessage);
           switch (errorCode) {
             case 'auth/invalid-email':
-              errorMessageJoin.innerHTML = '⚠️ Invalid Email';
+              errorMessageJoin.innerHTML = '❌ Invalid Email';
               break;
             case 'auth/weak-password':
               errorMessageJoin.innerHTML = '⚠️ The password must contain minimum six characters';
@@ -78,7 +78,7 @@ export default () => {
               errorMessageJoin.innerHTML = '⚠️ Your email is already registered';
               break;
             default:
-              errorMessageJoin.innerHTML = '⚠️ Oops something went wrong';
+              errorMessageJoin.innerHTML = '⚠️ Fill in all the fields';
               break;
           }
         });

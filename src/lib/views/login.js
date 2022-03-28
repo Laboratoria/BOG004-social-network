@@ -26,7 +26,7 @@ export default () => {
         </div>
         <button type="button" id="googleButton" class="continue-with-google"></button>
       <p class="new-Wizard">New Wizard?</p>
-      <button class="join"> Join </button>
+      <a href=''><button class="join"> Join </button></a>
   </div>
 </main>
 `;
@@ -61,10 +61,10 @@ export default () => {
             errorMessage.innerHTML = '❌Wrong Password';
             break;
           case 'auth/user-not-found':
-            errorMessage.innerHTML = '❌User not Found, Please Join';
+            errorMessage.innerHTML = '⚠️ User not Found, Please Join';
             break;
           default:
-            errorMessage.innerHTML = '❌Oops something went wrong';
+            errorMessage.innerHTML = '⚠️ Fill in all the fields';
             break;
         }
       });
