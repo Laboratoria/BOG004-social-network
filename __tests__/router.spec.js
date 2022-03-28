@@ -1,16 +1,5 @@
 import { changeTmp } from '../src/view-controller/router.js';
 
-// const vistaPrueba = () => {
-//   const tmpPrueba = '<div id='textoPrueba'> Esto es una vista de prueba</div>';
-//   const divPrueba = document.createElement('div');
-//   divPrueba.innerHTML = tmpPrueba;
-//   return divPrueba;
-// };
-
-// const components = {
-//   home: vistaPrueba,
-// };
-
 describe('changeTmp', () => {
   it('debería cargar el tmpPrueba a la vista home', () => {
     document.body.innerHTML = '<section id="container"></section>';
