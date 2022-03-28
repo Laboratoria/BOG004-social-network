@@ -6,12 +6,12 @@ export default () => {
       
       <div class="navbar-pantalla">
         <button class="atras">
-        <a href="#/"> <img clas="img-atras" src="../img/icono_atras.png" alt="Atrás"> </a>
+        <a href="#/"> <img clas="img-atras" src="img/icono_atras.png" alt="Atrás"> </a>
         </button>
       </div>
 
       <div class="logo-formulario">
-        <img src="../img/Logo-codering.png" alt="Logo Codering">
+        <img src="img/Logo-codering.png" alt="Logo Codering">
       </div>
 
       <form id="formularioRegister">
