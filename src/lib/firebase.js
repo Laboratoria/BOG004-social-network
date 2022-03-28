@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
@@ -10,13 +9,20 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-  initializeApp,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+import {
   getFirestore,
   collection,
   addDoc,
-  getDatabase,
-} from './firebase-imports.js';
-import { changeView } from './viewController.js';
+  getDocs,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4',
@@ -34,27 +40,15 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
-  .then(
-    (userCredential) => {
-      sendEmailVerification(auth.currentUser).then(() => {
-        const user = userCredential.user;
-        if (!user.emailVerified) {
-          changeView('#/signIn');
-        }
-        // eslint-disable-next-line no-alert
+  .then((userCredential) => {
+    const user = userCredential.user;
+    sendEmailVerification(user)
+      .then(() => {
         alert(`Se ha enviado un correo de verificación a ${user.email}`);
       });
-    },
-  );
+  });
 
-export const SignInUser = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
-  /*   .then(
-      (userCredential) => {
-      },
-    ); */
-  return signInWithEmailAndPassword(auth, email, password);
-};
+export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 export const googleSignWithPopup = () => signInWithPopup(auth, provider)
   .then((result) => {
@@ -76,17 +70,15 @@ export const googleSignWithPopup = () => signInWithPopup(auth, provider)
     // ...
   });
 
-export const saveTask = (title, description) => addDoc(collection(db, 'Posts'), { title, description });
+export const userSignOut = () => signOut(auth).then(() => {
+  console.log('SIGN OUT !');
+}).catch((error) => {
+  console.log('ERROR !');
+});
 
-export const userSignOut = () => {
-  signOut(auth)
-    .then(() => {
-      console.log('estas afuera');
-      // Sign-out successful.
-    })
-    .catch((error) => {
-      console.log('hubo un error');
-      // An error happened.
-    });
-  return signOut(auth);
-};
+export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
+export const getComments = () => getDocs(collection(db, 'comments'));
+export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
+export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
+export const getComment = (id) => getDoc(doc(db, 'comments', id));
+export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);
