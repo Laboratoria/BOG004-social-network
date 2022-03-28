@@ -1,7 +1,7 @@
 import { components } from '../view/index.js';
 
 const changeView = (hash) => {
-  // const id = hash.split('/')[1];
+  location.hash = hash;
   const sectionMain = document.getElementById('container');
   sectionMain.innerHTML = '';
   switch (hash) {

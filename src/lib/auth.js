@@ -16,7 +16,7 @@ export const login = (email, password) => {
       const user = userCredential.user;
       if (user.emailVerified) {
         console.log('login exitoso');
-        location.hash = '#/feed';
+        changeView('#/feed');
       } else {
         document.querySelector('#messageAlert').innerText = 'Su correo no ha sido verificado, por favor revise su email';
       }
@@ -52,9 +52,12 @@ export const register = (email, password) => {
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
         console.log("Se ha enviado un mensaje al correo: " + user.email + " para verificar la creación de la cuenta ");
-        location.hash = '#/login';
+        // changeView('#/login');
+        // location.hash = '#/login';
+        document.querySelector('#message').innerText = 'Se ha enviado un mensaje al correo:' + user.email + ' para verificar la creación de la cuenta ';
       }).catch(error => {
         console.log("Error enviando correo de verificación: " + error);
+        document.getElementById('message').innerText = 'Error, intente denuevo';
       });
     })
     .catch((error) => {
@@ -89,7 +92,7 @@ export const authGoogle = (provider) => {
       const user = result.user;
       console.log('usuario ingresa');
       console.log(user);
-      location.hash = '#/feed';
+      changeView('#/feed');
     })
     .catch((error) => {
       // Handle Errors here.
