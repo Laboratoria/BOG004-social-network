@@ -32,13 +32,13 @@ export const register = () => {
                   <p id="errorMessage"></p>
                 </section>
                 <section class="align-buttons">
-                        <p id="guide-button">¿Ya tienes cuenta?</p>
-                        <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
-                        <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
+                  <p id="guide-button">¿Ya tienes cuenta?</p>
+                  <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
+                  <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
                 </section>
                 <section id="register-google">
                 <h3>O registrate con:</h3> 
-                <a href=""><img id="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
                 </section>
               </form>
             </div>
@@ -62,13 +62,6 @@ export const register = () => {
         const emailRegister = document.querySelector("#emailRegister").value;
         const passwordRegister = document.querySelector("#passwordRegister").value;
         formRegister.reset();
-
-        /*  console.log(
-           nameRegister,
-           lastNameRegister,
-           emailRegister,
-           passwordRegister
-         ); */
 
         registerUser(emailRegister, passwordRegister)
             .then(response => {
