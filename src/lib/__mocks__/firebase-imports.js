@@ -3,7 +3,7 @@ export const createUserWithEmailAndPassword = () => Promise.resolve({});
 export const signInWithEmailAndPassword = () => Promise.resolve({});
 export const sendEmailVerification = () => Promise.resolve({});
 export const signInWithPopup = () => Promise.resolve({});
-export const GoogleAuthProvider = () => Promise.resolve({});
+export class GoogleAuthProvider {}
 export const signOut = () => Promise.resolve({});
 export const initializeApp  = () => Promise.resolve({});
 export const getFirestore = () => Promise.resolve({});

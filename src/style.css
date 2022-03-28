@@ -3,16 +3,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif; 
-    
+}
+
+body{
+    background: linear-gradient(180deg, #233233 36.98%, #2B4E4D 69.27%, #3F978F 100%);
 }
 
 #container{
-    background: linear-gradient(180deg, #233233 36.98%, #2B4E4D 69.27%, #3F978F 100%);
     color: aliceblue;
     min-height:100vh;
     display: grid;
     grid-column: auto;
     justify-items: center;
+    align-items: center;
 }
 
 .logo{
@@ -35,128 +38,95 @@ footer{
     font-size: 1rem;
     align-self: flex-end;
 }
-.initView{
-    display: grid;
-    grid-column: auto;
-    justify-items: center;
-    gap: 30px;
-    padding-top: 20%;
+
+.divButtons, .signUpForm, .divSignIn {
+    background-color: #233233; 
+    border-radius: 10px;
+    box-shadow: rgba(61, 144, 136, 0.5)1px 1px 4px 4px;
+    text-align: center;
+    width: 400px;
+    height: 600px;
 }
 
-img.Nave{
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+.Nave{
+    margin-top: 20%;
+    width: 220px;
+}
+
+.branding {
+    margin-top: 5%;
+    font-size:larger;
+    letter-spacing: 2px;
+    margin-bottom: -20px;
+}
+.initView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 30px;
 }
 
 a{
-    width:fit-content;
-    font-size: medium;
     text-decoration: none;
+}
+
+.signUp,.signIn, .buttonGoogle, .submitSignUp, .submitSignIn{
+    width: 300px;
+    height: 40px;
+    margin: 15px;
+    background: #627477;
+    border-radius: 30px;
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-style: none;
+    font-size: medium;
     color: aliceblue;
 }
 
-a.signUp,a.signIn{
-
-    margin: 10px;
-    padding:0.3rem 9rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
+.signUp:hover, .signIn:hover, .buttonGoogle:hover, .submitSignUp:hover, .submitSignIn:hover{
+    background: rgba(61, 144, 136, 1);
 }
-
-a.buttonGoogle{
-    margin: 10px;
-    padding:0.3rem 5.1rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
-}
-
-
-
-
-
-a:hover{
-   background: rgba(61, 144, 136, 1);
-
-  }
-a:active{
+.signIn:active, .signUp:active, .buttonGoogle:active, .submitSignUp:active, .submitSignIn:active{
     background-color: #1691a1;
-  }
-
-form .signUpForm{
-    margin: 0 auto;
-    width: 50rem auto;
-}  
-
-.containerForm{
-    width:110rem;
-    height: 42.8rem;
-    margin: 0 auto;
-    text-align: center;
 }
 
- .containerForm h1{
-    padding-right: 10rem;
+.containerForm h1{
     letter-spacing: 15px;
 }
 
+.Icono {
+    margin: 10%;
+}
 
-
-input[type="text"],
-input[type="email"],
-input[type="password"]
-
-{
-    width: 20%;
+.nickname, #email, #password {
+    width: 80%;
     border: 100rem;
     border-bottom: 2px solid rgb(47, 151, 151);
     border-radius: 1px;
     outline: none;
     background-color: transparent;
-    font-size: 1rem;
-    color: white;
-    margin: 2rem 1rem;    
+    font-size: 1rem; 
+    margin: 7% 5%;  
+    color: aliceblue; 
 }
-
-
-
-
-
-.submitSignUp{
-    text-decoration: none;
-    cursor: pointer;
-    margin: 5rem;
-    padding: 1rem 9rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
-    border: none;
-    color: white;
-}
-
-.submitSignUp:hover{
-    background: rgba(61, 144, 136, 1);
-    
-}
-
-.submitSignUp:active{
-    background-color: #1691a1;
-}
-
-
-
 
 ::placeholder{
     text-align: left;
-    color: white;
-    
-    
+    color:aliceblue;
 }
 
 
-.containerForm h6{
+h6{
+    line-height: 20px;
     font-size: 10px;
+    margin-bottom: 5%;
 }
 
+.errorEmail,.errorM{
+    color: red;
+}
+
+h4{
+    margin:30px;
+}
