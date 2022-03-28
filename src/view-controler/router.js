@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { components} from '../view/index.js'
 
 const changeView = (hash) => {
   // const id = hash.split('/')[1];
+=======
+import { components } from '../view/index.js';
+
+const changeView = (hash) => {
+  location.hash = hash;
+>>>>>>> 27662b55d1ed05b1e11ffe76f599b2389d47e272
   const sectionMain = document.getElementById('container');
   sectionMain.innerHTML = '';
   switch (hash) {
@@ -16,7 +23,6 @@ const changeView = (hash) => {
       return sectionMain;
     }
     case '#/login': {
-      
       return sectionMain.appendChild(components.Login());
     }
     case '#/profile': {
@@ -37,3 +43,4 @@ const changeView = (hash) => {
   }
 };
 export { changeView };
+
