@@ -1,6 +1,14 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js"
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-export { initializeApp }
-export { getFirestore, collection, addDoc }
-export { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword }
+export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+export {
+  getAuth, updateProfile, onAuthStateChanged, signInWithPopup, GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  sendSignInLinkToEmail, signInWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+export {
+  getFirestore, collection, addDoc, getDocs, doc, setDoc,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+
+// export { initializeApp };
+// export { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword,
+// sendSignInLinkToEmail, signInWithEmailAndPassword };
+// export { getFirestore, collection, addDoc };

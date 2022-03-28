@@ -10,17 +10,16 @@ export const home = () => {
   divElement.classList.add('view1');
   divElement.innerHTML = template;
 
-  const btnregister = divElement.querySelector('#register1')
-  const btnlogin = divElement.querySelector('#login1')
+  const btnregister = divElement.querySelector('#register1');
+  const btnlogin = divElement.querySelector('#login1');
 
   btnregister.addEventListener('click', () => {
-    window.location = '#register'});
-  
+    window.location = '#register';
+  });
+
   btnlogin.addEventListener('click', () => {
-    window.location = '#login'});  
-
-
-
+    window.location = '#login';
+  });
 
   return divElement;
 };
