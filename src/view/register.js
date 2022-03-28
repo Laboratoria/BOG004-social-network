@@ -8,32 +8,38 @@ export const register = () => {
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
-          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.svg">
+          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.png">
           </div>
             <div class="box-form">
               <form id="form-register" action="">
+                <div class="box-input">
                   <label class="labels" for="">Nombre</label>
                   <input class="inputs" id="nameRegister" type="text" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Apellido</label>
                   <input class="inputs" id="lastNameRegister" type="text" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Correo Electrónico</label>
                   <input class="inputs" id="emailRegister" type="email" placeholder="ejemplo@gmail.com" required>
+                </div>
+                <div class="box-input">
                   <label class="labels" for="">Contraseña</label>
                   <input class="inputs" id="passwordRegister" type="password" required>
-                <section id="alertMessage" >
+                </div>
+                <section id="alertMessage" class="center-message">
                   <p id="errorMessage"></p>
                 </section>
-                <section id="align-buttons">
-                <div id="btns">
-                    <div class="question-button">
-                        <p>¿Ya tienes cuenta?</p>
+                <section class="align-buttons">
+                        <p id="guide-button">¿Ya tienes cuenta?</p>
                         <button id="btn-login" class="btn-border">INICIAR SESIÓN</button>
-                    </div>
-                    <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
-                <div>
+                        <button id="btn-register" class ="btn-background" type="submit">REGISTRAR CUENTA</button>
                 </section>
-                <h3>o registrate con:</h3> 
-                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                <section id="register-google">
+                <h3>O registrate con:</h3> 
+                <a href=""><img id="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                </section>
               </form>
             </div>
         </div>
