@@ -172,6 +172,16 @@ hr {
   align-items: center;
 }
 
+.with-error {
+  border: 1px solid rgb(238, 58, 58);
+  color:#000;
+  
+}
+
+.error-message-hidden {
+  display: none;
+}
+
 /*LOGIN*/
 .formLogin {
   display: flex;
@@ -223,15 +233,6 @@ input:focus {
   outline: none;
 }
 
-.with-error {
-  border: 3px solid rgb(241, 110, 110);
-  opacity: 0.3px;
-  background-color: rgb(8, 8, 8);
-}
-
-.error-message-hidden {
-  display: none;
-}
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
   /* body{

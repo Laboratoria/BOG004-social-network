@@ -1,6 +1,7 @@
 import { register } from '../lib/auth.js';
 
 const createFormUser = () => {
+  document.querySelector('#sectionGrid').style.display = 'block';
   const divElem = document.createElement('div');
   const viewCreateUser = `<h2 class='text-center'>Crea una cuenta en Nibbles</h2>`;
   divElem.innerHTML = viewCreateUser;

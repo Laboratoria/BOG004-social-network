@@ -1,6 +1,7 @@
 import { login } from '../lib/auth.js';
 
 export default () => {
+  document.querySelector('#sectionGrid').style.display = 'block';
   const viewLogin = `
     <div class='containerLogin'>
     <h2 class='text.center'> ¡Hola! </h2>

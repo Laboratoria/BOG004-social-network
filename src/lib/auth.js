@@ -52,7 +52,7 @@ export const register = (email, password) => {
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
         console.log("Se ha enviado un mensaje al correo: " + user.email + " para verificar la creación de la cuenta ");
-        location.hash = '#/feed';
+        location.hash = '#/login';
       }).catch(error => {
         console.log("Error enviando correo de verificación: " + error);
       });
