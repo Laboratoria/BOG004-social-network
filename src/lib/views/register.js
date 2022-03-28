@@ -8,9 +8,9 @@ export default () => {
   <main>
   <div class="main__div--tittle"></div>
   <div class= "main__div--container">
-      <h2 class="welcome-wizards"><b> WELCOME WIZARDS</b></h2>
+      <h2 class="welcome-wizards"></h2>
 
-      <div class="main__div--login">
+      <div class="main__div--login-register">
         <form id='formNewRegister'> 
           <input type="text" placeholder="Name" id="name">
           <input type="text" placeholder="Email" id="email">
@@ -23,18 +23,12 @@ export default () => {
         </form>
       <div id='errorMessageJoin'></div>
 
-      <p class="p_join"><b>REVELIO<b> The Daily Prophet</p>
+      <p class="p_join"> <b>REVELIO<b> The Daily Prophet</p>
       <button class="join"> Join </button>
       <div class="div-or">
       <p class="or">or</p>
       </div>
-      <div class="continue-with-google">
-        <p>Continue with Google</p>
-        <img src="./img/hand.png" class="hand">
-        <button type='button' id='googleButton' class='btn-google'>
-        <img src="./img/google.png" id='img-google'>
-        </button>
-      </div>
+      <button type="button" id="googleButton" class="continue-with-google"></button>
       <p class="alohomora">Already a member? ALOHOMORA</p>
       <a href='#/login'><button class="Login">Login</button></a>
   </div>
@@ -65,7 +59,7 @@ export default () => {
           setTimeout(() => {
             document.querySelector('#modalMessage').style.display = 'none';
             window.location.hash = '#/daily';
-          }, 8000);
+          }, 4000);
           formNewRegister.reset();
           console.log('Join');
         })
@@ -75,16 +69,16 @@ export default () => {
           //   console.log(errorCode, errorMessage);
           switch (errorCode) {
             case 'auth/invalid-email':
-              errorMessageJoin.innerHTML = 'Invalid Email';
+              errorMessageJoin.innerHTML = '⚠️ Invalid Email';
               break;
             case 'auth/weak-password':
-              errorMessageJoin.innerHTML = 'The password must contain minimum six characters';
+              errorMessageJoin.innerHTML = '⚠️ The password must contain minimum six characters';
               break;
             case 'auth/email-already-in-use':
-              errorMessageJoin.innerHTML = 'Your email is already registered';
+              errorMessageJoin.innerHTML = '⚠️ Your email is already registered';
               break;
             default:
-              errorMessageJoin.innerHTML = 'Oops something went wrong';
+              errorMessageJoin.innerHTML = '⚠️ Oops something went wrong';
               break;
           }
         });

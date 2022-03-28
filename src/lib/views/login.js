@@ -6,10 +6,10 @@ export default () => {
   const divLogin = document.createElement('div');
   divLogin.setAttribute('class', 'container-div-Login');
   const viewLogin = `
-  <picture class="main__div--tittle"></picture>
+  <div class="main__div--tittle"></div>
   <div class= "main__div--container">
-      <h2 class="welcome-wizards"><b> WELCOME WIZARDS</b></h2>
-      <div class="main__div--login">
+      <h2 class="welcome-wizards"><b></b></h2>
+      <div class="main__div--login-login">
         <form id='formLogin'>
           <input type="text" placeholder="Email" id="email">
           <br class="espacio">
@@ -24,14 +24,7 @@ export default () => {
         <div class="div-or">
         <p class="or">or</p>
         </div>
-        <div class="continue-with-google">
-        <p>Continue with Google</p>
-        <img src="./img/hand.png" class="hand">
-        <button type='button' id='googleButton' class='btn-google'>
-        <img src="./img/google.png" id='img-google'>
-        </button>
-      </div>
-      </div>
+        <button type="button" id="googleButton" class="continue-with-google"></button>
       <p class="new-Wizard">New Wizard?</p>
       <button class="join"> Join </button>
   </div>
@@ -62,16 +55,16 @@ export default () => {
         // Creamos casos de error para inicio de sesion de usuario ya registrado
         switch (errorCode) {
           case 'auth/invalid-email':
-            errorMessage.innerHTML = '❌El correo debe ser válido';
+            errorMessage.innerHTML = '❌Invalid Email';
             break;
           case 'auth/wrong-password':
-            errorMessage.innerHTML = '❌Contraseña incorrecta';
+            errorMessage.innerHTML = '❌Wrong Password';
             break;
           case 'auth/user-not-found':
-            errorMessage.innerHTML = '❌El correo no se encuentra registrado';
+            errorMessage.innerHTML = '❌User not Found, Please Join';
             break;
           default:
-            errorMessage.innerHTML = '❌Ups algo falló';
+            errorMessage.innerHTML = '❌Oops something went wrong';
             break;
         }
       });
