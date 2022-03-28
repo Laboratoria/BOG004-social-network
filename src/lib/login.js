@@ -1,4 +1,4 @@
-import { SignGoogle, loginUser, }  from '../Configfirebase/Authentication.js';
+import { SignGoogle, loginUser } from '../Configfirebase/Authentication.js';
 
 export const login = () => {
   const divElement = document.createElement('div');
@@ -15,28 +15,28 @@ export const login = () => {
   </form> 
   <button  type='submit' id='btnlogin'>INICIA SESIÓN</button>
   <h1>O</h1>
-  <button id='google' class='google'><img src='image/botongoogle.png' alt='logo-google'>Inicia sesión con Google</button>`
+  <button id='google' class='google'><img src='image/botongoogle.png' alt='logo-google'>Inicia sesión con Google</button>`;
 
   divElement.classList.add('view3');
   divElement.innerHTML = template;
 
-  const buttonlogin = divElement.querySelector('#btnlogin')
+  const buttonlogin = divElement.querySelector('#btnlogin');
   const buttonGoogle = divElement.querySelector('#google');
   const buttonhome = divElement.querySelector('.logo-L');
-  const email = divElement.querySelector('#email')
-  const password = divElement.querySelector('#password')
+  const email = divElement.querySelector('#email');
+  const password = divElement.querySelector('#password');
 
-  buttonlogin.addEventListener('click', ()=>{
+  buttonlogin.addEventListener('click', () => {
     loginUser(email.value, password.value);
-  })
+  });
 
-  buttonGoogle.addEventListener('click', ()=>{
-    SignGoogle()
-  })
+  buttonGoogle.addEventListener('click', () => {
+    SignGoogle();
+  });
 
-  buttonhome.addEventListener('click', () =>{
-    window.location = ''
-  })
+  buttonhome.addEventListener('click', () => {
+    window.location = '';
+  });
 
   return divElement;
 };

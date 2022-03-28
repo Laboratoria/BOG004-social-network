@@ -1,12 +1,12 @@
-import { submithandler, emailSend, SignGoogle }  from '../Configfirebase/Authentication.js';
+import { submithandler, emailSend, SignGoogle } from '../Configfirebase/Authentication.js';
 
 export const register = () => {
- const divElement = document.createElement('div'); 
- const template = `
+  const divElement = document.createElement('div');
+  const template = `
   <header>
   <img src='image/logo2.png' alt='social-trip-png' class = 'logo-R'>
   </header>
-  <form id='formregister' class='formregister' autocomplete='off'> 
+  <form id='formregister' class='formregister' autocomplete='on'> 
   <label for='name'>Nombres y Apellidos</label>
   <input type='name' id='name' maxlength='20' >
   <label for='username'>Nombre de Usuario</label>
@@ -26,39 +26,41 @@ export const register = () => {
   <button id='btnconfirmation' class='btnconfirmation'>ACEPTAR</button>
   </section>`;
   // aqui tu codigo
- 
+
   divElement.classList.add('view2');
-  divElement.innerHTML = template; 
+  divElement.innerHTML = template;
 
   const buttonregister = divElement.querySelector('#btnregister');
   const modalwindow = divElement.querySelector('.modal');
-  const buttonclose=divElement.querySelector('.btnconfirmation');
+  const buttonclose = divElement.querySelector('.btnconfirmation');
   const buttonGoogle = divElement.querySelector('#google');
-  const buttonlogin2= divElement.querySelector('#login2');
+  const buttonlogin2 = divElement.querySelector('#login2');
   const buttonhome = divElement.querySelector('.logo-R');
-  const email = divElement.querySelector('#email')
-  const password = divElement.querySelector('#password')
-  const username = divElement.querySelector('#username')
- 
-  
-  
-  buttonregister.addEventListener('click',()=>{
-    modalwindow.classList.add('active')
-    submithandler(email.value, password.value, username.value)
-  })
-  buttonclose.addEventListener('click',()=>{
-    modalwindow.classList.remove('active') 
-    emailSend(email.value)
-  })
-  buttonGoogle.addEventListener('click', ()=>{
-    SignGoogle()
-  })
-  buttonlogin2.addEventListener('click', ()=>{
-    window.location = '#login'
-  })
-  buttonhome.addEventListener('click', () =>{
-    window.location = ''
-  })
+  const email = divElement.querySelector('#email');
+  const password = divElement.querySelector('#password');
+  const username = divElement.querySelector('#username');
 
-    return divElement;
+  buttonregister.addEventListener('click', () => {
+    modalwindow.classList.add('active');
+    submithandler(email.value, password.value, username.value);
+  });
+
+  buttonclose.addEventListener('click', () => {
+    modalwindow.classList.remove('active');
+    emailSend(email.value);
+  });
+
+  buttonGoogle.addEventListener('click', () => {
+    SignGoogle();
+  });
+
+  buttonlogin2.addEventListener('click', () => {
+    window.location = '#login';
+  });
+
+  buttonhome.addEventListener('click', () => {
+    window.location = '';
+  });
+
+  return divElement;
 };
