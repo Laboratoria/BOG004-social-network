@@ -63,3 +63,16 @@ describe('closeSession', () => {
     closeSession();
   });
 });
+
+
+describe('getPostList', ()=>{
+  it('debería ser una función', async () => {
+    expect(typeof getPostList).toBe('function');
+    getPostList();
+    aqui tocaria suscribirse o convertirt la suscripcion a un promise para ver los valores
+    expect(document.getElementById('wall').innerHTML).toBe('');
+  });
+
+}
+
+);
