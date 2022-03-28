@@ -13,7 +13,8 @@ export const newRegister = (email, password) => {
     .then((userCredential) => {
       console.log('registrado');
       const user = userCredential.user;
-      alert('Usuario registrado exitosamente');
+      document.querySelector('#mensaje').innerHTML = 'Usuario registrado exitosamente';
+      document.querySelector('#atencion').style.display = 'block';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -28,7 +29,8 @@ export const newRegister = (email, password) => {
           document.querySelector('#atencion').style.display = 'block';
           break;
         case 'auth/weak-password':
-          alert('La contraseña debe tener mínimo 6 caracteres');
+          document.querySelector('#mensaje').innerHTML = 'La contraseña debe tener mínimo 6 caracteres';
+          document.querySelector('#atencion').style.display = 'block';
           break;
         default:
           break;

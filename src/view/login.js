@@ -1,4 +1,4 @@
-import { auth, newLogin, googleLogin } from '../view-controller/controllers.js';
+import { newLogin, googleLogin } from '../view-controller/controllers.js';
 
 export default () => {
   const viewLogin = `
@@ -44,7 +44,7 @@ export default () => {
     const email = divElemt.querySelector('#correoLogin').value;
     const password = divElemt.querySelector('#contraseñaLogin').value;
     formularioLogin.reset();
-    newLogin(auth, email, password);
+    newLogin(email, password);
   });
   const btnGoogle = divElemt.querySelector('#btnGoogle');
   btnGoogle.addEventListener('click', (e) => {

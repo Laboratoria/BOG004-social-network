@@ -6,7 +6,6 @@ export default () => {
   `;
 
   const divElemt = document.createElement('div');
-  divElemt.setAttribute('id', 'message');
   divElemt.innerHTML = viewDifferent;
   return divElemt;
 };
