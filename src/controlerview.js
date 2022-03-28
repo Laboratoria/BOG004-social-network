@@ -52,6 +52,7 @@ function authAddGoogle() {
     signInWithGoogle();
   });
 }
+
 //
 
 function registerCloseSession() {
