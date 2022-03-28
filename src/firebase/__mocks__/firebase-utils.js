@@ -8,6 +8,7 @@ export const createUserWithEmailAndPassword = (_, email) => new Promise(
     }
   },
 );
+
 export const signInWithEmailAndPassword = (_, email, password) => new Promise(
   (resolve, reject) => {
     if (email === 'ferchito@gmail.com' && password === 'miPasswordSeguro') {
