@@ -49,13 +49,16 @@ export const newLogin = (email, password) => {
       console.log(errorCode);
       switch (errorCode) {
         case 'auth/wrong-password':
-          alert('La contraseña no es la correcta');
+          document.querySelector('#mensaje').innerHTML = 'Contraseña incorrecta, por favor verifique';
+          document.querySelector('#atencion').style.display = 'block';
           break;
-        case 'auth/user-not-foung':
-          alert('Primero regístrese para poder ingresar');
+        case 'auth/user-not-found':
+          document.querySelector('#mensaje').innerHTML = 'Primero regístrese para poder ingresar';
+          document.querySelector('#atencion').style.display = 'block';
           break;
         case 'auth/invalid-email':
-          alert('Debe ingresar un correo válido');
+          document.querySelector('#mensaje').innerHTML = 'Debe ingresar un correo válido';
+          document.querySelector('#atencion').style.display = 'block';
           break;
         default:
           break;

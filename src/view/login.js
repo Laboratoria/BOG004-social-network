@@ -32,8 +32,19 @@ export default () => {
         <button type="submit" class="boton-gyf">
         <img src="../img/facebook.png" alt="Facebook"> Iniciar sesión con Facebook</button>
       </div>
-    </div>
 
+      <div id="atencion" class="modal">
+          <div class="contenidoModal">
+            <div class="modalHeader flex">
+              <h2>Atención!</h2>
+              <span class="cerrar" id="cerrar">&times;</span>  
+            </div>
+            <div class="modalBody">
+              <p id="mensaje" >Hola</p>
+            </div>
+          </div>
+      </div>
+    </div>
   `;
 
   const divElemt = document.createElement('div');
@@ -45,6 +56,9 @@ export default () => {
     const password = divElemt.querySelector('#contraseñaLogin').value;
     formularioLogin.reset();
     newLogin(email, password);
+  });
+  divElemt.querySelector('#cerrar').addEventListener('click', () => {
+    divElemt.querySelector('#atencion').style.display = 'none';
   });
   const btnGoogle = divElemt.querySelector('#btnGoogle');
   btnGoogle.addEventListener('click', (e) => {
