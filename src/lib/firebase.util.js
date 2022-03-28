@@ -12,7 +12,8 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import {
-  getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDoc, doc,
+  getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDoc, doc, getDoc, updateDoc,
+  query, orderBy, serverTimestamp,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 export {
@@ -22,5 +23,6 @@ export {
   updateProfile,
   getAuth, signInWithPopup, GoogleAuthProvider,
   createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
-  collection, getFirestore, addDoc, getDocs, onSnapshot, deleteDoc, doc,
+  collection, getFirestore, addDoc, getDocs, onSnapshot, deleteDoc, doc, getDoc, updateDoc,
+  query, orderBy, serverTimestamp,
 };

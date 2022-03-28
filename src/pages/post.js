@@ -1,9 +1,11 @@
 // import { router } from '../router.js';
 import {
   savePost,
-  getPost,
+  getOnlyPost,
   onGetPost, deletePost,
+  updatePost,
 } from '../lib/firebase.js';
+import { updateDoc } from '../lib/firebase.util.js';
 
 export default {
   path: '#post',
@@ -56,6 +58,9 @@ export default {
 
     const postList = document.getElementById('post-list');
     const postForm = document.querySelector('.container-publicar');
+
+    let editStatus = false;
+    let id = '';
     window.addEventListener('DOMContentLoaded', async () => {
       onGetPost((querySnapshot) => {
         let html = '';
@@ -63,17 +68,31 @@ export default {
         querySnapshot.forEach((doc) => {
           const postData = doc.data();
           // console.log(doc.id);
-          html += `<div>
-                      <p>${postData.postDescription}</p>
-                      <button class='delete' data-id='${doc.id}'>Delete</button>
-                      <button class='edit-post'>Edit</button>
+          html += `<div class="singlePost_container">
+                      <p class="singlePost">${postData.postDescription}</p>
+                      <button><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
+                      <button><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
+                      <button><i class='fa-solid fa-heart'></i></button>
                   </div>`;
         });
         postList.innerHTML = html;
-        const btnDelete = postList.querySelectorAll('.delete');
-        btnDelete.forEach(btn => btn.addEventListener('click', ({ target: { dataset } }) => {
-          deletePost(dataset.id); 
-        }))
+
+        const btnDelete = postList.querySelectorAll('.fa-trash-can');
+        btnDelete.forEach((btn) => btn.addEventListener('click', ({ target: { dataset } }) => {
+          deletePost(dataset.id);
+        }));
+        const btnEdit = postList.querySelectorAll('.fa-pen-to-square');
+        btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
+          const doc = await getOnlyPost(e.target.dataset.id);
+          console.log(doc.data());
+          const postOnly = doc.data();
+          postForm['form__postCreate-text'].value = postOnly.postDescription;
+          editStatus = true;
+          id = doc.id;
+          console.log('valor de', id);
+
+          postForm['btn-publicar'].innerText = 'Actualizar';
+        }));
       });
     });
 
@@ -83,9 +102,15 @@ export default {
       const postDescription = document.querySelector(
         '#form__postCreate-text',
       ).value;
+      // const image = document.querySelector('.singlePost_img'); // .value pendiente por definir;
       e.preventDefault();
-      console.log(postDescription);
-      savePost(postDescription);
+      if (!editStatus) {
+        savePost(postDescription);
+      } else {
+        updatePost(id, { postDescription });
+
+        editStatus = false;
+      }
       postForm.reset();
     });
 
