@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #272121;
+    font-family: 'Oswald', sans-serif;
+}
+body {
+    background-image: url("./img/background.png");
+    min-width: 250px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    overflow-x: hidden;
+    width: 100%;
+}
+main {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+#container {
+    width: 100%;
+}
+.main__div--login-register {
+    border: #272121 solid 2px;
+    width: 350px;
+    height: 460px;
+    margin: auto;
+    margin-top: 10px;
+}
+.main__div--login-login {
+    border: #272121 solid 2px;
+    width: 350px;
+    height: 380px;
+    margin: auto;
+    margin-top: 10px;
+}
+.p_join {
+    margin-top: 35px;
+    font-size: 23px;
+    font-family: serif;
+    text-align: left;
+    margin-left: 15px;
+}
+.join {
+    margin-top: 10px;
+    width: 320px;
+    height: 45px;
+    /* border-radius: 15px; */
+    border-style: solid;
+    border: #272121 solid 2px;
+    background-color: #272121;
+    color: beige;
+    font-size: 16px;
+    cursor: pointer;
+}
+.Login {
+    margin-top: 10px;
+    width: 320px;
+    height: 45px;
+    /* border-radius: 15px; */
+    border-style: solid;
+    border: #272121 solid 2px;
+    background-color: rgba(255, 255, 255, 0.829);
+    color: #272121;
+    font-size: 16px;
+    cursor: pointer;
+}
+.third_hr{
+    width: 50px;
+    margin: auto;
+    margin-top: 15px;
+}
+.fourth_hr {
+    width: 50px;
+    margin: auto;
+    margin-top: 15px;
+}
+.welcome-wizards {
+    background-image: url("./img/welcome.png");
+    width: 336px;
+    height: 45px;
+    background-repeat: no-repeat;
+    margin: auto;
+    /* font-size: 40px;
+    margin-top: 20px;
+    font-weight: 50px; */
+
+}
+.main__div--tittle {
+    background-image: url("./img/title.png");
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 125px;
+    margin: auto;
+    margin-top: 10px;
+}
+.div-or {
+    margin-top: 20px;
+    text-align: center;
+}
+.or {
+    position:relative;
+    display:inline-block;
+}
+.or::before, .or::after {
+    content:' ';
+    display:block;
+    position:absolute; top:50%; left:-120px;
+    width:100px; /* 100px line on either side */
+    border-bottom:1px solid rgb(0, 0, 0);
+}
+.or::after {
+    left:auto; right:-120px;
+}
+.continue-with-google {
+    background-image: url("./img/google-button.png");
+    background-repeat: no-repeat;
+    width: 280px;
+    height: 60px;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.hand {
+    width: 50px;
+    height: 27px;
+}
+.alohomora {
+    margin-top: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 15px;
+}
+
+.new-Wizard {
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+#modalMessage {
+    margin: auto;
+    text-align: center;
+}
+
+#formNewRegister input{
+    width: 320px;
+    height: 45px;
+    border: #272121 solid 3px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.459);
+    padding: 0 5px 10px;
+    font-size: 17px;
+}
+
+
+#formLogin input{
+    width: 320px;
+    height: 45px;
+    border: #272121 solid 3px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.459);
+    padding: 0 5px 10px;
+    font-size: 17px;
+}
+.btn-google{
+    background-color: transparent;
+    border-color: transparent;
+}
+@media screen and (min-width: 800px) {
+    main {
+        display: flex;
+        
+    }
+    .main__div--container {
+        margin: auto;
+    }
+    .main__div--tittle {
+        margin: auto;
+        background-image: url("./img/Logo\ Desktop.png");
+        width: 350px;
+        height: 480px;
+        margin-top: 70px;
+    }
+    .container-div-Login {
+        display: flex;
+        
+    }
+}
+#errorMessageJoin {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
+    background-image: url("./img/warning.png");
+}
+#errorMessageLogin {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
+    background-image: url("./img/warning.png");
+}
+#textModal {
+    margin: auto;
+    margin-top: 5px;
+    height: 3px;
+    /* font-weight: bolder; */
+    font-size: 20px;
+}
