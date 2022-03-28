@@ -1,7 +1,9 @@
 export default () => {
   const viewDifferent = `  
     <section id="login-user">
-      404
+     
+    404
+    
     </section>
           `;
   const divElement = document.createElement('section');
