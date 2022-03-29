@@ -1,21 +1,9 @@
 import {
   getAuth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
-  getDocs, collection, /* addDoc, */ getFirestore,
+  getDocs, collection, addDoc, getFirestore,
 // eslint-disable-next-line import/no-unresolved
 } from './firebase-utils.js';
-
-/*
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    user: "Ada",
-    thinking: "Lovelace",
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
-*/
 
 const createUser = (email, password) => {
   const auth = getAuth();
@@ -61,12 +49,12 @@ function existingUser(email, password) {
     });
 }
 
-//let usuario;
+let usuario;
 
 function observerUserState() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
-    //usuario = user;
+    usuario = user;
     if (user) {
       console.table(user);
       window.location.hash = '#wall';
@@ -114,18 +102,36 @@ const getPostList = async () => {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     console.log(`${doc.id} => ${data.user} ${data.thinking}`);
-    ///html
-    //botonoes hay que guardarlo
-    //<button id="${doc.id}" onclick="editPost(id)"/>
+    /// html
+    // botonoes hay que guardarlo
+    // <button id="${doc.id}" onclick="editPost(id)"/>
   });
 };
+// El primer parametro es el uid del post y el segundo el pensamiento editado
+const editPosts = (id, thinking) => {
+  // usuario.displayName
+  // usuario.email
+  console.log(`${id} ${thinking}`);
+};
 
-const editPosts = (/* post */) => {
-  //usuario.displayName
-  //usuario.email  
+const addPost = async (thinking) => {
+  try {
+    const db = getFirestore();
+    const docRef = await addDoc(collection(db, 'posts'), {
+      user: usuario.displayName,
+      email: usuario.email,
+      photoUrl: usuario.photoURL,
+      thinking,
+    });
+    console.log('Document written with ID: ', docRef.id);
+    getPostList();
+  } catch (e) {
+    console.error('Error adding document: ', e);
+    // TODO: escribir la causa del error en la pantalla o algo asi como en los de auth
+  }
 };
 
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  editPosts,
+  addPost, editPosts,
 };
