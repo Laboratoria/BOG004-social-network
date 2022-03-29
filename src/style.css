@@ -182,7 +182,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 80px;
     top: 0;
     background: #2388be71;
 }
@@ -190,12 +190,14 @@ nav {
     margin: 0px 30px;
 }
 .nav-logo {
-    height: 50px;
+    margin-top: 16px;
+    height: 10%;
+    align-self: center;
 }
 .nav-btn {
     display: inline-block;
     margin: 4px 4px;
-    padding: 10px;
+    padding: 20px;
     text-decoration: none;
     color: #fff;
     align-self: center;
@@ -218,7 +220,7 @@ nav {
     display: inline-block;
     align-self: center;
     height: 40px;
-    margin: 0px 4px;
+    margin: 0px 20px 0px 4px;
     padding: 10px;
     font-weight: 600;
     color: #fff;
@@ -359,19 +361,13 @@ h1 .relevant {
     margin: auto;
 }
 
-#btn-login{
+#btn-register, #btn-feed{
     grid-row: 2/3;
     grid-column: 3/4;
     margin: auto;
 }
 
-#btn-register-signUp{
-    grid-row: 2/3;
-    grid-column: 2/3;
-    margin: auto;
-}
-
-#btn-register, #btn-feed{
+#btn-register-signUp, #btn-login{
     grid-row: 2/3;
     grid-column: 2/3;
     margin: auto;
