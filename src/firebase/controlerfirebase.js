@@ -1,50 +1,23 @@
-import { initializeApp } from "firebase/app";
+import {
+  getAuth, createUserWithEmailAndPassword,
+  signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
+  getDocs, collection, /* addDoc, */ getFirestore,
+// eslint-disable-next-line import/no-unresolved
+} from './firebase-utils.js';
 
-import { getFirestore } from "firebase/firestore";
-
-const firebaseApp = initializeApp({
-  apiKey: '### FIREBASE API KEY ###',
-  authDomain: '### FIREBASE AUTH DOMAIN ###',
-  projectId: '### CLOUD FIRESTORE PROJECT ID ###'
-});
-
-const db = getFirestore();
-
-import { collection, addDoc } from "firebase/firestore";
-
+/*
 try {
   const docRef = await addDoc(collection(db, "users"), {
     first: "Ada",
     last: "Lovelace",
     born: 1815
-    
+
   });
   console.log("Document written with ID: ", docRef.id);
 } catch (e) {
   console.error("Error adding document: ", e);
 }
-
-import { collection, getDocs } from "firebase/firestore";
-
-const querySnapshot = await getDocs(collection(db, "users"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
-
-// Allow read/write access on all documents to any user signed in to the application
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-// codigo firebase
-import {
-  getAuth, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
-// eslint-disable-next-line import/no-unresolved
-} from './firebase-utils.js';
+*/
 
 const createUser = (email, password) => {
   const auth = getAuth();
@@ -133,14 +106,20 @@ const signInWithGoogle = () => {
  * Luego con el resultado que es una suscripcion (aun no sabes)
  * va a pintar en pantalla el resultado
  */
-const getPostList = () => {
-   document.getElementybById("wall")//tpca verificar
-}
+const getPostList = async () => {
+  const db = getFirestore();
+  const querySnapshot = await getDocs(collection(db, 'posts'));
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    console.log(`${doc.id} => ${data.user} ${data.thinking}`);
+  });
+};
 
-const editPosts = (pst) => {
+const editPosts = (/* post */) => {
 
-}
+};
 
 export {
-  createUser, existingUser, observerUserState, signInWithGoogle, closeSession,
+  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
+  editPosts,
 };
