@@ -4,10 +4,9 @@ import { registerUser } from "../src/Firebase/auth.js";
 
 jest.mock('../src/Firebase/firebase-import.js')
 
-
 describe('myFunction', () => {
     it('debería ser una función', () => {
-        expect(typeof myFunction).toBe('function');
+        expect(typeof registerUser).toBe('function');
     });
 });
 
