@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -38,7 +39,7 @@ export const login = (email, password) => {
           document.querySelector('#messageAlert').innerText = 'correo invalido';
           break;
         default:
-          console.log('Error al iniciar sesión ' + errorCode);
+          console.log(`Error al iniciar sesión ${errorCode}`);
           break;
       }
     });
@@ -52,7 +53,7 @@ export const register = (email, password) => {
       console.log('registro exitoso');
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
-        console.log("Se ha enviado un mensaje al correo: " + user.email + " para verificar la creación de la cuenta ");
+        console.log(`Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta `);
         // changeView('#/login');
         // location.hash = '#/login';
         document.querySelector('#message').innerText = `Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta`;

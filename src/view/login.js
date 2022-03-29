@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { login } from '../lib/auth.js';
 
 export default () => {

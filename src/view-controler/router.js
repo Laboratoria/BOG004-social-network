@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { components } from '../view/index.js';
+// este import está pendiente para ser movido a otro archivo
 
 const changeView = (hash) => {
   window.location.hash = hash;
@@ -31,7 +33,9 @@ const changeView = (hash) => {
       console.log('usuario cerró sesion');
       window.location.hash = '#/';
     }
+    // eslint-disable-next-line no-fallthrough
     default:
+
       return sectionMain.appendChild(components.Different());
   }
 };
