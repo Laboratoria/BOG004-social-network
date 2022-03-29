@@ -65,15 +65,6 @@ function registerAddPost() {
   });
 }
 
-/*
-function postThoughts() {
-  const postBtn = document.getElementById('toPost').value;
-  console.log(`Cargando el boton logout ${postBtn}`);
-  postBtn.addEventListener('click', () => {
-  getPostList(postBtn);
-});
-}*/
-
 export {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
   getPostList, registerAddPost,
