@@ -5,18 +5,24 @@ import { registerUser } from "../src/Firebase/auth.js";
 jest.mock('../src/Firebase/__ mocks__/firebase-import.js/')
 
 
-// describe('myFunction', () => {
-//     it('debería ser una función', () => {
-//         expect(typeof myFunction).toBe('function');
-//     });
-// });
-
-describe('registerUser', () => {
-    it('', () => {
-        const register = registerUser();
-        const email = register.querySelector('#emailRegister');
-        const password = register.querySelector('#passwordRegister');
-
-        console.log(email.innerHTML)
+describe('myFunction', () => {
+    it('debería ser una función', () => {
+        expect(typeof myFunction).toBe('function');
     });
 });
+
+// describe('registerUser', () => {
+//     it('', () => {
+//         const register = registerUser();
+//         const email = register.querySelector('#emailRegister');
+//         const password = register.querySelector('#passwordRegister');
+
+
+//         //data para pruebas:
+//         email = "danielahuyo@hotmail.com"
+//         password = "1234"
+
+
+//         console.log(email.innerHTML)
+//     });
+// });
