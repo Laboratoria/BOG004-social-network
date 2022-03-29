@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
 /* eslint-disable import/no-unresolved */
@@ -33,6 +34,7 @@ const firebaseConfig = {
   storageBucket: "socialnet-pets.appspot.com",
   messagingSenderId: "823397695328",
   appId: "1:823397695328:web:fd5c2b11acff0e9ad02805",
+  // eslint-disable-next-line comma-dangle
   measurementId: "G-Q4E80NR9KH"
 };
 
@@ -97,4 +99,9 @@ export const close = () => {
   }).catch((error) => {
     alert('An error happened.');
   });
+};
+
+// Saving data -timeline view-
+export const savingPost = (postIt) => {
+  addDoc(collection(db, "timeline-posts"), { postIt });
 };
