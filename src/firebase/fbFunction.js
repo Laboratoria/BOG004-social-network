@@ -1,6 +1,4 @@
-/* Cambiamos la ruta que venia por defecto por la de las llaves
-y al final cambiamos el app.js por auth.js */
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword } from './firebaseImport.js'
 // Importamos app para inicializar firebase
 import { app } from './fbkeys.js';
 import { changeView } from '../view-controler/route.js'
