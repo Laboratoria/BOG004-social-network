@@ -5,6 +5,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase
 
 import {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
+  getPostList, registerAddPost,
 } from './controlerview.js';
 
 // Este es el punto de entrada de tu aplicacion
@@ -16,12 +17,12 @@ function onChangeView() {
   changeView(currentHash);
   if (currentHash === '') registerUser();
   if (currentHash === '#login') loginUser();
-  if (currentHash === '#wall') registerCloseSession();
+  if (currentHash === '#wall') { registerCloseSession(); getPostList(); registerAddPost(); }
   if (currentHash === '') authAddGoogle();
   if (currentHash === '#login') authAddGoogle();
 }
 
-const init = () => {  
+const init = () => {
   const firebaseConfig = {
     apiKey: 'AIzaSyCzpRPSooaA1jjcXSKCj1hCV7kJqZj3Dfc',
     authDomain: 'mommi-1bf76.firebaseapp.com',
