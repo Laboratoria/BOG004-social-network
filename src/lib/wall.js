@@ -1,4 +1,4 @@
-import { savePost, viewpost /* userActive */ } from '../Configfirebase/firestore.js';
+import { savePost, viewpost/* userActive */ } from '../Configfirebase/firestore.js';
 
 export const wall = () => {
   const divElement = document.createElement('div');
@@ -45,10 +45,10 @@ export const wall = () => {
     formPost.reset();
   });
 
-  /*let click = 0;
+  /* let click = 0;
   likes.addEventListener('click', () => {
     countingLike.innerHTML = ++click;
-  });*/
+  }); */
 
   return divElement;
 };
@@ -61,18 +61,32 @@ const showPosts = (viewpost2) => {
       data.forEach((post) => {
         let count = 0;
         const contenedorPost = document.createElement('div');
+        contenedorPost.classList.add('containerPost');
         const descripcion = document.createElement('p');
+        const containerButton = document.createElement('div');
+        containerButton.classList.add('containerButton');
         const likeButton = document.createElement('img');
+        likeButton.classList.add('buttonpost');
         const likecounting = document.createElement('p');
-        likeButton.src = 'image/likesimg.png'; 
+        const editButton = document.createElement('img');
+        editButton.classList.add('buttonpost');
+        const removeButton = document.createElement('img');
+        removeButton.classList.add('buttonpost');
+        likeButton.src = 'image/likesimg.png';
+        editButton.src = 'image/editar.png';
+        removeButton.src = 'image/eliminar.png';
         descripcion.innerText = post;
+        containerButton.appendChild(likecounting);
+        containerButton.appendChild(likeButton);
+        containerButton.appendChild(editButton);
+        containerButton.appendChild(removeButton);
+        viewpost2.appendChild(containerButton);
         contenedorPost.appendChild(descripcion);
-        viewpost2.appendChild(likeButton);
-        viewpost2.appendChild(likecounting);
         viewpost2.appendChild(contenedorPost);
-        likeButton.addEventListener('click', ()=>{
+        likeButton.addEventListener('click', () => {
+          // likePost2();
           likecounting.innerHTML = ++count;
-        })
+        });
       });
     });
 };

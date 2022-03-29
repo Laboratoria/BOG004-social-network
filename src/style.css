@@ -235,7 +235,7 @@ input:focus{
 
 textarea{
     background: #f8f8f8;
-    padding:6px ;
+    padding:6px;
     color:#525252;
     border: 2px solid #0079CB;
     border-radius: 8px;
@@ -267,7 +267,7 @@ textarea::placeholder {
     font-family: Barlow-SemiBold;
     font-style: bold;
     border: none;
-    margin-bottom: 10px;
+    margin: 10px 0px 10px 0px;
     text-align: center;
 }
 #btnpost:hover{
@@ -345,6 +345,40 @@ h1::after{
         text-align: center;
     }
 
+/* Vista de los post */
+
+.containerPost{
+    width: 70vw;
+    border: 1px solid #C5C5C5;
+    border-radius: 10px;
+    font-family: Barlow-Regular;
+    font-size: 20px;
+    color: #525252;
+    padding:16px;
+
+}
+
+.containerPost p{
+    margin: 0px;
+    word-wrap: break-word;
+}
+
+.containerButton{
+    display: flex;
+    justify-content: end;
+    margin: 15px 0px 10px 0px;
+}
+
+.containerButton p{
+    margin: 0px;
+
+}
+.buttonpost{
+    margin: 0px 15px 0px 15px;
+    height: 20px;
+}
+
+
 @media screen and (min-width:800px){
 
     .logo-R{
@@ -368,6 +402,9 @@ h1::after{
     }
     .modal .btnconfirmation{
         margin-left: 18vw;
+    }
+    .containerPost{
+        width:38vw;
     }
 
 }

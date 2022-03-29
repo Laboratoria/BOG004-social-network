@@ -1,13 +1,14 @@
-import { collection, addDoc, getDocs } from './firebase-imports.js';
+import { collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, } from './firebase-imports.js';
 import { db } from './confiFirebase.js';
 
-/* intentando obtener informacion del usuario */
+/* Creando colleccion de post */
 
 export const savePost = async (descripcion) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       descripcion,
       user: localStorage.getItem('emailForSignIn'),
+      likes: [],
     });
     // eslint-disable-next-line no-console
     console.log('Document written with ID: ', docRef.id);
@@ -19,6 +20,7 @@ export const savePost = async (descripcion) => {
   }
 };
 
+/* visualizacion de post */
 export const viewpost = async () => {
   try {
     let post = [];
@@ -37,3 +39,29 @@ export const viewpost = async () => {
     console.log(error);
   }
 };
+
+/* Guardando like de post */
+
+/*export const likePost2 = async () => {
+  const likePost = doc(db, 'posts', 'likes');
+
+  // Atomically add a new region to the "regions" array field.
+  await updateDoc(likePost, {
+    likes: arrayUnion('user.uid'),
+  });
+
+  // Atomically remove a region from the "regions" array field.
+  await updateDoc(likePost, {
+    likes: arrayRemove('user.uid'),
+  });
+};
+*/
+/* Editar post */
+ /*export const editar = async (uid) => {
+  const washingtonRef = doc(db, "cities", "DC");
+
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(washingtonRef, {
+    descripcion,
+  });
+};*/

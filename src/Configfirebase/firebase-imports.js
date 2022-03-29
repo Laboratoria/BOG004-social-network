@@ -5,7 +5,7 @@ export {
   sendSignInLinkToEmail, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 export {
-  getFirestore, collection, addDoc, getDocs, doc, setDoc,
+  getFirestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, arrayUnion, arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 // export { initializeApp };
