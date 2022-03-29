@@ -5,18 +5,6 @@ import {
 // eslint-disable-next-line import/no-unresolved
 } from './firebase-utils.js';
 
-/*
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    user: "Ada",
-    thinking: "Lovelace",
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
-*/
-
 const createUser = (email, password) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
@@ -114,18 +102,37 @@ const getPostList = async () => {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     console.log(`${doc.id} => ${data.user} ${data.thinking}`);
+
+    const getDivUser = document.getElementById('user-thinking');
+    const user = data.user;
+    getDivUser.innerHTML = user;
+    const getDivThinking = document.getElementById('space-thinking');
+    const thinking = data.thinking;
+    getDivThinking.innerHTML = thinking;
+
+    
     ///html
     //botonoes hay que guardarlo
     //<button id="${doc.id}" onclick="editPost(id)"/>
   });
 };
 
-const editPosts = (/* post */) => {
+/*
+const editPosts = (posts) => {
   //usuario.displayName
   //usuario.email  
-};
 
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+      user: "Ada",
+      thinking: "Lovelace",
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+*/
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  editPosts,
 };
