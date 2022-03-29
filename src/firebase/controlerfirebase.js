@@ -8,10 +8,8 @@ import {
 /*
 try {
   const docRef = await addDoc(collection(db, "users"), {
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-
+    user: "Ada",
+    thinking: "Lovelace",
   });
   console.log("Document written with ID: ", docRef.id);
 } catch (e) {
@@ -63,10 +61,14 @@ function existingUser(email, password) {
     });
 }
 
+//let usuario;
+
 function observerUserState() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
+    //usuario = user;
     if (user) {
+      console.table(user);
       window.location.hash = '#wall';
     } else if (window.location.hash === '#wall') {
       // User is signed out
@@ -112,11 +114,15 @@ const getPostList = async () => {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     console.log(`${doc.id} => ${data.user} ${data.thinking}`);
+    ///html
+    //botonoes hay que guardarlo
+    //<button id="${doc.id}" onclick="editPost(id)"/>
   });
 };
 
 const editPosts = (/* post */) => {
-
+  //usuario.displayName
+  //usuario.email  
 };
 
 export {
