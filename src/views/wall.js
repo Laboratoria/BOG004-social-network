@@ -1,5 +1,5 @@
 export default () => {
-  const viewWall = `  
+  const viewWall = `
     <section id="wall-user"> Wall
     <div id="wall-content">
     <div id="editPost">
@@ -22,6 +22,7 @@ export default () => {
     </div>
     <button id="logoutBtn">Cerrar sesion</button>
     </section>`;
+
   const divElement = document.createElement('div');
   divElement.innerHTML = viewWall;
   return divElement;

@@ -116,6 +116,7 @@ const getPostList = async () => {
     //<button id="${doc.id}" onclick="editPost(id)"/>
   });
 };
+
 /*
 const editPosts = (posts) => {
   //usuario.displayName
