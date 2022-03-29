@@ -1,15 +1,28 @@
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-} from "./firebase-import.js";
+//DESACOPLANDOLO
+import { createUser, logIn } from '../src/controllers-firebase.js'; 
 
 //Función FIREBASE para registro de nuevos usuarios
 export let registerUser = (email, password) => {
-    const auth = getAuth();
-    return createUserWithEmailAndPassword(auth, email, password);
-};
+    return createUser(email, password);
+}
+
+// export let logInUser = (email, password) => {
+//     return logIn(email, password);
+// }
+
+//COMO ESTABA ANTES
+// import {
+//     getAuth,
+//     createUserWithEmailAndPassword,
+//     signInWithEmailAndPassword,
+//     onAuthStateChanged,
+// } from "./firebase-import.js";
+
+// //Función FIREBASE para registro de nuevos usuarios
+// export let registerUser = (email, password) => {
+//     const auth = getAuth();
+//     return createUserWithEmailAndPassword(auth, email, password);
+// };
 
 // //Función FIREBASE para acceso de usuarios existentes
 // signInWithEmailAndPassword(auth, email, password)
