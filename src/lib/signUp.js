@@ -12,6 +12,7 @@ export default () => {
     <h1>SIGN UP</h1>
     <input type="text" class="nickname" id="nickname" placeholder="nickname" autocomplete = 'off'><br>
     <input type="email" class="email" id="email" placeholder="email" required minlength="8"> <br>
+    <span id="emailError"></span>
     <input type="password" class="password" id="password" placeholder="password"><br>
     <span id="passwordError"></span>
     <h6>  By clicking Agree & Join, you agree to the  User Agreement, <br>
@@ -29,8 +30,12 @@ export default () => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/;
+    if (!email.includes('@') || !email.includes('.')) {
+      emailError.innerHTML = 'Debe incluir un \'@\' y un \'.\'';
+    }
     if (regex.test(password)) {
       SignUpUser(email, password)
         .then(() => { changeView('#/post'); })
@@ -41,7 +46,7 @@ export default () => {
           alert(errorMessage);
         });
     } else {
-      passwordError.innerHTML = 'La contraseña debe tener de 8 a 15 caracteres, al menos una mayúscula, una minúscula y un caracter especial.';
+      passwordError.innerHTML = 'La contraseña debe tener de 8 a 15 caracteres, al menos una mayúscula, una minúscula, un caracter especial y no debe tener espacios';
     }
   });
   return signUpContainer;
