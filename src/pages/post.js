@@ -29,13 +29,19 @@ export default {
   <div class='container-post'>
   <textarea
         id='form__postCreate-text'
-        rows='4' cols='50' maxlength='300'
+        rows='4' cols='50' maxlength='600'
         class='form__postCreate-text'
         placeholder='Escribe tu comentario...'>
       </textarea>
   <div class='option-post'>
-  <i class='fa-solid fa-paperclip'></i>
+  <button class="clip"><i class='fa-solid fa-paperclip fa-2x'></i></button>
   <input class='attachment'type='file'></input>
+  <select class='select-post'>
+    <option value='select' selected>Especie</option>
+    <option value='canino'>#Canino</option>
+    <option value='felino'>#Felino</option>
+    <option value='otro'>#Otro</option>
+  </select>
   <button type='submit' id='btn-publicar'>Publicar</button>
   </div>
   </div>
@@ -54,47 +60,59 @@ export default {
     const inputAttachment = document.querySelector('.attachment');
     const btnProfileFooter = document.querySelector('#userFooter');
     const btnProfileHeader = document.querySelector('#userHeader');
-    // const btnPublicar = document.querySelector('#btn-publicar');
-
     const postList = document.getElementById('post-list');
     const postForm = document.querySelector('.container-publicar');
 
+    // sección para pintar los post en el DOM
     let editStatus = false;
     let id = '';
-    window.addEventListener('DOMContentLoaded', async () => {
-      onGetPost((querySnapshot) => {
-        let html = '';
+    
+    onGetPost((querySnapshot) => {
+      let html = '';
 
-        querySnapshot.forEach((doc) => {
-          const postData = doc.data();
-          // console.log(doc.id);
-          html += `<div class="singlePost_container">
+      querySnapshot.forEach((doc) => {
+        const postData = doc.data();
+        // console.log(doc.id);
+        html += `<div class="singlePost_container">
+                    <img class="singlePost_img" src="images/animalsBackground.png" alt="imagenPost">
+                    <div class="singlePost_footer">
+                    <div class="singlePost_button">
+                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
+                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
+                      <button class="btnImage"><i class='fa-solid fa-heart'></i></button>
+                    </div>
+                    <p>#Especie</p>
+                    </div>
+                    <div class="singlePost_header">
                       <p class="singlePost">${postData.postDescription}</p>
-                      <button><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
-                      <button><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
-                      <button><i class='fa-solid fa-heart'></i></button>
+                    </div>
                   </div>`;
-        });
-        postList.innerHTML = html;
-
-        const btnDelete = postList.querySelectorAll('.fa-trash-can');
-        btnDelete.forEach((btn) => btn.addEventListener('click', ({ target: { dataset } }) => {
-          deletePost(dataset.id);
-        }));
-        const btnEdit = postList.querySelectorAll('.fa-pen-to-square');
-        btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
-          const doc = await getOnlyPost(e.target.dataset.id);
-          console.log(doc.data());
-          const postOnly = doc.data();
-          postForm['form__postCreate-text'].value = postOnly.postDescription;
-          editStatus = true;
-          id = doc.id;
-          console.log('valor de', id);
-
-          postForm['btn-publicar'].innerText = 'Actualizar';
-        }));
       });
+      postList.innerHTML = html;
+
+    // Eliminar post
+      // const btnDelete = document.querySelectorAll('.fa-trash-can');
+      const btnDelete = postList.querySelectorAll('.fa-trash-can');
+      btnDelete.forEach((btn) => btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      }));
+
+      // Editar post.
+      const btnEdit = postList.querySelectorAll('.fa-pen-to-square');
+      btnEdit.forEach((btn) => btn.addEventListener('click', async (e) => {
+        const doc = await getOnlyPost(e.target.dataset.id);
+        console.log(doc.data());
+        const postOnly = doc.data();
+        postForm['form__postCreate-text'].value = postOnly.postDescription;
+        editStatus = true;
+        id = doc.id;
+        console.log('valor de', id);
+
+        postForm['btn-publicar'].innerText = 'Actualizar';
+      }));
     });
+
+    // });
 
     // const db = getFirestore();
 
@@ -102,10 +120,11 @@ export default {
       const postDescription = document.querySelector(
         '#form__postCreate-text',
       ).value;
+      // const image = document.querySelector('.fa-paperclip').value;
       // const image = document.querySelector('.singlePost_img'); // .value pendiente por definir;
       e.preventDefault();
       if (!editStatus) {
-        savePost(postDescription);
+        savePost(postDescription); // .value pendiente por definir;
       } else {
         updatePost(id, { postDescription });
 

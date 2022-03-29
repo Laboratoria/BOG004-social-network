@@ -1,5 +1,4 @@
 // Import the functions you need from the SDKs you need
-
 import {
   initializeApp,
   getAnalytics,
@@ -13,7 +12,6 @@ import {
   collection,
   getFirestore,
   addDoc,
-  getDocs,
   getDoc,
   onSnapshot,
   deleteDoc,
@@ -80,9 +78,9 @@ export const signInGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      // const token = credential.accessToken;
       const user = result.user;
-      sessionStorage.setItem('token', token);
+      // sessionStorage.setItem('token', token);
       sessionStorage.setItem('user', JSON.stringify(user));
       window.location.hash = 'post';
       // ...
@@ -125,7 +123,7 @@ const newCollection = collection(db, 'post');
 export const savePost = (postDescription) => addDoc(collection(db, 'post'), { postDescription, createdAt: serverTimestamp() });
 const q = query(newCollection, orderBy('createdAt', 'desc'));
 // console.log('probando', collection(db, 'post'));
-export const getPost = () => getDocs(collection(db, 'post'));
+// export const getPost = () => getDocs(collection(db, 'post'));
 export const onGetPost = (callback) => onSnapshot(q, collection(db, 'post'), callback);
 export const deletePost = (id) => deleteDoc(doc(db, 'post', id));
 export const getOnlyPost = (id) => getDoc(doc(db, 'post', id));

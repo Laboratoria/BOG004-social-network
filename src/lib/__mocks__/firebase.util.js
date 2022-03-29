@@ -42,12 +42,31 @@ export const signInWithEmailAndPassword = jest.fn(
   }),
 );
 
-// export const signInWithPopup = jest.fn((auth, provider) => new Promise((resolve, reject) => {
-//   if (provider.providerId === 'google.com') {
-//     resolve(userVerified);
-//   } else {
-//     reject(errorObj);
-//   }
-// }));
+export class GoogleAuthProvider {
+  static credentialFromResult() {
+    return { accessToken: '' };
+  }
 
-// export const GoogleAuthProvider = jest.fn(() => ({}));
+  static credentialFromError() {
+    return {};
+  }
+}
+
+export const signInWithPopup = jest.fn(
+  (auth, provider) =>
+    new Promise((resolve) => {
+      resolve();
+    }),
+);
+
+// /* mocks de firestore*/
+export const collection = () => ({});
+export const addDoc = () => ({});
+export const getDoc = () => ({});
+export const deleteDoc = () => ({});
+export const updateDoc = () => ({});
+export const onSnapshot = () => ({});
+export const doc = jest.fn(() => Promise.resolve({}));
+export const query = () => ({});
+export const orderBy = () => ({});
+export const serverTimestamp = () => ({});
