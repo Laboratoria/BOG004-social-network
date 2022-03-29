@@ -21,9 +21,7 @@ function onChangeView() {
   if (currentHash === '#login') authAddGoogle();
 }
 
-const init = () => {
-  onChangeView(); // Este se llama solo la primera vez
-  window.addEventListener('hashchange', onChangeView);// Esto es para cuando cambie despues de la primera carga
+const init = () => {  
   const firebaseConfig = {
     apiKey: 'AIzaSyCzpRPSooaA1jjcXSKCj1hCV7kJqZj3Dfc',
     authDomain: 'mommi-1bf76.firebaseapp.com',
@@ -37,6 +35,8 @@ const init = () => {
   const app = initializeApp(firebaseConfig);
   console.log('app', app);
   observerUserState();
+  onChangeView(); // Este se llama solo la primera vez
+  window.addEventListener('hashchange', onChangeView);// Esto es para cuando cambie despues de la primera carga
 };
 
 window.addEventListener('load', init);

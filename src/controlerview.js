@@ -1,5 +1,5 @@
 import {
-  createUser, existingUser, observerUserState, signInWithGoogle, closeSession,
+  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
 } from './firebase/controlerfirebase.js';
 
 function registerUser() {
@@ -64,6 +64,8 @@ function registerCloseSession() {
   logoutBtn.addEventListener('click', () => {
     closeSession();
   });
+  // Esta pantalla es la de wall entonces tiene que cargar el listado
+  getPostList();
 }
 
 export {
