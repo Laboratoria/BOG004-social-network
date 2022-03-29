@@ -1,68 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <link rel='stylesheet' href='style.css' />
+  <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap' rel='stylesheet'>
   <title>Nibbles</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li>
-        <a href="#/">home</a>
-        </li>
-        <li>
-          <a href="#/createUser">Create User</a>
-        </li>
-        <li>
-          <a href="#/login">Login</a>
-        </li>
-        <li>
-          <a href="#/profile">profile</a>
-        </li>
-        <li>
-          <a href="#/feed">feed</a>
-        </li>
-        <li>
-          <a href="#/interest">interest</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <!-- <form id="signup-form">
-    <div class="form-group">
-      <input type="text" id="signup-email" class="form-control" placeholder="Title" required>
-    </div>
-    <div class="form-group">
-      <input type="password" id="signup-password" class="form-control" placeholder="Password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Save changes</button>
-  </form>
-  <button id="google">Google</button> -->
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-    import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
-     
-    const firebaseConfig = {
-      apiKey: 'AIzaSyCD3vDNvAc4fuPUfuqxSUlLO1oPpe8UQGg',
-      authDomain: 'nibbles-sn4.firebaseapp.com',
-      projectId: 'nibbles-sn4',
-      storageBucket: 'nibbles-sn4.appspot.com',
-      messagingSenderId: '103067776601',
-      appId: '1:103067776601:web:a0593480ba20b6d76ae348',
-      measurementId: 'G-SST87CF4S1',
-    };
-     
-    const app = initializeApp(firebaseConfig);
-    const baseDeDatos = getFirestore(app);
-     
-    
-    </script>
-  <script type="module" src="main.js"></script>
-  <section id="container"></section>
+  <div id='sectionGrid'>
+    <header>
+      <nav id='menuHtml'>
+        <img id='navMenuLogo'src='./img/logo-nibbles.png' alt='logo-nibbles'>
+        <!-- <button id='menuBtn' class='menuBtn'>Menú</button> -->
+        <img id='menuBtn' class='menuBtn' src='./img/menu-nav.png' alt='menu-mobile'>
+        <ul class='navDesktop'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/profile'>perfil</a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/interest'>intereses</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+        <ul id='navMobile' class='navMobile'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/profile'>perfil</a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/interest'>intereses</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id='container'></section>
+  </div>
   <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
+  <script type='module' src='../lib/firebase-init.js'></script>
+  <script type='module' src='main.js'></script>
 </body>
 </html>

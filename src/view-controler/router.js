@@ -1,29 +1,38 @@
-import { components } from "../view/index.js";
+import { components } from '../view/index.js';
 
-
-const changeView = (hash) =>{
-//  const id =hash.split('/')[1];
- const container = document.getElementById("container")
- container.innerHTML="";
-switch (hash) {
+const changeView = (hash) => {
+  window.location.hash = hash;
+  const sectionMain = document.getElementById('container');
+  sectionMain.innerHTML = '';
+  switch (hash) {
     case '':
     case '#':
-    case '#/':
-    { return container.appendChild(components.home()); }
-    case '#/createUser': 
-    { return container.appendChild(components.createUser()); }
-    case '#/login':
-    { return container.appendChild(components.login()); }
-    case '#/profile': 
-    { return container.appendChild(components.profile()); }
-    case '#/feed': 
-    { return container.appendChild(components.feed()); }
-    case '#/interest': 
-    { return container.appendChild(components.interest()); }
+    case '#/': {
+      return sectionMain.appendChild(components.Home());
+    }
+    case '#/createUser': {
+      sectionMain.appendChild(components.User.createFormUser());
+      components.User.saveUser();
+      return sectionMain;
+    }
+    case '#/login': {
+      return sectionMain.appendChild(components.Login());
+    }
+    case '#/profile': {
+      return sectionMain.appendChild(components.Profile());
+    }
+    case '#/feed': {
+      return sectionMain.appendChild(components.Feed());
+    }
+    case '#/interest': {
+      return sectionMain.appendChild(components.Interest());
+    }
+    case '#/cerrar-sesion': {
+      console.log('usuario cerró sesion');
+      window.location.hash = '#/';
+    }
     default:
-        return container.appendChild(components.different())
-        
-   
-}
+      return sectionMain.appendChild(components.Different());
+  }
 };
-export {changeView}
+export { changeView };
