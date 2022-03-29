@@ -9,6 +9,17 @@ export default () => {
         <a href="#/"> <img clas="img-atras" src="img/icono_atras.png" alt="Atrás"> </a>
         </button>
       </div>
+      <div id="atencion" class="modal">
+       <div class="contenidoModal">
+        <div class="modalHeader flex">
+          <h2>Atención!</h2>
+          <span class="cerrar" id="cerrar">&times;</span>  
+        </div>
+        <div class="modalBody">
+          <p id="mensaje" >Hola</p>
+        </div>
+       </div>
+      </div>
 
       <div class="logo-login">
         <img src="img/Logo-codering.png" alt="Logo Codering">
@@ -33,17 +44,7 @@ export default () => {
         <img src="img/facebook.png" alt="Facebook"> Iniciar sesión con Facebook</button>
       </div>
 
-      <div id="atencion" class="modal">
-          <div class="contenidoModal">
-            <div class="modalHeader flex">
-              <h2>Atención!</h2>
-              <span class="cerrar" id="cerrar">&times;</span>  
-            </div>
-            <div class="modalBody">
-              <p id="mensaje" >Hola</p>
-            </div>
-          </div>
-      </div>
+     
     </div>
   `;
 

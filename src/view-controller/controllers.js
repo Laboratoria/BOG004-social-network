@@ -14,7 +14,7 @@ export const newRegister = (email, password) => {
       console.log('registrado');
       const user = userCredential.user;
       document.querySelector('#mensaje').innerHTML = 'Usuario registrado exitosamente';
-      document.querySelector('#atencion').style.display = 'block';
+      document.querySelector('#atencion').style.display = 'flex';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -22,15 +22,15 @@ export const newRegister = (email, password) => {
       switch (errorCode) {
         case 'auth/invalid-email':
           document.querySelector('#mensaje').innerHTML = 'Debe ingresar un correo válido';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         case 'auth/email-already-in-use':
           document.querySelector('#mensaje').innerHTML = 'El correo ya está registrado';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         case 'auth/weak-password':
           document.querySelector('#mensaje').innerHTML = 'La contraseña debe tener mínimo 6 caracteres';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         default:
           break;
@@ -50,15 +50,15 @@ export const newLogin = (email, password) => {
       switch (errorCode) {
         case 'auth/wrong-password':
           document.querySelector('#mensaje').innerHTML = 'Contraseña incorrecta, por favor verifique';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         case 'auth/user-not-found':
           document.querySelector('#mensaje').innerHTML = 'Primero regístrese para poder ingresar';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         case 'auth/invalid-email':
           document.querySelector('#mensaje').innerHTML = 'Debe ingresar un correo válido';
-          document.querySelector('#atencion').style.display = 'block';
+          document.querySelector('#atencion').style.display = 'flex';
           break;
         default:
           break;
