@@ -145,7 +145,7 @@ form {
   align-items: center;
   width: 100%;
   justify-content: space-around;
-  line-height: 3;
+  /* line-height: 3; */
 }
 
 form p {
@@ -378,28 +378,77 @@ footer i {
     margin-top: 30%;
 }
 
+.clip{
+  border: none;
+  background-color: white;
+}
 #post-list {
  
   margin: auto;
+  margin-bottom: 100px;
 }
 
 .singlePost_container{
-  border: 2px solid blue;
+  border: 2px solid #c6c6c6;
+  border-radius: 10px;
   margin: 30px;
   min-height: 50px;
   width: 300px;
   word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
 }
 
 .singlePost{
-  background: whitesmoke;
+  background: rgba(245, 245, 245, 0.521);
   color: black;
+  display: inline;
+  border-radius: 10px;
+  font-family: 'Mulish', sans-serif;;
+}
+
+.singlePost_header{
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.singlePost_footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.singlePost_button{
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  margin-left: 10px;
+}
+
+.singlePost_footer p{
+  margin-right: 10px;
+}
+
+.btnImage {
+  border: none;
+} 
+
+.singlePost_img {
+  border-radius: 10px;
+  width: 280px;
+  height: auto;
+  margin: 10px;
 }
 
 .form__postCreate-text {
   background-color: #dddddd8a;
   color: black;
-  padding: 1em;
+  /* padding: 1em; */
   border-radius: 10px;
   border: 2px solid transparent;
   outline: none;
@@ -407,19 +456,24 @@ footer i {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.4;
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   transition: all 0.2s;
 }
 
-.form__postCreate-text:hover {
+/* .form__postCreate-text:hover {
   cursor: pointer;
   background-color: #eeeeee;
+} */
+
+::placeholder {
+  color: black;
+  font-size: 1.5em;
 }
 
 .form__postCreate-text:focus {
   cursor: text;
-  color: #333333;
+  color: black;
   background-color: white;
   border-color: #333333;
 }
@@ -430,13 +484,22 @@ footer i {
 .attachment{
     display: none;
 }
-#btn-publicar {
+
+/* .select-post {
+  background-color: yellowgreen;
+  border-radius: 15em;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: bolder;
+} */
+
+#btn-publicar, .select-post {
 
   padding: 0.5em 0.3em;
-  background-color: #8aea92;
+  background-color: yellowgreen;
   border-radius: 15em;
   font-weight: bolder;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #2e2c2f;
   cursor: pointer;
 }

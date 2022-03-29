@@ -1,6 +1,6 @@
-import { async } from 'regenerator-runtime';
-import { signInEmail, logInEmail, signInGoogle, } from '../../src/lib/firebase.js';
-import { signInWithPopup } from '../../src/lib/firebase.util.js';
+// import { async } from '/regenerator-runtime';
+import { signInEmail, logInEmail, signInGoogle } from '../../src/lib/firebase.js';
+// import { signInWithPopup } from '../../src/lib/firebase.util.js';
 
 jest.mock('../../src/lib/firebase.util.js');
 
@@ -52,17 +52,14 @@ describe('logInEmail retorna inicio sesión', () => {
   });
 });
 
-// describe('SignInGoogle return section post', () => {
-//   beforeAll(() => {
-//     window.sessionStorage = { setItem: jest.fn() };
-//     window.JSON = { stringify: jest.fn() };
-//   });
-//   it('Should to post', async () => {
-//     await signInGoogle(() => {
-//       const provider = new GoogleAuthProvider();
-//       signInWithPopup(auth, provider)
-//     })
-  
-//   expect(window.location.hash).toBe('post');
-//   });
-// });
+describe('signInGoogle retorna post', () => {
+  beforeAll(() => {
+    window.sessionStorage = { setItem: jest.fn() };
+    window.JSON = { stringify: jest.fn() };
+  });
+
+  it('cambia a  post', async () => {
+    await signInGoogle();
+    expect(window.location.hash).toBe('#post');
+  });
+});
