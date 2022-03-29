@@ -22,7 +22,8 @@
   
   //crear una función
 
-  function authenticate ( ){
+  function authenticate (email, password){
+  console.log(email, password)
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
