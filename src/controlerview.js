@@ -1,5 +1,5 @@
 import {
-  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
+  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList, addPost,
 } from './firebase/controlerfirebase.js';
 
 function registerUser() {
@@ -39,16 +39,9 @@ function loginUser() {
 
 function authAddGoogle() {
   // Funcionalidad enlaces y botones de la sección autenticacion con google.
-
   const googleBtn = document.getElementById('googleBtn');
-
   console.log(`autenticando con google ${googleBtn}`);
-
   googleBtn.addEventListener('click', () => {
-  // 1. Traer los inputs de la vista y luego .value
-  // 2. Validar?
-  // 3. Llamar a la funcion createUserWith..blablabla
-
     signInWithGoogle();
   });
 }
@@ -58,25 +51,21 @@ function authAddGoogle() {
 function registerCloseSession() {
   console.log('logoutBtn Runs');
   const logoutBtn = document.getElementById('logoutBtn');
-
   console.log(`Cargando el boton logout ${logoutBtn}`);
-
   logoutBtn.addEventListener('click', () => {
     closeSession();
   });
-  // Esta pantalla es la de wall entonces tiene que cargar el listado
-  getPostList();
 }
 
-/*
-function postThoughts() {
-  const postBtn = document.getElementById('toPost').value;
-  console.log(`Cargando el boton logout ${postBtn}`);
-  postBtn.addEventListener('click', () => {
-  getPostList(postBtn);
-});
-}*/
+function registerAddPost() {
+  const saveThought = document.getElementById('btnSaveThought');
+  saveThought.addEventListener('click', () => {
+    const thinksuseredit = document.getElementById('thinksuseredit').value;
+    addPost(thinksuseredit);
+  });
+}
 
 export {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
+  getPostList, registerAddPost,
 };

@@ -4,7 +4,7 @@ export default () => {
     <div id="wall-content">
     <div id="editPost">
       <textarea id="thinksuseredit" rows="4" cols="50" placeholder="¿Que estas pensado?..."></textarea>
-      <button id="toPost" class="btn-post">Publicar</button>
+      <button id = "btnSaveThought"class="btn-post">Publicar</button>
       </div>
     <div class="post">
       <img src="" alt="" class="profile">
