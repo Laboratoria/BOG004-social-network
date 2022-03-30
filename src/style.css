@@ -11,7 +11,7 @@ body {
     align-items: center;
 }
 a{
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 a:visited {
@@ -29,8 +29,10 @@ a:visited {
 .contenedor-home{
     height: 830px;
     width: 390px;
-    background-image: url(./img/fondo_pantalla.jpeg);
+    background-image: url(./img/fondo2.jpeg);
     background-size: cover;
+    background-position: -300px;
+    background-position-y: -50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -53,7 +55,7 @@ a:visited {
     margin: 20px 5px 50px 5px;
     width: 160px;
     height: 35px;
-    background-color: #3134A1;
+    background-color: #fff;
     border-radius: 10px;
     font-weight: bold;
 }
@@ -353,6 +355,91 @@ input [type = checkbox]{
     background: #34495e;
     color:#f2f2f2;
 }
+.modalBody{
+    height: 40px;
+}
 .modalBody p{
     text-align: justify;
+    font-size: 20px;
+}
+
+@media (min-width: 768px){
+    #container {
+        height: 930px;
+        width: 100%;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-home{
+        height: 930px;
+        width: 100%;
+        background-image: url(./img/fondo5.jpeg);
+        background-position: -100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .contenedor-register {
+        height: 930px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* pantalla login */
+    .navbar-pantalla2{
+        height: 96px;
+        width: 100%;
+    }
+    /* pantalla register */
+    .navbar-pantalla{
+        height: 96px;
+        width: 100%;
+    }
+    .logo-formulario{
+        padding: 70px 0px 50px 0px;
+    }
+    #formularioRegister{
+        padding: 0px 0px 70px 0px;
+    }
+    .modalBody p{
+        text-align: center;
+        font-size: 20px;
+    }
+    h2{
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px){
+    #container {
+        height: 930px;
+        width: 100%;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-home{
+        height: 930px;
+        width: 100%;
+        background-image: url(./img/fondo3.jpeg);
+        background-size: cover;
+        background-position: -10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .contenedor-register{
+        background-image: url(./img/fondo4.jpeg);
+        background-size: cover;
+    }
+    .logo-formulario{
+        padding: 70px 50px 50px 50px;
+    }
+    #formularioRegister{
+        padding: 0px 50px 70px 50px;
+    }
 }
