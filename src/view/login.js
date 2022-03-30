@@ -27,7 +27,7 @@ export const login = () => {
                 <button id="btn-feed" class="btn-background" type="submit">INGRESAR</button>
               </section>
               <section id="signUp-google">
-                <h3>o ingresa con: </h3> 
+                <h3>O ingresa con: </h3> 
                 <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
               </section>
             </form>
