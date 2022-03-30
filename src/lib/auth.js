@@ -54,6 +54,9 @@ export const register = (email, password) => {
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
         console.log(`Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta `);
+        // eslint-disable-next-line no-implied-eval
+        setTimeout("location.href='http://localhost:3000/#/login'", 5000);
+
         // changeView('#/login');
         // location.hash = '#/login';
         document.querySelector('#message').innerText = `Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta`;

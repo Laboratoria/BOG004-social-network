@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/no-cycle
 import home from './home.js';
+// eslint-disable-next-line import/no-cycle
 import { createFormUser, saveUser } from './register.js';
+// eslint-disable-next-line import/no-cycle
 import login from './login.js';
 import profile from './profile.js';
 import feed from './feed.js';
