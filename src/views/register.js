@@ -8,7 +8,7 @@ export default () => {
     <div class='gridBody'>
       <input class='inputStyle' id='inputEmail' type='email' placeholder='Correo Electrónico'>
       <input class='inputStyle' id='inputPassword' type='password' placeholder='Contraseña'>
-      <button class='btnLogin'>Ingresar</button>
+      <button class='btnLogin'><a href='#/ecoTraveler'>Ingresar</a></button>
       <h3 class='textGoogle'>Iniciar sesión con google</h3>
       <img src='img/google-logo.svg' alt='googleLogo' class='googleLogo'>
     </div>

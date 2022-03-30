@@ -1,5 +1,5 @@
 // importamos la funcion de createUser
-import { createUser } from '../firebase/fbFunction.js';
+import { createNewUser } from '../firebase/fbFunction.js';
 
 export default () => {
   const viewAccount = `
@@ -46,7 +46,7 @@ export default () => {
     }
     /* llamamos la funcion createUser con los argumentos de email
     y contraseñas guardados en las constantes anteriores */
-    createUser(email, password);
+    createNewUser(email, password);
     console.log('Saludo');
   });
   return divAccount;
