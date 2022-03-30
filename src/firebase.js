@@ -20,7 +20,9 @@ import {
   collection,
   addDoc,
   onSnapshot,
-  // getDocs,
+  deleteDoc,
+  doc,
+  getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -107,10 +109,11 @@ export const savingPost = (postIt) => {
   addDoc(collection(db, "timeline-posts"), { postIt });
 };
 
-// Getting data -timeline view-
-// export const gettingPost = () => {
-// getDocs(collection(db, "timeline-posts"));
-// };
-
-// this one is getting data!
+// Getting data from Firestore -timeline view-
 export const onGettingPost = (callback) => onSnapshot(collection(db, "timeline-posts"), callback);
+
+// Deleting post -timeline view-
+export const deletePosts = (id) => deleteDoc(doc(db, "timeline-posts", id));
+
+// Editing post -timeline view-
+export const getPost = (id) => getDoc(doc(db, "timeline-posts", id));

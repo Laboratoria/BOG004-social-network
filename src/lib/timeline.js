@@ -1,5 +1,5 @@
 import {
-  close, savingPost, onGettingPost,
+  close, savingPost, onGettingPost, deletePosts, getPost,
 } from '../firebase.js';
 
 export default () => {
@@ -29,7 +29,6 @@ export default () => {
     savingPost(postIt);
 
     const posts = document.getElementById('post-form');
-
     posts.reset();
   });
 
@@ -49,13 +48,32 @@ export default () => {
                     <div>
                         <div>
                         <textarea id= "postIt-description" rows= "3" readonly>${postData.postIt}</textarea>
-                        <button type="button" id="delete-postIt">Delete</button>
-                        <button type="button" id="edit-postIt">Edit</button>
+                        <button type="button" class="btndelete-postIt" data-id="${doc.id}">Delete</button>
+                        <button type="button" class="btnedit-postIt">Edit</button>
                         </div>
                     </div>
                     `;
     });
     postContainer.innerHTML = html;
+
+    // Deleting posts
+    const deletePostIt = postContainer.querySelectorAll('.btndelete-postIt');
+    deletePostIt.forEach((btndelete) => {
+      btndelete.addEventListener('click', ({ target: { dataset } }) => {
+        deletePosts(dataset.id);
+      });
+    });
+
+    // Editing posts
+    const editPostIt = postContainer.querySelectorAll('.btnedit-postIt');
+    editPostIt.forEach((btn) => btn.addEventListener('click', async (e) => {
+      const doc = await getPost(e.target.dataset.id);
+      const posts = document.getElementById('post-form');
+      const postData = doc.data();
+      posts['post-form'].value = postData.postIt.description;
+      // editStatus = true;//
+      id = doc.id;
+    }));
   });
   return divElement;
 };
