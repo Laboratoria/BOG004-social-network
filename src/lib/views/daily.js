@@ -1,4 +1,7 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
+import { db} from '../firebaseInit.js';
+import {  } from '../firebaseController.js';
+
 export default () => {
   const divDaily = document.createElement('div');
   divDaily.setAttribute('class', 'container-div-daily');
@@ -27,5 +30,8 @@ export default () => {
     </footer>
     `;
   divDaily.innerHTML = viewDaily;
+
+
+
   return divDaily;
 };
