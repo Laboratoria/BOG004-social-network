@@ -1,4 +1,5 @@
 import { SignUpUser } from './firebase.js';
+// eslint-disable-next-line import/no-cycle
 import { changeView } from './viewController.js';
 // eslint-disable-next-line import/no-cycle
 
@@ -29,7 +30,7 @@ export default () => {
     const password = signUpContainer.querySelector('#passwordSignUp').value;
     const errorM = signUpContainer.querySelector('.errorZ');
     const regexDominio = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
-    if (regexDominio.test(email)) { 
+    if (regexDominio.test(email)) {
       SignUpUser(email, password)
         .then(() => { changeView('#/signIn'); })
         .catch((error) => {

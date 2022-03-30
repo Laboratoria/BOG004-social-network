@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+// eslint-disable-next-line import/no-duplicates
 } from './firebase-imports.js';
 import {
   getFirestore,
@@ -20,8 +21,11 @@ import {
   doc,
   getDoc,
   updateDoc,
+// eslint-disable-next-line import/no-duplicates
 } from './firebase-imports.js';
+// eslint-disable-next-line import/no-duplicates
 import { getDatabase } from './firebase-imports.js';
+// eslint-disable-next-line import/no-duplicates
 import { initializeApp } from './firebase-imports.js';
 
 const firebaseConfig = {
@@ -39,18 +43,19 @@ const dataBase = getDatabase(app);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-  export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+// eslint-disable-next-line max-len
+export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then(
     (userCredential) => {
       sendEmailVerification(auth.currentUser).then(() => {
         const user = userCredential.user;
-        alert(`Se ha enviado un correo de verificación a` + email);
+        // eslint-disable-next-line no-alert
+        alert(`Se ha enviado un correo de verificación a${email}`);
       });
     },
   );
 
-export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password) 
-;
+export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 export const googleSignWithPopup = () => signInWithPopup(auth, provider)
   .then((result) => {

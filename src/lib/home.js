@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { saveTask } from './firebase.js';
 
 export default () => {

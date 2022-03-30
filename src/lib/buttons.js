@@ -19,11 +19,12 @@ export default () => {
   sectionElement.innerHTML = viewButtons;
 
   const googleButton = sectionElement.querySelector('#loginGoogle');
-  googleButton.addEventListener('click', (e) => {
+  googleButton.addEventListener('click', () => {
     googleSignWithPopup()
       .then(() => { changeView('#/post'); })
       .catch((error) => {
         const errorMessage = error.message;
+        // eslint-disable-next-line no-alert
         alert(errorMessage);
       });
   });
