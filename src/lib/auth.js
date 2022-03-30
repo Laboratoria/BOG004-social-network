@@ -97,8 +97,8 @@ export const authGoogle = (provider) => {
       console.log(token);
       const user = result.user;
       console.log('usuario ingresa');
-      console.log(user);
-      changeView('#/feed');
+      console.log(result.user);
+      return(result.user)
     })
     .catch((error) => {
       // Handle Errors here.
