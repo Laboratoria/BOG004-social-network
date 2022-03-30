@@ -99,21 +99,43 @@ const signInWithGoogle = () => {
 const getPostList = async () => {
   const db = getFirestore();
   const querySnapshot = await getDocs(collection(db, 'posts'));
+  
+  const getDivPosts = document.getElementById('posts');
+  let Posts = ''
+  
   querySnapshot.forEach((doc) => {
     const data = doc.data();
-    console.log(`${doc.id} => ${data.user} ${data.thinking}`);
+    console.log(data);
 
-    const getDivUser = document.getElementById('user-thinking');
+    /* const getDivUser = document.getElementById('user-thinking');
     const user = data.user;
     getDivUser.innerHTML = user;
     const getDivThinking = document.getElementById('space-thinking');
     const thinking = data.thinking;
-    getDivThinking.innerHTML = thinking;
-    
+    getDivThinking.innerHTML = thinking; */
+    Posts += `
+      <section class="post-container">
+        <div class="post-avatar">
+          <img class="avatar" src="${data.photoUrl}" />
+        </div>
+        <div class="post-content">
+          <h3>${data.user}</h3>
+          <p>${data.thinking}</p>
+        </div>
+        <div class="posticons">
+        <img src="img/moms.jpeg" alt="like-moms" class="posticon">
+        <img src="img/comment.jpeg" alt="click-comment" class="posticon">
+        <img src="img/save.jpeg" alt="click-save" class="posticon">
+      </div>
+      </section>
+    `;
+
     /// html
     //  botonoes hay que guardarlo
     //  <button id="${doc.id}" onclick="editPost(id)"/>
   });
+
+  getDivPosts.innerHTML = Posts;
 };
 // El primer parametro es el uid del post y el segundo el pensamiento editado
 const editPosts = (id, thinking) => {
@@ -137,6 +159,7 @@ const addPost = async (thinking) => {
     console.error('Error adding document: ', e);
     // TODO: escribir la causa del error en la pantalla o algo asi como en los de auth
   }
+  getPostList();
 };
 
 export {
