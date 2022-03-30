@@ -31,7 +31,6 @@ export default () => {
     <img src="./img/pic-of-dog.png" width="200" height="200" style="padding:55px" alt="Avatar" class="avatar">
   </div>
     </form> `;
-    
 
   const divElement = document.createElement('div');
   divElement.innerHTML = viewSignIn;

@@ -19,6 +19,7 @@ import {
   getFirestore,
   collection,
   addDoc,
+  onSnapshot,
   // getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
@@ -105,3 +106,11 @@ export const close = () => {
 export const savingPost = (postIt) => {
   addDoc(collection(db, "timeline-posts"), { postIt });
 };
+
+// Getting data -timeline view-
+// export const gettingPost = () => {
+// getDocs(collection(db, "timeline-posts"));
+// };
+
+// this one is getting data!
+export const onGettingPost = (callback) => onSnapshot(collection(db, "timeline-posts"), callback);
