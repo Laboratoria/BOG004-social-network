@@ -91,18 +91,18 @@ const signInWithGoogle = () => {
     });
 };
 
-/**
- * Esta funcion va a conectarse a fuirestore
+/* FIRESTORE
+ * Esta funcion va a conectarse a firestore
  * Luego con el resultado que es una suscripcion (aun no sabes)
  * va a pintar en pantalla el resultado
  */
+
 const getPostList = async () => {
   const db = getFirestore();
   const querySnapshot = await getDocs(collection(db, 'posts'));
-  
   const getDivPosts = document.getElementById('posts');
-  let Posts = ''
-  
+  let Posts = '';
+
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     console.log(data);

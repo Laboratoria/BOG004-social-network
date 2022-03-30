@@ -57,11 +57,14 @@ function registerCloseSession() {
   });
 }
 
+//  FIRESTORE
+
 function registerAddPost() {
   const saveThought = document.getElementById('btnSaveThought');
   saveThought.addEventListener('click', () => {
     const thinksuseredit = document.getElementById('thinksuseredit').value;
     addPost(thinksuseredit);
+    thinksuseredit.reset();
   });
 }
 
