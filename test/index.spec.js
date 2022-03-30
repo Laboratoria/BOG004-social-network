@@ -2,7 +2,7 @@ import { registerUser } from "../src/Firebase/auth.js";
 // importamos la funcion que vamos a testear
 // import { myFunction } from '../src/lib/index';
 
-jest.mock('../src/Firebase/__ mocks__/firebase-import.js/')
+jest.mock('../src/Firebase/__mocks__/firebase-import.js/')
 
 describe('myFunction', () => {
     it('debería ser una función', () => {
