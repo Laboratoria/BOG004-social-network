@@ -31,17 +31,20 @@ export default () => {
   `;
   divDaily.innerHTML = viewDaily;
 
+  const modalForm = divDaily.querySelector('#modal_post-container');
   const btnCreate = divDaily.querySelector('#btn-post-save');
 
   btnCreate.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log('Created');
+    // console.log('Created');
 
     // document.querySelector('#post-description').focus();
     const postDescription = divDaily.querySelector('#post-description');
     // console.log(postDescription.value);
 
     createPost(db, postDescription.value);
+
+    modalForm.reset();
 
   });
 
