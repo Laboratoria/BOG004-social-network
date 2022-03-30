@@ -1,4 +1,4 @@
-import { close, savingPost } from '../firebase.js';
+import { close, savingPost } from "../firebase.js";
 
 export default () => {
   const viewTimeline = `
@@ -13,18 +13,19 @@ export default () => {
     
     </form>`;
 
-  const divElement = document.createElement('div');
+  const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeline;
 
-  divElement.querySelector('#userLogOut').addEventListener('click', () => {
+  divElement.querySelector("#userLogOut").addEventListener("click", () => {
     close();
   });
 
-  divElement.querySelector('#save-postIt').addEventListener('click', () => {
-    const postIt = document.getElementById('post-it-description').value;
+  divElement.querySelector("#save-postIt").addEventListener("click", () => {
+    const postIt = document.getElementById("post-it-description").value;
     savingPost(postIt);
+    console.log(postIt)
 
-    const posts = document.getElementById('post-form');
+    const posts = document.getElementById("post-form");
 
     posts.reset();
   });

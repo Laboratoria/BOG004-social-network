@@ -11,7 +11,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged,
+  // onAuthStateChanged,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
@@ -19,7 +19,7 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs
+  // getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use

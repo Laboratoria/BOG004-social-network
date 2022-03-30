@@ -1,6 +1,6 @@
 export default () => {
   const viewHomePage = `
-    <img src="./img/home-image.png" alt="Girl-with-dog" width="200" height="200" style="padding:55px">
+    <img src="./img/home-image.png" alt="Girl-with-dog" width="200" height="200" style="padding:45px">
     <h2 id="hello">Welcome to PetShare</h2>
     <p id="home-textContent">
     PetShare is the foremost social network dedicated to people who love pets.
@@ -9,7 +9,7 @@ export default () => {
     </p>
         `;
 
-  const divElement = document.createElement('div');
+  const divElement = document.createElement("div");
   divElement.innerHTML = viewHomePage;
 
   return divElement;
