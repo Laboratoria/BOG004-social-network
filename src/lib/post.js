@@ -13,14 +13,19 @@ import {
 export default () => {
   const post = `
 <form id='form-container'>
-<label for="comment">Comment!</label>
-
-<textarea id="task-comment" rows="3" placeholder="Task Comment"></textarea>
-<button id="btn-task-save">Publish!</button>
-</form>
+<div class = 'navPost'>
+<h1 class = titlePost>PAPYROS</h1>
 <button id="logout">Log out</button>
-<div id="comments-container">
+</div>
+<figure>
+      <img class="IconoPost" src="images/iPhone 13/Logo.png" alt="Icono">
+    </figure>
+<div class = 'postContainer'>
+<label for="comment" id = 'commentText'>Postea lo que desees!</label>
+<textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
+<button id="btn-task-save">Publish!</button>
 
+<div id="comments-container"></div>
 </div>
 </form>`;
 
@@ -69,7 +74,7 @@ export default () => {
       // eslint-disable-next-line no-shadow
       likeButton.forEach((btn, idx) => {
         // eslint-disable-next-line no-shadow
-        btn.addEventListener('click', async (e) => {
+        btn.addEventListener('click', (e) => {
           console.log(`clicking button ${idx}`);
           e.preventDefault();
           if (!clicked) {

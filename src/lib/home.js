@@ -1,7 +1,7 @@
 import { saveTask } from './firebase.js';
 
 export default () => {
-const home = `
+  const home = `
 <form id="task-form">
 <label for="title">Title:</label>
 <input type="text" placeholder="Task-title" id="task-title">

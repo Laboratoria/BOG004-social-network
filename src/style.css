@@ -2,171 +2,140 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
- 
-
-    
+    font-family: 'Poppins', sans-serif; 
 }
 
-
-.container{
-    margin: 0 auto;
+body{
     background: linear-gradient(180deg, #233233 36.98%, #2B4E4D 69.27%, #3F978F 100%);
-
-    color: aliceblue;
-    
 }
 
-.container .logo{
-    
-    width: 30rem;
-    display: flex;
+#container{
+    color: aliceblue;
+    min-height:100vh;
+    display: grid;
+    grid-column: auto;
+    justify-items: center;
     align-items: center;
-    margin:  0 auto;
-    padding-top: 10rem;
-    
+}
+
+.logo{
+    width: 100%;
+    height: 100%;
+    margin-top: 50%;
+    margin-bottom: 30px;
 }
 
 .title{
  text-align: center;
- font-size: 5rem;
+ font-size: 3rem;
  letter-spacing: 0.305em;
+ width: fit-content;
 }
-
 
 footer{
-    width: 19rem;
-    display: flex;
-    align-items: center;
-    margin:  0 auto;
-    padding-top: 16.4rem;
+    width:fit-content;
     text-align: center;
     font-size: 1rem;
+    align-self: flex-end;
 }
 
-div .initView{
-    width: 50rem auto;
-    margin: 0 auto;
-    
+.divButtons, .signUpForm, .divSignIn {
+    background-color: #233233; 
+    border-radius: 10px;
+    box-shadow: rgba(61, 144, 136, 0.5)1px 1px 4px 4px;
     text-align: center;
+    width: 400px;
+    height: 600px;
 }
 
-img.Nave{
-    width: 28rem;
-    margin-top: 0;
+.Nave{
+    margin-top: 20%;
+    width: 220px;
 }
 
-img.Icono{
-    margin: 1rem;
+.branding {
+    margin-top: 5%;
+    font-size:larger;
+    letter-spacing: 2px;
+    margin-bottom: -20px;
+}
+.initView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 30px;
 }
 
 a{
-    margin: 0 auto;
-    width: 500px;
-    font-size: medium;
     text-decoration: none;
+}
+
+.signUp,.signIn, .buttonGoogle, .submitSignUp, .submitSignIn{
+    width: 300px;
+    height: 40px;
+    margin: 15px;
+    background: #627477;
+    border-radius: 30px;
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-style: none;
+    font-size: medium;
     color: aliceblue;
 }
 
-a.signUp,a.signIn{
-
-    margin: 10px;
-    padding:0.3rem 9rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
+.signUp:hover, .signIn:hover, .buttonGoogle:hover, 
+.submitSignUp:hover, .submitSignIn:hover, #logout:hover,
+#btn-task-save:hover{
+    background: rgba(61, 144, 136, 1);
 }
-
-a.buttonGoogle{
-    margin: 10px;
-    padding:0.3rem 5.1rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
-}
-
-
-
-
-
-a:hover{
-   background: rgba(61, 144, 136, 1);
-
-  }
-a:active{
+.signIn:active, .signUp:active, .buttonGoogle:active, 
+.submitSignUp:active, .submitSignIn:active, #logout:active,
+#btn-task-save:active{
     background-color: #1691a1;
-  }
-
-form .signUpForm{
-    margin: 0 auto;
-    width: 50rem auto;
-}  
-
-.containerForm{
-    width:110rem;
-    height: 42.8rem;
-    margin: 0 auto;
-    text-align: center;
 }
 
- .containerForm h1{
-    padding-right: 10rem;
+.containerForm h1{
     letter-spacing: 15px;
 }
 
+.Icono {
+    margin: 10%;
+    margin-bottom: 5%;
+}
 
-
-input[type="text"],
-input[type="email"],
-input[type="password"]
-
-{
-    width: 20%;
+.nickname, #email, #password, #emailSignUp, #passwordSignUp {
+    width: 80%;
     border: 100rem;
     border-bottom: 2px solid rgb(47, 151, 151);
     border-radius: 1px;
     outline: none;
     background-color: transparent;
-    font-size: 1rem;
-    color: white;
-    margin: 2rem 1rem;    
+    font-size: 1rem; 
+    margin: 7% 5%;  
+    color: aliceblue; 
 }
-
-
-
-
-
-.submitSignUp{
-    text-decoration: none;
-    cursor: pointer;
-    margin: 5rem;
-    padding: 1rem 9rem;
-    background: #627477;
-    border-radius: 30px;
-    font-size: medium;
-    border: none;
-    color: white;
-}
-
-.submitSignUp:hover{
-    background: rgba(61, 144, 136, 1);
-    
-}
-
-.submitSignUp:active{
-    background-color: #1691a1;
-}
-
-
-
 
 ::placeholder{
     text-align: left;
-    color: white;
-    
-    
+    color:aliceblue;
 }
 
+
+h6{
+    line-height: 20px;
+    font-size: 10px;
+    margin-bottom: 5%;
+}
+
+.errorEmail,.errorM, .errorZ{
+    color: yellow;
+    font-weight: bold;
+}
+
+h4{
+    margin:30px;
+}
 
 .containerForm h6{
     font-size: 10px;
@@ -181,4 +150,78 @@ input[type="password"]
     color: aliceblue;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#form-container {
+    width: 1000px;
+    background-color: #233233; 
+    box-shadow: rgba(61, 144, 136, 0.5)1px 1px 4px 4px;
+    text-align: center;
+    min-height:100vh;
+}
+
+.navPost{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.titlePost{
+    width: fit-content;
+}
+
+#logout{
+    background: transparent;
+    letter-spacing: 1px;
+    border-style: none;
+    color: aliceblue;
+    width: 100px;
+    border-radius: 25px;
+}
+
+.postContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#commentText{
+    width: fit-content;
+    justify-content: right;
+    margin-top: 30px;
+    margin-left: 4.5%;
+    margin-bottom: 30px;
+}
+
+#task-comment{
+    width: 92%;
+    background: rgba(61, 144, 136, 0.72);
+    border-radius: 8px;
+    justify-self: center;
+    padding: 10px;
+    color: aliceblue;
+    font-weight:800;
+    letter-spacing: 1px;
+}
+
+#btn-task-save{
+    justify-self: right;
+    background: #627477;
+    letter-spacing: 1px;
+    border-style: none;
+    color: aliceblue;
+    height: 40px;
+    width: 100px;
+    margin-top: 30px;
+    margin-right: 4.5%;
+    border-radius: 25px;
+}
+
+#comments-container{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    width: 92%;
+    background: rgba(59, 71, 73, 1);
+    border-radius: 8px;
+    justify-self: center;
+    padding: 10px;
 }
