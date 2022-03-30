@@ -1,5 +1,5 @@
 import {
-    initializeApp, 
+    initializeApp,
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
