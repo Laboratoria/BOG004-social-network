@@ -145,7 +145,7 @@
     }
 
     #container{
-        margin-top: 150px;
+        /* margin-top: 150px; */
         line-height: 50px;
     }
 
@@ -189,6 +189,32 @@
         border-radius: 5px;
         border: thin solid #888;
       }
+
+      /* Menu timeline */
+
+      #menuTimeline{
+        
+        width: auto;
+        height: 90px;
+        margin: 0 auto;
+        background-color: #e28743;
+        margin-top: 0%;
+        box-sizing: border-box;
+        align-items: center;
+
+      }
+
+      .tabs{
+          font-size: 8px;
+          display: flex;
+          flex-direction: row;
+      }
+    
+    /* #bodybackground {
+        width:10 ;
+        height:10;
+    } */
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
