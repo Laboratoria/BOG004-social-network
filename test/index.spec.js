@@ -1,12 +1,12 @@
-import { registerUser } from "../src/Firebase/auth.js";
+import { register } from "../src/view/register.js";
 // importamos la funcion que vamos a testear
 // import { myFunction } from '../src/lib/index';
 
-jest.mock('../src/Firebase/__ mocks__/firebase-import.js/')
+jest.mock('../src/Firebase/firebase-import.js')
 
 describe('myFunction', () => {
     it('debería ser una función', () => {
-        expect(typeof registerUser).toBe('function');
+        expect(typeof register).toBe('function');
     });
 });
 
