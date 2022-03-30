@@ -29,7 +29,7 @@ const createFormUser = () => {
     errorEmail.setAttribute('class', 'error-message-hidden');
 
     contenedorEmail.appendChild(email);
-       
+
     const password = document.createElement('input');
     password.setAttribute('type', 'password');
     password.setAttribute('name', 'password');
@@ -52,11 +52,13 @@ const createFormUser = () => {
     submit.setAttribute('value', 'registrarse');
     submit.setAttribute('class', 'btn-submit');
 
+
     const errorPassword = document.createElement('p');
     errorPassword.innerText = 'La contraseña no coincide';
     errorPassword.setAttribute('id', 'error-message-password');
     errorPassword.setAttribute('class', 'error-message-hidden');
-     
+
+
     form.appendChild(errorEmail);
     form.appendChild(errorPassword);
     form.appendChild(message);
@@ -64,9 +66,7 @@ const createFormUser = () => {
     form.appendChild(contenedorPassword);
     form.appendChild(password);
     form.appendChild(repeatPassword);
-  
     form.appendChild(submit);
-
     divElem.appendChild(form);
   };
   htmlFormRegister();

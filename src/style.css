@@ -233,6 +233,7 @@ input:focus {
   outline: none;
 }
 
+
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
   /* body{
@@ -312,4 +313,12 @@ input:focus {
   #nibblesLogo {
     width: 40%;
   }
+}
+
+/*feed*/
+.inputsearch {
+  background-color: #a6cf98;
+  color: white; 
+  border-radius: 5px;
+
 }
