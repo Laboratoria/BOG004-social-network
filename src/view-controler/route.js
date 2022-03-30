@@ -1,6 +1,6 @@
 import { components } from '../views/components.js';
 
-const changeView = (route) => {
+const changeView = (route, components = componentsTest) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {

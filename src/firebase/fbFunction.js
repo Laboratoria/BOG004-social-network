@@ -1,13 +1,15 @@
-import { getAuth, createUserWithEmailAndPassword } from './firebaseImport.js'
+import { createUser } from '../view-controler/controllers.js';
 // Importamos app para inicializar firebase
 import { app } from './fbkeys.js';
 import { changeView } from '../view-controler/route.js'
 
-const auth = getAuth();
+
+
+
 /* Creamos una funcion createUser para exportarla y activarla
 cuando se de click a el boton de registrarte y le pasamos como parametro email y contraseña */
-export const createUser = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
+export const createNewUser = (email, password) => { 
+  createUser(email, password) 
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
