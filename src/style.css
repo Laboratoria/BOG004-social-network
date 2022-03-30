@@ -1,6 +1,7 @@
 {
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  
 }
 
 header{
@@ -42,10 +43,12 @@ li {
 #menuHtml a:focus {
   color: white;
   font-weight: 550;
+ 
 }
 #menuHtml a:hover {
   color: white;
   font-weight: 550;
+  
 }
 footer {
   background-color: #F6E1E8;
@@ -89,6 +92,7 @@ body {
   padding: 0px;
   padding-left: 300px;
   margin: 0px;
+  
 }
 .leftColumn p {
   font-weight: 500;
@@ -138,12 +142,15 @@ hr {
   text-transform: uppercase;
 }
 #loginBtn {
-  background-color: #FFA8BE;
+  background-color: #D96262;
   color: white;
+  font-weight: bold;
+  
 }
 #createUserBtn {
-  background-color: #A6CF98;
+  background-color:#8B8C5E;
   color: white;
+  font-weight: bold;
 }
 .btn-submit, #btnLogin{
   color: #ffff;
@@ -228,6 +235,24 @@ input:focus {
   margin: 0px;
   font-size: 12px;
 }
+
+/* Feed*/
+
+.searchFeed {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+}
+
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
     #menuHtml {
