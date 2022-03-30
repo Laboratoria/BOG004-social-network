@@ -21,6 +21,9 @@ import {
   doc,
   getDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
+  increment,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
 
@@ -92,4 +95,4 @@ export const getComments = () => getDocs(collection(db, 'comments'));
 export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));
-export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);
+export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', 'likes', id), newFileds);

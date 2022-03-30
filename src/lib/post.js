@@ -69,7 +69,7 @@ export default () => {
       // eslint-disable-next-line no-shadow
       likeButton.forEach((btn, idx) => {
         // eslint-disable-next-line no-shadow
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', async (e) => {
           console.log(`clicking button ${idx}`);
           e.preventDefault();
           if (!clicked) {
