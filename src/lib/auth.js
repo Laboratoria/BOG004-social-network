@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -6,6 +7,7 @@ import {
   signInWithPopup,
   sendEmailVerification,
 } from './firebase-utils.js';
+// eslint-disable-next-line
 import { changeView } from '../view-controler/router.js';
 // LOGIN
 
@@ -37,7 +39,7 @@ export const login = (email, password) => {
           document.querySelector('#messageAlert').innerText = 'correo invalido';
           break;
         default:
-          console.log('Error al iniciar sesión ' + errorCode);
+          console.log(`Error al iniciar sesión ${errorCode}`);
           break;
       }
     });
@@ -51,7 +53,9 @@ export const register = (email, password) => {
       console.log('registro exitoso');
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
-        console.log("Se ha enviado un mensaje al correo: " + user.email + " para verificar la creación de la cuenta ");
+        console.log(`Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta `);
+        setTimeout("location.href='http://localhost:3000/#/login'", 5000);
+
         // changeView('#/login');
         // location.hash = '#/login';
         document.querySelector('#message').innerText = 'Se ha enviado un mensaje al correo:' + user.email + ' para verificar la creación de la cuenta ';
@@ -90,6 +94,7 @@ export const authGoogle = (provider) => {
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
+      console.log(token);
       const user = result.user;
       console.log('usuario ingresa');
       console.log(user);
@@ -105,4 +110,4 @@ export const authGoogle = (provider) => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
-}
+};

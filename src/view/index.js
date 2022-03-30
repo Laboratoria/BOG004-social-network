@@ -1,7 +1,11 @@
+// eslint-disable-next-line import/no-cycle
 import home from './home.js';
+// eslint-disable-next-line import/no-cycle
 import { createFormUser, saveUser } from './register.js';
+// eslint-disable-next-line import/no-cycle
 import login from './login.js';
 import profile from './profile.js';
+// eslint-disable-next-line import/no-named-as-default
 import feed from './feed.js';
 import interest from './interest.js';
 import different from './404.js';

@@ -1,4 +1,5 @@
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
+// eslint-disable-next-line import/no-cycle
 import { authGoogle } from '../lib/auth.js';
 
 export default () => {
@@ -29,11 +30,11 @@ export default () => {
 
   const loginBtn = container.querySelector('#loginBtn');
   loginBtn.addEventListener('click', () => {
-    location.hash = '#/login';
+    window.location.hash = '#/login';
   });
   const createUsernBtn = container.querySelector('#createUserBtn');
   createUsernBtn.addEventListener('click', () => {
-    location.hash = '#/createUser';
+    window.location.hash = '#/createUser';
   });
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();

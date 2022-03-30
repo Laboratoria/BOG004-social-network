@@ -1,16 +1,26 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  
+}
+
 header{
   display: none;
 }
 .liDelete {
   display: none;
 }
-
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 /*MENU*/
 #menuHtml {
   display: block;
   text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f6e1e8;
+  background-color: #F6E1E8;
   text-align: center;
 }
 #navMenuLogo{
@@ -33,20 +43,20 @@ li {
 #menuHtml a:focus {
   color: white;
   font-weight: 550;
+ 
 }
 #menuHtml a:hover {
   color: white;
   font-weight: 550;
+  
 }
-
 footer {
-  background-color: #f6e1e8;
+  background-color: #F6E1E8;
   height: 60px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: rgb(141, 137, 137);
 }
@@ -56,7 +66,6 @@ body {
   padding: 0px;
   height: 100%;
 }
-
 .leftColumn {
   display: flex;
   justify-content: center;
@@ -71,22 +80,21 @@ body {
   flex-direction: column;
   padding-bottom: 0px;
 }
-
 /*columna izquierda*/
 .leftColumn{
     border-radius: 100% 20% 100% 20%;
 }
 .leftColumn h2 {
   font-family: 'Amatic SC', cursive;
-  color: #ffa8be;
+  color: #FFA8BE;
   float: left;
   font-size: 100px;
   padding: 0px;
   padding-left: 300px;
   margin: 0px;
+  
 }
 .leftColumn p {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: rgb(141, 137, 137);
   text-align: center;
@@ -95,25 +103,6 @@ body {
 #homeImg {
   width: 550px;
 }
-#loginBtn,
-#createUserBtn {
-  width: 200px;
-  border: none;
-  border-radius: 20px;
-  margin: 10px;
-  padding: 6px 20px 6px 20px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-#loginBtn {
-  background-color: #ffa8be;
-  color: white;
-}
-#createUserBtn {
-  background-color: #a6cf98;
-  color: white;
-}
 #nibblesLogo {
   display: block;
   width: 30%;
@@ -121,7 +110,6 @@ body {
 }
 /*columna derecha*/
 .rightColumn p{
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     color: rgb(112, 110, 110);
@@ -138,77 +126,64 @@ hr {
 .googleLogo {
   width: 40px;
 }
-#register-form{
- display: flex;
- flex-direction: column;
- align-items: center;
-}
-.formulario{
-    background-color: #A6CF98;
-    color: white;
-     margin:12px;
-     border-radius: 10px;
-     border:none;
-     padding: 8px;
-}
 .text-center{
     text-align: center;
     color:fff;
 }
-.btn-submit{
-    color: fff;
-    background-color: #FFA8BE;
-    margin:12px;
-    border-radius: 10px;
-    border:none;
-    padding: 8px;
+/*BOTONES*/
+#loginBtn,
+#createUserBtn {
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 6px 20px 6px 20px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
-
-
-/*REGISTER*/
-#register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.with-error {
-  border: 1px solid rgb(238, 58, 58);
-  color:#000;
+#loginBtn {
+  background-color: #D96262;
+  color: white;
+  font-weight: bold;
   
 }
-
-.error-message-hidden {
-  display: none;
+#createUserBtn {
+  background-color:#8B8C5E;
+  color: white;
+  font-weight: bold;
 }
-
+.btn-submit, #btnLogin{
+  color: #ffff;
+  background-color: #FFA8BE;
+  margin: 12px;
+  border-radius: 15px;
+  border:none;
+  padding: 10px 20px 10px 20px;
+  text-transform: uppercase;
+}
 /*LOGIN*/
 .formLogin {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
 }
 .formLogin :focus-visible {
   border: none;
 }
-
 #btnLogin {
-  background-color: #ffa8be;
+  background-color: #FFA8BE;
   color: white;
 }
-
 #loginEmail {
-  background-color: #a6cf98;
+  background-color: #A6CF98;
   color: white;
 }
-
 #loginPassword {
-  background-color: #a6cf98;
+  background-color: #A6CF98;
   color: white;
 }
-
 #loginEmail,
 #loginPassword {
   width: 200px;
@@ -216,58 +191,77 @@ hr {
   border-radius: 20px;
   margin: 10px;
   padding: 6px 20px 6px 20px;
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
- 
 }
-
 h2 {
   font-family: 'Amatic SC', cursive;
-  color: #ffa8be;
+  color: #FFA8BE;
   font-size: 50px;
   padding: 0px;
   text-align: center;
+  margin-top: 100px;
 }
-
 input:focus {
   outline: none;
 }
-/*feed*/
-.inputsearch {
-  background-color: #a6cf98;
-  color: white; 
-  border-radius: 5px;
-
-}
-.inputext{
+/*REGISTER*/
+#register-form {
   display: flex;
-  flex-wrap: nowrap;
-  height: 50px;
-  width: 50%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  font-size: small;
-  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+.with-error {
+  border: 1px solid rgb(238, 58, 58);
   color:#000;
-  padding: auto;
-  margin: 5px;
-
+}
+.error-message-hidden {
+  display: none;
+}
+#register-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+.formulario{
+  background-color: #A6CF98;
+  color: white;
+  margin:12px;
+  border-radius: 20px;
+  border: none;
+  padding: 8px;
+  width: 200px;
+}
+#error-message-email, #error-message-password{
+  margin: 0px;
+  font-size: 12px;
 }
 
+/* Feed*/
+
+.searchFeed {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+}
 
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
-  /* body{
-        background-image: url(./img/background-home.png);
-        background-attachment: fixed;
-        background-position: center center;
-        background-size: cover;
-    } */
     #menuHtml {
       padding: 20px 0px 20px 0px;
+        height: 87vh;
     }
     #sectionGrid {
       display: grid;
-      grid-template-columns: 0.7fr 5fr; 
+      grid-template-columns: 0.7fr 5fr;
       height: 100%;
     }
     .navDesktop{
@@ -305,20 +299,15 @@ input:focus {
   .navMobile{
     display: none;
   }
-  
   .menuBtn{
     display: inline;
     width: 30px;
     float: right;
-    top: 0px;
-    
+    padding: 10px;
   }
   li {
     padding: 10px 20px 10px 20px;
   }
-  /* #navMenuLogo{
-    width: 50px;
-  } */
   .leftColumn {
     display: none;
   }
@@ -334,4 +323,12 @@ input:focus {
     width: 40%;
   }
 }
+
+
+
+
+
+
+
+
 

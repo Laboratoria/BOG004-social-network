@@ -1,7 +1,9 @@
+// eslint-disable-next-line import/no-cycle
 import { components } from '../view/index.js';
+// este import está pendiente para ser movido a otro archivo
 
 const changeView = (hash) => {
-  location.hash = hash;
+  window.location.hash = hash;
   const sectionMain = document.getElementById('container');
   sectionMain.innerHTML = '';
   switch (hash) {
@@ -29,11 +31,12 @@ const changeView = (hash) => {
     }
     case '#/cerrar-sesion': {
       console.log('usuario cerró sesion');
-      location.hash = '#/';
+      window.location.hash = '#/';
     }
+    // eslint-disable-next-line no-fallthrough
     default:
+
       return sectionMain.appendChild(components.Different());
   }
 };
 export { changeView };
-

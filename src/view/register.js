@@ -1,9 +1,10 @@
+// eslint-disable-next-line import/no-cycle
 import { register } from '../lib/auth.js';
 
 const createFormUser = () => {
   document.querySelector('#sectionGrid').style.display = 'block';
   const divElem = document.createElement('div');
-  const viewCreateUser = `<h2 class='text-center'>Crea una cuenta en Nibbles</h2>`;
+  const viewCreateUser = '<h2 class=\'text-center\'>Crea una cuenta en Nibbles</h2>';
   divElem.innerHTML = viewCreateUser;
   const htmlFormRegister = () => {
     const form = document.createElement('form');
@@ -18,7 +19,7 @@ const createFormUser = () => {
 
     email.setAttribute('type', 'text');
     email.setAttribute('name', 'email');
-    email.setAttribute('placeholder', 'correo');
+    email.setAttribute('placeholder', 'Correo');
     email.setAttribute('id', 'register-email');
     email.setAttribute('class', 'formulario');
     email.setAttribute('autocomplete', 'off');
@@ -33,7 +34,7 @@ const createFormUser = () => {
     const password = document.createElement('input');
     password.setAttribute('type', 'password');
     password.setAttribute('name', 'password');
-    password.setAttribute('placeholder', 'contraseña');
+    password.setAttribute('placeholder', 'Contraseña');
     password.setAttribute('id', 'register-password');
     password.setAttribute('class', 'formulario');
     password.setAttribute('autocomplete', 'off');
@@ -42,7 +43,7 @@ const createFormUser = () => {
     const repeatPassword = document.createElement('input');
     repeatPassword.setAttribute('type', 'password');
     repeatPassword.setAttribute('name', 'repeatpassword');
-    repeatPassword.setAttribute('placeholder', ' repite la contraseña');
+    repeatPassword.setAttribute('placeholder', ' Repite la contraseña');
     repeatPassword.setAttribute('id', 'register-repeat-password');
     repeatPassword.setAttribute('class', 'formulario');
     repeatPassword.setAttribute('autocomplete', 'off');
@@ -57,7 +58,6 @@ const createFormUser = () => {
     errorPassword.innerText = 'La contraseña no coincide';
     errorPassword.setAttribute('id', 'error-message-password');
     errorPassword.setAttribute('class', 'error-message-hidden');
-
 
     form.appendChild(errorEmail);
     form.appendChild(errorPassword);
@@ -81,14 +81,14 @@ const saveUser = () => {
   const expresiones = {
     password: /^.{6,12}$/, // 4 a 12 digitos.
     repeatpassword: /^.{6,12}$/, // 4 a 12 digitos.
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-  }
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  };
 
   const validarFormulario = (e) => {
     const inputName = e.target.name;
     const inputValue = e.target.value;
     switch (inputName) {
-      case "email":
+      case 'email': {
         const emailInput = document.getElementById('register-email');
         const errorMessage = document.getElementById('error-message-email');
         if (expresiones.email.test(inputValue)) {
@@ -99,40 +99,29 @@ const saveUser = () => {
           errorMessage.classList.remove('error-message-hidden'); // mostrar mensaje de error
         }
         break;
-      case "password":
+      }
+      case 'password':
         if (expresiones.password.test(inputValue)) {
-
           document.getElementById('register-password').classList.remove('with-error');
-
         } else {
-
           document.getElementById('register-password').classList.add('with-error');
-
         }
         break;
-      case "repeatpassword":
+      case 'repeatpassword':
         if (expresiones.repeatpassword.test(inputValue)) {
-
           document.getElementById('register-repeat-password').classList.remove('with-error');
-
-
         } else {
-
           document.getElementById('register-repeat-password').classList.add('with-error');
-
         }
         break;
       default:
         break;
     }
-  }
-
+  };
 
   inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
-
-
   });
 
   signupForm.addEventListener('submit', (e) => {
@@ -144,17 +133,13 @@ const saveUser = () => {
       '#register-repeat-password',
     ).value;
 
-
     if (password === repeatPassword) {
       register(email, password);
     } else {
       const errorMessage = document.getElementById('error-message-password');
       errorMessage.classList.remove('error-message-hidden'); // ocultar mensaje de error
-
     }
   });
-
 };
-
 
 export { createFormUser, saveUser };
