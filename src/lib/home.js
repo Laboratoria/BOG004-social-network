@@ -30,7 +30,7 @@ export default () => {
     </p>
         `;
 
-  const divElement = document.createElement("div");
+  const divElement = document.createElement('div');
   divElement.innerHTML = viewHomePage;
 
   return divElement;
