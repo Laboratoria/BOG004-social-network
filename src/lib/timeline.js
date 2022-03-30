@@ -52,13 +52,13 @@ onGettingPost((querySnapshot) => {
 
   querySnapshot.forEach((doc) => {
     const postData = doc.data();
-    // console.log(doc.id);
     html += `
                   <div>
-                    <p>${postData.postIt}</p>
+                      <div>
+                      <textarea id= "postIt-description" rows= "3" readonly>${postData.postIt}</textarea>
+                      </div>
                   </div>
-                `;
+                  `;
   });
   postContainer.innerHTML = html;
 });
-
