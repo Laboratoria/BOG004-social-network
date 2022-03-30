@@ -22,7 +22,7 @@ export default () => {
       </div>
 
       <div class="logo-login">
-        <img src="img/Logo-codering.png" alt="Logo Codering">
+        <img src="img/logo-codering-letrasnegras.png" alt="Logo Codering">
       </div>
 
       <form id="formularioLogin">
