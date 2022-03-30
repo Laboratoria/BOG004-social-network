@@ -232,6 +232,26 @@ h2 {
 input:focus {
   outline: none;
 }
+/*feed*/
+.inputsearch {
+  background-color: #a6cf98;
+  color: white; 
+  border-radius: 5px;
+
+}
+.inputext{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 50px;
+  width: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  font-size: small;
+  border-radius: 5px;
+  color:#000;
+  padding: auto;
+  margin: 5px;
+
+}
 
 
 /* Escritorio extra grande */
@@ -315,10 +335,3 @@ input:focus {
   }
 }
 
-/*feed*/
-.inputsearch {
-  background-color: #a6cf98;
-  color: white; 
-  border-radius: 5px;
-
-}

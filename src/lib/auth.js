@@ -55,10 +55,8 @@ export const register = (email, password) => {
         // changeView('#/login');
         // location.hash = '#/login';
         document.querySelector('#message').innerText = 'Se ha enviado un mensaje al correo:' + user.email + ' para verificar la creación de la cuenta ';
-        setTimeout("location.href='http://localhost:3000/#/login'", 5000);
-
-
-      }).catch(error => {
+        setTimeout("location.href='http://localhost:3000/#/login'", 5000)
+  }).catch(error => {
         console.log("Error enviando correo de verificación: " + error);
         document.getElementById('message').innerText = 'Error, intente denuevo';
       });
