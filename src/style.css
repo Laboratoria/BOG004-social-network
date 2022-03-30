@@ -84,10 +84,14 @@ a{
     color: aliceblue;
 }
 
-.signUp:hover, .signIn:hover, .buttonGoogle:hover, .submitSignUp:hover, .submitSignIn:hover{
+.signUp:hover, .signIn:hover, .buttonGoogle:hover, 
+.submitSignUp:hover, .submitSignIn:hover, #logout:hover,
+#btn-task-save:hover{
     background: rgba(61, 144, 136, 1);
 }
-.signIn:active, .signUp:active, .buttonGoogle:active, .submitSignUp:active, .submitSignIn:active{
+.signIn:active, .signUp:active, .buttonGoogle:active, 
+.submitSignUp:active, .submitSignIn:active, #logout:active,
+#btn-task-save:active{
     background-color: #1691a1;
 }
 
@@ -97,9 +101,10 @@ a{
 
 .Icono {
     margin: 10%;
+    margin-bottom: 5%;
 }
 
-.nickname, #email, #password {
+.nickname, #email, #password, #emailSignUp, #passwordSignUp {
     width: 80%;
     border: 100rem;
     border-bottom: 2px solid rgb(47, 151, 151);
@@ -123,10 +128,100 @@ h6{
     margin-bottom: 5%;
 }
 
-.errorEmail,.errorM{
-    color: red;
+.errorEmail,.errorM, .errorZ{
+    color: yellow;
+    font-weight: bold;
 }
 
 h4{
     margin:30px;
+}
+
+.containerForm h6{
+    font-size: 10px;
+}
+
+.like__btn {
+    padding: 10px 15px;
+    background: #627477;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#form-container {
+    width: 1000px;
+    background-color: #233233; 
+    box-shadow: rgba(61, 144, 136, 0.5)1px 1px 4px 4px;
+    text-align: center;
+    min-height:100vh;
+}
+
+.navPost{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.titlePost{
+    width: fit-content;
+}
+
+#logout{
+    background: transparent;
+    letter-spacing: 1px;
+    border-style: none;
+    color: aliceblue;
+    width: 100px;
+    border-radius: 25px;
+}
+
+.postContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#commentText{
+    width: fit-content;
+    justify-content: right;
+    margin-top: 30px;
+    margin-left: 4.5%;
+    margin-bottom: 30px;
+}
+
+#task-comment{
+    width: 92%;
+    background: rgba(61, 144, 136, 0.72);
+    border-radius: 8px;
+    justify-self: center;
+    padding: 10px;
+    color: aliceblue;
+    font-weight:800;
+    letter-spacing: 1px;
+}
+
+#btn-task-save{
+    justify-self: right;
+    background: #627477;
+    letter-spacing: 1px;
+    border-style: none;
+    color: aliceblue;
+    height: 40px;
+    width: 100px;
+    margin-top: 30px;
+    margin-right: 4.5%;
+    border-radius: 25px;
+}
+
+#comments-container{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    width: 92%;
+    background: rgba(59, 71, 73, 1);
+    border-radius: 8px;
+    justify-self: center;
+    padding: 10px;
 }

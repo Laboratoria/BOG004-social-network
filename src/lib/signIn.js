@@ -13,9 +13,10 @@ export default () => {
     <form id="signInForm">
     <input type="email" id="email" placeholder="email">
     <input type="password" id="password" placeholder="password">
-    <input type="submit" value="Sign in" class = 'submitSignIn'>
+    <input type="submit" value="Sign in" class = 'submitSignIn'><br>
+    <span class = 'errorM'></span>
   </form>
-  <span class = 'errorM'></span>`;
+  `;
 
   const signInContainer = document.createElement('div');
   signInContainer.classList = 'divSignIn';
@@ -26,18 +27,27 @@ export default () => {
     const email = signInContainer.querySelector('#email').value;
     const password = signInContainer.querySelector('#password').value;
     const errorM = signInContainer.querySelector('.errorM');
-    if (!email.includes('.com')) {
-      errorM.innerHTML = 'correo inválido';
-    } else {
+    const regexDominio = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+
+    if (regexDominio.test(email)) {
       SignInUser(email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+            if (!user.emailVerified) {
+              // eslint-disable-next-line no-alert
+              errorM.innerHTML = 'Verifica tu correo';}
+              else {
+                changeView('#/post');
+              }
         })
-        .then(() => { changeView('#/post'); })
+
         .catch((error) => {
           const errorCode = error.code;
           if(errorCode)
           errorM.innerHTML = 'Usuario o contraseña incorrecta';})
+      
+    } else {
+      errorM.innerHTML = 'Correo inválido';
     }
   });
   return signInContainer;

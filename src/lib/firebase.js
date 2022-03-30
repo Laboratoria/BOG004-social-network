@@ -9,8 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+} from './firebase-imports.js';
 import {
   getFirestore,
   collection,
@@ -21,8 +20,9 @@ import {
   doc,
   getDoc,
   updateDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
+} from './firebase-imports.js';
+import { getDatabase } from './firebase-imports.js';
+import { initializeApp } from './firebase-imports.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4',
@@ -39,16 +39,18 @@ const dataBase = getDatabase(app);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    sendEmailVerification(user)
-      .then(() => {
-        alert(`Se ha enviado un correo de verificación a ${user.email}`);
+  export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+  .then(
+    (userCredential) => {
+      sendEmailVerification(auth.currentUser).then(() => {
+        const user = userCredential.user;
+        alert(`Se ha enviado un correo de verificación a` + email);
       });
-  });
+    },
+  );
 
-export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password) 
+;
 
 export const googleSignWithPopup = () => signInWithPopup(auth, provider)
   .then((result) => {

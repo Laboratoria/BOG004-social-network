@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { SignUpUser } from './firebase.js';
+import { changeView } from './viewController.js'
 // eslint-disable-next-line import/no-cycle
-import { changeView } from './viewController.js';
 
 export default () => {
   const viewSignUp = ` <form class="signUpForm" id="signUpForm">
@@ -11,15 +11,14 @@ export default () => {
     </figure>
     <h1>SIGN UP</h1>
     <input type="text" class="nickname" id="nickname" placeholder="nickname" autocomplete = 'off'><br>
-    <input type="email" class="email" id="email" placeholder="email" required minlength="8"> <br>
-    <input type="password" class="password" id="password" placeholder="password"><br>
-    <span id="verificationError"></span>
+    <input type="email" class="email" id="emailSignUp" placeholder="email" required minlength="8"> <br>
+    <input type="password" class="password" id="passwordSignUp" placeholder="password"><br>
     <h6>  By clicking Agree & Join, you agree to the  User Agreement, <br>
           Privacy Policy, and Cookie Policy. 
     </h6>
-    <input type="submit" class="submitSignUp" value="Sign Up">
-
-    </form>`;
+    <input type="submit" class="submitSignUp" value="Sign Up"><br>
+    <span class = 'errorZ'></span>
+</form>`;
 
   const signUpContainer = document.createElement('div');
   signUpContainer.innerHTML = viewSignUp;
@@ -27,23 +26,25 @@ export default () => {
   const formSignUp = signUpContainer.querySelector('#signUpForm');
   formSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const verificationError = document.getElementById('verificationError');
+    const email = signUpContainer.querySelector('#emailSignUp').value;
+    const password = signUpContainer.querySelector('#passwordSignUp').value;
+    const errorM = signUpContainer.querySelector('.errorZ');
     const regexDominio = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
-    if (regexDominio.test(email)) {
-      SignUpUser(email, password)
-        .then(() => { changeView('#/post'); })
-        .catch((error) => {
-        // eslint-disable-next-line no-unused-vars
-          const errorCode = error.code;
-          if (errorCode) {
-            verificationError.innerHTML = 'Usuario ya está registrado';
-          }
-        });
-    } else {
-      verificationError.innerHTML = 'Correo inválido';
-    }
+    
+    
+    if (regexDominio.test(email)) { 
+    SignUpUser(email, password)
+      .then(() => { changeView('#/signIn'); })
+      .catch((error) => {
+        const errorCode = error.code;
+        if(errorCode){
+          errorM.innerHTML = 'Usuario ya existente';
+        };
+      });
+  }
+      else {
+        errorM.innerHTML = 'Correo inválido'
+      }
   });
   return signUpContainer;
 };
