@@ -6,16 +6,21 @@ export default () => {
     
         <label for="umail"><b>UserEmail</b></label>
             <input type="text" id="userMail" placeholder="Enter email" name="uname" required>
+            <br>
 
         <label for="psw"><b>Password</b></label>
             <input type="password" id="userPass" placeholder="Enter Password" name="psw" required>
+            <br>
 
         <button type="submit" id="loginSignIn">Login</button>
             <label>
+            <br>
         <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
+            <br>
         <button type="submit" id="loginWithG">Login With Google</button>
             <label>
+            <br>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
@@ -26,6 +31,7 @@ export default () => {
     <img src="./img/pic-of-dog.png" width="200" height="200" style="padding:55px" alt="Avatar" class="avatar">
   </div>
     </form> `;
+    
 
   const divElement = document.createElement('div');
   divElement.innerHTML = viewSignIn;

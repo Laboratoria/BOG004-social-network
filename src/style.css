@@ -123,13 +123,15 @@
 
     #hello {
         font-size: 30px;
-        margin-top: 18px;
+        margin-top: 10px;
         text-align: center;
     }
     
     #home-textContent {
         font-size: 15px;
-        padding: 10%;
+        padding: 5%;
+        line-height: 17px;
+
     }
 
     #footby{
@@ -141,4 +143,59 @@
         padding: 40px;
         font-weight: 100;
     }
+
+    #container{
+        margin-top: 150px;
+        line-height: 50px;
+    }
+
+    #loginWithG{
+        display: inline-block;
+        background: white;
+        color: #444;
+        width: 250px;
+        height: 30px;
+        border-radius: 5px;
+        border: thin solid #888;
+        box-shadow: 1px 1px 1px grey;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+  
+      #loginWithG:hover {
+        cursor: pointer;
+      }
+
+      .imgcontainer{
+        margin-top: -30px;
+      }
+
+      #loginSignIn{
+        display: inline-block;
+        background: rgb(245, 136, 28);
+        color: #444;
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: thin solid rgb(245, 136, 28);
+      }
+
+      #signUpBttn{
+        display: inline-block;
+        background: rgb(245, 136, 28);
+        color: #444;
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: thin solid #888;
+      }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Tablets adn Ipads (landscape) */
+}
+
+
+@media (min-width: 1281px) {
+    /* Desktops and Laptops  */
 }
