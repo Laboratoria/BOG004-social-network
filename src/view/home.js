@@ -43,7 +43,8 @@ export default () => {
     // authGoogle(() =>  changeView('#/feed'), provider);
     authGoogle(provider)
     // , () => changeView('#/feed'));
-   if (result.user == true){
+    // localStorage.setItem('token', token);
+   if (localStorage.token == true){
     changeView('#/feed')
    }else{
    }

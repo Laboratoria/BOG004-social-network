@@ -98,7 +98,7 @@ export const authGoogle = (provider) => {
       const user = result.user;
       console.log('usuario ingresa');
       console.log(result.user);
-      return(result.user)
+      localStorage.setItem('token', token);
     })
     .catch((error) => {
       // Handle Errors here.
