@@ -1,6 +1,6 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
 import { db } from '../firebaseInit.js';
-import { createPost } from '../firebaseController.js';
+import { createPost, getPost } from '../firebaseController.js';
 
 export default () => {
   const divDaily = document.createElement('div');
@@ -17,11 +17,14 @@ export default () => {
           <div id='name-container'></div>
         </div>
         <div id='line'>
-          <div id='text-container'>
+          <div class="modal__close" id="modal__close">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div id='text-container'>            
             <textarea type='text' id='post-description' placeholder='Reveal your secrets'></textarea>
           </div>
         </div>
-        <button type='button' id='btn-post-save' class='btn-post-inactive'>save</button>  
+        <button disabled type='button' id='btn-post-save' class='btn-post-inactive'>save</button>  
       </form>
     </div>
     <div id='post-container' class="post-container">        
@@ -34,11 +37,16 @@ export default () => {
   divDaily.innerHTML = viewDaily;
 
   const btnCreate = divDaily.querySelector('#btn-post-create');
-
+  let background = divDaily.querySelector('#modal-background');
+  let modalPost = divDaily.querySelector('#modal_post-container');
+  const postDescription = divDaily.querySelector('#post-description');
   btnCreate.addEventListener('click', () => {
-    document.querySelector('#modal-background').style.display = 'flex';
-    document.querySelector('#modal_post-container').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    console.log('Opened');
+    background.style.display = 'flex';
+    modalPost.style.display = 'block';
+    postDescription.focus();
+    postDescription.value = '';
+    
   })
 
   const modalForm = divDaily.querySelector('#modal_post-container');
@@ -46,17 +54,34 @@ export default () => {
 
   btnSave.addEventListener('click', (e) => {
     e.preventDefault()
-    // console.log('Created');
-
+    console.log('Saved');
     // document.querySelector('#post-description').focus();
-    const postDescription = divDaily.querySelector('#post-description');
+    // const postDescription = divDaily.querySelector('#post-description');
     // console.log(postDescription.value);
-
     createPost(db, postDescription.value);
-
     modalForm.reset();
+  });
 
+
+  // declaracion modalClose para evento de cierre de boton en version mobile
+  let modalClose = divDaily.querySelector('#modal__close'); 
+  modalClose.addEventListener('click',()=>{
+    console.log('Close');
+    background.style.display= "none";
+    modalPost.style.display= "";
+  });
+
+
+  postDescription.addEventListener('keyup', () => { // evento del textarea
+    const postContent = postDescription.value.trim();
+    // trim() metodo que no permite activar boton con espacio
+    if (postContent === '') {
+      document.querySelector('#btn-post-save').disabled = true; // boton publicar inactivo
+    } else {
+      document.querySelector('#btn-post-save').disabled = false; // boton publicar activo
+    }
   });
 
   return divDaily;
 };
+

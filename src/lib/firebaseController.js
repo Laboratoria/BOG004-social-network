@@ -4,9 +4,14 @@ import {
   signInWithEmailAndPassword,
 }
   // eslint-disable-next-line import/no-unresolved
-  from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
-  import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
+import { 
+  collection, 
+  addDoc,
+  getDocs } 
+  
+from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
 
 export const newRegister = (auth, email, password, name) => {
   return createUserWithEmailAndPassword(auth, email, password, name)
@@ -22,4 +27,9 @@ export const loginWithEmailAndPassword = (auth, email, password) => {
 
 export const createPost = (db, postDescription) => {
   addDoc(collection(db, 'Posts'), {postDescription});
+};
+
+export const getPost = () => {
+  console.log('lista de Posts');
+  getDocs(collection(db, 'Posts'));
 };
