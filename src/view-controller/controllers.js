@@ -8,6 +8,7 @@ import {
   getFirestore,
   collection,
   addDoc,
+  getDocs,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -118,4 +119,18 @@ export async function crearPost() {
   } catch (e) {
     console.error('Error adding document: ', e);
   }
+}
+
+export async function readPost() {
+  const querySnapshot = await getDocs(collection(db, 'Posts'));
+  document.querySelector('#mostrarPost').innerHTML = '';
+  querySnapshot.forEach((doc) => {
+    document.querySelector('#mostrarPost').innerHTML += `
+    <div>
+      <p>${doc.data().content}</p>
+      <button id="btnEdit">Editar</button>
+      <button id="btnDelete">Eliminar</button>
+    </div>
+  `;
+  });
 }

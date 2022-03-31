@@ -283,12 +283,21 @@ a:visited {
     height: 20px;
     width: 20px;
 }
+
 .divForm{
-    border-style: groove;
+    display: flex;
     padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background: lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 90%;
 }
 .posts{
-    border-style:groove;
+    /* border-style:groove; */
+    width: 90%;
     
 }
 .contentFeed{
@@ -299,6 +308,13 @@ a:visited {
     font-size: x-large;
     border-style:none;
     resize: none;
+}
+#submitPost{
+    background-color: #015579;
+    border-radius: 5px;
+    width: 100px;
+    color: white;
+    text-decoration: none;
 }
 
 /* VENTANA MODAL*/

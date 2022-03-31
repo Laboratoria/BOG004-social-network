@@ -1,4 +1,4 @@
-import { logOut, crearPost } from '../view-controller/controllers.js';
+import { logOut, crearPost, readPost } from '../view-controller/controllers.js';
 
 export default () => {
   const viewFeed = `
@@ -21,6 +21,8 @@ export default () => {
       </form>
       <button type="submit" id="submitPost">Publicar</button>
     </div>
+    <div id="mostrarPost">
+    </div>
   </div>
   `;
 
@@ -35,6 +37,7 @@ export default () => {
   btnSubmit.addEventListener('click', () => {
     crearPost();
     posts.reset();
+    readPost();
   });
   return divElemt;
 };
