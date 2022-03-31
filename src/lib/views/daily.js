@@ -1,6 +1,6 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
 import { db } from '../firebaseInit.js';
-import { createPost } from '../firebaseController.js';
+import { createPost, getPost } from '../firebaseController.js';
 
 export default () => {
   const divDaily = document.createElement('div');
