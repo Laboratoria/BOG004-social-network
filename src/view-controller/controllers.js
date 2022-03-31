@@ -5,6 +5,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  getFirestore,
+  collection,
+  addDoc,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -103,3 +106,16 @@ export const logOut = () => {
   });
   console.log('adiós, vuelve pronto');
 };
+
+// AQUI EMPEZAMOS A USAR FIRESTORE
+const db = getFirestore();
+export async function crearPost() {
+  try {
+    const docRef = await addDoc(collection(db, 'Posts'), {
+      content: document.querySelector('#contentFeed').value,
+    });
+    console.log('Document written with ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+}

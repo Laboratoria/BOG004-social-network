@@ -37,6 +37,9 @@ a:visited {
     flex-direction: column;
     justify-content: flex-end;
 }
+.div-home{
+    background: linear-gradient(180deg, rgba(1, 85, 121, 0) 19.09%, #015579 51.97%);
+}
 .logo-home,
 .botones-home {
     display: flex;
@@ -229,16 +232,16 @@ a:visited {
 
 /* PANTALLA FEED */
 .contenedor-feed {
-    height: 830px;
-    width: 390px;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .navbar-pantalla3{
     height: 96px;
-    width: 390px;
-    background-color: #E2E2E2;
+    width: 100vw;
+    background-color: #015579;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -269,7 +272,7 @@ a:visited {
     width: 30px;
 }
 .barra{
-    width: 390px;
+    width: 100vw;
     height: 40px;
     background-color: #D4F6FF;
     display: flex;
@@ -280,34 +283,24 @@ a:visited {
     height: 20px;
     width: 20px;
 }
-.parrafoFeed{
+.divForm{
+    border-style: groove;
     padding: 10px;
-    display: flex;
+}
+.posts{
+    border-style:groove;
+    
+}
+.contentFeed{
+    padding: 10px;
     height: 80px;
     width: 90%;
-    justify-content: center;
-    align-content: center;
     font-family: 'Abel', sans-serif;
     font-size: x-large;
     border-style:none;
+    resize: none;
 }
 
-.titleFeed{
-    padding: 10px;
-    display: flex;
-    height: 20px;
-    width: 90%;
-    justify-content: center;
-    align-content: center;
-    font-family: 'Abel', sans-serif;
-    font-size: xx-large;
-    border-style: none;
-    color: #3134A1;
-}
-
-input [type = checkbox]{
-    border-radius: 100px;
-}
 /* VENTANA MODAL*/
 .flex{
     height: 100%;
@@ -317,16 +310,16 @@ input [type = checkbox]{
 }
 .modal{
     display: none;
-    
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
      z-index:1;
-     left: 0;
      width: 90%;
      height: auto;
      background: rgba ( 0,0,0,0.452);
 }
-
 .contenidoModal{
-
     background-color: #fefefe;
     margin: auto;
     width: 100%;
@@ -419,6 +412,9 @@ input [type = checkbox]{
         width: 100%;
         border: 1px solid #ccc;
     }
+    .div-home{
+        background: none;
+    }
     .contenedor-home{
         height: 100vh;
         width: 100%;
@@ -437,7 +433,7 @@ input [type = checkbox]{
         width: 40%;
         position: relative;
         right: -59%;
-        top: -40%;
+        top: -120%;
     }
 
     .contenedor-register{

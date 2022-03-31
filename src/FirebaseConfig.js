@@ -3,7 +3,7 @@ import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-
 import {
   getFirestore,
   collection,
-  getDocs,
+  addDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -25,6 +25,9 @@ export {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  getFirestore,
+  collection,
+  addDoc,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use
