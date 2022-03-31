@@ -233,31 +233,32 @@ input:focus{
     font-size: 15px;
 }
 
-textarea{
+.formpost textarea{
     background: #f8f8f8;
-    padding:6px ;
+    padding:6px;
     color:#525252;
     border: 2px solid #0079CB;
     border-radius: 8px;
     font-family: Barlow-Regular;
     font-size: 15px;
+    resize: none;
 }
 
-textarea:focus{
+.formpost textarea:focus{
     background-color: #fff;
     outline:1px solid #0079CB;
     box-shadow: 0px 0px 8px #00A8FF;
 
 }
 
-textarea::placeholder {
+.formpost textarea::placeholder {
     color: #C5C5C5;
     font-size: 18px;
     text-align: center;
     line-height: 4em;/* Centrado vertical */
 }
 
-#btnpost{
+.btnpost{
     background-color: #D5F5FF;    
     color: #0079CB;
     width: 100px;
@@ -267,10 +268,10 @@ textarea::placeholder {
     font-family: Barlow-SemiBold;
     font-style: bold;
     border: none;
-    margin-bottom: 10px;
+    margin: 10px 0px 10px 0px;
     text-align: center;
 }
-#btnpost:hover{
+.btnpost:hover{
 
     background-color: #0079CB;    
     color: #fff;
@@ -345,6 +346,113 @@ h1::after{
         text-align: center;
     }
 
+/* Vista de los post */
+
+.containerPost{
+    display: flex;
+    width: 70vw;
+    border: 1px solid #C5C5C5;
+    border-radius: 10px;
+    font-family: Barlow-Regular;
+    font-size: 20px;
+    color: #525252;
+    padding:16px;
+
+}
+
+.containerPost p{
+    margin: 0px;
+    word-wrap: break-word;
+}
+
+.containerButton{
+    display: flex;
+    justify-content: end;
+    margin: 15px 0px 10px 0px;
+}
+
+.containerButton p{
+    margin: 0px;
+
+}
+.buttonpost{
+    margin: 0px 15px 0px 15px;
+    height: 20px;
+}
+
+.containerPost textarea {
+    width: 70vw;
+    font-family: Barlow-Regular;
+    font-size: 20px;
+    color: #525252;
+    padding:16px;
+    resize: none;
+    border: none;
+   
+}
+
+.containerPost textarea:focus{
+    outline: none;
+    border: none;
+}
+
+.containerPost textarea::placeholder {
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    line-height: 4em;/* Centrado vertical */
+}
+
+/* POP UP WALL */
+.modals{
+    /* isplay: none; */
+    position:absolute;
+    top: -100%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25) ;
+    min-width: 70vw;
+    min-height: 11vh;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 0.5px solid rgb(197, 197, 197);
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 200ms;
+}
+.modals.active{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) ;
+    top: 50%;
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 200ms;
+}
+.confirmation{
+    margin:0px;
+    font-family: Barlow-Regular;
+    font-size: 20px;
+    text-align: center;
+}
+.modals .btnconfirmation{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background: #0079CB;
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Barlow-Bold;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 15vw;
+}
+
+
 @media screen and (min-width:800px){
 
     .logo-R{
@@ -368,6 +476,17 @@ h1::after{
     }
     .modal .btnconfirmation{
         margin-left: 18vw;
+    }
+    .containerPost{
+        width:38vw;
+    }
+
+    .modals{
+        min-width: 10vw;
+        min-height: 8vh; 
+    }
+    .modals .btnconfirmation{
+        margin-left: 7vw;
     }
 
 }

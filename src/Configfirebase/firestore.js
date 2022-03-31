@@ -1,13 +1,16 @@
-import { collection, addDoc, getDocs } from './firebase-imports.js';
+import {
+  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc,
+} from './firebase-imports.js';
 import { db } from './confiFirebase.js';
 
-/* intentando obtener informacion del usuario */
+/* Creando colleccion de post */
 
 export const savePost = async (descripcion) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       descripcion,
       user: localStorage.getItem('emailForSignIn'),
+      likes: [],
     });
     // eslint-disable-next-line no-console
     console.log('Document written with ID: ', docRef.id);
@@ -19,21 +22,56 @@ export const savePost = async (descripcion) => {
   }
 };
 
+/* visualizacion de post */
 export const viewpost = async () => {
   try {
     let post = [];
     const querySnapshot = await getDocs(collection(db, 'posts'));
     querySnapshot.forEach((doc) => {
-      const taks = doc.data();
+      /* const taks = doc.data();
       post.push(taks['descripcion']);
-      let post2 = post.flat();
-      console.log(doc);
+      let post2 = post.flat(); */
+      post.push(doc);
+      // console.log(doc.id, doc.data());
       /* .post2("posts")
        .orderBy("", "desc") */
-      return post2;
+      // return post2;
     });
     return post;
   } catch (error) {
     console.log(error);
   }
+};
+
+/* Guardando like de post */
+
+/*export const likePost2 = async () => {
+  const likePost = doc(db, 'posts', 'likes');
+
+  // Atomically add a new region to the "regions" array field.
+  await updateDoc(likePost, {
+    likes: arrayUnion('user.uid'),
+  });
+
+  // Atomically remove a region from the "regions" array field.
+  await updateDoc(likePost, {
+    likes: arrayRemove('user.uid'),
+  });
+};
+*/
+/* Editar post */
+export const editar = async (id, descripcion) => {
+  const post = doc(db, 'posts', id);
+  const actualizar = await updateDoc(post, {
+    descripcion,
+  });
+  return actualizar;
+};
+
+export const deletepost = async (id, descripcion) => {
+  const post = doc(db, 'posts', id);
+  const borrar = await deleteDoc(post, {
+    descripcion,
+  });
+  return borrar;
 };
