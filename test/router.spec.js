@@ -1,13 +1,4 @@
 import Router from '../src/router';
-// import registro from '../src/pages/registro.js';
-
-// describe('Router', () => {
-//   it('`loadRoute` carga la ruta correcta', () => {
-//     registro.template = jest.fn();
-//     const router = new Router([registro]);
-//     router.loadRoute('registro');
-//   });
-// });
 
 const rutas = [{
   path: '/',
@@ -20,11 +11,6 @@ const rutas = [{
   script: () => {},
 },
 ];
-
-// const page404 = `<div class="no404"> <figure>
-// <img src="https://res.cloudinary.com/dtaq1ip2g/image/upload/v1647617297/404-removebg-preview_rdmlwg.png" alt="Trulli" style="width:100%">
-// </figure></div>
-// <footer></footer>`;
 
 describe('registro', () => {
   it('debería cargar el template al hash registro', () => {

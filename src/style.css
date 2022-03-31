@@ -33,6 +33,26 @@
   visibility: hidden;
 }
 
+a p {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 3;
+  font-weight: bolder;
+  text-align: center;
+}
+
+form p {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Secular One", sans-serif;
+  color: #2e2c2f;
+  text-align: center;
+  font-size: 2.18em;
+  margin-bottom: 0.5rem;
+  border-radius: 15px 15px 0px 0px;
+}
+
 .modal p {
   margin-top: -10%;
   padding: 1.5em;
@@ -40,6 +60,8 @@
   font-family: "Fredoka", sans-serif;
   text-align: justify;
 }
+
+
 
 #buttons {
   width: 100%;
@@ -87,13 +109,7 @@
   margin-top: 250px;
 }
 
-a p {
-  font-size: 16px;
-  font-family: sans-serif;
-  line-height: 3;
-  font-weight: bolder;
-  text-align: center;
-}
+
 
 .logout,
 .logo-mobile {
@@ -148,17 +164,7 @@ form {
   /* line-height: 3; */
 }
 
-form p {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  font-family: "Secular One", sans-serif;
-  color: #2e2c2f;
-  text-align: center;
-  font-size: 2.18em;
-  margin-bottom: 0.5rem;
-  border-radius: 15px 15px 0px 0px;
-}
+
 
 #btn-register {
   margin-top: 5%;
@@ -186,7 +192,7 @@ form p {
 #btnSignInGoogle {
   margin-top: 5%;
   font-size: 1.1em;
-  font-family: "san-serif";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   align-items: center;
   margin-bottom: 10%;
@@ -208,13 +214,12 @@ form p {
   width: 70%;
   margin-bottom: 8px;
   background: #fff;
-  border: none;
   text-align: center;
   border: none;
   border-bottom: 3px outset whitesmoke;
   /* border-radius: 3px red; */
   height: 45px;
-  line-height: 45px;
+  /* line-height: 45px; */
   padding: 0 40px 0 40px;
   transition: 0.3s ease all;
 }
@@ -404,7 +409,7 @@ footer i {
   color: black;
   display: inline;
   border-radius: 10px;
-  font-family: 'Mulish', sans-serif;;
+  font-family: 'Mulish', sans-serif;
 }
 
 .singlePost_header{

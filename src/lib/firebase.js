@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 // Import the functions you need from the SDKs you need
 import {
   initializeApp,
@@ -78,8 +80,10 @@ export const signInGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
+      console.log(credential);
       // const token = credential.accessToken;
       const user = result.user;
+      console.log(user.uid);
       // sessionStorage.setItem('token', token);
       sessionStorage.setItem('user', JSON.stringify(user));
       window.location.hash = 'post';
@@ -90,7 +94,9 @@ export const signInGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
-    });
+      console.log(errorCode, email, credential);
+      console.log(errorMessage);
+          });
 };
 // Iniciar sesión
 
@@ -117,10 +123,11 @@ export const logInEmail = (email, password) => {
       const errorCode = error.code;
       alert('Usario y/o contraseña inválido');
       const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
     });
 };
 const newCollection = collection(db, 'post');
-export const savePost = (postDescription) => addDoc(collection(db, 'post'), { postDescription, createdAt: serverTimestamp() });
+export const savePost = (postDescription, userId) => addDoc(collection(db, 'post'), { postDescription, userId, createdAt: serverTimestamp() });
 const q = query(newCollection, orderBy('createdAt', 'desc'));
 // console.log('probando', collection(db, 'post'));
 // export const getPost = () => getDocs(collection(db, 'post'));
