@@ -1,4 +1,6 @@
-import { collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, } from './firebase-imports.js';
+import {
+  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc,
+} from './firebase-imports.js';
 import { db } from './confiFirebase.js';
 
 /* Creando colleccion de post */
@@ -26,13 +28,14 @@ export const viewpost = async () => {
     let post = [];
     const querySnapshot = await getDocs(collection(db, 'posts'));
     querySnapshot.forEach((doc) => {
-      const taks = doc.data();
+      /* const taks = doc.data();
       post.push(taks['descripcion']);
-      let post2 = post.flat();
-      console.log(doc);
+      let post2 = post.flat(); */
+      post.push(doc);
+      // console.log(doc.id, doc.data());
       /* .post2("posts")
        .orderBy("", "desc") */
-      return post2;
+      // return post2;
     });
     return post;
   } catch (error) {
@@ -57,11 +60,18 @@ export const viewpost = async () => {
 };
 */
 /* Editar post */
- /*export const editar = async (uid) => {
-  const washingtonRef = doc(db, "cities", "DC");
-
-  // Set the "capital" field of the city 'DC'
-  await updateDoc(washingtonRef, {
+export const editar = async (id, descripcion) => {
+  const post = doc(db, 'posts', id);
+  const actualizar = await updateDoc(post, {
     descripcion,
   });
-};*/
+  return actualizar;
+};
+
+export const deletepost = async (id, descripcion) => {
+  const post = doc(db, 'posts', id);
+  const borrar = await deleteDoc(post, {
+    descripcion,
+  });
+  return borrar;
+};
