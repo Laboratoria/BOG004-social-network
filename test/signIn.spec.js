@@ -18,21 +18,19 @@ describe('Sign In Function', () => {
 
     const errorMessage = result.querySelector('.errorM');
 
-    expect(errorMessage.textContent).toBe('Correo inválido')
+    expect(errorMessage.textContent).toBe('Correo inválido');
   });
   it('Deberia ejecutar firebase', () => {
     const result = signIn();
-    
     const email = result.querySelector('#email');
-    email.value = `viviana.perez28@gmail.com`;
+    email.value = 'viviana.perez28@gmail.com';
 
     const btn = result.querySelector('#signInForm');
     btn.dispatchEvent(new Event('submit'));
 
     const errorMessage = result.querySelector('.errorM');
 
-    expect(errorMessage.textContent).toBe('')
-    
+    expect(errorMessage.textContent).toBe('');
   });
 });
 
@@ -42,30 +40,26 @@ describe('Sign Up Function', () => {
   });
   it('Deberia ejecutar el error', () => {
     const result2 = signUp();
-    
     const email2 = result2.querySelector('#emailSignUp');
-    email2.value = `lolita.gmail.com`;
+    email2.value = 'lolita.gmail.com';
 
     const btn = result2.querySelector('#signUpForm');
     btn.dispatchEvent(new Event('submit'));
 
     const errorMessage2 = result2.querySelector('.errorZ');
 
-    expect(errorMessage2.textContent).toBe('Correo inválido')
+    expect(errorMessage2.textContent).toBe('Correo inválido');
   });
   it('Deberia ejecutar firebase', () => {
     const result2 = signUp();
-    
     const email = result2.querySelector('#emailSignUp');
-    email.value = `viviana.perez28@gmail.com`;
+    email.value = 'viviana.perez28@gmail.com';
 
     const btn = result2.querySelector('#signUpForm');
     btn.dispatchEvent(new Event('submit'));
 
     const errorMessage = result2.querySelector('.errorZ');
 
-    expect(errorMessage.textContent).toBe('')
-    
+    expect(errorMessage.textContent).toBe('');
   });
 });
-

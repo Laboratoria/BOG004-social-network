@@ -33,19 +33,18 @@ export default () => {
       SignInUser(email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-            if (!user.emailVerified) {
-              // eslint-disable-next-line no-alert
-              errorM.innerHTML = 'Verifica tu correo';}
-              else {
-                changeView('#/post');
-              }
+          if (!user.emailVerified) {
+            // eslint-disable-next-line no-alert
+            errorM.innerHTML = 'Verifica tu correo';
+          } else {
+            changeView('#/post');
+          }
         })
 
         .catch((error) => {
           const errorCode = error.code;
-          if(errorCode)
-          errorM.innerHTML = 'Usuario o contraseña incorrecta';})
-      
+          if (errorCode) { errorM.innerHTML = 'Usuario o contraseña incorrecta'; }
+        });
     } else {
       errorM.innerHTML = 'Correo inválido';
     }

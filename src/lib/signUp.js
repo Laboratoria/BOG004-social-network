@@ -1,10 +1,12 @@
-// eslint-disable-next-line import/no-cycle
 import { SignUpUser } from './firebase.js';
-import { changeView } from './viewController.js'
+// eslint-disable-next-line import/no-cycle
+import { changeView } from './viewController.js';
 // eslint-disable-next-line import/no-cycle
 
 export default () => {
-  const viewSignUp = ` <form class="signUpForm" id="signUpForm">
+  const viewSignUp = `
+  
+  <form class="signUpForm" id="signUpForm">
   
     <figure>
       <img class='Icono' src='images/iPhone 13/Logo.png' alt='Icono'><br>
@@ -30,21 +32,19 @@ export default () => {
     const password = signUpContainer.querySelector('#passwordSignUp').value;
     const errorM = signUpContainer.querySelector('.errorZ');
     const regexDominio = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
-    
-    
-    if (regexDominio.test(email)) { 
-    SignUpUser(email, password)
-      .then(() => { changeView('#/signIn'); })
-      .catch((error) => {
-        const errorCode = error.code;
-        if(errorCode){
-          errorM.innerHTML = 'Usuario ya existente';
-        };
-      });
-  }
-      else {
-        errorM.innerHTML = 'Correo inválido'
-      }
+    if (regexDominio.test(email)) {
+      SignUpUser(email, password)
+        .then(() => { changeView('#/signIn'); })
+        .catch((error) => {
+        // eslint-disable-next-line no-unused-vars
+          const errorCode = error.code;
+          if (errorCode) {
+            errorM.innerHTML = 'Usuario ya existente';
+          }
+        });
+    } else {
+      errorM.innerHTML = 'Correo inválido';
+    }
   });
   return signUpContainer;
 };

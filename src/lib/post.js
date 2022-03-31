@@ -54,7 +54,6 @@ export default () => {
               <span id="icon" <i class="fa-regular fa-thumbs-up"></i> </span>
               <span id="count"> 0 </span>
               </button>
-
               </div>  
               `;
       });
