@@ -11,9 +11,13 @@ const viewRegisterTest = () =>{
   return divTest;
 }
 
+//crear funciones para cada caso
+
 const componentsTest = {
   register : viewRegisterTest,
-  ecotraveler: viewRegisterTest,
+  // ecotraveler: viewRegisterTest,
+  // account: viewRegisterTest,
+  // notFound: viewRegisterTest,
 }
 
 describe ('debería cargar la vista register', () =>{
@@ -22,11 +26,21 @@ describe ('debería cargar la vista register', () =>{
     changeView('#/register', componentsTest);
     expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba');
   })
-  it ('debería mostrar la vista de muro', () =>{
-    document.body.innerHTML = '<section id="container"></section>';
-    changeView('#/ecoTraveler', componentsTest);
-    expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba');
-  })
+  // it ('debería mostrar la vista de muro', () =>{
+  //   document.body.innerHTML = '<section id="container"></section>';
+  //   changeView('#/ecoTraveler', componentsTest);
+  //   expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba');
+  // })
+  //   it ('debería mostrar la vista de crear un nuevo usuario', () =>{
+  //   document.body.innerHTML = '<section id="container"></section>';
+  //   changeView('#/createAccount', componentsTest);
+  //   expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba');
+  // })
+  //     it ('debería mostrar un 404', () =>{
+  //   document.body.innerHTML = '<section id="container"></section>';
+  //   changeView('#/estarutanoexiste', componentsTest);
+  //   expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba');
+  // })
 })
 
 describe('changeView', () => {
