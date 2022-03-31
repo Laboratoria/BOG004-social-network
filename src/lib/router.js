@@ -1,4 +1,5 @@
 import { components } from '../views/index.js';
+import { getUser, closeSession } from '../firebase/controlerfirebase.js';
 
 // eslint-disable-next-line consistent-return
 const changeView = (route) => {
@@ -7,14 +8,29 @@ const changeView = (route) => {
   // eslint-disable-next-line no-console
   console.log(window.location.hash);
   switch (route) {
-    case '':
-    { return container.appendChild(components.record()); }
+    case '': {
+      if (getUser() != null) {
+        console.log(`Route ${route} user null`);
+        closeSession();
+      }
+      return container.appendChild(components.record());
+    }
 
-    case '#login':
-    { return container.appendChild(components.login()); }
+    case '#login': {
+      if (getUser() != null) {
+        console.log(`Route ${route} user null`);
+        closeSession();
+      }
+      return container.appendChild(components.login());
+    }
 
-    case '#wall':
-    { return container.appendChild(components.wall()); }
+    case '#wall': {
+      if (getUser() == null) {
+        console.log(`Route ${route} user null`);
+        window.location.hash = '';
+      }
+      return container.appendChild(components.wall());
+    }
 
     case '#blogs':
     { return container.appendChild(components.blogs()); }
