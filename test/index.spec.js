@@ -1,27 +1,26 @@
 import { registerUser } from "../src/Firebase/auth.js";
+import { register } from "../src/view/register.js";
 // importamos la funcion que vamos a testear
-// import { myFunction } from '../src/lib/index';
 
-jest.mock('../src/Firebase/__mocks__/firebase-import.js/')
+jest.mock('../src/Firebase/firebase-import.js')
 
-describe('myFunction', () => {
+describe('registerUser', () => {
     it('debería ser una función', () => {
         expect(typeof registerUser).toBe('function');
     });
+    it('Debería permitir el registro del usuario', () => {
+        document.body.innerHTML = '<p id="errorMessage"></p>';
+        registerUser('holaholaquetal@gmail.com', 'contraseña123');
+        expect(document.getElementById('errorMessage').innerHTML).toBe('');
+    });
+    // it('El usuario no puede registrarse correctamente', () => {
+    //     document.body.innerHTML = '<p id="errorMessage"></p>';
+    //     registerUser('holaholaquetal@gmail.com', 'contraseña123');
+    //     expect(document.getElementById('errorMessage').innerHTML).not.toBe("");
+    // });
+    it('El usuario no puede registrarse correctamente', () => {
+        document.body.innerHTML = '<p id="errorMessage"></p>';
+        registerUser('holahol34@gmail.com', 'contr');
+        expect(document.getElementById('errorMessage').innerHTML).toBe("La contraseña debe tener mínimo 6 caracteres");
+    });
 });
-
-// describe('registerUser', () => {
-//     it('', () => {
-//         const register = registerUser();
-//         const email = register.querySelector('#emailRegister');
-//         const password = register.querySelector('#passwordRegister');
-
-
-//         //data para pruebas:
-//         email = "danielahuyo@hotmail.com"
-//         password = "1234"
-
-
-//         console.log(email.innerHTML)
-//     });
-// });
