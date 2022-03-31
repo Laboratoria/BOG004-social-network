@@ -1,5 +1,8 @@
-// Este es el punto de entrada de tu aplicacion
+//Importamos la funcion de routeo
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+import { changeView } from "./view-controler/controler.js";
+const start = () => {
+    window.addEventListener("hashchange", () => changeView(window.location.hash));
+};
+window.addEventListener("load", start);
+changeView();
