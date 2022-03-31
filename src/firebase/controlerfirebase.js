@@ -51,12 +51,16 @@ function existingUser(email, password) {
 
 let usuario;
 
+function getUser() {
+  return usuario;
+}
+
 function observerUserState() {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     usuario = user;
     if (user) {
-      console.table(user);
+      // console.table(user);
       window.location.hash = '#wall';
     } else if (window.location.hash === '#wall') {
       // User is signed out
@@ -119,7 +123,7 @@ const getPostList = async () => {
           <img class="avatar" src="${data.photoUrl}" />
         </div>
         <div class="post-content">
-          <h3>${data.user}</h3>
+          <h3>${data.user} ${data.email}</h3>
           <p>${data.thinking}</p>
         </div>
         <div class="posticons">
@@ -164,5 +168,5 @@ const addPost = async (thinking) => {
 
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  addPost, editPosts,
+  addPost, editPosts, getUser,
 };

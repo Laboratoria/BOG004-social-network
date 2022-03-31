@@ -62,9 +62,9 @@ function registerCloseSession() {
 function registerAddPost() {
   const saveThought = document.getElementById('btnSaveThought');
   saveThought.addEventListener('click', () => {
-    const thinksuseredit = document.getElementById('thinksuseredit').value;
-    addPost(thinksuseredit);
-    thinksuseredit.reset();
+    const thinksUserEdit = document.getElementById('thinksuseredit');
+    addPost(thinksUserEdit.value);
+    thinksUserEdit.value = '';
   });
 }
 
