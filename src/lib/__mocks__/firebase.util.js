@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 const userNotVerified = {
   user: { emailVerified: false },
 };
@@ -48,15 +50,14 @@ export class GoogleAuthProvider {
   }
 
   static credentialFromError() {
-    return {};
+    return { };
   }
 }
 
 export const signInWithPopup = jest.fn(
-  (auth, provider) =>
-    new Promise((resolve) => {
-      resolve();
-    }),
+  (auth, provider) => new Promise((resolve) => {
+    resolve();
+  }),
 );
 
 // /* mocks de firestore*/

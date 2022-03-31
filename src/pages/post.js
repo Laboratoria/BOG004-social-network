@@ -5,7 +5,6 @@ import {
   onGetPost, deletePost,
   updatePost,
 } from '../lib/firebase.js';
-import { updateDoc } from '../lib/firebase.util.js';
 
 export default {
   path: '#post',
@@ -66,7 +65,7 @@ export default {
     // sección para pintar los post en el DOM
     let editStatus = false;
     let id = '';
-    
+
     onGetPost((querySnapshot) => {
       let html = '';
 
@@ -90,7 +89,7 @@ export default {
       });
       postList.innerHTML = html;
 
-    // Eliminar post
+      // Eliminar post
       // const btnDelete = document.querySelectorAll('.fa-trash-can');
       const btnDelete = postList.querySelectorAll('.fa-trash-can');
       btnDelete.forEach((btn) => btn.addEventListener('click', ({ target: { dataset } }) => {
@@ -112,9 +111,12 @@ export default {
       }));
     });
 
-    // });
-
-    // const db = getFirestore();
+    /* CAPTURAR DATOS DEL USUARIO */
+    const userSessionStorage = sessionStorage.getItem('user');
+    console.log(userSessionStorage);
+    const convertObjJson = JSON.parse(userSessionStorage);
+    const userId = convertObjJson.uid;
+    console.log(userId);
 
     postForm.addEventListener('submit', (e) => {
       const postDescription = document.querySelector(
@@ -124,9 +126,9 @@ export default {
       // const image = document.querySelector('.singlePost_img'); // .value pendiente por definir;
       e.preventDefault();
       if (!editStatus) {
-        savePost(postDescription); // .value pendiente por definir;
+        savePost(postDescription, userId); // .value pendiente por definir;
       } else {
-        updatePost(id, { postDescription });
+        updatePost(id, { postDescription, userId });
 
         editStatus = false;
       }
@@ -146,3 +148,6 @@ export default {
     });
   },
 };
+
+// const userName = convertObjJson.displayName;
+// const userPhotoURL = convertObjJson.photoURL;

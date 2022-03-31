@@ -11,3 +11,4 @@ window.addEventListener('popstate', () => {
   const removePath = router.removeSlash(window.location.pathname);
   router.loadRoute(removePath);
 });
+// esta seccion de popstate da undefined si console.log router.loadRoute(removePath);
