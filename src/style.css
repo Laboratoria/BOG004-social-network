@@ -37,6 +37,7 @@ body {
   font-size: 2rem;
   margin-bottom: 0px;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -91,8 +92,6 @@ body {
   font-weight: bolder;
 }
 
-
-
 p {
   text-align: justify;
   font-family: "Inter", sans-serif;
@@ -101,6 +100,8 @@ p {
   font-size: 15px;
   margin-top: 0px;
 }
+
+
 h3{
   font-family: "Inter", sans-serif;
   margin: 0.5rem;
@@ -129,6 +130,7 @@ footer {
   position:fixed;
   left:0px;
   bottom:0px;
+  margin: 5px;
 }
 
 .text-footer {
@@ -137,6 +139,57 @@ footer {
   text-align: center;
   color: rgb(48, 46, 46);
   padding: 1rem;
+  align-content: flex-start;
+}
+/* WALL */
+.respmenu input[type="checkbox"], .respmenu .fa-bars, .respmenu .fa-times {
+  position: absolute;
+  padding-left: 6rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.respmenu .fa-bars, .respmenu .fa-times {
+  font-size: 48px;
+  pointer-events: none;
+}
+
+.respmenu input[type="checkbox"] {
+  opacity: 0;
+}
+
+.respmenu {
+  color: rgb(93, 94, 94);
+  position: relative;
+  background: rgba(249, 226, 218, 1);
+  min-height: 48px;
+}
+
+.respmenu nav {
+  display: none;
+}
+
+.respmenu input:checked ~ nav {
+  display: block;
+}
+
+.respmenu input:checked ~ .fa-bars {
+  display: none;
+}
+
+.respmenu input:not(:checked) ~ .fa-times {
+  display: none;
+}
+
+.all-wall{
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .btn-post {
@@ -144,31 +197,11 @@ footer {
   background-color: rgba(112, 131, 255, 1);
   flex-wrap: wrap;
   justify-content: left;
-  width: 50%;
+  width: 150px;
   height: 30px;
   border-radius: 10px;
   margin-top: 10px;
   border: none;
-}
-
-
-#wall {
-  display: flex;
-  flex-direction: row;
-}
-
-#menu{
-  width: 500px;
-  display: flex;
-  flex-direction: column; /*Cuando sea una pantalla peque es row*/
-}
-
-#wall-content{
-  max-width: 500px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;  
 }
 
 #editPost{
@@ -178,16 +211,16 @@ footer {
   flex-wrap: wrap;
   align-items: end;
   margin: 2rem;
+  margin-top: 0px;
 }
 
 #thinksuseredit{
-  border-radius: 10px;  
-}
+  border-radius: 10px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  min-width: 296px;
 
-
-.profile {
-  width: 50px;
-  height: 50px;
 }
 
 .post-content {
@@ -201,13 +234,6 @@ footer {
   margin: 2rem;
 }
 
-.postuser {
-  padding: 5px;
-  font-size: 16px;
-  font-style: bold;
-  color: rgb(44, 43, 43);
-  font-family: 'Inter', sans-serif;
-}
 .post-avatar{
 position: absolute;
 }
@@ -246,35 +272,18 @@ position: absolute;
     margin-left: 100px;
 }
 
-#menuicon{
-  display: none;
-}
-
-@media screen and (max-width: 600px) {
-  #menuicon{
-    display: block;
-    position: absolute;
-    top:5px;
-    right: 5px;
-  }
-
-  #menu{
+  #wll-rigth-section{
     display: none;
   }
 
-  #wall-rigth-section{
-    display: none;
-  }
-}
 .button {
   border: none;
   background-color: white;
   cursor: pointer;
 }
 
-.icono-cerrar-sesion{
+.icono-cerrar-sesion {
   font-size: 1.5rem;
   color: rgb(48, 46, 46);
-  position: fixed;
 }
 
