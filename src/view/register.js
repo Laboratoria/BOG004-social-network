@@ -53,7 +53,6 @@ const createFormUser = () => {
     submit.setAttribute('value', 'registrarse');
     submit.setAttribute('class', 'btn-submit');
 
-
     const errorPassword = document.createElement('p');
     errorPassword.innerText = 'La contraseña no coincide';
     errorPassword.setAttribute('id', 'error-message-password');

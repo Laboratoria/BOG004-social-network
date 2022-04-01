@@ -7,7 +7,6 @@ import {
   signInWithPopup,
   sendEmailVerification,
 } from './firebase-utils.js';
-// eslint-disable-next-line
 import { changeView } from '../view-controler/router.js';
 // LOGIN
 
@@ -53,16 +52,10 @@ export const register = (email, password) => {
       console.log('registro exitoso');
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
-        console.log(`Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta `);
-        setTimeout("location.href='http://localhost:3000/#/login'", 5000);
-
-        // changeView('#/login');
-        // location.hash = '#/login';
-        document.querySelector('#message').innerText = 'Se ha enviado un mensaje al correo:' + user.email + ' para verificar la creación de la cuenta ';
-        setTimeout("location.href='http://localhost:3000/#/login'", 5000)
-  }).catch(error => {
-        console.log("Error enviando correo de verificación: " + error);
-        document.getElementById('message').innerText = 'Error, intente denuevo';
+        setTimeout(() => { window.location.href = 'http://localhost:3000/#/login'; }, 5000);
+        document.querySelector('#message').innerText = `Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta`;
+      }).catch((error) => {
+        document.getElementById('message').innerText = 'Error,  tente denuevo';
       });
     })
     .catch((error) => {
@@ -86,7 +79,6 @@ export const register = (email, password) => {
       }
     });
 };
-
 // GOOGLE
 export const authGoogle = (provider) => {
   const auth = getAuth();
