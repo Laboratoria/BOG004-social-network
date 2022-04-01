@@ -4,6 +4,7 @@ import {
   getOnlyPost,
   onGetPost, deletePost,
   updatePost,
+  auth,
 } from '../lib/firebase.js';
 
 export default {
@@ -68,17 +69,23 @@ export default {
 
     onGetPost((querySnapshot) => {
       let html = '';
-
+      
       querySnapshot.forEach((doc) => {
         const postData = doc.data();
+        const userid = auth.currentUser.uid;
+        let buttons = '';
+        if (postData.userId === userid) {
+          buttons = `<button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
+                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
+      `;
+        }
         // console.log(doc.id);
         html += `<div class="singlePost_container">
                     <img class="singlePost_img" src="images/animalsBackground.png" alt="imagenPost">
                     <div class="singlePost_footer">
                     <div class="singlePost_button">
-                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
-                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
                       <button class="btnImage"><i class='fa-solid fa-heart'></i></button>
+                      ${buttons} 
                     </div>
                     <p>#Especie</p>
                     </div>
@@ -128,7 +135,7 @@ export default {
       if (!editStatus) {
         savePost(postDescription, userId); // .value pendiente por definir;
       } else {
-        updatePost(id, { postDescription, userId });
+        updatePost(id, { postDescription });
 
         editStatus = false;
       }
