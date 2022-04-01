@@ -22,6 +22,7 @@ export default {
 
 
     `,
+  state: 'unlogged',
   script: () => {
     const btnModal = document.querySelector('#sign-up');
     btnModal.addEventListener('click', () => {

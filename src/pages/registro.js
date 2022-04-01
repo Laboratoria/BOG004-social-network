@@ -43,6 +43,7 @@ export default {
   
   
 `,
+  state: 'unlogged',
   script: () => {
     const btn = document.querySelector('#btn-register');
     const inputs = document.querySelectorAll('#form input');

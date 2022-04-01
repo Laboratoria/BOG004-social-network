@@ -1,3 +1,5 @@
+import { getState } from './lib/firebase.js';
+
 export default class Router {
   constructor(rutas) {
     this.routes = rutas;
@@ -20,8 +22,12 @@ export default class Router {
     // console.log(matchedRoute);
     const routerOutElm = document.getElementById('container');
     if (matchedRoute !== undefined) {
-      routerOutElm.innerHTML = matchedRoute.template;
-      matchedRoute.script();
+      if (matchedRoute.state === getState()) {
+        routerOutElm.innerHTML = matchedRoute.template;
+        matchedRoute.script();
+      } else {
+        window.location.hash = 'perfil';
+      }
     } else {
       routerOutElm.innerHTML = `<div class="no404"> <figure>
       <img src="https://res.cloudinary.com/dtaq1ip2g/image/upload/v1647617297/404-removebg-preview_rdmlwg.png" alt="Trulli" style="width:100%">
