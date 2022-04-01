@@ -32,7 +32,7 @@ export default () => {
     posts.reset();
   });
 
-  // log Out
+  // Log Out
   divElement.querySelector('#userLogOut').addEventListener('click', () => {
     close();
   });
@@ -44,12 +44,13 @@ export default () => {
 
     querySnapshot.forEach((doc) => {
       const postData = doc.data();
+      // console.log (doc.id)
       html += `
                     <div>
                         <div>
-                        <textarea id= "postIt-description" rows= "3" readonly>${postData.postIt}</textarea>
+                        <textarea id= "postIt-description" rows= "3" " readonly>${postData.postIt}</textarea>
                         <button type="button" class="btndelete-postIt" data-id="${doc.id}">Delete</button>
-                        <button type="button" class="btnedit-postIt">Edit</button>
+                        <button type="button" class="btnedit-postIt" data-id="${doc.id}">Edit</button>
                         </div>
                     </div>
                     `;
@@ -66,14 +67,28 @@ export default () => {
 
     // Editing posts
     const editPostIt = postContainer.querySelectorAll('.btnedit-postIt');
-    editPostIt.forEach((btn) => btn.addEventListener('click', async (e) => {
-      const doc = await getPost(e.target.dataset.id);
-      const posts = document.getElementById('post-form');
-      const postData = doc.data();
-      posts['post-form'].value = postData.postIt.description;
-      // editStatus = true;//
-      id = doc.id;
-    }));
+    const posts = document.getElementById('post-form');
+    
+    editPostIt.forEach((btn) => {
+      
+      btn.addEventListener('click', (e) => {
+        console.log('evento-> ', e.target.dataset.id);
+        
+        const doc = getPost(e.target.dataset.id)
+        doc.then(res=>{
+          const postData = res.data();
+          console.log('postData: ', postData)
+          console.log('id ', e.target.dataset.id);
+          posts[e.target.dataset.id].value = postData.postIt;
+        
+        })
+        console.log('posts: ', posts['postIt-description']);
+        
+        // editStatus = true;//
+        // id = doc.id;
+      })
+    });
+  
   });
   return divElement;
 };

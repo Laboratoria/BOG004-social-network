@@ -25,7 +25,7 @@ export default () => {
   <div class="container">
     
         <label for="umail"><b>UserEmail</b></label>
-            <input type="text" id="userMail" placeholder="Enter email" name="uname" required>
+            <input type="email" id="userMail" placeholder="Enter email" name="uname" required>
             <br>
 
         <label for="psw"><b>Password</b></label>
@@ -48,7 +48,7 @@ export default () => {
   </div>
 
   <div class="imgcontainer">
-    <img src="./img/pic-of-dog.png" width="200" height="200" style="padding:55px" alt="Avatar" class="avatar">
+    <img src="./img/SignIn.png" width="300" height="200" style="padding:50px" alt="Avatar" class="avatar">
   </div>
     </form> `;
 
