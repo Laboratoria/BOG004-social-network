@@ -65,9 +65,7 @@ const createFormUser = () => {
     form.appendChild(contenedorPassword);
     form.appendChild(password);
     form.appendChild(repeatPassword);
-
     form.appendChild(submit);
-
     divElem.appendChild(form);
   };
   htmlFormRegister();

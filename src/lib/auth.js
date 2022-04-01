@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { singIn, singUp, singInGoogle,emailSingUp,singWithPopUp, errorSingUpWithPopUp } from '../view-controler/controllers.js';
+import {
+  singIn, singUp, singInGoogle, emailSingUp, singWithPopUp, errorSingUpWithPopUp,
+} from '../view-controler/controllers.js';
 // eslint-disable-next-line
 import { changeView } from '../view-controler/router.js';
 // LOGIN
@@ -70,7 +72,6 @@ export const register = (email, password) => {
       }
     });
 };
-
 // GOOGLE
 
 export const authGoogle = (provider) => {

@@ -16,9 +16,7 @@ export const singUp = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const emailSingUp = (user) => {
-  return sendEmailVerification(user);
-};
+export const emailSingUp = (user) => sendEmailVerification(user);
 
 export const singInGoogle = (provider) => {
   const auth = getAuth();

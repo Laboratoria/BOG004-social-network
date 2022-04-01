@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+/* eslint-disable import/no-unresolved */
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -13,4 +14,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const baseDeDatos = getFirestore(app);
+export const baseDeDatos = getFirestore(app);
