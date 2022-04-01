@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-cycle
-import { login } from '../lib/auth.js';
+import { singIn } from '../view-controler/controllers.js';
 
 export default () => {
   document.querySelector('#sectionGrid').style.display = 'block';
@@ -22,7 +21,7 @@ export default () => {
     const email = divLogin.querySelector('#loginEmail').value;
     const password = divLogin.querySelector('#loginPassword').value;
     console.log(email, password);
-    login(email, password);
+    singIn(email, password);
   });
   return divLogin;
 };
