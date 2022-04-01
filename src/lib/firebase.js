@@ -42,10 +42,10 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore();
+export const auth = getAuth();
 
 // registrarse con cualquier correo
 export const signInEmail = (email, password, name) => {
-  const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -74,8 +74,6 @@ export const signInEmail = (email, password, name) => {
 
 export const signInGoogle = () => {
   const provider = new GoogleAuthProvider();
-
-  const auth = getAuth();
   console.log(auth);
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -101,7 +99,6 @@ export const signInGoogle = () => {
 // Iniciar sesión
 
 export const logInEmail = (email, password) => {
-  const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
