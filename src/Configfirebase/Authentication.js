@@ -2,7 +2,7 @@ import { firebaseApp, db } from './confiFirebase.js';
 import {
   getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider,
   createUserWithEmailAndPassword, sendSignInLinkToEmail,
-  signInWithEmailAndPassword, addDoc, collection,
+  signInWithEmailAndPassword, addDoc, collection, signOut
 } from './firebase-imports.js';
 
 /* Autenticacion de email y contraseña */
@@ -140,17 +140,26 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
 };*/
 
 export const userActive = () => {
-  onAuthStateChanged(auth, async (user) => {
+  onAuthStateChanged(auth, (user) => {
     if (user) {
-      const register = await userExist(user.uid);
+      console.log(user);
+      return user;
     } else {
-      await profileUser({
-        uid: user.uid,
-        displayName: user.displayName,
-        userName: '',
-      });
-    // User is signed out
+      console.log('no hay usuario');
+      // User is signed out
     // ...
     }
   });
+};
+
+export const singOff = () => {
+  signOut(auth)
+    .then(() => {
+      console.log('userSignout');
+      // Sign-out successful.
+      window.location = '';
+    }).catch((error) => {
+      console.log(error);
+    // An error happened.
+    });
 };

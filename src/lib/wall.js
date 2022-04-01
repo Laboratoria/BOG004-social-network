@@ -1,6 +1,11 @@
 import {
-  savePost, viewpost, editar, deletepost, /* userActive */
+  savePost, viewpost, editar, deletepost, likePost,
 } from '../Configfirebase/firestore.js';
+
+import { singOff } from '../Configfirebase/Authentication.js';
+// import {
+//   userActive,
+// } from '../Configfirebase/Authentication.js';
 
 export const wall = () => {
   const divElement = document.createElement('div');
@@ -12,12 +17,14 @@ export const wall = () => {
      <form id='formpost' class='formpost' autocomplete='off'> 
         <label for='post' id='nameuser'> </label>
         <textarea id='post' rows='4'maxlength='150' placeholder='Comparte tu Experiencia'></textarea>
-        <button  type='submit' id='btnpost' class ='btnpost'>Publicar</button>
+        <button type='submit' id='btnpost' class ='btnpost'>Publicar</button>
      </form> 
      </section>
      <section class='viewpost'>
 
-     </section>`;
+     </section>
+     <button id='logout'> Logout </button>
+     `;
   // aqui tu codigo
   divElement.classList.add('view4');
   divElement.innerHTML = template;
@@ -27,13 +34,17 @@ export const wall = () => {
   const name = divElement.querySelector('#nameuser');
   const btnpost2 = divElement.querySelector('#btnpost');
   const viewpost2 = divElement.querySelector('.viewpost');
-  /* const modalwindow = document.querySelector('#modal');
-  const modalText = document.querySelector('#confirmation');
-  const modalButton = document.querySelector('#btnconfirmation'); */
+  const btnlogout = divElement.querySelector('#logout');
 
-  showPosts(viewpost2/* , modalwindow, modalButton, modalText */);
+  showPosts(viewpost2);
   btnpost2.addEventListener('click', () => {
-    showPosts(viewpost2);
+    if (description.value === '') {
+      // alert('Por favor escribe algo');
+      btnpost2.disabled = true;
+    } else {
+      btnpost2.disabled = false;
+      showPosts(viewpost2);
+    }
   });
   formPost.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -46,16 +57,13 @@ export const wall = () => {
       .catch((error) => console.log(error));
     formPost.reset();
   });
-
-  /* let click = 0;
-  likes.addEventListener('click', () => {
-    countingLike.innerHTML = ++click;
-  }); */
-
+  btnlogout.addEventListener('click', () => {
+    singOff();
+  });
   return divElement;
 };
 
-const showPosts = (viewpost2 /* modalwindow */) => {
+const showPosts = (viewpost2) => {
   viewpost()
     .then((data) => {
       console.log(data);
@@ -63,9 +71,12 @@ const showPosts = (viewpost2 /* modalwindow */) => {
       data.forEach((post) => {
         console.log('POST', post.id);
         let count = 0;
+        const fcreacion = post.data().dateCreated;
         const contenedorPost = document.createElement('div');
         contenedorPost.classList.add('containerPost');
         const descripcion = document.createElement('p');
+        const date = document.createElement('h3');
+        date.innerText = fcreacion;
         const containerButton = document.createElement('div');
         containerButton.classList.add('containerButton');
         const likeButton = document.createElement('img');
@@ -79,6 +90,7 @@ const showPosts = (viewpost2 /* modalwindow */) => {
         editButton.src = 'image/editar.png';
         removeButton.src = 'image/eliminar.png';
         descripcion.innerText = post.data().descripcion;
+        contenedorPost.appendChild(date);
         containerButton.appendChild(likecounting);
         containerButton.appendChild(likeButton);
         containerButton.appendChild(editButton);
@@ -87,8 +99,9 @@ const showPosts = (viewpost2 /* modalwindow */) => {
         contenedorPost.appendChild(descripcion);
         viewpost2.appendChild(contenedorPost);
         likeButton.addEventListener('click', () => {
-          //  likePost2();
-          likecounting.innerHTML = ++count;
+          const likePost2 = likePost();
+          // likecounting.innerText = ++count
+          console.log('likes', likePost2, likecounting);
         });
         editButton.addEventListener('click', () => {
           descripcion.innerText = '';

@@ -2,7 +2,7 @@ export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase
 export {
   getAuth, updateProfile, onAuthStateChanged, signInWithPopup, GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  sendSignInLinkToEmail, signInWithEmailAndPassword,
+  sendSignInLinkToEmail, signInWithEmailAndPassword, signOut
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 export {
   deleteDoc, getFirestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, arrayUnion, arrayRemove,
