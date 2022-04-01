@@ -34,6 +34,7 @@ export default {
   
    
               `,
+  state: 'unlogged',
   script: () => {
     const btn = document.querySelector('#logIn');
     btn.addEventListener('click', () => {

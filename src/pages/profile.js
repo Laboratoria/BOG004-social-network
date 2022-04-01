@@ -10,6 +10,7 @@ export default {
   </div>
   
       `,
+  state: 'logged',
   script: () => {
     document.querySelector('.btnSingOut').addEventListener('click', () => {
       sessionStorage.clear();

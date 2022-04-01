@@ -7,6 +7,8 @@ import {
   auth,
 } from '../lib/firebase.js';
 
+
+
 export default {
   path: '#post',
   template: `
@@ -55,6 +57,8 @@ export default {
       <!-- <a href=''><i class='fa-solid fa-circle-chevron-up'></i></a> -->
       <a href='#'><i class='fa-solid fa-magnifying-glass'></i> </a>
     </footer>`,
+  private: true,
+  state: 'logged', // Solo puede acceder a esta ruta si está logueado
   script: () => {
     const btnAttachment = document.querySelector('.fa-paperclip');
     const inputAttachment = document.querySelector('.attachment');
@@ -66,14 +70,19 @@ export default {
     // sección para pintar los post en el DOM
     let editStatus = false;
     let id = '';
+    /* CAPTURAR DATOS DEL USUARIO */
+    const userSessionStorage = sessionStorage.getItem('user');
+    const convertObjJson = JSON.parse(userSessionStorage);
+    const userId = convertObjJson.uid;
 
     onGetPost((querySnapshot) => {
       let html = '';
-      
+
       querySnapshot.forEach((doc) => {
         const postData = doc.data();
         const userid = auth.currentUser.uid;
         let buttons = '';
+        const heartIcon = postData.userlikes.includes(userid) ? 'fa-solid' : 'fa-regular';
         if (postData.userId === userid) {
           buttons = `<button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
                       <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
@@ -84,7 +93,8 @@ export default {
                     <img class="singlePost_img" src="images/animalsBackground.png" alt="imagenPost">
                     <div class="singlePost_footer">
                     <div class="singlePost_button">
-                      <button class="btnImage"><i class='fa-solid fa-heart'></i></button>
+                      <button class="btnImage"><i data-id='${doc.id}' class='${heartIcon} fa-heart'></i></button>
+                      <p class="countLikes">${postData.countLike}</p>
                       ${buttons} 
                     </div>
                     <p>#Especie</p>
@@ -100,7 +110,9 @@ export default {
       // const btnDelete = document.querySelectorAll('.fa-trash-can');
       const btnDelete = postList.querySelectorAll('.fa-trash-can');
       btnDelete.forEach((btn) => btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
+        if (window.confirm('¿Estás seguro de eliminar el post?')) {
+          deletePost(dataset.id);
+        }
       }));
 
       // Editar post.
@@ -116,15 +128,40 @@ export default {
 
         postForm['btn-publicar'].innerText = 'Actualizar';
       }));
+
+      const btnLike = postList.querySelectorAll('.fa-heart');
+      btnLike.forEach((btn) => btn.addEventListener('click', async ({ target: { dataset } }) => {
+        console.log('clic');
+        const doc = await getOnlyPost(dataset.id);
+        const postOnly = doc.data();
+        id = doc.id;
+        let userlikes = postOnly.userlikes;
+        let countLike = postOnly.countLike;
+        if (userlikes.includes(userId)) {
+          userlikes = userlikes.filter((user) => user !== userId);
+          countLike -= 1;
+          console.log(countLike);
+          document.querySelector('.countLikes').textContent = countLike;
+        } else {
+          userlikes.push(userId);
+          countLike += 1;
+          console.log(countLike);
+          btn.classList.add('fa-solid');
+          btn.classList.remove('fa-regular');
+          document.querySelector('.countLikes').textContent = countLike;
+        }
+        updatePost(id, { userlikes, countLike });
+      }));
     });
 
-    /* CAPTURAR DATOS DEL USUARIO */
-    const userSessionStorage = sessionStorage.getItem('user');
-    console.log(userSessionStorage);
-    const convertObjJson = JSON.parse(userSessionStorage);
-    const userId = convertObjJson.uid;
-    console.log(userId);
+    // /* CAPTURAR DATOS DEL USUARIO */
+    // const userSessionStorage = sessionStorage.getItem('user');
+    // const convertObjJson = JSON.parse(userSessionStorage);
+    // const userId = convertObjJson.uid;
+    const countLike = 0;
+    const userlikes = [];
 
+    /* guardar el post en la base de dato Firestore */
     postForm.addEventListener('submit', (e) => {
       const postDescription = document.querySelector(
         '#form__postCreate-text',
@@ -133,7 +170,7 @@ export default {
       // const image = document.querySelector('.singlePost_img'); // .value pendiente por definir;
       e.preventDefault();
       if (!editStatus) {
-        savePost(postDescription, userId); // .value pendiente por definir;
+        savePost(postDescription, userId, countLike, userlikes); // .value pendiente por definir;
       } else {
         updatePost(id, { postDescription });
 

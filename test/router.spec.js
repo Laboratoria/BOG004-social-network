@@ -3,11 +3,19 @@ import Router from '../src/router';
 const rutas = [{
   path: '/',
   template: '',
+  state: 'unlogged',
   script: () => {},
 },
 {
   path: '/registro',
   template: '<div id="saludo">Hola mundo</div>',
+  state: 'unlogged',
+  script: () => {},
+},
+{
+  path: '/post',
+  template: '<div id="saludo">Hola mundo</div>',
+  state: 'logged',
   script: () => {},
 },
 ];

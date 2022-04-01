@@ -1,6 +1,9 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 // Import the functions you need from the SDKs you need
+
+// import post from '../pages/post.js';
+
 import {
   initializeApp,
   getAnalytics,
@@ -21,6 +24,7 @@ import {
   updateDoc,
   serverTimestamp,
   query, orderBy,
+  onAuthStateChanged,
 } from './firebase.util.js';
 
 // import profile from '../pages/profile.js';
@@ -74,14 +78,14 @@ export const signInEmail = (email, password, name) => {
 
 export const signInGoogle = () => {
   const provider = new GoogleAuthProvider();
-  console.log(auth);
+  // console.log(auth);
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      console.log(credential);
+      // console.log(credential);
       // const token = credential.accessToken;
       const user = result.user;
-      console.log(user.uid);
+      // console.log(user.uid);
       // sessionStorage.setItem('token', token);
       sessionStorage.setItem('user', JSON.stringify(user));
       window.location.hash = 'post';
@@ -94,7 +98,7 @@ export const signInGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log(errorCode, email, credential);
       console.log(errorMessage);
-          });
+    });
 };
 // Iniciar sesión
 
@@ -123,8 +127,33 @@ export const logInEmail = (email, password) => {
       console.log(errorCode, errorMessage);
     });
 };
+
+// funcion privatizar paginas
+export const getState = () => {
+  const usuario = JSON.parse(sessionStorage.getItem('user'));
+  if (usuario && usuario.emailVerified) {
+    return 'logged';
+  }
+  return 'unlogged';
+};
+
+// export const privateServer = () => {
+//   onAuthStateChanged(auth, (user) => {
+//     console.log('user', user);
+//     if (user) {
+//       const uid = user.uid;
+//     } else {
+      
+//     // User is signed out
+//     // ...
+//     }
+//   });
+// };
+
 const newCollection = collection(db, 'post');
-export const savePost = (postDescription, userId) => addDoc(collection(db, 'post'), { postDescription, userId, createdAt: serverTimestamp() });
+export const savePost = (postDescription, userId, countLike, userlikes) => addDoc(collection(db, 'post'), {
+  postDescription, userId, countLike, userlikes, createdAt: serverTimestamp(),
+});
 const q = query(newCollection, orderBy('createdAt', 'desc'));
 // console.log('probando', collection(db, 'post'));
 // export const getPost = () => getDocs(collection(db, 'post'));
