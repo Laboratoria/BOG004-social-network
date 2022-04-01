@@ -40,6 +40,9 @@ export default () => {
           <button type= "submit" id="signUpBttn">Sign Up</button></div class="signUp">
         </>   
     </div> 
+    <div class="imgContainer-">
+    <img src="./img/signUp.png" width="250" height="200" style="padding:55px" alt="Avatar" class="avatar">
+  </div>
   </section>
          `;
 

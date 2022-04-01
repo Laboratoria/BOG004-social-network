@@ -173,7 +173,6 @@
       #loginSignIn{
         display: inline-block;
         background: rgb(245, 136, 28);
-        color: #444;
         width: 200px;
         height: 30px;
         border-radius: 5px;
@@ -183,38 +182,67 @@
       #signUpBttn{
         display: inline-block;
         background: rgb(245, 136, 28);
-        color: #444;
         width: 200px;
         height: 30px;
         border-radius: 5px;
-        border: thin solid #888;
+        border: thin solid rgb(245, 136, 28);
       }
 
       /* Menu timeline */
 
       #menuTimeline{
-        
         width: auto;
         height: 90px;
         margin: 0 auto;
-        background-color: #e28743;
+        background-color: #f1841a;
         margin-top: 0%;
         box-sizing: border-box;
         align-items: center;
 
       }
 
-      .tabs{
-          font-size: 8px;
-          display: flex;
-          flex-direction: row;
+      #userLogOut{
+          margin-left: 300px;
+          margin-top: 50px;
+          border-radius: 5px;
+          width: 80px;
+          height: 30px;
+
+      }
+
+      #post-form{
+          margin-top: 50px;
+      }
+
+     /* Posts */
+
+      #save-postIt{
+        display: inline-block;
+        background: rgb(245, 136, 28);
+        width: 80px;
+        height: 30px;
+        border-radius: 5px;
+        border: thin solid rgb(245, 136, 28) ;
+      }
+
+      
+      #postIt-description{
+        width: 260px;
+        height: 80px;
+      }
+
+      .btndelete-postIt{
+          border-radius: 5px;
+          background-color: rgb(249, 78, 78);
+          border: thin solid rgb(249, 78, 78) ;
+    
       }
     
-    /* #bodybackground {
-        width:10 ;
-        height:10;
-    } */
-
+      .btnedit-postIt{
+          border-radius: 5px;
+          background-color: rgb(176, 246, 70);
+          border: thin solid rgb(176, 246, 70);
+      }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

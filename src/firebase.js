@@ -106,12 +106,12 @@ export const close = () => {
 
 // Saving data -timeline view-
 export const savingPost = (postIt) => {
-  addDoc(collection(db, "timeline-posts"), { postIt });
+  addDoc(collection(db, "timeline-posts"), { postIt })
 };
 
 // Getting data from Firestore -timeline view-
 export const onGettingPost = (callback) => onSnapshot(collection(db, "timeline-posts"), callback);
-
+console.log(onGettingPost)
 // Deleting post -timeline view-
 export const deletePosts = (id) => deleteDoc(doc(db, "timeline-posts", id));
 
