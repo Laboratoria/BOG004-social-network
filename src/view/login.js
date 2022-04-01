@@ -1,8 +1,9 @@
 import { changeView } from "../view-controler/controler.js";
+import { loginUser } from "../Firebase/auth.js";
 
 export const login = () => {
-  const viewLoginHtml = document.getElementById("root");
-  const view = `
+    const viewLoginHtml = document.getElementById("root");
+    const view = `
     <div id="viewLogin">
         <a href="#/login"></a>
         <div>
@@ -12,14 +13,14 @@ export const login = () => {
             <form id="form-login" action="">
               <div class="box-input">
                 <label class="labels" for="email">Ingresa tu correo registrado</label>
-                <input class="inputs" id= "email" type="email" placeholder="ejemplo@gmail.com" required>
+                <input class="inputs" id= "email-login" type="email" placeholder="ejemplo@gmail.com" required>
               </div>
               <div class="box-input">
                 <label class="labels" for="password">Contraseña</label>
-                <input class="inputs" id= "password" type="password" required>
+                <input class="inputs" id= "password-login" type="password" required>
               </div>
               <section id="alertMessageLogin" class="center-message">
-                <p id="errorMessageLogin">Mensaje de alerta</p>
+                <p id="errorMessageLogin"></p>
               </section>
               <section class="align-buttons">
                 <p id="guide-button-signUp">¿Eres un usuario nuevo?</p>
@@ -34,17 +35,44 @@ export const login = () => {
         </div>            
     </div>
     `;
-  viewLoginHtml.innerHTML = view;
-  document.querySelector("#btn-feed").addEventListener("click", () => {
-    //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
-    window.location.hash = "/feed";
-  });
+    viewLoginHtml.innerHTML = view;
 
-  document
-    .querySelector("#btn-register-signUp")
-    .addEventListener("click", () => {
-      window.location.hash = "/register";
+    document.querySelector("#logoRes-signUp").addEventListener("click", () => {
+        window.location.hash = "/";
     });
 
-  return viewLoginHtml;
-};
+    document.querySelector("#btn-register-signUp").addEventListener("click", () => {
+        window.location.hash = "/register";
+    });
+
+    const formLogin = document.querySelector("#form-login");
+    formLogin.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const emailLogin = document.querySelector("#email-login").value;
+        const passwordLogin = document.querySelector("#password-login").value;
+        formLogin.reset();
+        console.log(emailLogin);
+
+        loginUser(emailLogin, passwordLogin)
+            .then(response => {
+                changeView("#/feed")
+                console.log("Ingreso exitoso :)");
+            })
+            .catch((error) => {
+                console.log("error");
+                const codeError = error.code;
+                const messageError = document.querySelector('#errorMessageLogin');
+                switch (codeError) {
+                    case 'auth/user-not-found':
+                        messageError.innerHTML = "El usuario con este correo no esta registrado";
+                        break;
+                    case 'auth/wrong-password':
+                        messageError.innerText = 'Contraseña incorrecta';
+                        break;
+                    default:
+                        break;
+                }
+            })
+    });
+    return viewLoginHtml;
+}
