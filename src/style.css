@@ -1,0 +1,400 @@
+main {
+  width: 100%;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#record-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+}
+#login-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.logo-mommi {
+  width: 40%;
+  padding: 1rem;
+}
+
+.section-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.welcome-text {
+  font-family: "Dancing Script",  Arial, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.slogan {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.form-validation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  width: 18rem;
+  height: 2.8rem;
+  border-radius: 10px;
+  padding: 0.3rem;
+  margin-bottom: 0.3rem;
+  border-color: rgba(147, 142, 142, 1);
+  border-style: solid;
+}
+
+.btn-continue-with {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn-record {
+  color: white;
+  background-color: rgba(255, 112, 131, 1);
+  border: none;
+}
+
+.btn-login {
+  color: white;
+  background-color: rgba(112, 131, 255, 1);
+  border: none;
+}
+
+.message-error > p{
+  padding: 10px;
+  background-color: white;
+  color: rgba(255, 112, 131, 1);
+}
+
+.btn-goo {
+  background-color: white;
+  font-weight: bolder;
+}
+
+p {
+  text-align: justify;
+  font-family: "Inter", sans-serif;
+  margin: 0.5rem;
+  color: rgb(71, 69, 69);
+  font-size: 15px;
+  margin-top: 0px;
+}
+
+
+h3{
+  font-family: "Inter", sans-serif;
+  margin: 0.5rem;
+  color: rgb(71, 69, 69);
+  font-size: 15px;
+  margin-top: 0px;
+  font-weight: bold;
+  
+}
+
+.section-picture-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.poster-mommi {
+  width: 90%;
+}
+
+footer {
+  background-color: rgba(249, 226, 218, 1);
+  width: 100%;
+  position:relative;
+  left:0px;
+  bottom:0px;
+  margin: 5px;
+  
+}
+
+.text-footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(71, 69, 69);
+  padding: 1rem;
+  align-content: flex-start;
+}
+/* WALL */
+
+.img-mommi-wall{
+ display: flex;
+ justify-content: center;
+}
+
+.respmenu input[type="checkbox"], .respmenu .fa-bars, .respmenu .fa-times {
+  position: absolute;
+  padding-left: 6rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  margin-top: 0.5rem;
+  
+}
+
+.respmenu .fa-bars, .respmenu .fa-times {
+  pointer-events: none;
+}
+
+.respmenu input[type="checkbox"] {
+  opacity: 0;
+}
+
+.respmenu {
+  color: rgb(71, 69, 69);
+  position: static;
+  background: rgba(249, 226, 218, 1);
+  min-height: 35px;
+  padding: 5px;
+}
+
+.respmenu nav {
+  display: none;
+}
+
+.respmenu input:checked ~ nav {
+  display: block;
+}
+
+.respmenu input:checked ~ .fa-bars {
+  display: none;
+}
+
+.respmenu input:not(:checked) ~ .fa-times {
+  display: none;
+}
+
+.nav {
+  margin: 2rem;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  color: rgb(71, 69, 69);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0px;
+}
+
+li {
+  position: relative;
+  margin: 18px;
+}
+    
+a {
+  line-height: 2em;
+  text-decoration: none;
+  color: rgb(71, 69, 69);
+}
+
+#wall-content {
+  margin: 0 5%;
+}
+
+.wall-post{
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  #thinksuseredit{
+    padding: 0;
+  }
+  .wall-post{
+    margin: 0 5%;
+    max-width: 565px;
+  }
+  .all-wall{
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+  }
+  .wall-nav {
+    position: relative;
+    display: block;
+    width: 25%;
+    background-color: white;
+  }
+
+  .respmenu{
+    background-color:  white;
+  }
+  .respmenu nav{
+    display: block;
+    position: fixed;
+    text-align: left;
+  }
+
+  .fas {
+    display: none !important;
+  }
+
+  .nav li:hover {
+    background-color: white;
+  }
+
+  .nav ul{
+    padding: 0px;
+  }
+
+  .icono-cerrar-sesion {
+    background: white !important;
+    position: fixed;
+    margin-left: 1rem;
+  }
+
+  footer{
+    position: relative;
+    background-color: rgba(249, 226, 218, 1);
+    z-index: 1;
+  }
+
+  .text-footer {
+    display: flex;
+    justify-content:space-around;
+    text-align: center;
+    color: rgb(71, 69, 69);
+    padding: 1rem;
+    align-content: flex-start;
+  }
+  .all-wall{
+    justify-content: center;
+  }
+}
+
+.all-wall{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-post {
+  color: white;
+  background-color: rgba(112, 131, 255, 1);
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+}
+
+#editPost{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#thinksuseredit{
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-content {
+  width: 850%;
+  display: flex;
+  flex-direction: column;
+  margin:0px;
+}
+
+.post-container{
+  margin: 2rem 0;
+  width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+.post-avatar{
+  width: 15%;
+  min-width: 70px;
+}
+
+.avatar{
+  border-radius: 100px;
+  width: 4rem;
+}
+
+.thinksuser{
+  padding: 8px;
+  text-align: justify;
+}
+
+.posticons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 500px;
+  min-width: 296px;
+}
+
+.posticon{
+  background-color:rgba(147, 142, 142, 1);
+  color: rgba(249, 226, 218, 1);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.poster-mommi-small{
+  width: 300px;
+}
+
+.menulink {
+    color:rgb(71, 69, 69);
+    margin: 5px;
+    margin-left: 100px;
+}
+
+  #wll-rigth-section{
+    display: none;
+  }
+
+.button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 0px;
+  
+}
+
+.icono-cerrar-sesion {
+  font-size: 1.5rem;
+  color: rgb(71, 69, 69);
+  background: rgba(249, 226, 218, 1);
+  position: fixed;
+}
