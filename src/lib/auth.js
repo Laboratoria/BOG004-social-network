@@ -90,24 +90,30 @@ export const register = (email, password) => {
 // GOOGLE
 export const authGoogle = (provider) => {
   const auth = getAuth();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      console.log(token);
-      const user = result.user;
-      console.log('usuario ingresa');
-      console.log(result.user);
-      localStorage.setItem('token', token);
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
+  // retornamos el resultado de la promesa (true o false)
+  let resultoPromesa = new Promise(function(resolve) {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log(token);
+        const user = result.user;
+        console.log('usuario ingresa');
+        console.log(result.user);
+        resolve(true); // terminar la promesa
+        //changeView('#/feed');
+      })
+      .catch((error) => {
+        resolve(false) // terminar la promesa
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
+  return resultoPromesa;
 };

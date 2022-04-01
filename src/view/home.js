@@ -39,15 +39,14 @@ export default () => {
   });
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();
-  googleButton.addEventListener('click', () => {
-    // authGoogle(() =>  changeView('#/feed'), provider);
-    authGoogle(provider)
-    // , () => changeView('#/feed'));
-    // localStorage.setItem('token', token);
-   if (localStorage.token == true){
-    changeView('#/feed')
-   }else{
-   }
-    });
+  googleButton.addEventListener('click', async () => {
+    let respuesta = await authGoogle(provider)
+    console.log('respuesta', respuesta)
+    if (respuesta === true) {
+      changeView('#/feed');
+    } else {
+      console.log('error al iniciar sesión')
+    }
+  });
   return container;
 };
