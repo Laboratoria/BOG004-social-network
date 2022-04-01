@@ -2,7 +2,7 @@ export default () => {
   const viewRecord = `  
     <section id="record-user">
     <div class="section-left">
-<img src="img/logo.png" alt="logo-mommi" class="logo-mommi">
+
 <h1 class="welcome-text">Te damos la bienvenida a mommi</h1>
 <h2 class="slogan">Maternidad y crianza</h2>
 
