@@ -126,12 +126,13 @@ const getPostList = async () => {
           <h3>${data.user} ${data.email}</h3>
           <p>${data.thinking}</p>
         </div>
+        </section>
         <div class="posticons">
-        <img src="img/moms.jpeg" alt="like-moms" class="posticon">
-        <img src="img/comment.jpeg" alt="click-comment" class="posticon">
-        <img src="img/save.jpeg" alt="click-save" class="posticon">
-      </div>
-      </section>
+        <i class="fa-solid fa-heart posticon"></i>
+        <i class="fa-solid fa-comment posticon"></i>
+        <i class="fa-solid fa-bookmark posticon"></i>
+        </div>
+      
     `;
 
     /// html

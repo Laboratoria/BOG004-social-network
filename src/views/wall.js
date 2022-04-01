@@ -17,16 +17,18 @@ export default () => {
             <li><a href="#">Most Recent</a></li>
             <li><a href="#">People</a></li>
             <li><a href="#">Picture</a></li>
-          </ul>
             <button class="button" id="logoutBtn">
-            <i class="fa fa-sign-out icono-cerrar-sesion" aria-hidden="true"></i>
+            <i class="fa fa-sign-out icono-cerrar-sesion" aria-hidden="true">
+            </i>
             </button>
+          </ul>
         </nav>
       </div>
     </section>
 
     <section class="wall-post" id="wall-user"> 
     <p class="welcome-text">Mommi Wall</p>
+    <div class="img-mommi-wall"><img src="img/logo.png" alt="logo-mommi" class="logo-mommi"></div>
     <div id="wall-content">
     <div id="editPost">
       <textarea id="thinksuseredit" rows="4" placeholder="¿Que estas pensado?..."></textarea>

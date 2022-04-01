@@ -3,7 +3,7 @@ main {
 }
 body {
   margin: 0px;
-  padding: 15px;
+  padding: 0px;
 }
 
 #record-user {
@@ -11,6 +11,8 @@ body {
   justify-content: center;
   flex-direction: row-reverse;
   flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
 }
 #login-user {
   display: flex;
@@ -59,7 +61,7 @@ body {
   border-radius: 10px;
   padding: 0.3rem;
   margin-bottom: 0.3rem;
-  border-color: rgb(93, 94, 94);
+  border-color: rgba(147, 142, 142, 1);
   border-style: solid;
 }
 
@@ -96,7 +98,7 @@ p {
   text-align: justify;
   font-family: "Inter", sans-serif;
   margin: 0.5rem;
-  color: rgb(93, 94, 94);
+  color: rgb(71, 69, 69);
   font-size: 15px;
   margin-top: 0px;
 }
@@ -105,7 +107,7 @@ p {
 h3{
   font-family: "Inter", sans-serif;
   margin: 0.5rem;
-  color: rgb(93, 94, 94);
+  color: rgb(71, 69, 69);
   font-size: 15px;
   margin-top: 0px;
   font-weight: bold;
@@ -126,22 +128,28 @@ h3{
 footer {
   background-color: rgba(249, 226, 218, 1);
   width: 100%;
-  height: 60px;
-  position:fixed;
+  position:relative;
   left:0px;
   bottom:0px;
   margin: 5px;
+  
 }
 
 .text-footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  color: rgb(48, 46, 46);
+  color: rgb(71, 69, 69);
   padding: 1rem;
   align-content: flex-start;
 }
 /* WALL */
+
+.img-mommi-wall{
+ display: flex;
+ justify-content: center;
+}
+
 .respmenu input[type="checkbox"], .respmenu .fa-bars, .respmenu .fa-times {
   position: absolute;
   padding-left: 6rem;
@@ -149,13 +157,13 @@ footer {
   margin: 0;
   padding: 0;
   right: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
+  margin-top: 0.5rem;
+  
 }
 
 .respmenu .fa-bars, .respmenu .fa-times {
-  font-size: 48px;
   pointer-events: none;
 }
 
@@ -164,10 +172,11 @@ footer {
 }
 
 .respmenu {
-  color: rgb(93, 94, 94);
-  position: relative;
+  color: rgb(71, 69, 69);
+  position: static;
   background: rgba(249, 226, 218, 1);
-  min-height: 48px;
+  min-height: 35px;
+  padding: 5px;
 }
 
 .respmenu nav {
@@ -186,10 +195,107 @@ footer {
   display: none;
 }
 
+.nav {
+  margin: 2rem;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  color: rgb(71, 69, 69);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0px;
+}
+
+li {
+  position: relative;
+  margin: 18px;
+}
+    
+a {
+  line-height: 2em;
+  text-decoration: none;
+  color: rgb(71, 69, 69);
+}
+
+#wall-content {
+  margin: 0 5%;
+}
+
+.wall-post{
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  #thinksuseredit{
+    padding: 0;
+  }
+  .wall-post{
+    margin: 0 5%;
+    max-width: 565px;
+  }
+  .all-wall{
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+  }
+  .wall-nav {
+    position: relative;
+    display: block;
+    width: 25%;
+    background-color: white;
+  }
+
+  .respmenu{
+    background-color:  white;
+  }
+  .respmenu nav{
+    display: block;
+    position: fixed;
+    text-align: left;
+  }
+
+  .fas {
+    display: none !important;
+  }
+
+  .nav li:hover {
+    background-color: white;
+  }
+
+  .nav ul{
+    padding: 0px;
+  }
+
+  .icono-cerrar-sesion {
+    background: white !important;
+    position: fixed;
+    margin-left: 1rem;
+  }
+
+  footer{
+    position: relative;
+    background-color: rgba(249, 226, 218, 1);
+    z-index: 1;
+  }
+
+  .text-footer {
+    display: flex;
+    justify-content:space-around;
+    text-align: center;
+    color: rgb(71, 69, 69);
+    padding: 1rem;
+    align-content: flex-start;
+  }
+  .all-wall{
+    justify-content: center;
+  }
+}
+
 .all-wall{
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
 }
 
 .btn-post {
@@ -206,36 +312,34 @@ footer {
 
 #editPost{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: end;
-  margin: 2rem;
-  margin-top: 0px;
+  width: 100%;
 }
 
 #thinksuseredit{
   border-radius: 10px;
-  width: 80%;
   display: flex;
   justify-content: center;
-  min-width: 296px;
-
 }
 
 .post-content {
-  max-width: 500px;
+  width: 850%;
   display: flex;
   flex-direction: column;
-  margin-left: 5rem;
+  margin:0px;
 }
 
 .post-container{
-  margin: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
 }
 
 .post-avatar{
-position: absolute;
+  width: 15%;
+  min-width: 70px;
 }
 
 .avatar{
@@ -251,15 +355,19 @@ position: absolute;
 .posticons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 5rem;
+  justify-content: space-around;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 500px;
+  min-width: 296px;
 }
 
 .posticon{
-  width: 20px;
-  height: 20px;
+  background-color:rgba(147, 142, 142, 1);
+  color: rgba(249, 226, 218, 1);
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .poster-mommi-small{
@@ -267,7 +375,7 @@ position: absolute;
 }
 
 .menulink {
-    color:rgba(147, 142, 142, 1);
+    color:rgb(71, 69, 69);
     margin: 5px;
     margin-left: 100px;
 }
@@ -280,10 +388,13 @@ position: absolute;
   border: none;
   background-color: white;
   cursor: pointer;
+  padding: 0px;
+  
 }
 
 .icono-cerrar-sesion {
   font-size: 1.5rem;
-  color: rgb(48, 46, 46);
+  color: rgb(71, 69, 69);
+  background: rgba(249, 226, 218, 1);
+  position: fixed;
 }
-
