@@ -1,7 +1,7 @@
 // importamos la funcion que vamos a testear
 import { changeView } from '../../src/view-controler/route.js';
 
-jest.mock('../../src/Firebase/firebaseImport.js');
+jest.mock('../../src/firebase/firebaseImport.js');
 /* src\Firebase\firebaseImport.js */
 
 //funciones para cada caso
@@ -61,6 +61,8 @@ describe ('changeView', () =>{
     expect(document.getElementById("container").textContent).toEqual('Esto es un texto de prueba para notFound 404');
   })
 })
+
+
 
 // describe('changeView', () => {
 //   it('debería ser una función', () => {
