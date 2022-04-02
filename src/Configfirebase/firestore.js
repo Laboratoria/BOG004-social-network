@@ -29,7 +29,7 @@ export const viewpost = async () => {
     const post = [];
     const querySnapshot = await getDocs(collection(db, 'posts'));
     querySnapshot.forEach((doc) => {
-     post.push(doc);
+      post.push(doc);
     });
     return post;
   } catch (error) {

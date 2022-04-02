@@ -31,7 +31,7 @@ export const wall = () => {
 
   const formPost = divElement.querySelector('#formpost');
   const description = divElement.querySelector('#post');
-  const name = divElement.querySelector('#nameuser');
+  /* const name = divElement.querySelector('#nameuser'); */
   const btnpost2 = divElement.querySelector('#btnpost');
   const viewpost2 = divElement.querySelector('.viewpost');
   const btnlogout = divElement.querySelector('#logout');
@@ -71,12 +71,13 @@ const showPosts = (viewpost2) => {
       data.forEach((post) => {
         console.log('POST', post.id);
         let count = 0;
-        const fcreacion = post.data().dateCreated;
+        const datePost = post.data().dateCreated;
         const contenedorPost = document.createElement('div');
         contenedorPost.classList.add('containerPost');
         const descripcion = document.createElement('p');
         const date = document.createElement('h3');
-        date.innerText = fcreacion;
+        date.innerText = datePost;
+        date.classList.add('datePost');
         const containerButton = document.createElement('div');
         containerButton.classList.add('containerButton');
         const likeButton = document.createElement('img');

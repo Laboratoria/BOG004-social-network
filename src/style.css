@@ -272,7 +272,6 @@ input:focus{
     text-align: center;
 }
 .btnpost:hover{
-
     background-color: #0079CB;    
     color: #fff;
 }
@@ -354,15 +353,14 @@ h1::after{
     border: 1px solid #C5C5C5;
     border-radius: 10px;
     font-family: Barlow-Regular;
-    font-size: 20px;
+    font-size: 23px;
     color: #525252;
-    padding:16px;
+    padding:10px;
     flex-direction: column-reverse;
 
 }
 .btnpost-none{
     display:none;
-
 }
 
 .containerPost p{
@@ -380,20 +378,15 @@ h1::after{
     margin: 0px;
 
 }
-.buttonpost{
-    margin: 0px 15px 0px 15px;
-    height: 20px;
-}
 
 .containerPost textarea {
-    width: 70vw;
+    width: 60vw;
     font-family: Barlow-Regular;
     font-size: 20px;
     color: #525252;
     padding:16px;
     resize: none;
     border: none;
-   
 }
 
 .containerPost textarea:focus{
@@ -451,13 +444,46 @@ h1::after{
     margin-left: 15vw;
 }
 
+/* FECHA */
+.datePost{
+    color:#69D9FF;
+    font-family: Barlow-regular;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+/* BOTONES LIKE, EDITAR, ELIMINAR */
+
+.buttonpost{
+    margin: 0px 15px 0px 15px;
+    height: 20px;
+    opacity: 0.2;
+}
+.buttonpost:hover{
+    opacity: 1;
+}
+
 /* LOGOUT */
 
-#logout{
+#logout {
     bottom:10px;
     right:10px;
     position:fixed;
-    z-index:9999
+    z-index:9999;
+    background-color: #D5F5FF;    
+    color: #0079CB;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Barlow-SemiBold;
+    font-style: bold;
+    border: none;
+    text-align: center;
+}
+
+#logout:hover{
+    background-color: #0079CB;    
+    color: #fff;
 }
 
 @media screen and (min-width:800px){
@@ -487,13 +513,19 @@ h1::after{
     .containerPost{
         width:38vw;
     }
-
+    .containerPost textarea {
+        width: 36vw;
+    }
     .modals{
         min-width: 10vw;
         min-height: 8vh; 
     }
     .modals .btnconfirmation{
         margin-left: 7vw;
+    }
+    #logout {
+        bottom:10px;
+        right: 465px;
     }
 
 }

@@ -76,6 +76,7 @@ export const SignGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      window.location = '#wall';
       console.log(token, user, 'hellow');
     }).catch((error) => {
       const errorMessage = error.message;
@@ -124,7 +125,7 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
     }
   });
 
-/*export const loginAndUpdate = async () => {
+/* export const loginAndUpdate = async () => {
   // Calling authentication function
   let auth = getAuth();
 
@@ -137,18 +138,16 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
     photoURL: 'erik.jpg',
   });
   console.log(user, 'un intento mas');
-};*/
+}; */
 
 export const userActive = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       console.log(user);
       return user;
-    } else {
-      console.log('no hay usuario');
-      // User is signed out
+    } console.log('no hay usuario');
+    // User is signed out
     // ...
-    }
   });
 };
 

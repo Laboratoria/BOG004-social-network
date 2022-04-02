@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import {
-  initializeApp, getFirestore, getDocs, doc,
+  initializeApp, getFirestore,
 } from './firebase-imports.js';
 // import { getAnalytics } from "firebase/analytics";
 
