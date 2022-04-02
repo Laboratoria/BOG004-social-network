@@ -357,6 +357,11 @@ h1::after{
     font-size: 20px;
     color: #525252;
     padding:16px;
+    flex-direction: column-reverse;
+
+}
+.btnpost-none{
+    display:none;
 
 }
 
@@ -429,12 +434,6 @@ h1::after{
                 opacity 200ms ease-in-out 0ms,
                 transform 200ms ease-in-out 200ms;
 }
-.confirmation{
-    margin:0px;
-    font-family: Barlow-Regular;
-    font-size: 20px;
-    text-align: center;
-}
 .modals .btnconfirmation{
     position: absolute;
     width: 150px;
@@ -452,6 +451,14 @@ h1::after{
     margin-left: 15vw;
 }
 
+/* LOGOUT */
+
+#logout{
+    bottom:10px;
+    right:10px;
+    position:fixed;
+    z-index:9999
+}
 
 @media screen and (min-width:800px){
 

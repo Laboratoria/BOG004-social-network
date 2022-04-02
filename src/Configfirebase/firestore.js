@@ -11,9 +11,10 @@ export const savePost = async (descripcion) => {
       descripcion,
       user: localStorage.getItem('emailForSignIn'),
       likes: [],
+      dateCreated: new Date().toDateString(),
     });
     // eslint-disable-next-line no-console
-    console.log('Document written with ID: ', docRef.id);
+    console.log('Document written with ID: ', docRef);
     return docRef.id;
   } catch (e) {
     // eslint-disable-next-line no-console
@@ -25,17 +26,10 @@ export const savePost = async (descripcion) => {
 /* visualizacion de post */
 export const viewpost = async () => {
   try {
-    let post = [];
+    const post = [];
     const querySnapshot = await getDocs(collection(db, 'posts'));
     querySnapshot.forEach((doc) => {
-      /* const taks = doc.data();
-      post.push(taks['descripcion']);
-      let post2 = post.flat(); */
-      post.push(doc);
-      // console.log(doc.id, doc.data());
-      /* .post2("posts")
-       .orderBy("", "desc") */
-      // return post2;
+     post.push(doc);
     });
     return post;
   } catch (error) {
@@ -44,21 +38,20 @@ export const viewpost = async () => {
 };
 
 /* Guardando like de post */
-
-/*export const likePost2 = async () => {
-  const likePost = doc(db, 'posts', 'likes');
-
-  // Atomically add a new region to the "regions" array field.
-  await updateDoc(likePost, {
-    likes: arrayUnion('user.uid'),
+export const likePost = async (id, likes) => {
+  const likes2 = [];
+  const saveLikes = doc(db, 'posts', id);
+  const actlikes = await updateDoc(saveLikes, {
+    likes: likes2.push(id),
   });
-
+  console.log('act', actlikes);
+  return actlikes;
   // Atomically remove a region from the "regions" array field.
-  await updateDoc(likePost, {
-    likes: arrayRemove('user.uid'),
-  });
+//   updateDoc(saveLikes, {
+//     likes: arrayRemove('likes')
+// });
 };
-*/
+
 /* Editar post */
 export const editar = async (id, descripcion) => {
   const post = doc(db, 'posts', id);
