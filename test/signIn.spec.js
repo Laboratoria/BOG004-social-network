@@ -1,5 +1,4 @@
 // importamos la funcion que vamos a testear
-import { SignUpUser } from '../src/lib/firebase.js';
 import signIn from '../src/lib/signIn.js';
 import signUp from '../src/lib/signUp.js';
 
