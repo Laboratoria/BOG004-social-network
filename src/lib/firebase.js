@@ -83,9 +83,9 @@ export const userSignOut = () => signOut(auth).then(() => {
   console.log('ERROR !');
 });
 
-export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
+export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment });
 export const getComments = () => getDocs(collection(db, 'comments'));
 export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));
-export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', 'likes', id), newFileds);
+export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);

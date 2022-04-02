@@ -14,7 +14,7 @@ export default () => {
   const post = `
 <form id='form-container'>
 <div class = 'navPost'>
-<h1 class = titlePost>PAPYROS</h1>
+<h1 class = 'titlePost'>PAPYRUS</h1>
 <button id="logout">Log out</button>
 </div>
 <figure>
@@ -60,12 +60,14 @@ export default () => {
       });
       commentsContainer.innerHTML = html;
       console.log(commentsContainer);
+
       const btnsDelete = commentsContainer.querySelectorAll('.btn-delete');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           deleteComment(dataset.id);
         });
       });
+
       const likeButton = commentsContainer.querySelectorAll('.like__btn');
       const count = commentsContainer.querySelectorAll('#count');
       const likeIcon = commentsContainer.querySelectorAll('#icon');
