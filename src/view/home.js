@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
 // eslint-disable-next-line import/no-cycle
 import { authGoogle } from '../lib/auth.js';
+import { changeView } from '../view-controler/router.js';
 
 export default () => {
   document.querySelector('header').style.display = 'none';
@@ -38,8 +39,14 @@ export default () => {
   });
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();
-  googleButton.addEventListener('click', () => {
-    authGoogle(provider);
+  googleButton.addEventListener('click', async () => {
+    let respuesta = await authGoogle(provider)
+    console.log('respuesta', respuesta)
+    if (respuesta === true) {
+      changeView('#/feed');
+    } else {
+      console.log('error al iniciar sesión')
+    }
   });
   return container;
 };
