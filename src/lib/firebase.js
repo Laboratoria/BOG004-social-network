@@ -79,7 +79,6 @@ export const userSignOut = () => signOut(auth).then(() => {
 });
 
 export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
-export const getComments = () => getDocs(collection(db, 'comments'));
 export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));
