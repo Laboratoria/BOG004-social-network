@@ -1,4 +1,3 @@
-
 import { register } from '../lib/auth.js';
 
 const createFormUser = () => {
