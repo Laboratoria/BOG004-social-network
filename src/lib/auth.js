@@ -1,18 +1,13 @@
 /* eslint-disable no-unused-vars */
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  sendEmailVerification,
-} from './firebase-utils.js';
+  singIn, singUp, singInGoogle, emailSingUp, singWithPopUp, errorSingUpWithPopUp,
+} from '../view-controler/controllers.js';
+// eslint-disable-next-line
 import { changeView } from '../view-controler/router.js';
 // LOGIN
 
 export const login = (email, password) => {
-  const auth = getAuth();
-  return signInWithEmailAndPassword(auth, email, password)
+  singIn(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       if (user.emailVerified) {
@@ -46,17 +41,15 @@ export const login = (email, password) => {
 
 // // REGISTRO
 export const register = (email, password) => {
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
+  singUp(email, password)
     .then((userCredential) => {
-      console.log('registro exitoso');
       const user = userCredential.user;
-      sendEmailVerification(user).then(() => {
+      emailSingUp(user).then(() => {
         setTimeout(() => { window.location.href = 'http://localhost:3000/#/login'; }, 5000);
-        document.querySelector('#message').innerText = `Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta`;
-      }).catch((error) => {
-        document.getElementById('message').innerText = 'Error,  tente denuevo';
       });
+      document.querySelector('#message').innerText = `Se ha enviado un mensaje al correo: ${user.email} para verificar la creación de la cuenta`;
+    }).catch((error) => {
+      document.getElementById('message').innerText = 'Error, intente denuevo';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -80,11 +73,11 @@ export const register = (email, password) => {
     });
 };
 // GOOGLE
+
 export const authGoogle = (provider) => {
-  const auth = getAuth();
-  signInWithPopup(auth, provider)
+  singInGoogle(provider)
     .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const credential = singWithPopUp(result);
       const token = credential.accessToken;
       console.log(token);
       const user = result.user;
@@ -99,7 +92,7 @@ export const authGoogle = (provider) => {
       // The email of the user's account used.
       const email = error.email;
       // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
+      const credential = errorSingUpWithPopUp(error);
       // ...
     });
 };

@@ -6,7 +6,7 @@ export default () => {
   document.querySelector('header').style.display = 'block';
   document.querySelector('#sectionGrid').style.display = 'grid';
 
-// consultar todas las recetas y crear cada caja de la receta;
+  // consultar todas las recetas y crear cada caja de la receta;
 
   const search = `
   <div class='searchFeed'>

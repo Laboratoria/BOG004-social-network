@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import { register } from '../lib/auth.js';
 
 const createFormUser = () => {
