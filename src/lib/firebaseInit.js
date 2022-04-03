@@ -3,6 +3,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 // eslint-disable-next-line import/no-unresolved
 import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrYZ67zhwpOS_Hfqv6FKtfRXFMNp5W7bY',
@@ -21,5 +22,5 @@ console.log(auth);
 export const provider = new GoogleAuthProvider();
 console.log(provider);
 
-// const db = getFirestore(app);
-// console.log(db);
+export const db = getFirestore();
+console.log(db);
