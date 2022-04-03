@@ -11,8 +11,24 @@ export default () => {
 <div class='textBox'>
 <form class='formtext' id='text-form'>
 <textarea placeholder='escribe tu receta' id='text-feed' class='inputext'  required  maxlength='500'></textarea>
- `;
+ <div>
+<form id='task-form'>
+<label for='title'>Titulo</label>
+<input type='text' placeholder='task Title' id='task-title'>
+<label for='description'>descripcion:</label>
+<textarea  id='task-description' rows="3" placeholder="task description"></textarea>
+
+<button id="btn-like">like</button>
+</form>
+<div id="task-container"></div>
+</div>`
   const divFeed = document.createElement('div');
   divFeed.innerHTML = search;
   return divFeed;
+
 };
+
+
+
+  
+

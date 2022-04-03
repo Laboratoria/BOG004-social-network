@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+
 import { register } from '../lib/auth.js';
 
 const createFormUser = () => {
@@ -65,9 +65,7 @@ const createFormUser = () => {
     form.appendChild(contenedorPassword);
     form.appendChild(password);
     form.appendChild(repeatPassword);
-
     form.appendChild(submit);
-
     divElem.appendChild(form);
   };
   htmlFormRegister();
