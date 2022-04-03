@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  onAuthStateChanged, // Agregando observador
 // eslint-disable-next-line import/no-duplicates
 } from './firebase-imports.js';
 import {
@@ -81,6 +82,17 @@ export const userSignOut = () => signOut(auth).then(() => {
   console.log('SIGN OUT !');
 }).catch((error) => {
   console.log('ERROR !');
+});
+
+export const observer = onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    console.log(userSignOut());
+  }
 });
 
 export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });

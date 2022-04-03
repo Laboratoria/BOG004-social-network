@@ -4,9 +4,7 @@ import { changeView } from './viewController.js';
 // eslint-disable-next-line import/no-cycle
 
 export default () => {
-  const viewSignUp = `
-  
-  <form class="signUpForm" id="signUpForm">
+  const viewSignUp = `<form class="signUpForm" id="signUpForm">
   
     <figure>
       <img class='Icono' src='images/iPhone 13/Logo.png' alt='Icono'><br>
