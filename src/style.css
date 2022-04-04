@@ -1,0 +1,135 @@
+*{
+ box-sizing: border-box;
+margin: 0;
+padding:0;
+}
+body {
+  font-family: sans-serif;
+  background-image : url('./img/mom-2208928_1280.jpg');
+}
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+ background-color:white;
+ padding: 10px;
+ margin-bottom: 45px;
+}
+.header .title {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  font-size: large;
+  color: white;
+ 
+}
+.title-one{
+ height:30px;
+   width:30px;
+   -moz-border-radius:50px;
+   -webkit-border-radius:50px;
+   border-radius:50px;
+   text-align:center;
+  padding-top:5px;  
+  background: #662c92;
+}
+
+#title-blue{
+margin-right:20px;
+background: #00adef;
+}
+
+#title-orange{
+  background: #f7941f;
+}
+
+#title-fuchsia{
+background: #ed008f;
+}
+
+#title-brown {
+background-color: #c6805a;
+}
+
+#title-dark-blue {
+background-color: #1a75bf;
+}
+.title-login
+{
+color:white;
+margin-bottom: 30px;
+text-align: center;
+font-size: 25px;
+}
+
+form{
+margin: 0 auto;
+width:  420px;
+padding: 10px;
+}
+
+
+.text-login{
+background-color:rgba(255, 255, 255, 0.198);
+border: 0;
+border-radius: 11px 15px 11px 15px;
+outline: none;
+padding: 25px;
+width: 400px;
+margin-bottom: 3px;
+font-size: 20px;
+text-align: center;
+}
+
+.text-login:focus{
+background-color: rgba(255, 255, 255, 0.198);
+color: #d9dfe7;
+}
+
+::placeholder {
+    color:#d9dfe7;
+}
+
+.ingress {
+background-color: #456493af;
+color: #f5fffd;
+border: 0px;
+padding: 25px;
+width: 400px;
+border-radius: 11px 15px 11px 15px;
+font-size: 20px;
+text-align: center;
+margin-top: 10px;
+}
+
+.create {
+background-color: #ed008e35 ;
+color: #f5fffd;
+border: 0px;
+padding: 25px;
+width: 400px;
+border-radius: 11px 15px 11px 15px;
+font-size: 20px;
+text-align: center;
+}
+
+.footer{
+background-color: #48221836;
+  width: 100vw;
+  height: 50px;
+  padding: 15px 25px;
+  color: white;
+  font-size: 17px;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: fixed;
+ bottom: 0; 
+
+}
+
+@media  ( max-width: 750px) {
+/*ajusto el elemnto que se rompió*/
+}
+  

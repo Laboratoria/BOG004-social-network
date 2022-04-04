@@ -1,4 +1,5 @@
 import { authenticate } from "../view-controler/firebase.js";
+import {changeView} from '../view-controler/router.js';
 
 export default () => {
   const viewRegister = `
@@ -56,6 +57,8 @@ export default () => {
     const email = divElement.querySelector("#email").value;
 
     authenticate(email, password);
+
+    changeView("#/timeLine")
   });
   return divElement;
 };

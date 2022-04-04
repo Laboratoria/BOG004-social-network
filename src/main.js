@@ -7,7 +7,8 @@ myFunction();
 import { changeView } from "./view-controler/router.js";
 
 const init = () => {
-  changeView(window.location.hash);
+console.log(window)
+  changeView('#/');
   window.addEventListener("hashchange", () => changeView(window.location.hash));
 };
 window.addEventListener("load", init);
