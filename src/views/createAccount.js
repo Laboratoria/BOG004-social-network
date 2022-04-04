@@ -40,21 +40,13 @@ const errorMessageInput = div.querySelector('#errorInput');
 const errorPasswordInput = div.querySelector('#errorPassword');
 const email = div.querySelector('#inputE').value;
 const password = div.querySelector('#inputPassword').value;
-// errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
-const confirmPassword = password === passwordConfirm;
-const voidInput = (userName.trim() == '' || birthDate.trim() == '' || passwordConfirm.trim() == '' || email.trim() == '' || password.trim() == '');
-errorPasswordInput.innerHTML = "";
-errorMessageInput.innerHTML = "";
-
-if (!confirmPassword) {
-  console.log(passwordConfirm);
-  errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
-} 
-if (voidInput) {
+if (userName, birthDate, passwordConfirm, email, password.trim() == '') {
   errorMessageInput.innerHTML = 'Debes ingresar un valor en el campo';
-} 
-if (confirmPassword && ! voidInput) {/* llamamos la funcion createUser con los argumentos de email
+}
+if (password != passwordConfirm) {
+  errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
+}
+/* llamamos la funcion createUser con los argumentos de email
 y contraseñas guardados en las constantes anteriores */
 createNewUser(email, password);
-}
 } 
