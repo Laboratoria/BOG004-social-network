@@ -4,8 +4,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
 import {
-  registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
-  getPostList, registerAddPost,
+  registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession, getPostList,
+  registerAddPost, doLike,
 } from './controlerview.js';
 
 // Este es el punto de entrada de tu aplicacion
@@ -40,4 +40,5 @@ const init = () => {
   window.addEventListener('hashchange', onChangeView);// Esto es para cuando cambie despues de la primera carga
 };
 
+window.doLike = doLike;
 window.addEventListener('load', init);
