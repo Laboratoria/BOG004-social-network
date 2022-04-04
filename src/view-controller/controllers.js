@@ -121,16 +121,44 @@ export async function crearPost() {
   }
 }
 
-export async function readPost() {
-  const querySnapshot = await getDocs(collection(db, 'Posts'));
-  document.querySelector('#mostrarPost').innerHTML = '';
-  querySnapshot.forEach((doc) => {
-    document.querySelector('#mostrarPost').innerHTML += `
-    <div>
-      <p>${doc.data().content}</p>
-      <button id="btnEdit">Editar</button>
-      <button id="btnDelete">Eliminar</button>
-    </div>
-  `;
+export function readPost(mostrarPost) {
+  // console.log('lo que recibe como param: ', mostrarPost);
+  const querySnapshot = getDocs(collection(db, 'Posts'));
+  querySnapshot.then((res) => {
+    // console.log(res);
+    mostrarPost.innerHTML = '';
+    res.forEach((doc) => {
+      // console.log('doc: ', doc);
+      mostrarPost.innerHTML += `
+      <div class="contenedorPost">
+        <div class="contentPost">
+          <p>${doc.data().content}</p>
+        </div>
+        <div class="btnPost">
+          <button id="btnEdit">Editar</button>
+          <button class"btnDelete" id=${doc.data().id}>Eliminar</button>
+        </div>
+      </div>
+    `;
+    });
+    const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
+    console.log(btnsDelete);
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        console.log('borrando');
+      });
+    });
   });
 }
+
+// export function deletePost() {
+//   console.log('entró a la función');
+//   // const mostrarPost = document.querySelector('#mostrarPost');
+//   console.log('mosps', mostrarPost);
+//   console.log(btnsDelete);
+//   btnsDelete.forEach((btn) => {
+//     btn.addEventListener('click', () => {
+//       console.log('btnsDelete');
+//     });
+//   });
+// }

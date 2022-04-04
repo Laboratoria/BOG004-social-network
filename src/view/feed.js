@@ -15,13 +15,15 @@ export default () => {
       <img src="img/perfil.png" alt="Logo Codering">
       <img src="img/notif.png" alt="Logo Codering">
     </div>
-    <div class="divForm">
-      <form class="posts" id="posts">
-          <textarea class="contentFeed" id="contentFeed"></textarea>
-      </form>
-      <button type="submit" id="submitPost">Publicar</button>
-    </div>
-    <div id="mostrarPost">
+    <div class="postGeneral">
+      <div class="divForm">
+        <form class="posts" id="posts">
+            <textarea class="contentFeed" id="contentFeed"></textarea>
+        </form>
+        <button type="submit" id="submitPost">Publicar</button>
+      </div>
+      <div id="mostrarPost">
+      </div>
     </div>
   </div>
   `;
@@ -34,10 +36,14 @@ export default () => {
   });
   const posts = divElemt.querySelector('#posts');
   const btnSubmit = divElemt.querySelector('#submitPost');
+  const mostrarPost = divElemt.querySelector('#mostrarPost');
+  console.log('mostrarPost :', mostrarPost);
   btnSubmit.addEventListener('click', () => {
     crearPost();
     posts.reset();
-    readPost();
+    readPost(mostrarPost);
   });
+  readPost(mostrarPost);
+  // deletePost(mostrarPost);
   return divElemt;
 };

@@ -232,7 +232,7 @@ a:visited {
 
 /* PANTALLA FEED */
 .contenedor-feed {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -283,7 +283,9 @@ a:visited {
     height: 20px;
     width: 20px;
 }
-
+.postGeneral{
+    width: 90%;
+}
 .divForm{
     display: flex;
     padding: 10px;
@@ -316,7 +318,50 @@ a:visited {
     color: white;
     text-decoration: none;
 }
-
+.contenedorPost{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border: solid gray;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.contentPost{
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.btnPost{
+    display: flex;
+    background: #CEF7FB;
+    height: 40px;
+    width: 100%;
+    justify-content: center;
+    border-radius: 5px;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.btnPost button{
+    height: 50%;
+    margin: 3px;
+    background: #015579;
+    color: white;
+    border-radius: 10px;
+    width: 80px;
+}
 /* VENTANA MODAL*/
 .flex{
     height: 100%;
@@ -483,5 +528,17 @@ a:visited {
         position: relative;
         right: -30%;
         top: 8%;
+    }  
+    .postGeneral{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
-}
+    .divForm{
+        max-height: 500px;
+    }
+    .posts{
+        height: 90%;
+    }
+    .contentFeed{
+        height: 90%;
+    }
