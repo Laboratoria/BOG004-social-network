@@ -27,34 +27,36 @@ export default () => {
   // creamos una variable para acceder al id del boton de registrate
   const btnViewRegister = divAccount.querySelector('#viewWall');
   // creamos un evento al boton registrate
-    btnViewRegister.addEventListener('click', () =>  clickRegister(divAccount));
-      /* creamos constantes para capturar los datos ingresados por el usuario*/
-     
+  btnViewRegister.addEventListener('click', () => clickRegister(divAccount));
+  /* creamos constantes para capturar los datos ingresados por el usuario*/
   return divAccount;
 };
 export const clickRegister = (div) => {
-const userName = div.querySelector('#inputName').value;
-const birthDate = div.querySelector('#inputBirthdate').value;
-const passwordConfirm = div.querySelector('#inputConfirm').value;
-const errorMessageInput = div.querySelector('#errorInput');
-const errorPasswordInput = div.querySelector('#errorPassword');
-const email = div.querySelector('#inputE').value;
-const password = div.querySelector('#inputPassword').value;
-// errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
-const confirmPassword = password === passwordConfirm;
-const voidInput = (userName.trim() == '' || birthDate.trim() == '' || passwordConfirm.trim() == '' || email.trim() == '' || password.trim() == '');
-errorPasswordInput.innerHTML = "";
-errorMessageInput.innerHTML = "";
+  const userName = div.querySelector('#inputName').value;
+  const birthDate = div.querySelector('#inputBirthdate').value;
+  const passwordConfirm = div.querySelector('#inputConfirm').value;
+  const errorMessageInput = div.querySelector('#errorInput');
+  const errorPasswordInput = div.querySelector('#errorPassword');
+  const email = div.querySelector('#inputE').value;
+  const password = div.querySelector('#inputPassword').value;
+  const successfulOk = div.querySelector('#successRegister');
+  // errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
+  const confirmPassword = password === passwordConfirm;
+  const voidInput = (userName.trim() === '' || birthDate.trim() === '' || passwordConfirm.trim() === '' || email.trim() === '' || password.trim() === '');
+  errorPasswordInput.innerHTML = '';
+  errorMessageInput.innerHTML = '';
 
-if (!confirmPassword) {
-  console.log(passwordConfirm);
-  errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
-} 
-if (voidInput) {
-  errorMessageInput.innerHTML = 'Debes ingresar un valor en el campo';
-} 
-if (confirmPassword && ! voidInput) {/* llamamos la funcion createUser con los argumentos de email
+  if (!confirmPassword) {
+    console.log(passwordConfirm);
+    errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
+  }
+  if (voidInput) {
+    errorMessageInput.innerHTML = 'Debes ingresar un valor en el campo';
+  }
+  if (confirmPassword && !voidInput) {
+  /* llamamos la funcion createUser con los argumentos de email
 y contraseñas guardados en las constantes anteriores */
-createNewUser(email, password);
-}
-} 
+    createNewUser(email, password);
+    successfulOk.innerHTML = 'El usuario se creo de forma exitosa';
+  }
+};
