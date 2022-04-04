@@ -1,46 +1,48 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     background: linear-gradient(180deg, #233233 36.98%, #2B4E4D 69.27%, #3F978F 100%);
 }
 
-#container{
+#container {
     color: aliceblue;
-    min-height:100vh;
+    min-height: 100vh;
     display: grid;
     grid-column: auto;
     justify-items: center;
     align-items: center;
 }
 
-.logo{
+.logo {
     width: 100%;
     height: 100%;
     margin-top: 50%;
     margin-bottom: 30px;
 }
 
-.title{
- text-align: center;
- font-size: 3rem;
- letter-spacing: 0.305em;
- width: fit-content;
+.title {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 0.305em;
+    width: fit-content;
 }
 
-footer{
-    width:fit-content;
+footer {
+    width: fit-content;
     text-align: center;
     font-size: 1rem;
     align-self: flex-end;
 }
 
-.divButtons, .signUpForm, .divSignIn {
-    background-color: #233233; 
+.divButtons,
+.signUpForm,
+.divSignIn {
+    background-color: #233233;
     border-radius: 10px;
     box-shadow: rgba(61, 144, 136, 0.5) 1px 1px 4px 4px;
     text-align: center;
@@ -48,29 +50,34 @@ footer{
     height: 600px;
 }
 
-.Nave{
+.Nave {
     margin-top: 20%;
     width: 220px;
 }
 
 .branding {
     margin-top: 5%;
-    font-size:larger;
+    font-size: larger;
     letter-spacing: 2px;
     margin-bottom: -20px;
 }
-.initView{
+
+.initView {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 5px 30px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.signUp,.signIn, .buttonGoogle, .submitSignUp, .submitSignIn{
+.signUp,
+.signIn,
+.buttonGoogle,
+.submitSignUp,
+.submitSignIn {
     width: 300px;
     height: 40px;
     margin: 15px;
@@ -84,18 +91,33 @@ a{
     color: aliceblue;
 }
 
-.signUp:hover, .signIn:hover, .buttonGoogle:hover, 
-.submitSignUp:hover, .submitSignIn:hover, #logout:hover,
-#btn-task-save:hover{
+.signUp:hover,
+.signIn:hover,
+.buttonGoogle:hover,
+.submitSignUp:hover,
+.submitSignIn:hover,
+#logout:hover,
+#btn-task-save:hover,
+#btn-delete:hover,
+#btn-edit:hover,
+#btn-like:hover {
     background: rgba(61, 144, 136, 1);
 }
-.signIn:active, .signUp:active, .buttonGoogle:active, 
-.submitSignUp:active, .submitSignIn:active, #logout:active,
-#btn-task-save:active{
+
+.signIn:active,
+.signUp:active,
+.buttonGoogle:active,
+.submitSignUp:active,
+.submitSignIn:active,
+#logout:active,
+#btn-task-save:active,
+#btn-delete:active,
+#btn-edit:active,
+#btn-like:active {
     background-color: #1691a1;
 }
 
-.containerForm h1{
+.containerForm h1 {
     letter-spacing: 15px;
 }
 
@@ -104,44 +126,50 @@ a{
     margin-bottom: 5%;
 }
 
-.nickname, #email, #password, #emailSignUp, #passwordSignUp {
+.nickname,
+#email,
+#password,
+#emailSignUp,
+#passwordSignUp {
     width: 80%;
     border: 100rem;
     border-bottom: 2px solid rgb(47, 151, 151);
     border-radius: 1px;
     outline: none;
     background-color: transparent;
-    font-size: 1rem; 
-    margin: 7% 5%;  
-    color: aliceblue; 
+    font-size: 1rem;
+    margin: 7% 5%;
+    color: aliceblue;
 }
 
-::placeholder{
+::placeholder {
     text-align: left;
-    color:aliceblue;
+    color: aliceblue;
 }
 
 
-h6{
+h6 {
     line-height: 20px;
     font-size: 10px;
     margin-bottom: 5%;
 }
 
-.errorEmail,.errorM, .errorZ{
+.errorEmail,
+.errorM,
+.errorZ {
     color: yellow;
     font-weight: bold;
 }
 
-h4{
-    margin:30px;
+h4 {
+    margin: 30px;
 }
 
-.containerForm h6{
+.containerForm h6 {
     font-size: 10px;
 }
 
-.like__btn {
+.btn-like {
     padding: 10px 15px;
     background: #627477;
     font-size: 18px;
@@ -152,25 +180,26 @@ h4{
     cursor: pointer;
 }
 
-#form-container {
+.taskContainer {
     width: 1000px;
-    background-color: #233233; 
+    background-color: #233233;
     box-shadow: rgba(61, 144, 136, 0.5) 1px 1px 4px 4px;
     text-align: center;
-    min-height:100vh;
+    min-height: 100vh;
+    padding-bottom: 3%;
 }
 
-.navPost{
+.navPost {
     display: flex;
     justify-content: space-between;
     padding: 25px;
 }
 
-.titlePost{
+.titlePost {
     width: fit-content;
 }
 
-#logout{
+#logout {
     background: transparent;
     letter-spacing: 1px;
     border-style: none;
@@ -179,12 +208,12 @@ h4{
     border-radius: 25px;
 }
 
-.postContainer{
+.postContainer {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-#commentText{
+#commentText {
     width: fit-content;
     justify-content: right;
     margin-top: 30px;
@@ -192,18 +221,18 @@ h4{
     margin-bottom: 30px;
 }
 
-#task-comment{
+#task-comment {
     width: 92%;
     background: rgba(61, 144, 136, 0.72);
     border-radius: 8px;
     justify-self: center;
     padding: 10px;
     color: aliceblue;
-    font-weight:800;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
-#btn-task-save{
+#btn-task-save {
     justify-self: right;
     background: #627477;
     letter-spacing: 1px;
@@ -217,11 +246,43 @@ h4{
 }
 
 #comments-container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.commentCreated {
+    justify-self: center;
     margin-top: 5%;
-    margin-bottom: 3%;
     width: 92%;
     background: rgba(59, 71, 73, 1);
-    border-radius: 8px;
-    justify-self: center;
-    padding: 10px;
+    border-radius: 2px;
+    position: relative;
+}
+#btn-delete{
+    position:absolute;
+    right: 10px;
+    font-size:10px;
+    margin-top: 10px;
+    font-weight: bolder;
+    color: aliceblue;
+    background-color: rgba(61, 144, 136, 0.72);
+    border-style: none;
+    border-radius:20px;
+    padding: 5px 10px;
+}
+.postText{
+    margin: 30px 20px 20px 20px;
+    min-height: 30px;
+    text-align: left;
+}
+.commentBtns{
+    display: flex;
+    justify-content: space-between;
+}
+#btn-edit, #btn-like{
+    width: 49.9%;
+    padding: 5px;
+    border-radius: 2px;
+    border-style: none;
+    background-color: rgba(61, 144, 136, 0.72);
+    color: aliceblue;
 }

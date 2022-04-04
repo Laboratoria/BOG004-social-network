@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import { SignInUser } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { changeView } from './viewController.js';

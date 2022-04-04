@@ -9,10 +9,6 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-  onAuthStateChanged, // Agregando observador
-// eslint-disable-next-line import/no-duplicates
-} from './firebase-imports.js';
-import {
   getFirestore,
   collection,
   addDoc,
@@ -22,12 +18,11 @@ import {
   doc,
   getDoc,
   updateDoc,
-// eslint-disable-next-line import/no-duplicates
+  getDatabase,
+  initializeApp,
+  arrayUnion,
+  arrayRemove,
 } from './firebase-imports.js';
-// eslint-disable-next-line import/no-duplicates
-import { getDatabase } from './firebase-imports.js';
-// eslint-disable-next-line import/no-duplicates
-import { initializeApp } from './firebase-imports.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDOPnedni_lGkXKH8QvH6JV1iTbcAwmJm4',
@@ -41,15 +36,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const dataBase = getDatabase(app);
-const auth = getAuth();
+export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-// eslint-disable-next-line max-len
 export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then(
     (userCredential) => {
       sendEmailVerification(auth.currentUser).then(() => {
         const user = userCredential.user;
+        console.log(auth.currentUser);
         // eslint-disable-next-line no-alert
         alert(`Se ha enviado un correo de verificación a${email}`);
       });
@@ -57,7 +52,6 @@ export const SignUpUser = (email, password) => createUserWithEmailAndPassword(au
   );
 
 export const SignInUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
-
 export const googleSignWithPopup = () => signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -80,24 +74,24 @@ export const googleSignWithPopup = () => signInWithPopup(auth, provider)
 
 export const userSignOut = () => signOut(auth).then(() => {
   console.log('SIGN OUT !');
-}).catch((error) => {
+}).catch((_error) => {
   console.log('ERROR !');
 });
 
-export const observer = onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    console.log(userSignOut());
-  }
-});
+export const saveComment = async (comment) => {
+  const date = new Date();
+  const email = auth.currentUser.displayName;
+  const userId = auth.currentUser.uid;
+  const likes = [];
+  const likesCounter = 0;
+  await addDoc(collection(db, 'comments'), {
+    comment, date, email, userId, likes, likesCounter,
+  });
+};
 
-export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
-export const getComments = () => getDocs(collection(db, 'comments'));
+//export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
 export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));
-export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', 'likes', id), newFileds);
+export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);
+export const updateLikeBtn = (id, userLike) => updateDoc(doc(db, 'comments', id), userLike);
