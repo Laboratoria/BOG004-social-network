@@ -93,6 +93,8 @@ export default () => {
     });
   });
 
+
+  
  const like = commentsContainer.querySelectorAll('#btn-like');// tomamos el valor del selector
   like.forEach((btnLike) => {
     btnLike.addEventListener('click', async (e) => {
@@ -100,6 +102,7 @@ export default () => {
       const postText = doc.data();
       const likesCount = postText.likesCounter;
       const userId = auth.currentUser.uid;
+      console.log('hola')
       updateLikeBtn(id, userId) = async () => {
         if (postText.likes.includes(userId)) {
           await updateDoc(getLikes, {
