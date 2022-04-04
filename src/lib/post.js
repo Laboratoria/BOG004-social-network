@@ -60,16 +60,13 @@ export default () => {
       // eslint-disable-next-line no-unused-vars
       html += `
         <div class='commentCreated'>
+        <p class="user-name">${task.email}</p>
         <input type="button" value="X" id="btn-delete" data-id="${doc.id}">      
         <p class = 'postText'>${task.comment}</p>
         <div class='commentBtns'>
         <input type="button" value="Edit" id="btn-edit" data-id="${doc.id}">
-        <button id='btn-like'>
-          <span id="icon" <i class="fa-regular fa-thumbs-up"></i> </span>
-          <span id="count"> 0 </span>
-        </button>
-        </div>
-        
+        <button id="btn-like" value='${task.id}'><i class="fas fa-thumbs-up"></i>${task.likesCounter}</button>
+            </div>
         </div> `;
     });
     commentsContainer.innerHTML = html;
@@ -93,7 +90,29 @@ export default () => {
     });
   });
 
-  /* const likeButton = commentsContainer.querySelectorAll('.like__btn');
+ const like = commentsContainer.querySelectorAll('#btn-like');// tomamos el valor del selector
+  like.forEach((btnLike) => {
+    btnLike.addEventListener('click', async (e) => {
+      const doc = await getComment(e.target.dataset.id);
+      const postText = doc.data();
+      const likesCount = postText.likesCounter;
+      const userId = auth.currentUser.uid;
+      updateLikeBtn(id, userId) = async () => {
+        if (postText.likes.includes(userId)) {
+          await updateDoc(getLikes, {
+            likes: arrayRemove(userId),
+            likesCounter: likesCount - 1,
+          });
+        } else {
+          await updateDoc(doc, {
+            likes: arrayUnion(userId),
+            likesCounter: likesCount + 1,
+          });
+        }
+      }
+    });
+  });
+  /*
   const count = commentsContainer.querySelectorAll('#count');
   const likeIcon = commentsContainer.querySelectorAll('#icon');
   let clicked = false;
