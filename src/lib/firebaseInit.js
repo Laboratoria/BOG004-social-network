@@ -2,8 +2,23 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 // eslint-disable-next-line import/no-unresolved
-import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
+import { 
+  getAuth, 
+  GoogleAuthProvider,  
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signInWithEmailAndPassword, 
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+
+import { 
+  getFirestore,
+  collection, 
+  addDoc,
+  getDocs,
+  onSnapshot,
+  doc,
+  query,
+  } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrYZ67zhwpOS_Hfqv6FKtfRXFMNp5W7bY',
@@ -13,6 +28,7 @@ const firebaseConfig = {
   messagingSenderId: '861904852247',
   appId: '1:861904852247:web:e43702a3cbba18134a5352',
 };
+
 const app = initializeApp(firebaseConfig);
 console.log(app);
 
@@ -24,3 +40,18 @@ console.log(provider);
 
 export const db = getFirestore();
 console.log(db);
+
+export {
+  getAuth, 
+  GoogleAuthProvider,  
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signInWithEmailAndPassword, 
+  getFirestore,
+  collection, 
+  addDoc,
+  getDocs,
+  onSnapshot,
+  doc,
+  query,
+  };

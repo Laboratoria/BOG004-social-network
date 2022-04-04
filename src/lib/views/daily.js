@@ -1,6 +1,6 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
 import { db } from '../firebaseInit.js';
-import { createPost, getPost } from '../firebaseController.js';
+import { createPost, getPost, readPost } from '../firebaseController.js';
 
 export default () => {
   const divDaily = document.createElement('div');
@@ -40,6 +40,7 @@ export default () => {
   let background = divDaily.querySelector('#modal-background');
   let modalPost = divDaily.querySelector('#modal_post-container');
   const postDescription = divDaily.querySelector('#post-description');
+
   btnCreate.addEventListener('click', () => {
     console.log('Opened');
     background.style.display = 'flex';
@@ -49,17 +50,16 @@ export default () => {
     
   })
 
-  const modalForm = divDaily.querySelector('#modal_post-container');
+  // const modalForm = divDaily.querySelector('#modal_post-container');
   const btnSave = divDaily.querySelector('#btn-post-save');
 
   btnSave.addEventListener('click', (e) => {
     e.preventDefault()
     console.log('Saved');
-    // document.querySelector('#post-description').focus();
-    // const postDescription = divDaily.querySelector('#post-description');
-    // console.log(postDescription.value);
-    createPost(db, postDescription.value);
-    modalForm.reset();
+    
+    createPost(postDescription.value);
+    
+    modalPost.reset();
   });
 
 
@@ -76,12 +76,33 @@ export default () => {
     const postContent = postDescription.value.trim();
     // trim() metodo que no permite activar boton con espacio
     if (postContent === '') {
-      document.querySelector('#btn-post-save').disabled = true; // boton publicar inactivo
+      btnSave.disabled = true; // boton publicar inactivo
     } else {
-      document.querySelector('#btn-post-save').disabled = false; // boton publicar activo
+      btnSave.disabled = false; // boton publicar activo
     }
   });
 
+  const postController = () => {
+    const postContainer = divDaily.querySelector('#post-container');
+    const querySnapshot = getPost();
+    console.log(querySnapshot);
+    // readPost(() => {
+    //   let postStructure = '';
+    //   snapShopResult.foreach((doc) => {
+    //     const post= doc.data();
+    //     postStructure += `
+    //     <div id='post-container' class="post-container"> 
+    //       <p>${post.postDescription}</p>       
+    //     </div>    
+    //     `;
+    //   });
+    //   postContainer.innerHTML = postStructure;
+    // });  
+    readPost();
+  };
+  postController();
+  
+  
   return divDaily;
 };
 
