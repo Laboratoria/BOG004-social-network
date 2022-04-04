@@ -1,5 +1,6 @@
 import {
-  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList, addPost,
+  createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
+  addPost, doLike,
 } from './firebase/controlerfirebase.js';
 
 function registerUser() {
@@ -67,8 +68,7 @@ function registerAddPost() {
     thinksUserEdit.value = '';
   });
 }
-
 export {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
-  getPostList, registerAddPost,
+  getPostList, registerAddPost, doLike,
 };

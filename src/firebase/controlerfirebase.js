@@ -1,7 +1,7 @@
 import {
   getAuth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
-  getDocs, collection, addDoc, getFirestore,
+  getDocs, collection, addDoc, getFirestore, doc, setDoc, /* getDoc, */ increment,
 // eslint-disable-next-line import/no-unresolved
 } from './firebase-utils.js';
 
@@ -95,20 +95,17 @@ const signInWithGoogle = () => {
     });
 };
 
-/* FIRESTORE
- * Esta funcion va a conectarse a firestore
- * Luego con el resultado que es una suscripcion (aun no sabes)
- * va a pintar en pantalla el resultado
- */
+/* FIRESTORE */
 
 const getPostList = async () => {
   const db = getFirestore();
   const querySnapshot = await getDocs(collection(db, 'posts'));
   const getDivPosts = document.getElementById('posts');
   let Posts = '';
+  let PostJS = '';
 
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
+  querySnapshot.forEach((document) => {
+    const data = document.data();
     console.log(data);
 
     /* const getDivUser = document.getElementById('user-thinking');
@@ -127,19 +124,21 @@ const getPostList = async () => {
           <p>${data.thinking}</p>
         </div>
         <div class="posticons">
-        <img src="img/moms.jpeg" alt="like-moms" class="posticon">
+        <img  id="doLikeImg${document.id}" src="img/moms.jpeg" alt="like-moms" class="posticon" >        
         <img src="img/comment.jpeg" alt="click-comment" class="posticon">
         <img src="img/save.jpeg" alt="click-save" class="posticon">
       </div>
       </section>
     `;
 
-    /// html
-    //  botonoes hay que guardarlo
-    //  <button id="${doc.id}" onclick="editPost(id)"/>
+    PostJS += `
+      document.getElementById('doLikeImg${document.id}').addEventListener('click', () => {doLike('${document.id}');});
+    `;
   });
 
   getDivPosts.innerHTML = Posts;
+  // eslint-disable-next-line no-eval
+  eval(PostJS);
 };
 // El primer parametro es el uid del post y el segundo el pensamiento editado
 const editPosts = (id, thinking) => {
@@ -166,7 +165,28 @@ const addPost = async (thinking) => {
   getPostList();
 };
 
+function doLike(idPost) {
+  console.log(idPost);
+  try {
+    const db = getFirestore();
+    const docRef = doc(collection(db, 'posts'), idPost);
+    setDoc(
+      docRef,
+      {
+        countLikes: increment(1),
+      },
+      { merge: true },
+    );
+    console.log('Document updated with ID: ', docRef.id);
+    getPostList();
+  } catch (e) {
+    console.error('Error adding document: ', e);
+    // TODO: escribir la causa del error en la pantalla o algo asi como en los de auth
+  }
+  getPostList();
+}
+
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  addPost, editPosts, getUser,
+  addPost, editPosts, getUser, doLike,
 };
