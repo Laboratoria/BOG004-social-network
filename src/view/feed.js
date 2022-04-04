@@ -1,4 +1,4 @@
-import { saveRecipe } from '../lib/firebase-base-de-datos.js';
+import { getRecipes, saveRecipe } from '../lib/firebase-base-de-datos.js';
 
 export default () => {
   const menuMobile = document.getElementById('navMobile');
@@ -7,6 +7,10 @@ export default () => {
   document.querySelector('#sectionGrid').style.display = 'grid';
 
   // consultar todas las recetas y crear cada caja de la receta;
+
+  getRecipes().then((recipes) => {
+    console.log(recipes);
+  });
 
   const search = `
   <div class='searchFeed'>

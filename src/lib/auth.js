@@ -55,6 +55,7 @@ export const register = (email, password) => {
         setTimeout(() => { window.location.href = 'http://localhost:3000/#/login'; }, 5000);
       }).catch((error) => {
         showErrorAuth(error);
+        console.log('?', error);
       });
     }).catch((error) => {
       showErrorAuth(error);
