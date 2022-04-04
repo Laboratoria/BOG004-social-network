@@ -18,7 +18,6 @@ export default () => {
           <i class="fa-solid fa-xmark" id="fa-solid"></i>
         </div>
         <div id='line'>
-          <div class="modal__close" id="modal__close"></div>
           <div id='text-container'>
             <textarea type='text' id='post-description' placeholder='Reveal your secrets'></textarea>
           </div>
@@ -63,7 +62,7 @@ export default () => {
 
 
   // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#modal__close'); 
+  let modalClose = divDaily.querySelector('#fa-solid'); 
   modalClose.addEventListener('click',()=>{
     console.log('Close');
     background.style.display= "none";
