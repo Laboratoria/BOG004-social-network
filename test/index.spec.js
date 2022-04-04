@@ -1,8 +1,9 @@
 import { registerUser } from "../src/Firebase/auth.js";
-import { register } from "../src/view/register.js";
+import { loginUser } from "../src/Firebase/auth.js";
 // importamos la funcion que vamos a testear
 
 import { createUserWithEmailAndPassword } from '../src/Firebase/firebase-import.js';
+import { signInWithEmailAndPassword } from '../src/Firebase/firebase-import.js';
 
 jest.mock('../src/Firebase/firebase-import.js')
 
@@ -11,24 +12,34 @@ describe('registerUser', () => {
         expect(typeof registerUser).toBe('function');
     });
 
-    //Esta no está testeando absolutamente nada :)
+    //Test para validar que "errorMessaje" por defecto está vacio (campo para muestra de mensajes de error)
     it('Debería permitir el registro del usuario', (done) => {
-        document.body.innerHTML = '<p id="errorMessage">error por defecto</p>';
+        document.body.innerHTML = '<p id="errorMessage"></p>';
         registerUser('holaholaquetal@gmail.com', 'contraseña123')
             .then(() => {
                 expect(document.getElementById('errorMessage').innerHTML).toBe('');
                 done();
             })
     });
-
-    it.only('El usuario no puede registrarse correctamente', (done) => {
-        document.body.innerHTML = '<p id="errorMessage"></p>';
+    // Test de implementación 
+    it('En esta función viajan correctamente los parametros en registerUser', (done) => {
         registerUser('holahol34@gmail.com', 'contr')
             .then(() => {
-                console.log(createUserWithEmailAndPassword.mock.calls[0])
-                expect(createUserWithEmailAndPassword.mock.calls[0])
+                console.log(createUserWithEmailAndPassword.mock.calls[1])
+                expect(createUserWithEmailAndPassword.mock.calls[1])
                     .toEqual([{ _id: 'get-auth' }, 'holahol34@gmail.com', 'contr'])
                 done();
             })
     });
+});
+
+ // Test de implementación 
+ it('En esta función viajan correctamente los parametros en loginUser', (done) => {
+    loginUser('holaholaquetal@gmail.com', 'contraseña123')
+        .then(() => {
+            console.log(signInWithEmailAndPassword.mock.calls[0])
+            expect(signInWithEmailAndPassword.mock.calls[0])
+                .toEqual([{ _id: 'get-auth' }, 'holaholaquetal@gmail.com', 'contraseña123'])
+            done();
+        })
 });

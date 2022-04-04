@@ -2,6 +2,8 @@
 import { initializeApp } from "./firebase-import.js";
 import { getFirestore } from "./firebase-import.js";
 
+
+
 //import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js";
@@ -23,3 +25,5 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
+
+
