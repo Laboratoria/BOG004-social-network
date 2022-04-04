@@ -22,11 +22,17 @@ export default () => {
 
   const divElement = document.createElement('div');
   divElement.innerHTML = viewTimeline;
+  let editStatus = false;
 
   // Saving posts
   divElement.querySelector('#save-postIt').addEventListener('click', () => {
     const postIt = document.getElementById('postIt-description').value;
-    savingPost(postIt);
+
+    if (editStatus) {
+      console.log('updating');
+    } else {
+      savingPost(postIt);
+    }
 
     const posts = document.getElementById('post-form');
     posts.reset();
@@ -67,28 +73,22 @@ export default () => {
 
     // Editing posts
     const editPostIt = postContainer.querySelectorAll('.btnedit-postIt');
-    const posts = document.getElementById('post-form');
-    
+    const posts = document.getElementById('postIt-description');
+    const postForm = document.getElementById('post-form');
+
     editPostIt.forEach((btn) => {
-      
       btn.addEventListener('click', (e) => {
-        console.log('evento-> ', e.target.dataset.id);
-        
-        const doc = getPost(e.target.dataset.id)
-        doc.then(res=>{
-          const postData = res.data();
-          console.log('postData: ', postData)
-          console.log('id ', e.target.dataset.id);
-          posts[e.target.dataset.id].value = postData.postIt;
-        
-        })
-        console.log('posts: ', posts['postIt-description']);
-        
-        // editStatus = true;//
-        // id = doc.id;
-      })
+        const doc = getPost(e.target.dataset.id);
+        doc.then((response) => {
+          const postData = response.data();
+
+          posts[e.target.dataset.id] = postData.postIt;
+          postForm['postIt-description'].value = posts.description;
+
+          editStatus = true;
+        });
+      });
     });
-  
   });
   return divElement;
 };

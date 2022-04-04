@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
@@ -111,7 +112,7 @@ export const savingPost = (postIt) => {
 
 // Getting data from Firestore -timeline view-
 export const onGettingPost = (callback) => onSnapshot(collection(db, "timeline-posts"), callback);
-console.log(onGettingPost)
+
 // Deleting post -timeline view-
 export const deletePosts = (id) => deleteDoc(doc(db, "timeline-posts", id));
 
