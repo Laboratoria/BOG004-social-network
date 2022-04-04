@@ -3,6 +3,8 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    GoogleAuthProvider, 
+    signInWithPopup,
     onAuthStateChanged,
 } from "./firebase-import.js";
 
@@ -15,3 +17,11 @@ export const goLoginUser = (email, password) => {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password);
 };
+
+export const loginGoogle = () =>{
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+};
+
+

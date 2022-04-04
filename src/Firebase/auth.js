@@ -1,12 +1,6 @@
 import { createUser } from "./controller-firebase.js";
 import { goLoginUser } from "./controller-firebase.js";
-
-/* import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-} from "./firebase-import.js"; */
+import { loginGoogle } from "./controller-firebase.js";
 
 
 //Función FIREBASE para registro de nuevos usuarios
@@ -18,18 +12,10 @@ export const loginUser = (email, password) => {
     return goLoginUser(email, password);
 };
 
-// //Función FIREBASE para acceso de usuarios existentes
-// signInWithEmailAndPassword(auth, email, password)
+export const googleUser = () =>{
+    return loginGoogle();
+};
 
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
 
 // //Función FIREBASE para estado de autenticación y obtener datos del usuario
 // onAuthStateChanged(auth, (user) => {
