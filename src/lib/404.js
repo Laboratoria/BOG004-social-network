@@ -24,8 +24,8 @@ export default () => {
         </div> 
       `;
 
-  const divElement = document.createElement("div");
-  divElement.setAttribute("id", "message");
+  const divElement = document.createElement('div');
+  divElement.setAttribute('id', 'message');
   divElement.innerHTML = viewError;
 
   return divElement;
