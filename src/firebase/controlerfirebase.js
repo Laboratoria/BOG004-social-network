@@ -123,9 +123,9 @@ const getPostList = async () => {
           <img class="avatar" src="${data.photoUrl}" />
         </div>
         <div class="post-content">
-          <h3>${data.user}</h4> 
-          <h4>${data.email}</h4>
-          <p>${data.thinking}</p>
+          <h3 class="user-name">${data.user}</h4> 
+          <h4 class="e-mail">${data.email}</h4>
+          <p class="text-post-g">${data.thinking}</p>
         </div>
         </section>
         <div class="posticons">
