@@ -18,8 +18,8 @@ export default {
   />
   <div id='allPost'>
     <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
-    <a href='#'><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
-    <a href='#'><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
+    <a href=''><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
+    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
   </div>
 </header>
 
@@ -51,8 +51,7 @@ export default {
     <footer>
       <a><i class='fa-solid fa-user' id='userFooter'></i> </a>
       <a href=''><i class='fa-solid fa-paw'></i> </a>
-      <!-- <a href=''><i class='fa-solid fa-circle-chevron-up'></i></a> -->
-      <a href='#'><i class='fa-solid fa-magnifying-glass'></i> </a>
+      <a href=''><i class='fa-solid fa-magnifying-glass'></i> </a>
     </footer>`,
   private: true,
   state: 'logged', // Solo puede acceder a esta ruta si está logueado
@@ -182,15 +181,18 @@ export default {
       postForm.reset();
     });
 
-    btnAttachment.addEventListener('click', () => {
+    btnAttachment.addEventListener('click', (e) => {
+      e.preventDefault();
       inputAttachment.click();
     });
 
-    btnProfileFooter.addEventListener('click', () => {
+    btnProfileFooter.addEventListener('click', (e) => {
+      e.preventDefault();
       window.location.hash = 'perfil';
     });
 
-    btnProfileHeader.addEventListener('click', () => {
+    btnProfileHeader.addEventListener('click', (e) => {
+      e.preventDefault();
       window.location.hash = 'perfil';
     });
   },

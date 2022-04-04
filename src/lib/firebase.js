@@ -126,14 +126,14 @@ export const logInEmail = (email, password) => {
     });
 };
 
-// funcion privatizar paginas
-export const getState = () => {
-  const usuario = JSON.parse(sessionStorage.getItem('user'));
-  if (usuario && usuario.emailVerified) {
-    return 'logged';
-  }
-  return 'unlogged';
-};
+// // funcion privatizar paginas
+// export const getState = () => {
+//   const usuario = JSON.parse(sessionStorage.getItem('user'));
+//   if (usuario && usuario.emailVerified) {
+//     return 'logged';
+//   }
+//   return 'unlogged';
+// };
 
 // export const privateServer = () => {
 //   onAuthStateChanged(auth, (user) => {
