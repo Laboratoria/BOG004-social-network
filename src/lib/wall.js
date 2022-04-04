@@ -1,8 +1,9 @@
 import {
-  savePost, viewpost, editar, deletepost, likePost,
+  savePost, viewpost, editar, deletepost, likePost, /* saveComment */ actualizaciones
 } from '../Configfirebase/firestore.js';
 
 import { singOff } from '../Configfirebase/Authentication.js';
+import { sendSignInLinkToEmail } from '../Configfirebase/firebase-imports.js';
 // import {
 //   userActive,
 // } from '../Configfirebase/Authentication.js';
@@ -22,6 +23,7 @@ export const wall = () => {
      </section>
      <section class='viewpost'>
 
+   
      </section>
      <button id='logout'> Logout </button>
      `;
@@ -38,18 +40,14 @@ export const wall = () => {
 
   showPosts(viewpost2);
   btnpost2.addEventListener('click', () => {
-    if (description.value === '') {
-      // alert('Por favor escribe algo');
-      btnpost2.disabled = true;
-    } else {
-      btnpost2.disabled = false;
-      showPosts(viewpost2);
-    }
+    showPosts(viewpost2);
   });
+
   formPost.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('holi', description.value);
     savePost(description.value)
+    // saveComment(viewpost2)
       .then((data) => {
         console.log('Holaaaaaaa', data);
         return 'Chao';
@@ -70,7 +68,7 @@ const showPosts = (viewpost2) => {
       viewpost2.innerHTML = '';
       data.forEach((post) => {
         console.log('POST', post.id);
-        let count = 0;
+        const likesPost = post.data().likesCounting;
         const datePost = post.data().dateCreated;
         const contenedorPost = document.createElement('div');
         contenedorPost.classList.add('containerPost');
@@ -87,22 +85,30 @@ const showPosts = (viewpost2) => {
         editButton.classList.add('buttonpost');
         const removeButton = document.createElement('img');
         removeButton.classList.add('buttonpost');
+        const commentButton = document.createElement('img');
+        commentButton.classList.add('buttonpost');
+        const saveComment = document.createElement('div');
+        saveComment.classList.add('savePost');
         likeButton.src = 'image/likesimg.png';
         editButton.src = 'image/editar.png';
         removeButton.src = 'image/eliminar.png';
+        commentButton.src = 'image/comentarios.png';
         descripcion.innerText = post.data().descripcion;
         contenedorPost.appendChild(date);
         containerButton.appendChild(likecounting);
         containerButton.appendChild(likeButton);
+        containerButton.appendChild(commentButton);
         containerButton.appendChild(editButton);
         containerButton.appendChild(removeButton);
         viewpost2.appendChild(containerButton);
         contenedorPost.appendChild(descripcion);
         viewpost2.appendChild(contenedorPost);
+        viewpost2.appendChild(saveComment);
+        likecounting.innerText = likesPost;
         likeButton.addEventListener('click', () => {
-          const likePost2 = likePost();
-          // likecounting.innerText = ++count
-          console.log('likes', likePost2, likecounting);
+          likePost(post.id, localStorage.getItem('emailForSignIn'));
+           
+          console.log('likes', likecounting);
         });
         editButton.addEventListener('click', () => {
           descripcion.innerText = '';
@@ -137,6 +143,22 @@ const showPosts = (viewpost2) => {
           modalButton.addEventListener('click', () => {
             deletepost(post.id, post.data().descripcion);
             modalwindow.classList.remove('active');
+            actualizaciones();
+          });
+        });
+        commentButton.addEventListener('click', () =>{
+          const inputPost = document.createElement('textarea');
+          const btnPost = document.createElement('img');
+          btnPost.src = 'image/aceptarcambios.png';
+          inputPost.classList.add('editPost');
+          btnPost.classList.add('buttonpost');
+          saveComment.appendChild(inputPost);
+          containerButton.appendChild(btnPost);
+          console.log('hola', post);
+          btnPost.addEventListener('click', () => {
+            console.log(inputPost.value);
+            // saveComment(post.id, inputPost.value);
+            btnPost.style.display = 'none';
           });
         });
       });

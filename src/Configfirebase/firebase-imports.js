@@ -6,7 +6,7 @@ export {
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 export {
   deleteDoc, getFirestore, collection, addDoc, getDocs, doc, setDoc, updateDoc,
-  arrayUnion, arrayRemove,
+  arrayUnion, arrayRemove, onSnapshot, query, where, getDoc
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 // export { initializeApp };

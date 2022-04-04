@@ -462,6 +462,7 @@ h1::after{
     opacity: 1;
 }
 
+
 /* LOGOUT */
 
 #logout {
@@ -485,6 +486,10 @@ h1::after{
     background-color: #0079CB;    
     color: #fff;
 }
+
+/* #formpost2{
+    display: none;
+} */
 
 @media screen and (min-width:800px){
 

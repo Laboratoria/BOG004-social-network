@@ -94,6 +94,7 @@ export const loginUser = (email, password) => signInWithEmailAndPassword(auth, e
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
+    localStorage.setItem('emailForSignIn', email);
     window.location = '#wall';
     console.log(user, 'inicie sesion');
     // ...
@@ -151,10 +152,11 @@ export const userActive = () => {
   });
 };
 
-export const singOff = () => {
-  signOut(auth)
+export const singOff = (email) => {
+  signOut(auth, email)
     .then(() => {
       console.log('userSignout');
+      localStorage.removeItem('emailForSignIn', email);
       // Sign-out successful.
       window.location = '';
     }).catch((error) => {
