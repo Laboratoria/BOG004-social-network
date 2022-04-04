@@ -9,6 +9,8 @@ import {
   collection,
   addDoc,
   getDocs,
+  deleteDoc,
+  doc,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -120,45 +122,39 @@ export async function crearPost() {
     console.error('Error adding document: ', e);
   }
 }
+export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 
 export function readPost(mostrarPost) {
   // console.log('lo que recibe como param: ', mostrarPost);
+  // const mostrarPost = document.querySelector('#mostrarPost');
   const querySnapshot = getDocs(collection(db, 'Posts'));
   querySnapshot.then((res) => {
     // console.log(res);
-    mostrarPost.innerHTML = '';
+    let templateMostrarPost = '';
     res.forEach((doc) => {
       // console.log('doc: ', doc);
-      mostrarPost.innerHTML += `
+      const post = doc.data();
+      // console.log(doc);
+      templateMostrarPost += `
       <div class="contenedorPost">
         <div class="contentPost">
-          <p>${doc.data().content}</p>
+          <p>${post.content}</p>
         </div>
         <div class="btnPost">
           <button id="btnEdit">Editar</button>
-          <button class"btnDelete" id=${doc.data().id}>Eliminar</button>
+          <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
         </div>
       </div>
     `;
     });
+    mostrarPost.innerHTML = templateMostrarPost;
     const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
     console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        console.log('borrando');
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.post);
+        readPost(mostrarPost);
       });
     });
   });
 }
-
-// export function deletePost() {
-//   console.log('entró a la función');
-//   // const mostrarPost = document.querySelector('#mostrarPost');
-//   console.log('mosps', mostrarPost);
-//   console.log(btnsDelete);
-//   btnsDelete.forEach((btn) => {
-//     btn.addEventListener('click', () => {
-//       console.log('btnsDelete');
-//     });
-//   });
-// }

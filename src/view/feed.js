@@ -44,6 +44,5 @@ export default () => {
     readPost(mostrarPost);
   });
   readPost(mostrarPost);
-  // deletePost(mostrarPost);
   return divElemt;
 };
