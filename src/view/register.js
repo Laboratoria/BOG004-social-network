@@ -28,7 +28,7 @@ export const register = () => {
                 </div>
                 <div class="box-input">
                   <label class="labels" for="">Contraseña</label>
-                  <input class="inputs" id="passwordRegister" type="password" required>
+                  <input class="inputs" id="passwordRegister" type="password" placeholder="Debe contener más de 6 caracteres" required>
                 </div>
                 <section id="alertMessage" class="center-message">
                   <p id="errorMessage"></p>
@@ -97,7 +97,6 @@ export const register = () => {
         // The signed-in user info.
         const user = result.user;
         changeView("#/feed");
-        console.log(user);
       })
       .catch((error) => {
         // Handle Errors here.

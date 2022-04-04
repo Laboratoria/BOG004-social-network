@@ -1,5 +1,7 @@
 import { changeView } from "../view-controler/controler.js";
-import { loginUser } from "../Firebase/auth.js";
+import { loginUser } from "../Firebase/auth.js"; 
+import { googleUser } from "../Firebase/auth.js";
+import { GoogleAuthProvider } from "../Firebase/firebase-import.js";
 
 export const login = () => {
     const viewLoginHtml = document.getElementById("root");
@@ -29,7 +31,7 @@ export const login = () => {
               </section>
               <section id="signUp-google">
                 <h3>O ingresa con: </h3> 
-                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" id="icongooglelogin" alt="Google"></a>
               </section>
             </form>
         </div>            
@@ -72,7 +74,30 @@ export const login = () => {
                     default:
                         break;
                 }
-            })
-    });
+            });
+          });
+            document.querySelector("#icongooglelogin").addEventListener("click", (e) => {
+              e.preventDefault();
+              googleUser()
+                .then((result) => {
+                  // This gives you a Google Access Token. You can use it to access the Google API.
+                  const credential = GoogleAuthProvider.credentialFromResult(result);
+                  const token = credential.accessToken;
+                  // The signed-in user info.
+                  const user = result.user;
+                  changeView("#/feed");
+                })
+                .catch((error) => {
+                  // Handle Errors here.
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // The email of the user's account used.
+                  const email = error.email;
+                  // The AuthCredential type that was used.
+                  const credential = GoogleAuthProvider.credentialFromError(error);
+                  // ...
+                });
+            });    
+    
     return viewLoginHtml;
 }
