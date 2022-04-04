@@ -21,7 +21,7 @@ export default () => {
       <img class="IconoPost" src="images/iPhone 13/Logo.png" alt="Icono">
     </figure>
 <div class = 'postContainer'>
-<label for="comment" id = 'commentText'>Postea lo que desees!</label>
+<label for="comment" id = 'commentText'>Comment!</label>
 <textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
 <button id="btn-task-save">Publish!</button>
 
@@ -66,11 +66,6 @@ export default () => {
             `;
     });
     commentsContainer.innerHTML = html;
-
-    const deletePost = (id) => {
-      console.log(id);
-      deleteComment(id);
-    };
     const btnsDelete = commentsContainer.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => deletePost(e.target.getAttribute('data-id')));
