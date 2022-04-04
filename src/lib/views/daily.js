@@ -14,17 +14,16 @@ export default () => {
       <form id='modal_post-container' class="post-container">
         <div id='modal_header'>
           <img id='user_img' src='./img/Icono_Harry.png'>
-          <div id='name-container'></div>
+          <div id='name-container'>Wizard</div>
+          <i class="fa-solid fa-xmark" id="fa-solid"></i>
         </div>
         <div id='line'>
-          <div class="modal__close" id="modal__close">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-          <div id='text-container'>            
+          <div class="modal__close" id="modal__close"></div>
+          <div id='text-container'>
             <textarea type='text' id='post-description' placeholder='Reveal your secrets'></textarea>
           </div>
         </div>
-        <button disabled type='button' id='btn-post-save' class='btn-post-inactive'>save</button>  
+        <button disabled type='button' id='btn-post-save' class='btn-post-inactive'>Save</button>  
       </form>
     </div>
     <div id='post-container' class="post-container">        
