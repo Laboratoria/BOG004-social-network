@@ -9,7 +9,7 @@ export default {
 </div>
 <div class='modal'>
 <img class='paws' src='images/animalsBackground.png' alt='paws' />
-<img class='paws-logo' src='https://res.cloudinary.com/dtaq1ip2g/image/upload/v1646690477/logo_movil_byxlxx.png' alt='paws-logo' />
+<img class='paws-logo' src='https://res.cloudinary.com/dtaq1ip2g/image/upload/v1649083428/logo-removebg-preview_b5cvjq.png' alt='paws-logo' />
 <p>
     PAWS la unica red social que te permite interactuar, publicar y enterarte de las ultimas noticias sobre la proteccion y cuidado de los animales.
 </p>

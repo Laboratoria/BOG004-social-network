@@ -7,8 +7,8 @@ window.addEventListener('hashchange', () => {
   router.loadRoute(router.removeSlash(window.location.hash));
 });
 
-window.addEventListener('popstate', () => {
-  const removePath = router.removeSlash(window.location.pathname);
-  router.loadRoute(removePath);
-});
+// window.addEventListener('popstate', () => {
+//   const removePath = router.removeSlash(window.location.pathname);
+//   router.loadRoute(removePath);
+// });
 // esta seccion de popstate da undefined si console.log router.loadRoute(removePath);

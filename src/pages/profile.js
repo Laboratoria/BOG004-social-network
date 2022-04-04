@@ -3,11 +3,29 @@
 export default {
   path: '#perfil',
   template: `
+  <header class='nav-bar'>
+  <img
+    class='logo-mobile'
+    src='https://res.cloudinary.com/dtaq1ip2g/image/upload/v1646690477/logo_movil_byxlxx.png'
+    alt='pawslogo'
+  />
+  <div id='allPost'>
+  <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
+    <a href='#'><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
+    <a href='#'><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
+  </div>
+</header>
   <div class='container-profile'>
-    <img class='profile' src='images/profile.png' alt='imagen perfil' />
+    <img class='profileImg' src='images/profile.png' alt='imagen perfil' />
     <p class='nameUser'> </p>
     <button class='btnSingOut'>Cerrar Sesión</button>
   </div>
+
+  <footer>
+      <a><i class='fa-solid fa-user' id='userFooter'></i> </a>
+      <a href=''><i class='fa-solid fa-paw'></i> </a>
+      <a href='#'><i class='fa-solid fa-magnifying-glass'></i> </a>
+    </footer>
   
       `,
   state: 'logged',
@@ -15,6 +33,11 @@ export default {
     document.querySelector('.btnSingOut').addEventListener('click', () => {
       sessionStorage.clear();
       window.location.hash = '#';
+    });
+
+    const btnPostFooter = document.querySelector('.fa-paw');
+    btnPostFooter.addEventListener('click', () => {
+      window.location.hash = 'post';
     });
   },
 };
