@@ -11,6 +11,7 @@ import {
   updateLikeBtn,
   auth,
 } from './firebase.js';
+import { async } from 'regenerator-runtime';
 
 export default () => {
   const post = `
@@ -59,7 +60,7 @@ export default () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const task = doc.data();
-      console.log(task);
+      console.log(doc);
       // eslint-disable-next-line no-unused-vars
       html += `
         <div class='commentCreated'>
@@ -96,22 +97,21 @@ export default () => {
     });
   });
 
- const like = commentsContainer.querySelectorAll('#btn-like');// tomamos el valor del selector
+  const like = commentsContainer.querySelectorAll('#btn-like');// tomamos el valor del selector
   like.forEach((btnLike) => {
     btnLike.addEventListener('click', async (e) => {
       const doc = await getComment(e.target.dataset.id);
       const postText = doc.data();
       const likesCount = postText.likesCounter;
-      const userId = auth.currentUser.uid;
-      updateLikeBtn(id, userId) = () => {
-        if (postText.likes.includes(userId)) {
+      updateLikeBtn (id, userLike) = () => {
+        if (likeData.likes.includes(userLike)) { 
           await updateDoc(getLikes, {
-            likes: arrayRemove(userId),
+            likes: arrayRemove(userLike),
             likesCounter: likesCount - 1,
           });
         } else {
-          await updateDoc(doc, {
-            likes: arrayUnion(userId),
+          await updateDoc(getLikes, {
+            likes: arrayUnion(userLike),
             likesCounter: likesCount + 1,
           });
         }
