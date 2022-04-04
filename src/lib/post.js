@@ -11,20 +11,19 @@ import {
   updateLikeBtn,
   auth,
 } from './firebase.js';
-import { async } from 'regenerator-runtime';
 
 export default () => {
   const post = `
 <form id='form-container'>
 <div class = 'navPost'>
-<h1 class = titlePost>PAPYROS</h1>
+<h1 class = 'titlePost'>PAPYRUS</h1>
 <button id="logout">Log out</button>
 </div>
 <figure>
       <img class="IconoPost" src="images/iPhone 13/Logo.png" alt="Icono">
     </figure>
 <div class = 'postContainer'>
-<label for="comment" id = 'commentText'>Postea lo que desees!</label>
+<label for="comment" id = 'commentText'>Comment!</label>
 <textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
 <button type="submit" id="btn-task-save">Publish!</button>
 </div>
@@ -60,20 +59,16 @@ export default () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const task = doc.data();
-      console.log(doc);
       // eslint-disable-next-line no-unused-vars
       html += `
         <div class='commentCreated'>
-        <p class="user-name">${task.name}</p>
+        <p class="user-name">${task.email}</p>
         <input type="button" value="X" id="btn-delete" data-id="${doc.id}">      
         <p class = 'postText'>${task.comment}</p>
         <div class='commentBtns'>
         <input type="button" value="Edit" id="btn-edit" data-id="${doc.id}">
-        <div class="buttons">
-              <button id="btn-like" value='${task.id}'><i class="fas fa-thumbs-up"></i>${task.likesCounter}</button>
+        <button id="btn-like" value='${doc.id}'><i class="fas fa-thumbs-up"></i>${task.likesCounter}</button>
             </div>
-        </div>
-        
         </div> `;
     });
     commentsContainer.innerHTML = html;
@@ -95,55 +90,17 @@ export default () => {
         id = doc.id;
       });
     });
-  });
 
-  const like = commentsContainer.querySelectorAll('#btn-like');// tomamos el valor del selector
-  like.forEach((btnLike) => {
-    btnLike.addEventListener('click', async (e) => {
-      const doc = await getComment(e.target.dataset.id);
-      const postText = doc.data();
-      const likesCount = postText.likesCounter;
-      updateLikeBtn (id, userLike) = () => {
-        if (likeData.likes.includes(userLike)) { 
-          await updateDoc(getLikes, {
-            likes: arrayRemove(userLike),
-            likesCounter: likesCount - 1,
-          });
-        } else {
-          await updateDoc(getLikes, {
-            likes: arrayUnion(userLike),
-            likesCounter: likesCount + 1,
-          });
-        }
-      }
+    const like = commentsContainer.querySelectorAll('#btn-like');
+    like.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        // console.log('se hizo click:', e.target.value);
+        const userId = auth.currentUser.uid;
+        // console.log('userID: ', userId);
+        updateLikeBtn(e.target.value, userId);
+      });
     });
   });
-  /*
-  const count = commentsContainer.querySelectorAll('#count');
-  const likeIcon = commentsContainer.querySelectorAll('#icon');
-  let clicked = false;
-  // button clicked
-  // eslint-disable-next-line no-shadow
-  likeButton.forEach((btn, idx) => {
-    // eslint-disable-next-line no-shadow
-    btn.addEventListener('click', (e) => {
-      console.log(`clicking button ${idx}`);
-      e.preventDefault();
-      if (!clicked) {
-        clicked = true;
-        likeIcon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`;
-        // eslint-disable-next-line no-plusplus
-        count.textContent++;
-      } else {
-        clicked = false;
-        // eslint-disable-next-line quotes
-        likeIcon.innerHTML = `<i class="fa-regular fa-thumbs-up"></i>`;
-        // eslint-disable-next-line no-plusplus
-        count.textContent--;
-      }
-    });
-  });
-*/
 
   const buttonSignOut = taskContainer.querySelector('#logout');
   buttonSignOut.addEventListener('click', (e) => {

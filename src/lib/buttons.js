@@ -1,4 +1,4 @@
-import { googleSignWithPopup } from './firebase.js';
+import { googleSignWithPopup, observer } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { changeView } from './viewController.js';
 
@@ -6,7 +6,7 @@ export default () => {
   const viewButtons = `
 <div class="initView" id="initView">
  <figure>
-        <img class="Nave" src="./images/Nave2.png" alt="Nave">
+        <img class="Nave" src="./images/Nave3.png" alt="Nave">
 </figure>
     <h1 class="branding">EDUCATION IS THE FUTURE <h1><br>
     <a href="#/signUp"><button class="signUp" >SIGN UP</button></a><br>
@@ -28,5 +28,6 @@ export default () => {
         alert(errorMessage);
       });
   });
+  observer();
   return sectionElement;
 };
