@@ -223,9 +223,10 @@ main {
 }
 /* modal */
 #modal-background {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute;
+    top: 0%;
     z-index: 4;
     background-color: rgba(63, 63, 63, 0.664);
     display: none;
@@ -236,7 +237,68 @@ main {
 }
 #modal_post-container {
     display: block;
-    background-color: brown ;
+    background-image: url("./img/background.png");
     width: 300px;
     height: 300px;
+    border: 2px solid #272121;
+
+}
+
+#modal_header {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 65px;
+}
+
+#user_img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#name-container {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.fa-solid {
+    margin-left: 150px;
+    cursor: pointer;
+}
+
+#post-description {
+    margin: auto;
+    margin-top: 20px;
+    width: 260px;
+    height: 150px;
+    border: 2px solid #272121;
+    padding: 0 5px 10px;
+}
+
+.btn-post-inactive {
+    margin: auto;
+    margin-top: 15px;
+    width: 75px;
+    height: 27px;
+    background-color: #272121;
+    color: beige;
+    font-size: 16px;
+    border: 2px solid #272121;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#btn-post-create {
+    width: 75px;
+    height: 30px;
+    background-color: #272121;
+    color: beige;
+    font-size: 16px;
+    border: 2px solid #272121;
+    border-radius: 10px;
+    cursor: pointer;
 }
