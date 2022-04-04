@@ -80,7 +80,7 @@ export const userSignOut = () => signOut(auth).then(() => {
 
 export const saveComment = async (comment) => {
   const date = new Date();
-  const email = auth.currentUser.displayName;
+  const email = auth.currentUser.photoURL;
   const userId = auth.currentUser.uid;
   const likes = [];
   const likesCounter = 0;
@@ -89,7 +89,6 @@ export const saveComment = async (comment) => {
   });
 };
 
-//export const saveComment = (comment) => addDoc(collection(db, 'comments'), { comment, likes: [] });
 export const onGetComments = (callback) => onSnapshot(collection(db, 'comments'), callback);
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));

@@ -63,16 +63,13 @@ export default () => {
       // eslint-disable-next-line no-unused-vars
       html += `
         <div class='commentCreated'>
-        <p class="user-name">${task.name}</p>
+        <p class="user-name">${task.email}</p>
         <input type="button" value="X" id="btn-delete" data-id="${doc.id}">      
         <p class = 'postText'>${task.comment}</p>
         <div class='commentBtns'>
         <input type="button" value="Edit" id="btn-edit" data-id="${doc.id}">
-        <div class="buttons">
-              <button id="btn-like" value='${task.id}'><i class="fas fa-thumbs-up"></i>${task.likesCounter}</button>
+        <button id="btn-like" value='${task.id}'><i class="fas fa-thumbs-up"></i>${task.likesCounter}</button>
             </div>
-        </div>
-        
         </div> `;
     });
     commentsContainer.innerHTML = html;
@@ -103,7 +100,7 @@ export default () => {
       const postText = doc.data();
       const likesCount = postText.likesCounter;
       const userId = auth.currentUser.uid;
-      updateLikeBtn(id, userId) = () => {
+      updateLikeBtn(id, userId) = async () => {
         if (postText.likes.includes(userId)) {
           await updateDoc(getLikes, {
             likes: arrayRemove(userId),
