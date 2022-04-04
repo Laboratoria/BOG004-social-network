@@ -31,11 +31,11 @@ export default () => {
 
   const loginBtn = container.querySelector('#loginBtn');
   loginBtn.addEventListener('click', () => {
-    window.location.hash = '#/login';
+    changeView('#/login');
   });
   const createUsernBtn = container.querySelector('#createUserBtn');
   createUsernBtn.addEventListener('click', () => {
-    window.location.hash = '#/createUser';
+    changeView('#/createUser');
   });
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();

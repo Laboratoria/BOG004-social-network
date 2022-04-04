@@ -31,7 +31,7 @@ const showErrorAuth = (error) => {
 };
 
 export const login = (email, password) => {
-  singIn(email, password)
+  return singIn(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       if (user.emailVerified) {
