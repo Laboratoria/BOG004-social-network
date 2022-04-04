@@ -24,7 +24,6 @@ import {
   updateDoc,
   serverTimestamp,
   query, orderBy,
-  onAuthStateChanged,
 } from './firebase.util.js';
 
 // import profile from '../pages/profile.js';
@@ -69,7 +68,6 @@ export const signInEmail = (email, password, name) => {
       const errorMessage = error.message;
       console.log(errorCode);
       console.log(errorMessage);
-
       // ..
     });
 };
@@ -83,10 +81,10 @@ export const signInGoogle = () => {
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       // console.log(credential);
-      // const token = credential.accessToken;
+      const token = credential.accessToken;
       const user = result.user;
       // console.log(user.uid);
-      // sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
       sessionStorage.setItem('user', JSON.stringify(user));
       window.location.hash = 'post';
       // ...
@@ -143,7 +141,6 @@ export const getState = () => {
 //     if (user) {
 //       const uid = user.uid;
 //     } else {
-      
 //     // User is signed out
 //     // ...
 //     }

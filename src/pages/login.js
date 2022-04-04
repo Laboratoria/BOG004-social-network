@@ -8,7 +8,7 @@ export default {
   </div>
     <div class='container-form'>
       <form action='' class='form' id='form'>
-      <p class='p-login'>Inicia sesión.</p>
+      <p class='p-login'>Inicia Sesión</p>
       <div class='form__group' id='group__email'>
         <div class='form__group-input'>
           <input type='email' class='form__input' name='emailLogin' id='emailLogin' placeholder='correo@email.com'>

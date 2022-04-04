@@ -44,7 +44,7 @@ a p {
 form p {
   width: 100%;
   height: 100%;
-  background-color: white;
+  /* background-color: white; */
   font-family: "Secular One", sans-serif;
   color: #2e2c2f;
   text-align: center;
@@ -105,7 +105,6 @@ form p {
 }
 
 .no404 {
-  /* background: red; */
   margin-top: 250px;
 }
 
@@ -133,16 +132,6 @@ form p {
   left: 0;
 }
 
-/* #container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-grow: 1;
-} */
-
 .container-form {
   width: 85vw;
   height: auto;
@@ -161,7 +150,6 @@ form {
   align-items: center;
   width: 100%;
   justify-content: space-around;
-  /* line-height: 3; */
 }
 
 
@@ -183,12 +171,6 @@ form {
   color: white;
 }
 
-/* .google {
-  border: 1px solid red;
-  background-color: rgb(211, 208, 208);
-
-} */
-
 #btnSignInGoogle {
   margin-top: 5%;
   font-size: 1.1em;
@@ -199,11 +181,9 @@ form {
   border-radius: 15em;
   padding: 0.6em 1em;
   cursor: pointer;
-  /* position: absolute;
-  right: 25%; */
 }
 .p-login{
-  font-size: 18px;
+  font-size: 24px;
 }
 .form__group-input {
   position: relative;
@@ -217,23 +197,10 @@ form {
   text-align: center;
   border: none;
   border-bottom: 3px outset whitesmoke;
-  /* border-radius: 3px red; */
   height: 45px;
-  /* line-height: 45px; */
   padding: 0 40px 0 40px;
   transition: 0.3s ease all;
 }
-
-/*
-form input {
-  line-height: 3;
-  margin-bottom: 8px;
-  border: none;
-  text-align: center;
-  border-bottom: 3px outset #898f8498;
-  width: 100%;
-  font-size: 1em;
-} */
 
 .form__input:focus {
   border: 3px solid #0075ff;
@@ -260,12 +227,6 @@ form input {
   opacity: 0;
 }
 
-/* .form__group-terms,
-.form__message,
-.form__group-btn-send {
-	grid-column: span 2;
-} */
-
 .form__message {
   height: 45px;
   line-height: 45px;
@@ -288,23 +249,6 @@ form input {
   flex-direction: column;
   align-items: center;
 }
-
-/* .form__btn {
-	height: 45px;
-	line-height: 45px;
-	width: 30%;
-	background: #000;
-	color: #fff;
-	font-weight: bold;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
-	transition: .1s ease all;
-} */
-
-/* .form__btn:hover {
-	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-} */
 
 .form__message-success {
   font-size: 12px;
@@ -422,8 +366,9 @@ footer i {
 }
 
 .singlePost_footer{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px;
   justify-content: space-between;
   margin-bottom: 10px;
 }
@@ -432,8 +377,8 @@ footer i {
   background-color: transparent;
   display: flex;
   justify-content: space-between;
-  width: 25%;
-  margin-left: 10px;
+  width: 20%;
+  margin-left: 15px;
 }
 
 .singlePost_footer p{
@@ -454,7 +399,6 @@ footer i {
 .form__postCreate-text {
   background-color: #dddddd8a;
   color: black;
-  /* padding: 1em; */
   border-radius: 10px;
   border: 2px solid transparent;
   outline: none;
@@ -466,11 +410,6 @@ footer i {
   height: 200px;
   transition: all 0.2s;
 }
-
-/* .form__postCreate-text:hover {
-  cursor: pointer;
-  background-color: #eeeeee;
-} */
 
 ::placeholder {
   color: black;
@@ -491,14 +430,6 @@ footer i {
     display: none;
 }
 
-/* .select-post {
-  background-color: yellowgreen;
-  border-radius: 15em;
-  font-size: 0.8rem;
-  cursor: pointer;
-  font-weight: bolder;
-} */
-
 #btn-publicar, .select-post {
 
   padding: 0.5em 0.3em;
@@ -514,11 +445,17 @@ footer i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+ 
 }
-.profile{
-  margin-top: 30%;
-  width: 50%;
+.profileImg{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
+
 .nameUser{
   font-size: 1em;
 }
@@ -530,12 +467,13 @@ footer i {
 
   body {
     height: 100vh;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
+    background: rgba(58, 2, 95, 0.52);
+    
+    /* background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 1) 3%,
-      rgba(138, 234, 146, 0.9976365546218487) 68%
-    );
+      rgba(1, 50, 1, 0.752) 100%
+    ); */
   }
   /* post */
   .container-publicar {
@@ -547,12 +485,27 @@ footer i {
   .container-post{
     width: 300px;
     margin-top: 15%;
-}
-#btn-publicar {
+  }
 
-    padding: 0.5em 0.3em;
+  #btn-publicar, .select-post {
+    background-color: #8aea92;
+    padding: 0.8em auto;
     border-radius: 15em;
     font-size: 0.9rem;
+  }
+  .singlePost_button {
+    background: transparent;
+
+  }
+  .container-profile {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 5%;
+    background-color: white;
+  }
+
+  .btnImage {
+    background-color: transparent;
   }
 
   .paws-image .paws {
@@ -566,6 +519,7 @@ footer i {
   .modal {
     margin-top: 15vh;
     width: 40vw;
+    background-color: rgba(211, 211, 211, 0.789);
     height: auto;
     position: absolute;
     right: 0;
@@ -574,7 +528,8 @@ footer i {
   }
   .modal .paws-logo {
     visibility: visible;
-    box-shadow: 0px 0px 16px 16px #8aea92;
+    box-shadow: 0px 0px 16px 16px #8aea92b4;
+    background-color: rgba(245, 245, 245, 0.472);
     border-radius: 3.12rem;
     position: absolute;
     top: 5%;
@@ -600,10 +555,53 @@ footer i {
     position: absolute;
     top: 25vh;
     right: 10vw;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+    box-shadow: 0 3px 10px rgba(241, 239, 239, 0.2);
     border-radius: 10px;
-    background-color: white;
+    /* background-color: white; */
+    background-color: rgba(211, 211, 211, 0.789);
   }
+
+  form p{
+    background-color: rgba(211, 211, 211, 0.789);
+  }
+
+  .form__input {
+    background-color: rgba(255, 255, 255, 0.526);  
+    border-radius: 20px;  
+   
+  }
+  .container-publicar {
+    height: auto;
+    width: auto;
+  }
+
+  .container-post{
+    width: 80vw;
+  }
+
+  .form__postCreate-text {
+    width: 80vw;
+    height: 15vh;
+    
+  }
+  .singlePost_container {
+    background: rgba(245, 245, 245, 0.787);
+  }
+
+  .clip {
+    background-color: transparent;
+  }
+  
+  
+.option-post{  
+    
+    width:25%
+}
+  #post-list{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+  }
+  
   .nav-bar {
     display: flex;
     align-items: center;

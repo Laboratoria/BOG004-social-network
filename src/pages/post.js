@@ -7,8 +7,6 @@ import {
   auth,
 } from '../lib/firebase.js';
 
-
-
 export default {
   path: '#post',
   template: `
@@ -21,7 +19,6 @@ export default {
   <div id='allPost'>
     <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
     <a href='#'><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
-    <!-- <a href='#'><i class='fa-solid fa-circle-chevron-up fa-3x'><p>Post</p></i> </a> -->
     <a href='#'><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
   </div>
 </header>
@@ -84,24 +81,30 @@ export default {
         let buttons = '';
         const heartIcon = postData.userlikes.includes(userid) ? 'fa-solid' : 'fa-regular';
         if (postData.userId === userid) {
-          buttons = `<button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
+          buttons = `<div class="singlePost_button">
+                      <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-trash-can'></i></button>
+                     </div>
+                      <div class="singlePost_button">
                       <button class="btnImage"><i data-id='${doc.id}' class='fa-solid fa-pen-to-square'></i></button>
+                      </div>                
       `;
         }
         // console.log(doc.id);
         html += `<div class="singlePost_container">
                     <img class="singlePost_img" src="images/animalsBackground.png" alt="imagenPost">
                     <div class="singlePost_footer">
-                    <div class="singlePost_button">
-                      <button class="btnImage"><i data-id='${doc.id}' class='${heartIcon} fa-heart'></i></button>
-                      <p class="countLikes">${postData.countLike}</p>
-                      ${buttons} 
-                    </div>
-                    <p>#Especie</p>
+                      <div class="singlePost_button">
+                        <button class="btnImage"><i data-id='${doc.id}' class='${heartIcon} fa-heart'></i></button>
+                        <p class="countLikes">${postData.countLike}</p>
+                        ${buttons} 
+                      </div>
+                      <div>
+                        <p>#Especie</p>
+                      </div>  
                     </div>
                     <div class="singlePost_header">
                       <p class="singlePost">${postData.postDescription}</p>
-                    </div>
+                    </div>         
                   </div>`;
       });
       postList.innerHTML = html;

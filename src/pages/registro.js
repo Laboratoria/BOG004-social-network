@@ -55,7 +55,11 @@ export default {
       const name = document.querySelector('#name').value;
       const email = document.querySelector('#email').value;
       const password = document.querySelector('#password').value;
-      signInEmail(email, password, name);
+      if (name && email && password) {
+        signInEmail(email, password, name);
+      } else {
+        alert('Los campos no pueden estar vacios');
+      }
     });
 
     const validarForm = (e) => {
