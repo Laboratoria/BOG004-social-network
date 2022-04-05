@@ -1,4 +1,4 @@
-import { googleSignWithPopup, observer } from './firebase.js';
+import { googleSignWithPopup } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { changeView } from './viewController.js';
 
@@ -28,6 +28,6 @@ export default () => {
         alert(errorMessage);
       });
   });
-  observer();
+
   return sectionElement;
 };

@@ -40,7 +40,7 @@ const dataBase = getDatabase(app);
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-/*export const observer = onAuthStateChanged(auth, (user) => {
+/* export const observer = onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
@@ -54,7 +54,7 @@ const provider = new GoogleAuthProvider();
     // User is signed out
     // ...
   }
-});*/
+}); */
 
 export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then(
@@ -98,10 +98,12 @@ export const userSignOut = () => signOut(auth).then(() => {
 export const saveComment = async (comment) => {
   const date = new Date();
   const email = auth.currentUser.photoURL;
+  const name = auth.currentUser.displayName;
   const userId = auth.currentUser.uid;
+  const usersLikes = [];
   const likesCounter = 0;
   await addDoc(collection(db, 'comments'), {
-    comment, date, email, userId, likesCounter,
+    comment, date, email, userId, usersLikes, likesCounter, name,
   });
 };
 
@@ -115,15 +117,21 @@ export const updateLikeBtn = async (id, userLike) => {
   const getPost = await getComment(id);
   // console.log('getPost: ', getPost.data());
   // console.log('getPost likescounter: ', getPost.data().likesCounter);
+  const uLike = getPost.data().usersLikes;
+  console.log('este es el array de usuario', uLike);
   const likesCount = getPost.data().likesCounter;
 
-  if ((userLike === getPost.data().userId) && likesCount === 0) {
-    console.log('es 0');
-    updateComment(id, { likesCounter: likesCount + 1 });
-  }
-
-  if ((userLike === getPost.data().userId) && likesCount === 1) {
-    // likesCount ++
-    updateComment(id, { likesCounter: likesCount - 1 });
+  if (uLike.includes(userLike)) {
+    console.log('Contiene el usuario, se remueve el usuario del array');
+    await updateComment(id, {
+      usersLikes: arrayRemove(userLike),
+      likesCounter: likesCount - 1,
+    });
+  } else {
+    console.log('No contiene el usuario, se agrega el usuario al array');
+    await updateComment(id, {
+      usersLikes: arrayUnion(userLike),
+      likesCounter: likesCount + 1,
+    });
   }
 };
