@@ -1,45 +1,37 @@
-// import signUp from '../../src/view/login.js';
-// import { login } from '../../src/lib/auth.js'
-
-// jest.mock('../../src/lib/firebase-utils.js');
-
-
-// // describe('signUp', () => {
-// //     it('Permite logear correctamente al usuario', () => {
-// //       const email = 'maria@gmail.com';
-// //       const password = '123456';
-// //     })
-// // });
+import signUp from '../../src/view/login.js';
+import { signInWithPopup, signInWithEmailAndPassword } from '../../src/lib/firebase-utils.js';
+import { login } from '../../src/lib/auth.js';
 
 
-// describe('signUp', () => {
-//   it('retorna usuario incorrecto', (done) => {
-//     document.body.innerHTML = '<p id="messageAlert"></p>';
-//     // const email = sign.querySelector('#loginEmail');
-//     // const pass = sign.querySelector('#loginPassword');
+jest.mock('../../src/lib/firebase-utils.js');
 
-//     // email.value = 'emailemailcom';
-//     // pass.value = 'password';
-//     const email = 'emailemailcom';
-//     const password = 'password';
+describe('Pruebas Unitarias Login', () => {
+    // test('Al hacer click en botón de google, se ejecuta la función "signInWithPopup"', async () => {
+    //     const container = signUp();
+    //     const googleBtn = container.querySelector('.googleLogo');
+    //     googleBtn.dispatchEvent(new Event('click'));
+    //     await signInWithPopup.mockResolvedValue();
+    //     // expect(window.location.port).toBe('/');
+    // });
+    it('muestra un mensaje de alerta ', async () => {
+        const container = signUp();
+        // const email = container.querySelector('#loginEmail');
+        // const pass = container.querySelector('#loginPassword');
+        const alert = container.querySelector('#messageAlert');
 
-//     // const submit = sign.querySelector('#login-form');
-//     // submit.dispatchEvent(new Event('submit'));
-//     // const result = await login(email.value, pass.value);
-//     // expect(result.status).toBe(true);
+        const email = 'mariagmail.com';
+        const pass = '123456';
 
-//     // const submit2 = login.querySelector('#btnLogin');
-//     // submit.dispatchEvent(new Event('submit'));
+        const getInto = container.querySelector('#btnLogin');
 
-//     // console.log(email.value, pass.value);
-//     // expect.assertions(1);
-//     const sign = signUp();
+        getInto.dispatchEvent(new Event('click'));
+        login(email, pass);
+        console.log(email, pass);
+        // console.log(alert.textContent);
+        // expect(alert.textContent).toBe('hola');
 
-//     login(email, password)
-//           .then(() => {
-//           const alert = document.querySelector('#messageAlert');
-//           expect(alert.textContent).toBe('Usuario incorrecto');
-//           done();
-//       });
-//   });
-// });
+    });
+    it.only('Login debería ser una función', () => {
+        expect(typeof login).toBe('function');
+    });
+});

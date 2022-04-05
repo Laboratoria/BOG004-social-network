@@ -1,9 +1,22 @@
-// import { createFormUser, saveUser } from '../../src/view/register.js';
-// import { register } from '../../src/lib/auth.js';
+import { createFormUser, saveUser } from '../../src/view/register.js';
+import { register } from '../../src/lib/auth.js';
 
-// jest.mock('../../src/lib/firebase-utils.js');
+jest.mock('../../src/lib/firebase-utils.js');
 
-// describe('register', () => {
+describe('register', () => {
+    it.only('deberia retornar Correo Invalido para el caso auth/invalid-email', (done) => {
+        const email = 'testgmailcom';
+        const password = '123456';
+
+        const createUserDOM = createFormUser();
+      const saveUserDOM = saveUser();
+
+        register(email, password)
+            .then(() => {
+                const notification = createUserDOM.querySelector('#message');
+                expect(notification.innerText).toBe('El correo es inválido');
+                done();
+            })
 //     // it('', () => {
 //     //   const createUserDOM = createFormUser();
 //     //   const saveUserDOM = saveUser();
@@ -26,5 +39,5 @@
 //           done();
 //         })
 //     })
-//   });
-
+    });
+})
