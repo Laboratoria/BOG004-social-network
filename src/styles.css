@@ -244,6 +244,13 @@ main {
 
 }
 
+.post-container {
+    width: 500px;
+    height: 200px;
+    background-color: aquamarine;
+    
+}
+
 #modal_header {
     display: flex;
     align-items: center;
@@ -286,6 +293,19 @@ main {
     height: 27px;
     background-color: #272121;
     color: beige;
+    font-size: 16px;
+    border: 2px solid #272121;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-post-inactive :disabled,
+.btn-post-inactive[disabled]{
+    margin: auto;
+    margin-top: 15px;
+    width: 75px;
+    height: 27px;
+    background-color: beige;
+    color: #272121;
     font-size: 16px;
     border: 2px solid #272121;
     border-radius: 10px;
