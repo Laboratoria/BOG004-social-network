@@ -7,6 +7,7 @@ import {
   getDocs,
   deleteDoc,
   doc,
+  getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -34,6 +35,7 @@ export {
   getDocs,
   deleteDoc,
   doc,
+  getDoc,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use
