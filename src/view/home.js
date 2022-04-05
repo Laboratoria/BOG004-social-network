@@ -40,12 +40,11 @@ export default () => {
   const googleButton = container.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();
   googleButton.addEventListener('click', async () => {
-    let respuesta = await authGoogle(provider)
-    console.log('respuesta', respuesta)
+    const respuesta = await authGoogle(provider);
     if (respuesta === true) {
       changeView('#/feed');
     } else {
-      console.log('error al iniciar sesión')
+      console.log(respuesta);
     }
   });
   return container;

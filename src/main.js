@@ -4,9 +4,7 @@
 // import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { changeView } from './view-controler/router.js';
 
-// obtenerRecetas(baseDeDatos).then((recetas) => {
-//   console.log(recetas);
-// });
+
 
 const init = () => {
   changeView(window.location.hash);

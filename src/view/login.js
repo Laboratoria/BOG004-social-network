@@ -28,7 +28,7 @@ export default () => {
     const email = divLogin.querySelector('#loginEmail').value;
     const password = divLogin.querySelector('#loginPassword').value;
     console.log(email, password);
-    login(email, password); 
+    login(email, password);
   });
   const googleButton = divLogin.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();

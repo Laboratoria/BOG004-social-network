@@ -1,12 +1,10 @@
-import { saveRecipe } from '../lib/firebase-base-de-datos.js';
+import { getRecipes, saveRecipe } from '../lib/firebase-base-de-datos.js';
 
 export default () => {
   const menuMobile = document.getElementById('navMobile');
   menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
   document.querySelector('#sectionGrid').style.display = 'grid';
-
-  // consultar todas las recetas y crear cada caja de la receta;
 
   const search = `
   <div class='searchFeed'>
@@ -35,7 +33,8 @@ export default () => {
   `;
 
   const divFeed = document.createElement('div');
-  divFeed.innerHTML = search + createRecipeForm;
+  divFeed.setAttribute('id', 'containerRecipe');
+  divFeed.innerHTML = `${search} <div id="container-recipes"></div>${createRecipeForm}`;
 
   const taskForm = divFeed.querySelector('#task-form');
   taskForm.addEventListener('submit', (e) => {
@@ -44,6 +43,30 @@ export default () => {
     const description = taskForm['task-description'];
     saveRecipe(title.value, description.value);
     taskForm.reset();
+  });
+
+  // consultar todas las recetas y crrear cada caja de la receta;
+
+  getRecipes().then((recipes) => {
+    let recipesToShow = '';
+    console.log(recipes);
+    recipes.forEach((recipe) => {
+      recipesToShow += `
+    <div class="box-recipe">
+      <h2>${recipe.title}</h2>
+      <hr>
+      <p>${recipe.description}</p>
+      <button class='deleteRecipe'>Eliminar</button>
+    </div>`;
+      const recipesContainer = divFeed.querySelector('#container-recipes');
+      recipesContainer.innerHTML = recipesToShow;
+      const BtnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
+      BtnDelete.forEach(btn => {
+        btn.addEventListener('click', () => {
+          console.log('Eliminado');
+        })
+      })
+    });
   });
 
   return divFeed;

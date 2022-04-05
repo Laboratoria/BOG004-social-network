@@ -375,6 +375,18 @@ input:focus {
 .formtext img{
   margin-bottom: 10px;
 }
+#container-recipes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red; 
+  padding: 5px;
+  margin: 5px;
+}
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
   body {
@@ -403,7 +415,7 @@ input:focus {
 
   #menuHtml {
     padding: 20px 0px 20px 0px;
-    height: 87vh;
+    height: 100%;
   }
 
   #sectionGrid {
