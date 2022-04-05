@@ -224,6 +224,14 @@
         border-radius: 5px;
         border: thin solid rgb(245, 136, 28) ;
       }
+      #update-postIt{
+        display: none;
+        background: rgb(245, 136, 28);
+        width: 80px;
+        height: 30px;
+        border-radius: 5px;
+        border: thin solid rgb(245, 136, 28) ;
+      }
 
       
       #postIt-description{

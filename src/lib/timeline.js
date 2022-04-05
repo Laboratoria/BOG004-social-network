@@ -1,5 +1,5 @@
 import {
-  close, savingPost, onGettingPost, deletePosts, getPost,
+  close, savingPost, onGettingPost, deletePosts, getPost, updatePost,
 } from '../firebase.js';
 
 export default () => {
@@ -12,6 +12,7 @@ export default () => {
       <textarea id= "postIt-description" rows= "3" placeholder= "What do you want to share?"></textarea>
 
       <button type="button" id="save-postIt">Post!</button>
+      <button type="button" id="update-postIt" style="display: none">Update!</button>
       <br>
       
 
@@ -22,17 +23,11 @@ export default () => {
 
   const divElement = document.createElement('div');
   divElement.innerHTML = viewTimeline;
-  let editStatus = false;
 
   // Saving posts
   divElement.querySelector('#save-postIt').addEventListener('click', () => {
     const postIt = document.getElementById('postIt-description').value;
-
-    if (editStatus) {
-      console.log('updating');
-    } else {
-      savingPost(postIt);
-    }
+    savingPost(postIt);
 
     const posts = document.getElementById('post-form');
     posts.reset();
@@ -74,18 +69,24 @@ export default () => {
     // Editing posts
     const editPostIt = postContainer.querySelectorAll('.btnedit-postIt');
     const posts = document.getElementById('postIt-description');
-    const postForm = document.getElementById('post-form');
 
     editPostIt.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const doc = getPost(e.target.dataset.id);
         doc.then((response) => {
-          const postData = response.data();
+          posts.value = response.data().postIt;
+          divElement.querySelector('#save-postIt').style.display = 'none';
+          divElement.querySelector('#update-postIt').style.display = 'inline-block';
 
-          posts[e.target.dataset.id] = postData.postIt;
-          postForm['postIt-description'].value = posts.description;
+          divElement.querySelector('#update-postIt').onclick = () => {
+            const uPost = document.getElementById('postIt-description').value;
+            updatePost(e.target.dataset.id, { postIt: uPost });
 
-          editStatus = true;
+            const postForm = document.getElementById('post-form');
+            postForm.reset();
+            divElement.querySelector('#save-postIt').style.display = 'inline-block';
+            divElement.querySelector('#update-postIt').style.display = 'none';
+          };
         });
       });
     });
