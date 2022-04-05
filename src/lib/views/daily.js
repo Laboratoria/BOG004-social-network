@@ -15,7 +15,7 @@ export default () => {
         <div id='modal_header'>
           <img id='user_img' src='./img/Icono_Harry.png'>
           <div id='name-container'>Wizard</div>
-          <i class="fa-solid fa-xmark" id="fa-solid"></i>
+          <i class="fa-solid fa-xmark" id="close"></i>
         </div>
         <div id='line'>
           <div id='text-container'>
@@ -62,7 +62,7 @@ export default () => {
 
 
   // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#fa-solid'); 
+  let modalClose = divDaily.querySelector('#close'); 
   modalClose.addEventListener('click',()=>{
     console.log('Close');
     background.style.display= "none";
