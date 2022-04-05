@@ -9,6 +9,7 @@ export default () => {
     <img id='Banner_img' src='./img/title.png'>
   </header>
   <main>
+    <button type='button' id='btn-post-create'>create +</button> 
     <div id='modal-background'>
       <form id='modal_post-container' class="post-container">
         <div id='modal_header'>
@@ -28,7 +29,7 @@ export default () => {
     </div>       
   </main>
   <footer id='create-post'>
-    <button type='button' id='btn-post-create'>create +</button> 
+    
   </footer>
   `;
   divDaily.innerHTML = viewDaily;
@@ -53,8 +54,7 @@ export default () => {
     e.preventDefault();
     const formPublicationContent = formPublication['post-description'];
     createPost(formPublicationContent.value);
-    modalPost.reset();
-    
+    modalPost.reset();    
   });
 
   const postController = () => {
@@ -62,17 +62,21 @@ export default () => {
     const querySnapshot = getPost();
     //función para leer las publicaciones en tiempo real 
     querySnapshot.then((response) => {
-       let postTemplate = '';
-       response.forEach((doc) => {
-       console.log(`${doc.id} => ${doc.data().postDescription}`);
-       postTemplate += `
+      let postTemplate = '';
+      response.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().postDescription}`);
+      postTemplate += `
           <div id='post-container' class="post-container"> 
+            <div id='post-container-header' class='post-container-header'>
+              <img id='user_img' src='./img/Icono_Harry.png'>
+              <div id='name-container'>Wizard</div>
+              <div class='btn-post-container'></div>
+            </div>  
             <p>${doc.data().postDescription}</p>       
           </div>    
-          `;
-          
-     });
-     postContainer.innerHTML = postTemplate;
+          `;          
+    });
+    postContainer.innerHTML = postTemplate;
     });
     readAllPost(querySnapshot);
   };
@@ -97,32 +101,6 @@ export default () => {
       btnSave.disabled = false; // boton publicar activo
     }
   });
-
-  // const postController = () => {
-  //   const postContainer = divDaily.querySelector('#post-container');
-  //   const postData = readPost();
-  //   console.log('postData: ', postData.length);
-  //   postData.forEach(element => {
-  //     console.log('ele', element)
-      
-  //   });
-    
-      // // let postStructure = '';
-      // // snapShopResult.foreach((doc) => {
-      // //   //const post= doc.data();
-      //   postStructure += `
-      //   <div id='post-container' class="post-container"> 
-      //     <p>${post.postDescription}</p>       
-      //   </div>    
-      //   `;
-      // });
-    //   postContainer.innerHTML = postStructure.join("");
-    // });  
-    // readPost();
-  // };
-  // postController();
-  
-  
 
   // btnSave.addEventListener('click', (e) => {
   //   e.preventDefault()

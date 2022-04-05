@@ -71,10 +71,10 @@ export default () => {
   });
 
   const googleBotton = divLogin.querySelector('#googleButton');
-  googleBotton.addEventListener('click', (event) => {
-    event.preventDefault();
+  googleBotton.addEventListener('click', (e) => {
+    e.preventDefault();
     console.log('Click en Google');
-    loginGoogle(provider)
+    loginGoogle()
       .then(() => {
         window.location.hash = '#/daily';
       });
