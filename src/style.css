@@ -352,9 +352,21 @@ footer i {
 .singlePost{
   background: rgba(245, 245, 245, 0.521);
   color: black;
-  display: inline;
+  /* display: inline; */
   border-radius: 10px;
   font-family: 'Mulish', sans-serif;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+}
+
+.singlePost:hover{
+  display: inline;
+  cursor: default;
 }
 
 .singlePost_header{
@@ -397,7 +409,7 @@ footer i {
 }
 
 .form__postCreate-text {
-  background-color: #dddddd8a;
+  background-color: white;
   color: black;
   border-radius: 10px;
   border: 2px solid transparent;
@@ -465,9 +477,32 @@ footer i {
     display: block;
   }
 
+ /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #8f54a0 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #8f54a0;
+    border-radius: 10px;
+    border: 3px double #ffffff;
+  }
+
   body {
     height: 100vh;
-    background: rgba(58, 2, 95, 0.52);
+    /* background: rgba(105, 109, 237, 0.535);  fondo azul*/
+    background: rgba(182, 114, 228, 0.364);
     
     /* background: linear-gradient(
       180deg,
@@ -555,7 +590,8 @@ footer i {
     position: absolute;
     top: 25vh;
     right: 10vw;
-    box-shadow: 0 3px 10px rgba(241, 239, 239, 0.2);
+    box-shadow: 0 3px 3px 10px hwb(0 4% 96%);
+    /* box-shadow: 0 3px 10px rgba(241, 239, 239, 0.2); */
     border-radius: 10px;
     /* background-color: white; */
     background-color: rgba(211, 211, 211, 0.789);
@@ -585,7 +621,16 @@ footer i {
     
   }
   .singlePost_container {
-    background: rgba(245, 245, 245, 0.787);
+    /* background: rgba(245, 245, 245, 0.787); AQUI MODIFIQUE*/
+    background-color: rgba(255, 255, 255, 0.871);
+  }
+
+  .singlePost_container:hover {
+    background: whitesmoke;
+    padding: 5px;
+    box-shadow: 0 0 30px rgba(227, 220, 25, 0.623);
+    transform: translateY(-1%);
+    transition: all 200ms ease-out;
   }
 
   .clip {
@@ -600,6 +645,9 @@ footer i {
   #post-list{
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
+    grid-gap: 1rem;
+    margin-top: 5%;
+    
   }
   
   .nav-bar {
