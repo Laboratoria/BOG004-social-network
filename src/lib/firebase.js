@@ -20,8 +20,7 @@ import {
   updateDoc,
   getDatabase,
   initializeApp,
-  arrayUnion,
-  arrayRemove,
+  onAuthStateChanged,
 } from './firebase-imports.js';
 
 const firebaseConfig = {
@@ -38,6 +37,22 @@ const db = getFirestore();
 const dataBase = getDatabase(app);
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
+
+/*export const observer = onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    console.log(user);
+    const uid = user.uid;
+    //return user;
+    // ...
+  } else {
+    console.log('No hay nadie conectado');
+    // return false;
+    // User is signed out
+    // ...
+  }
+});*/
 
 export const SignUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then(
@@ -82,10 +97,9 @@ export const saveComment = async (comment) => {
   const date = new Date();
   const email = auth.currentUser.photoURL;
   const userId = auth.currentUser.uid;
-  const likes = [];
   const likesCounter = 0;
   await addDoc(collection(db, 'comments'), {
-    comment, date, email, userId, likes, likesCounter,
+    comment, date, email, userId, likesCounter,
   });
 };
 
@@ -93,4 +107,21 @@ export const onGetComments = (callback) => onSnapshot(collection(db, 'comments')
 export const deleteComment = (id) => deleteDoc(doc(db, 'comments', id));
 export const getComment = (id) => getDoc(doc(db, 'comments', id));
 export const updateComment = (id, newFileds) => updateDoc(doc(db, 'comments', id), newFileds);
-export const updateLikeBtn = (id, userLike) => updateDoc(doc(db, 'comments', id), userLike);
+
+export const updateLikeBtn = async (id, userLike) => {
+  // console.log('recibe id y uid: ', id, userLike);
+  const getPost = await getComment(id);
+  // console.log('getPost: ', getPost.data());
+  // console.log('getPost likescounter: ', getPost.data().likesCounter);
+  const likesCount = getPost.data().likesCounter;
+
+  if ((userLike !== getPost.data().userId) && likesCount === 0) {
+    console.log('es 0');
+    updateComment(id, { likesCounter: likesCount + 1 });
+  }
+
+  if ((userLike !== getPost.data().userId)) {
+    // likesCount ++
+    updateComment(id, { likesCounter: likesCount + 1 });
+  }
+};

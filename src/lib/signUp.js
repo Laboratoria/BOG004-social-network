@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { SignUpUser, saveComment } from './firebase.js';
+import { SignUpUser } from './firebase.js';
 import { changeView } from './viewController.js';
 
 export default () => {
@@ -27,7 +27,7 @@ export default () => {
     e.preventDefault();
     const email = signUpContainer.querySelector('#emailSignUp').value;
     const password = signUpContainer.querySelector('#passwordSignUp').value;
-    //const nickname = signUpContainer.querySelector('#nickname').value;
+    // const nickname = signUpContainer.querySelector('#nickname').value;
     const errorM = signUpContainer.querySelector('.errorZ');
     const regexDominio = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
 
