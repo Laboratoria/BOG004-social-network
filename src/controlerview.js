@@ -68,7 +68,6 @@ function registerAddPost() {
     thinksUserEdit.value = '';
   });
 }
-
 export {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession,
   getPostList, registerAddPost, doLike,

@@ -94,11 +94,7 @@ const signInWithGoogle = () => {
     });
 };
 
-/* FIRESTORE
- * Esta funcion va a conectarse a firestore
- * Luego con el resultado que es una suscripcion (aun no sabes)
- * va a pintar en pantalla el resultado
- */
+/* FIRESTORE */
 
 const getPostList = async () => {
   const db = getFirestore();
@@ -130,8 +126,8 @@ const getPostList = async () => {
         </section>
         <div class="posticons">
         <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon"></i>
-        <i class="fa-solid fa-comment posticon"></i>
-        <i class="fa-solid fa-bookmark posticon"></i>
+        <i class="fa-solid fa-pen-to-square posticon"></i>
+        <i class="fa-solid fa-trash-can posticon"></i>
         </div>
       
     `;
