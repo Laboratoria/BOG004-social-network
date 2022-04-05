@@ -48,29 +48,7 @@ export default () => {
   })
 
   // const modalForm = divDaily.querySelector('#modal_post-container');
-<<<<<<< HEAD
-  const btnSave = divDaily.querySelector('#btn-post-save');
-
-  btnSave.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log('Saved');
-    
-    createPost(postDescription.value);
-    
-    modalPost.reset();
-  });
-
-
-  // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#close'); 
-  modalClose.addEventListener('click',()=>{
-    console.log('Close');
-    background.style.display= "none";
-    modalPost.style.display= "";
-  });
-=======
   
->>>>>>> baba7f607110d1f61bab3fde5deb6117e64b0a3c
 
   const formPublication = divDaily.querySelector('#modal_post-container');
 
