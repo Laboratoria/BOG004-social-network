@@ -1,4 +1,4 @@
-import { getRecipes, saveRecipe } from '../lib/firebase-base-de-datos.js';
+import { saveRecipe, onGetRecipes, deleteRecipe, editeRecipe } from '../lib/firebase-base-de-datos.js';
 
 export default () => {
   const menuMobile = document.getElementById('navMobile');
@@ -46,28 +46,43 @@ export default () => {
   });
 
   // consultar todas las recetas y crrear cada caja de la receta;
-
-  getRecipes().then((recipes) => {
+  const data = onGetRecipes((querySnapshot) => {
     let recipesToShow = '';
-    console.log(recipes);
-    recipes.forEach((recipe) => {
+
+    querySnapshot.forEach((recipe) => {
       recipesToShow += `
-    <div class="box-recipe">
-      <h2>${recipe.title}</h2>
-      <hr>
-      <p>${recipe.description}</p>
-      <button class='deleteRecipe'>Eliminar</button>
-    </div>`;
+      <div class="box-recipe">
+        <h2>${recipe.data().title}</h2>
+        <hr>
+        <p>${recipe.data().description}</p>
+        <button class='deleteRecipe' id='${recipe.id}'>Eliminar</button>
+        <button class='editRecipe' id='${recipe.id}'>Editar</button>
+      </div>`;
       const recipesContainer = divFeed.querySelector('#container-recipes');
       recipesContainer.innerHTML = recipesToShow;
-      const BtnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
-      BtnDelete.forEach(btn => {
-        btn.addEventListener('click', () => {
-          console.log('Eliminado');
-        })
-      })
+
+      const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
+      btnDelete.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+          deleteRecipe(event.target.id);
+        });
+      });
+      
+      // const recipeForm = recipesContainer.querySelector('#task-form');
+      let titleRecipe = divFeed.querySelector('#task-title');
+      let descriptionRecipe = divFeed.querySelector('#task-description');
+      const btnEdit = recipesContainer.querySelectorAll('.editRecipe');
+      btnEdit.forEach(btn => {
+        btn.addEventListener('click', async ({target}) => {
+          const doc = await editeRecipe(target.id);
+          const recipe = doc.data();
+          titleRecipe.value = recipe.title;
+          descriptionRecipe.value = recipe.description;
+        });
+      });
     });
   });
+  console.log('DATA', data);
 
   return divFeed;
 };
