@@ -76,9 +76,9 @@ export const getPost = () => {
 //   console.log('total post: ', post);
 //   return post 
   
-};
-const allPost = readPost();
-console.log('aqui esta: ', allPost);
+// };
+// const allPost = readPost();
+//console.log('aqui esta: ', allPost.description[0]);
 
 
   // console.log(onSnapshot(collection(db, 'posts'), querySnapshot));
