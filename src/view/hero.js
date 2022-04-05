@@ -6,7 +6,7 @@ export const hero = () => {
         <div id="viewHero">
             <a href="#/"></a>
             <div>
-              <img id="logoRes" src="/images/ninja-logo-responsive.svg">
+              <img id="logoRes" src="./images/ninja-logo-responsive.svg">
             </div>
             <h1>Red Social para<span class="relevant"> ofrecer y encontrar servicios </span>en tecnologías de la información y la comunicación,<span class="relevant"> (TICS).</span></h1>
             <p id="text-intro">Si eres un crack, aquí conectarás con empresas que necesiten tus consultorías, y si eres empresa, aquí encontrarás a la persona indicada para resolver tus dudas.
