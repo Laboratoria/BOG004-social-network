@@ -1,7 +1,7 @@
 import {
   getAuth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
-  getDocs, collection, addDoc, getFirestore, doc, setDoc, increment,
+  getDocs, collection, addDoc, getFirestore, doc, setDoc, getDoc,
 } from './firebase-utils.js';
 
 const createUser = (email, password) => {
@@ -105,27 +105,35 @@ const getPostList = async () => {
 
   querySnapshot.forEach((document) => {
     const data = document.data();
-    console.log(data);
-
-    /* const getDivUser = document.getElementById('user-thinking');
-    const user = data.user;
-    getDivUser.innerHTML = user;
-    const getDivThinking = document.getElementById('space-thinking');
-    const thinking = data.thinking;
-    getDivThinking.innerHTML = thinking; */
+    let likes = data.likes;    
+    // 2.1 likes === undefined tengo que crear el arreglo
+    if (likes === undefined) {
+      likes = [];
+    }
+    let likeColor = '';
+    const index = likes.indexOf(usuario.email);
+    if (index === -1) {
+      // 2.2.1 Si no esta, pintelo de rosado
+      likeColor = '';
+    } else {
+      // 2.2.2 Si SI esta, pintelo de rojo
+      likeColor = 'rgba(255, 112, 131, 1)';
+    }
     Posts += `
       <section class="post-container">
         <div class="post-avatar">
           <img class="avatar" src="${data.photoUrl}" />
         </div>
         <div class="post-content">
-          <h3 class="user-name">${data.user}</h4> 
+          <h3 class="user-name">${data.user}</h4>
           <h4 class="e-mail">${data.email}</h4>
           <p class="text-post-g">${data.thinking}</p>
         </div>
         </section>
         <div class="posticons">
-        <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon"></i>
+        <div>
+        <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon" style="color: ${likeColor}"></i><span class= "styleCountLike">${likes.length}<span>
+        </div>
         <i class="fa-solid fa-pen-to-square posticon"></i>
         <i class="fa-solid fa-trash-can posticon"></i>
         </div>
@@ -166,15 +174,34 @@ const addPost = async (thinking) => {
   getPostList();
 };
 
-function doLike(idPost) {
+const doLike = async (idPost) => {
   console.log(idPost);
   try {
     const db = getFirestore();
     const docRef = doc(collection(db, 'posts'), idPost);
-    setDoc(
+    // 1. Traer el documnento getDoc
+    const postLike = await getDoc(docRef);
+    // 2. doc.data().likes
+    let likes = postLike.data().likes;
+    // 2.1 likes === undefined tengo que crear el arreglo
+    if (likes === undefined) {
+      likes = [];
+    }
+    // 2.2 buscar el correo en el arreglo, indexOf ... usuario.email
+    const index = likes.indexOf(usuario.email);
+    if (index === -1) {
+      // 2.2.1 Si no esta, agrega el correo al arreglo
+      likes.push(usuario.email);
+    } else {
+      // 2.2.2 Si SI esta, lo quita del arreglo algo.remove
+      likes.splice(index);
+    }
+
+    // 3. setDoc
+    await setDoc(
       docRef,
       {
-        countLikes: increment(1),
+        likes,
       },
       { merge: true },
     );
@@ -185,7 +212,7 @@ function doLike(idPost) {
     // TODO: escribir la causa del error en la pantalla o algo asi como en los de auth
   }
   getPostList();
-}
+};
 
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
