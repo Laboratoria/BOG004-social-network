@@ -169,7 +169,9 @@ export function readPost(mostrarPost, divForm) {
     console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.post);
+        if (window.confirm('¿Estás seguro de eliminar?')) {
+          deletePost(dataset.post);
+        }
         readPost(mostrarPost, divForm);
       });
     });
