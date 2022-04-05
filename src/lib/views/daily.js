@@ -1,6 +1,5 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { db } from '../firebaseInit.js';
-import { createPost, getPost, readPost } from '../firebaseController.js';
+import { createPost, getPost, readPost} from '../firebaseController.js'
 
 export default () => {
   const divDaily = document.createElement('div');
@@ -22,7 +21,7 @@ export default () => {
             <textarea type='text' id='post-description' placeholder='Reveal your secrets'></textarea>
           </div>
         </div>
-        <button disabled type='button' id='btn-post-save' class='btn-post-inactive'>Save</button>  
+        <button type='submit' id='btn-post-save' class='btn-post-inactive'>Save</button>  
       </form>
     </div>
     <div id='post-container' class="post-container">        
@@ -37,7 +36,7 @@ export default () => {
   const btnCreate = divDaily.querySelector('#btn-post-create');
   let background = divDaily.querySelector('#modal-background');
   let modalPost = divDaily.querySelector('#modal_post-container');
-  const postDescription = divDaily.querySelector('#post-description');
+  const postDescription = divDaily.querySelector('#post-description'); //revisen esta vaina
 
   btnCreate.addEventListener('click', () => {
     console.log('Opened');
@@ -49,56 +48,80 @@ export default () => {
   })
 
   // const modalForm = divDaily.querySelector('#modal_post-container');
-  const btnSave = divDaily.querySelector('#btn-post-save');
+  
 
-  btnSave.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log('Saved');
-    
-    createPost(postDescription.value);
-    
+  const formPublication = divDaily.querySelector('#modal_post-container');
+
+  formPublication.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formPublicationContent = formPublication['post-description'];
+    createPost(formPublicationContent.value);
     modalPost.reset();
+    
   });
 
+  getPost();
+  readPost();
+  
 
-  // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#fa-solid'); 
-  modalClose.addEventListener('click',()=>{
-    console.log('Close');
-    background.style.display= "none";
-    modalPost.style.display= "";
-  });
+  // const btnSave = divDaily.querySelector('#btn-post-save');
+  // btnSave.addEventListener ('click', () => {
+    
+
+  // })
 
 
-  postDescription.addEventListener('keyup', () => { // evento del textarea
-    const postContent = postDescription.value.trim();
-    // trim() metodo que no permite activar boton con espacio
-    if (postContent === '') {
-      btnSave.disabled = true; // boton publicar inactivo
-    } else {
-      btnSave.disabled = false; // boton publicar activo
-    }
-  });
 
-  const postController = () => {
-    const postContainer = divDaily.querySelector('#post-container');
-    const querySnapshot = getPost();
-    console.log(querySnapshot);
-    // readPost(() => {
-    //   let postStructure = '';
-    //   snapShopResult.foreach((doc) => {
-    //     const post= doc.data();
-    //     postStructure += `
-    //     <div id='post-container' class="post-container"> 
-    //       <p>${post.postDescription}</p>       
-    //     </div>    
-    //     `;
-    //   });
-    //   postContainer.innerHTML = postStructure;
+  // btnSave.addEventListener('click', (e) => {
+  //   e.preventDefault()
+  //   console.log('Saved');
+  //   createPost(postDescription.value);
+  //   modalPost.reset();
+  // });
+
+
+  // // declaracion modalClose para evento de cierre de boton en version mobile
+  // let modalClose = divDaily.querySelector('#fa-solid'); 
+  // modalClose.addEventListener('click',()=>{
+  //   console.log('Close');
+  //   background.style.display= "none";
+  //   modalPost.style.display= "";
+  // });
+
+
+  // postDescription.addEventListener('keyup', () => { // evento del textarea
+  //   const postContent = postDescription.value.trim();
+  //   // trim() metodo que no permite activar boton con espacio
+  //   if (postContent === '') {
+  //     btnSave.disabled = true; // boton publicar inactivo
+  //   } else {
+  //     btnSave.disabled = false; // boton publicar activo
+  //   }
+  // });
+
+  // const postController = () => {
+  //   const postContainer = divDaily.querySelector('#post-container');
+  //   const postData = readPost();
+  //   console.log('postData: ', postData.length);
+  //   postData.forEach(element => {
+  //     console.log('ele', element)
+      
+  //   });
+    
+      // // let postStructure = '';
+      // // snapShopResult.foreach((doc) => {
+      // //   //const post= doc.data();
+      //   postStructure += `
+      //   <div id='post-container' class="post-container"> 
+      //     <p>${post.postDescription}</p>       
+      //   </div>    
+      //   `;
+      // });
+    //   postContainer.innerHTML = postStructure.join("");
     // });  
-    readPost();
-  };
-  postController();
+    // readPost();
+  // };
+  // postController();
   
   
   return divDaily;
