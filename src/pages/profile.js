@@ -11,8 +11,8 @@ export default {
   />
   <div id='allPost'>
   <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
-    <a href='#'><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
-    <a href='#'><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
+    <a href=''><i class='fa-solid fa-paw fa-3x' id='postHeader'><p>Post</p></i> </a>
+    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
   </div>
 </header>
   <div class='container-profile'>
@@ -22,9 +22,9 @@ export default {
   </div>
 
   <footer>
-      <a><i class='fa-solid fa-user' id='userFooter'></i> </a>
-      <a href=''><i class='fa-solid fa-paw'></i> </a>
-      <a href='#'><i class='fa-solid fa-magnifying-glass'></i> </a>
+      <a href=''><i class='fa-solid fa-user' id='userFooter'></i> </a>
+      <a href=''><i class='fa-solid fa-paw' id='postFooter'></i> </a>
+      <a href=''><i class='fa-solid fa-magnifying-glass'></i> </a>
     </footer>
   
       `,
@@ -35,8 +35,16 @@ export default {
       window.location.hash = '#';
     });
 
-    const btnPostFooter = document.querySelector('.fa-paw');
-    btnPostFooter.addEventListener('click', () => {
+    const btnPostFooter = document.querySelector('#postFooter');
+
+    btnPostFooter.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'post';
+    });
+    const btnPostHeader = document.querySelector('#postHeader');
+
+    btnPostHeader.addEventListener('click', (e) => {
+      e.preventDefault();
       window.location.hash = 'post';
     });
   },

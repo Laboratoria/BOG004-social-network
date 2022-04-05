@@ -1,5 +1,4 @@
-import { getState } from './lib/firebase.js';
-
+/* eslint-disable class-methods-use-this */
 export default class Router {
   constructor(rutas) {
     this.routes = rutas;
@@ -7,6 +6,14 @@ export default class Router {
   }
 
   // eslint-disable-next-line class-methods-use-this
+  getState() {
+    const usuario = JSON.parse(sessionStorage.getItem('user'));
+    if (usuario && usuario.emailVerified) {
+      return 'logged';
+    }
+    return 'unlogged';
+  }
+
   removeSlash(path) {
     return path.substring(1);
   }
@@ -22,11 +29,16 @@ export default class Router {
     // console.log(matchedRoute);
     const routerOutElm = document.getElementById('container');
     if (matchedRoute !== undefined) {
-      if (matchedRoute.state === getState()) {
+      if (matchedRoute.state === this.getState()) {
         routerOutElm.innerHTML = matchedRoute.template;
         matchedRoute.script();
       } else {
-        window.location.hash = 'perfil';
+        // eslint-disable-next-line no-lonely-if
+        if (this.getState() === 'logged') {
+          window.location.hash = 'perfil';
+        } else {
+          window.location.hash = '';
+        }
       }
     } else {
       routerOutElm.innerHTML = `<div class="no404"> <figure>
