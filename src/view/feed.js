@@ -6,12 +6,6 @@ export default () => {
   document.querySelector('header').style.display = 'block';
   document.querySelector('#sectionGrid').style.display = 'grid';
 
-  // consultar todas las recetas y crear cada caja de la receta;
-
-  getRecipes().then((recipes) => {
-    console.log(recipes);
-  });
-
   const search = `
   <div class='searchFeed'>
     <form class='formFeed' id="feed-form">
@@ -38,7 +32,7 @@ export default () => {
   `;
 
   const divFeed = document.createElement('div');
-  divFeed.innerHTML = search + createRecipeForm;
+  divFeed.innerHTML = `${search} <div id="container-recipes"></div>${createRecipeForm}`;
 
   const taskForm = divFeed.querySelector('#task-form');
   taskForm.addEventListener('submit', (e) => {
@@ -47,6 +41,23 @@ export default () => {
     const description = taskForm['task-description'];
     saveRecipe(title.value, description.value);
     taskForm.reset();
+  });
+
+  // consultar todas las recetas y crrear cada caja de la receta;
+
+  getRecipes().then((recipes) => {
+    let recipesToShow = '';
+    console.log(recipes);
+    recipes.forEach((recipe) => {
+      recipesToShow += `
+    <div class="box-recipe">
+      <h2>${recipe.title}</h2>
+      <hr>
+      <p>${recipe.description}</p>
+    </div>`;
+      const recipesContainer = divFeed.querySelector('#container-recipes');
+      recipesContainer.innerHTML = recipesToShow;
+    });
   });
 
   return divFeed;

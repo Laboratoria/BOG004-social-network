@@ -253,6 +253,21 @@ input:focus {
   border: none;
 }
 
+#container-recipes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  background-image: url('https://cookpad.com/ve/recetas/12760213-frijoles-caseros-y-sencillo');
+  box-shadow: 5px 5px 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
     #menuHtml {
