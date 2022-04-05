@@ -15,6 +15,9 @@ const showErrorAuth = (error) => {
     case 'auth/wrong-password':
       document.querySelector('#messageAlert').innerText = 'Contraseña incorrecta';
       break;
+    case 'auth/invalid-email':
+      document.querySelector('#messageAlert').innerText = 'El correo es inválido';
+      break;
     case 'auth/email-already-in-use':
       document.getElementById('message').innerText = 'Este correo ya esta registrado';
       break;
@@ -33,8 +36,11 @@ const showErrorAuth = (error) => {
 export const login = (email, password) => {
   return singIn(email, password)
     .then((userCredential) => {
+      console.log(userCredential);
       const user = userCredential.user;
+      console.log(user.user);
       if (user.emailVerified) {
+        console.log(user.emailVerified);
         changeView('#/feed');
       } else {
         document.querySelector('#messageAlert').innerText = 'Su correo no ha sido verificado, por favor revise su email';

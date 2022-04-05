@@ -1,21 +1,24 @@
 * {
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  
+
 }
 
-header{
+header {
   display: none;
 }
+
 .liDelete {
   display: none;
 }
-body{
+
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 /*MENU*/
 #menuHtml {
   display: block;
@@ -23,35 +26,42 @@ body{
   background-color: #F6E1E8;
   text-align: center;
 }
-#navMenuLogo{
+
+#navMenuLogo {
   width: 100px;
 }
+
 ul {
   text-decoration: none;
   margin: 0px;
   padding: 0px;
 }
+
 li {
   list-style: none;
   padding: 30px 20px 30px 20px;
 }
+
 #menuHtml a {
   color: rgb(141, 137, 137);
   font-weight: 500;
   text-decoration: none;
 }
+
 #menuHtml a:focus {
-  color: white;
+  color: black;
   font-weight: 550;
- 
+
 }
+
 #menuHtml a:hover {
-  color: white;
+  color: black;
   font-weight: 550;
-  
+
 }
+
 footer {
-  background-color: #F6E1E8;
+  background-color: rgba(255, 255, 255, 0.425);
   height: 60px;
   text-align: center;
   display: flex;
@@ -60,12 +70,14 @@ footer {
   font-weight: 400;
   color: rgb(141, 137, 137);
 }
+
 /*HOME*/
 body {
   margin: 0px;
   padding: 0px;
   height: 100%;
 }
+
 .leftColumn {
   display: flex;
   justify-content: center;
@@ -73,17 +85,23 @@ body {
   flex-direction: column;
   padding-bottom: 0px;
 }
+
 .rightColumn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 0px;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.425);
 }
+
 /*columna izquierda*/
-.leftColumn{
-    border-radius: 100% 20% 100% 20%;
+.leftColumn {
+  border-radius: 100% 20% 100% 20%;
 }
+
 .leftColumn h2 {
   font-family: 'Amatic SC', cursive;
   color: #FFA8BE;
@@ -92,44 +110,44 @@ body {
   padding: 0px;
   padding-left: 300px;
   margin: 0px;
-  
+
 }
+
 .leftColumn p {
   font-weight: 500;
   color: rgb(141, 137, 137);
   text-align: center;
   font-size: 15px;
 }
+
 #homeImg {
   width: 550px;
 }
+
 #nibblesLogo {
   display: block;
-  width: 30%;
-  margin-bottom: 50px;
+  margin: 0px auto 30px auto;
+  width: 150px;
+  padding-top: 10px;
 }
+
 /*columna derecha*/
-.rightColumn p{
-    font-weight: 500;
-    text-transform: uppercase;
-    color: rgb(112, 110, 110);
-    font-size: 12px;
-    padding-top: 70px;
-    margin: 0px;
-}
 hr {
   padding: 0px;
   height: 0.25px;
   width: 20%;
   background-color: rgb(179, 177, 177);
 }
+
 .googleLogo {
   width: 40px;
 }
-.text-center{
-    text-align: center;
-    color:fff;
+
+.text-center {
+  text-align: center;
+  color: fff;
 }
+
 /*BOTONES*/
 #loginBtn,
 #createUserBtn {
@@ -140,27 +158,32 @@ hr {
   padding: 6px 20px 6px 20px;
   font-weight: 500;
   text-transform: uppercase;
+  color: rgb(71, 68, 68);
+  font-weight: 500;
+  letter-spacing: 1px;
 }
+
 #loginBtn {
-  background-color: #D96262;
-  color: white;
-  font-weight: bold;
-  
+  background-color: #FFA8BE;
 }
+
 #createUserBtn {
-  background-color:#8B8C5E;
-  color: white;
-  font-weight: bold;
+  background-color: #A6CF98;
 }
-.btn-submit, #btnLogin{
-  color: #ffff;
+
+.btn-submit,
+#btnLogin {
+  color: rgb(71, 68, 68);
   background-color: #FFA8BE;
   margin: 12px;
   border-radius: 15px;
-  border:none;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 1px;
   padding: 10px 20px 10px 20px;
   text-transform: uppercase;
 }
+
 /*LOGIN*/
 .formLogin {
   display: flex;
@@ -169,40 +192,60 @@ hr {
   border-radius: 20px;
   border: none;
 }
+
 .formLogin :focus-visible {
   border: none;
 }
-#btnLogin {
-  background-color: #FFA8BE;
-  color: white;
-}
+
 #loginEmail {
   background-color: #A6CF98;
-  color: white;
+  color: rgb(71, 68, 68);
+  ;
 }
+
 #loginPassword {
   background-color: #A6CF98;
-  color: white;
+  color: rgb(71, 68, 68);
 }
+
 #loginEmail,
 #loginPassword {
-  width: 200px;
+  width: 250px;
   border: none;
   border-radius: 20px;
   margin: 10px;
   padding: 6px 20px 6px 20px;
   font-weight: 500;
 }
+
 h2 {
   font-family: 'Amatic SC', cursive;
   color: #FFA8BE;
   font-size: 50px;
   padding: 0px;
   text-align: center;
-  margin-top: 100px;
 }
+
 input:focus {
   outline: none;
+}
+
+.parraf-google {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgb(71, 68, 68);
+  font-size: 12px;
+  padding-top: 70px;
+  margin: 0px;
+}
+.returnBtn{
+  display: block;
+  border: none;
+  border-radius: 100%;
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-weight: 700;
+  background-color:#cae4c1;
 }
 /*REGISTER*/
 #register-form {
@@ -210,30 +253,43 @@ input:focus {
   flex-direction: column;
   align-items: center;
 }
+
+#slogan-nibbles {
+  color: rgb(79, 78, 78);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+}
+
 .with-error {
   border: 1px solid rgb(238, 58, 58);
-  color:#000;
+  color: #000;
 }
+
 .error-message-hidden {
   display: none;
 }
-#register-form{
+
+#register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
- }
-.formulario{
+}
+
+.formulario {
   background-color: #A6CF98;
-  color: white;
-  margin:12px;
+  color: #000;
+  margin: 12px;
   border-radius: 20px;
   border: none;
   padding: 8px;
-  width: 200px;
+  width: 250px;
 }
-#error-message-email, #error-message-password{
+
+#error-message-email,
+#error-message-password {
   margin: 0px;
   font-size: 12px;
+  color: red;
 }
 
 /* Feed*/
@@ -253,34 +309,144 @@ input:focus {
   border: none;
 }
 
+.container {
+  display: flex;
+}
+
+/*-----*/
+.containerLogin,
+#containerRegister {
+  background-color: white;
+  margin: 10vh auto 10vh auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+}
+
+.searchFeed{  
+  position: relative;
+  display: flex;
+}
+
+#search-feed {
+  border: 3px solid #FFA8BE;
+  padding: 5px;   
+  border-radius: 10px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+#search-feed:focus{
+  color: #00B4CC;
+}
+
+#btn-task-save {
+  color: rgb(71, 68, 68);
+  background-color: #FFA8BE;
+  margin: 12px;
+  border-radius: 15px;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 10px 20px 10px 20px;
+  text-transform: uppercase;
+}
+#recipeForm{
+  border-radius: 20px 20px 0px 0px;
+}
+#task-form{
+  border-radius: 20px;
+  background-color: white;
+  margin: 10vh auto 10vh auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+}
+ #task-title, #task-description{
+   border: 0px;
+   border-radius: 5px;
+}
+.formtext label{
+  color: rgb(79, 78, 78);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+}
+.formtext input, .formtext textarea{
+  margin: 10px 0px; 
+}
+.formtext img{
+  margin-bottom: 10px;
+}
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
-    #menuHtml {
-      padding: 20px 0px 20px 0px;
-        height: 87vh;
-    }
-    #sectionGrid {
-      display: grid;
-      grid-template-columns: 0.7fr 5fr;
-      height: 100%;
-    }
-    .navDesktop{
-      display: inline-block;
-    }
-    .navMobile{
-      display: none;
-    }
-    .menuBtn{
-      display: none;
-    }
+  body {
+    background-image: url('./img/background-destok.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
-    padding: 100px 0px;
+    padding: 80px 0px;
     width: 70%;
     height: 500px;
+    grid-column-gap: 80px;
   }
+
+  .containerLogin,
+  #containerRegister {
+    width: 500px;
+    padding: 10px 0px 50px 0px;
+    border-radius: 20px;
+    /* margin: auto; */
+  }
+
+  #menuHtml {
+    padding: 20px 0px 20px 0px;
+    height: 87vh;
+  }
+
+  #sectionGrid {
+    display: grid;
+    grid-template-columns: 0.7fr 5fr;
+    height: 100%;
+  }
+
+  .navDesktop {
+    display: inline-block;
+  }
+
+  .navMobile {
+    display: none;
+  }
+
+  .menuBtn {
+    display: none;
+  }
+  .btn-submit{
+    margin-top: 50px;
+  }
+}
+
+/*-----FEED-----*/
+
+#search-feed {
+  width: 800px;
+  height: 40px;
+}
+
+#btn-task-save {
+  height: 40px;
+  width: 100px;
+}
+#recipeForm{
+  width: 100%;
+}
+#task-form{
+  width: 900px;
+}
+ #task-title, #task-description{
+   width: 100vh;
 }
 /*TABLETS*/
 @media only screen and (min-width: 576px) and (max-width: 992px) {
@@ -288,47 +454,143 @@ input:focus {
     display: none;
   }
 }
+
 /* TELÉFONOS */
 @media only screen and (max-width: 575px) {
-  #sectionGrid{
+  body {
+    background-image: url('./img/background-mobile.jpg');
+  }
+
+  #sectionGrid {
     display: block;
   }
-  .navDesktop, #navMenuLogo{
+
+  .navDesktop,
+  #navMenuLogo {
     display: none;
   }
-  .navMobile{
+
+  .navMobile {
     display: none;
   }
-  .menuBtn{
+
+  .menuBtn {
     display: inline;
     width: 30px;
     float: right;
     padding: 10px;
   }
+
   li {
     padding: 10px 20px 10px 20px;
   }
+
   .leftColumn {
     display: none;
   }
+
   .container {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 76px 0px 76px 0px;
+    padding: 30px 0px 30px 0px;
   }
+
+  .rightColumn {
+    margin: 15px;
+    margin-top: 50px;
+    padding: 35px 0px 10px 0px;
+    background-color: rgba(255, 255, 255, 0.475);
+  }
+
   .googleLogo {
     margin: 20px;
   }
+
   #nibblesLogo {
     width: 40%;
   }
+
+  .containerLogin,
+  #containerRegister {
+    /* margin: 25px 20px; */
+    margin-left: 10px;
+    margin-right: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 25px; */
+    /* padding: 10px 0px; */
+    border-radius: 20px;
+    /* margin: 10vh auto 10vh auto; */
+    box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+    background-color: rgba(255, 255, 255, 0.425);
+    padding: 5px;
+  }
+  .btn-submit{
+    margin-top: 20px;
+  }
+  h2{
+    font-size: 42px;
+    margin-bottom: 5px;
+  }
+  .text-center{
+    margin-top: 20px;
+  }
+  #slogan-nibbles{
+    font-size: 13px;
+  }
+  /*-----FEED-----*/
+.searchFeed{
+  display: flex;
+  width: auto;
 }
 
+#search-feed {
+  width: auto;
+   /* margin: 25px 20px; */
+   margin-left: 10px;
+   margin-right: 10px;
+   /* padding-top: 10px;
+   padding-bottom: 25px; */
+   /* padding: 10px 0px; */
+   border-radius: 20px;
+   /* margin: 10vh auto 10vh auto; */
+   box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+   background-color: rgba(255, 255, 255, 0.425);
+   padding: 5px;
+}
 
-
-
-
-
-
-
-
+#btn-task-save {
+  height: 40px;
+  width: 100px;
+}
+#recipeForm{
+  width: 100%;
+}
+#task-form{
+  width: 90%;
+  border-radius: 20px;
+  background-color: white;
+  margin: 10px auto 10px auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+}
+ #task-title, #task-description{
+   border: 0px;
+   border-radius: 5px;
+   width: 90%;
+}
+.formtext label{
+  color: rgb(79, 78, 78);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+}
+.formtext input, .formtext textarea{
+  margin: 10px 0px; 
+}
+.formtext img{
+  margin-bottom: 10px;
+  width: 100%;
+}
+.formtex{
+  margin: 10px 0px;
+}
+}
