@@ -135,6 +135,15 @@ h4{
   
 }
 
+.styleCountLike{
+  font-family: "Inter", sans-serif;
+  color: rgb(156, 151, 151);
+  font-size: 12px;
+  margin: 0px;
+  font-weight: bold;
+  font-style: oblique;
+}
+
 .section-picture-picture {
   display: flex;
   align-items: center;
