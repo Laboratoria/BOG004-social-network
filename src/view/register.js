@@ -10,7 +10,7 @@ export const register = () => {
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
-          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.png">
+          <img id="logoRes-signUp" src="/images/logo-ninja-signup-desktop.svg">
           </div>
             <div class="box-form">
               <form id="form-register" action="">
