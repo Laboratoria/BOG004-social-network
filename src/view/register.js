@@ -1,9 +1,14 @@
 import { register } from '../lib/auth.js';
+import { changeView } from '../view-controler/router.js'; 
 
 const createFormUser = () => {
   document.querySelector('#sectionGrid').style.display = 'block';
   const divElem = document.createElement('div');
-  const viewCreateUser = '<h2 class=\'text-center\'>Crea una cuenta en Nibbles</h2>';
+  divElem.setAttribute('id', 'containerRegister'); 
+  const viewCreateUser = `
+  <button class='returnBtn'><</button>
+  <h2 class=\'text-center\'>Crea una cuenta en Nibbles</h2>
+  <p id='slogan-nibbles'>¡Una experiencia deliciosa comienza aquí!<br>Publica tus mejores recetas</p>`;
   divElem.innerHTML = viewCreateUser;
   const htmlFormRegister = () => {
     const form = document.createElement('form');
@@ -68,6 +73,10 @@ const createFormUser = () => {
     divElem.appendChild(form);
   };
   htmlFormRegister();
+  const returnBtn = divElem.querySelector('.returnBtn');
+  returnBtn.addEventListener('click', (event) => {
+    changeView('#/');
+  });
 
   return divElem;
 };

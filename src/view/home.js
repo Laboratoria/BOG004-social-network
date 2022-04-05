@@ -23,7 +23,7 @@ export default () => {
     <img id='nibblesLogo' src='../img/logo-nibbles.png' alt='logo-nibbles'>
     <button id='loginBtn'>Ingresa</button>
     <button id='createUserBtn'>Crear cuenta</button>
-    <p>Conéctate con</p>
+    <p class='parraf-google'>Conéctate con</p>
     <hr class='divider'>
     <img class='googleLogo 'src='../img/google.png' alt='ingresa-con-google'>`;
   rightColumn.innerHTML = viewRight;

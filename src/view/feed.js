@@ -17,6 +17,7 @@ export default () => {
 
   const createRecipeForm = `
     <form class='formtext' id='task-form'>
+    <img id='recipeForm' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
       <div>
         <label for='title'>Título:</label>
         </br>
