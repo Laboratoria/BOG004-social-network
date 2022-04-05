@@ -10,6 +10,7 @@ export default () => {
         
         <nav class="nav">
           <ul>
+          <div class="img-mommi-wall"><img src="img/logo.png" alt="logo-mommi" class="logo-mommi-nav"></div>
             <li class="active"><a href="#">Wall</a></li>
             <li><a href="#">Blogs</a></li>
             <li><a href="#">Books</a></li>
@@ -28,7 +29,6 @@ export default () => {
 
     <section class="wall-post" id="wall-user"> 
     <p class="welcome-text">Mommi Wall</p>
-    <div class="img-mommi-wall"><img src="img/logo.png" alt="logo-mommi" class="logo-mommi"></div>
     <div id="wall-content">
     <div id="editPost">
       <textarea id="thinksuseredit" rows="4" placeholder="¿Que estas pensado?..."></textarea>
