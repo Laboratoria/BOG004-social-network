@@ -94,11 +94,7 @@ const signInWithGoogle = () => {
     });
 };
 
-/* FIRESTORE
- * Esta funcion va a conectarse a firestore
- * Luego con el resultado que es una suscripcion (aun no sabes)
- * va a pintar en pantalla el resultado
- */
+/* FIRESTORE */
 
 const getPostList = async () => {
   const db = getFirestore();
