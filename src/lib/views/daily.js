@@ -1,5 +1,5 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { createPost, getPost, readPost} from '../firebaseController.js'
+import { createPost, getPost, readAllPost} from '../firebaseController.js'
 
 export default () => {
   const divDaily = document.createElement('div');
@@ -60,8 +60,31 @@ export default () => {
     
   });
 
-  getPost();
-  readPost();
+  
+  const postController = () => {
+    const postContainer = divDaily.querySelector('#post-container');
+    const querySnapshot = getPost();
+    //función para leer las publicaciones en tiempo real 
+    querySnapshot.then((response) => {
+       let postTemplate = '';
+       response.forEach((doc) => {
+       console.log(`${doc.id} => ${doc.data().postDescription}`);
+       postTemplate += `
+          <div id='post-container' class="post-container"> 
+            <p>${doc.data().postDescription}</p>       
+          </div>    
+          `;
+          
+     });
+     postContainer.innerHTML = postTemplate;
+    });
+    readAllPost(querySnapshot);
+  };
+  postController();
+
+
+  
+  //readPost();
   
 
   // const btnSave = divDaily.querySelector('#btn-post-save');

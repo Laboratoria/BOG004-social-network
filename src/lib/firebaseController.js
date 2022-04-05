@@ -44,6 +44,13 @@ export const getPost = () => {
 };
 
 
+// funcion para leer todas las publicación
+export const readAllPost = (querySnapshot) => {
+  console.log('muestranos: ', onSnapshot(dbPublications, querySnapshot));
+  return onSnapshot(dbPublications, querySnapshot);
+};
+
+
 
 //funcion para leer todas las publicación
 // export const readAllPost = () => {
@@ -58,26 +65,26 @@ export const getPost = () => {
 
 
 
-//funcion para leer todas la publicaciones
-export const readPost = () => {
-  getPost().then((res)=>console.log('promesa: ', res));
-  const q = query(collection(db, "posts"));
-  const post = [];
-  onSnapshot(q, (querySnapshot) => {
+// //funcion para leer todas la publicaciones
+// export const readPost = () => {
+//   getPost().then((res)=>console.log('promesa: ', res));
+//   const q = query(collection(db, "posts"));
+//   const post = [];
+//   onSnapshot(q, (querySnapshot) => {
     
-    querySnapshot.forEach((doc) => {
-      post.push({
-        id: doc.id,
-        description: doc.data(),
-      });
-      console.log('post in: ', post);
-    });
-  });
-  console.log('total post: ', post);
-  return post 
+//     querySnapshot.forEach((doc) => {
+//       post.push({
+//         id: doc.id,
+//         description: doc.data(),
+//       });
+//       console.log('post in: ', post);
+//     });
+//   });
+//   console.log('total post: ', post);
+//   return post 
   
-};
-const allPost = readPost();
+// };
+// const allPost = readPost();
 //console.log('aqui esta: ', allPost.description[0]);
 
 
