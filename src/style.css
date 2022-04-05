@@ -97,20 +97,32 @@ body {
 p {
   text-align: justify;
   font-family: "Inter", sans-serif;
-  margin: 0.5rem;
+  margin-left: 0.8rem !important;
   color: rgb(71, 69, 69);
-  font-size: 15px;
+  font-size: 13px;
   margin-top: 0px;
+  margin: 0px;
 }
 
 
 h3{
   font-family: "Inter", sans-serif;
-  margin: 0.5rem;
+  margin-left: 0.8rem !important;
   color: rgb(71, 69, 69);
   font-size: 15px;
-  margin-top: 0px;
+  margin: 0px;
   font-weight: bold;
+  
+}
+
+h4{
+  font-family: "Inter", sans-serif;
+  margin-left: 0.8rem !important;
+  color: rgb(156, 151, 151);
+  font-size: 12px;
+  margin: 0px;
+  font-weight: bold;
+  font-style: oblique;
   
 }
 
@@ -157,8 +169,8 @@ footer {
   margin: 0;
   padding: 0;
   right: 0;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 40px;
   margin-top: 0.5rem;
   
 }
@@ -235,10 +247,12 @@ a {
     margin: 0 5%;
     max-width: 565px;
   }
+
   .all-wall{
     flex-direction: row !important;
     flex-wrap: nowrap;
   }
+
   .wall-nav {
     position: relative;
     display: block;
@@ -290,6 +304,43 @@ a {
   .all-wall{
     justify-content: center;
   }
+
+  .banner-img{
+    display: none;
+  }
+}
+@media (min-width: 1140px){
+  .banner-img{
+    display: block;
+    width: 20%;
+    justify-content: center;
+    align-content: space-around;
+  }
+
+  .wall-nav {
+    position: relative;
+    display: block;
+    width: 15%;
+    background-color: white;
+  }
+
+  .img-univer-wall{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 5vh;
+    bottom: auto;
+  }
+
+  .wall-post{
+    margin: 0 5%;
+    max-width: 565px;
+    width: 70%;
+  }
+
+  .logo-unv{
+    width: 250px !important;
+  }
 }
 
 .all-wall{
@@ -307,6 +358,7 @@ a {
   height: 30px;
   border-radius: 10px;
   margin-top: 10px;
+  margin-bottom: 20px;
   border: none;
 }
 
@@ -316,30 +368,34 @@ a {
   width: 100%;
 }
 
+
+.post-container{
+  display: flex;
+  border:  rgb(156, 151, 151) solid 0.5px;
+  padding: 8px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.post-container .post-content{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr 2fr;
+}
+
+.post-container .post-avatar{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
 #thinksuseredit{
   border-radius: 10px;
   display: flex;
   justify-content: center;
-}
-
-.post-content {
-  width: 850%;
-  display: flex;
-  flex-direction: column;
-  margin:0px;
-}
-
-.post-container{
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 33% 33% 33%;
-  grid-auto-flow: column;
-  border: black solid;
-}
-
-.post-avatar{
-  width: 15%;
-  min-width: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
 }
 
 .avatar{
@@ -359,7 +415,7 @@ a {
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   min-width: 296px;
 }
 
@@ -397,4 +453,13 @@ a {
   color: rgb(71, 69, 69);
   background: rgba(249, 226, 218, 1);
   position: fixed;
+}
+
+.img-univer-wall{
+  display: flex;
+  justify-content: center;
+}
+
+.logo-unv{
+  width: 160px;
 }
