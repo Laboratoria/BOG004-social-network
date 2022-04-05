@@ -21,6 +21,7 @@ const router = (route) => {
       content.appendChild(wall());
       break;
     default:
+      // eslint-disable-next-line
       console.log('404');
       break;
   }

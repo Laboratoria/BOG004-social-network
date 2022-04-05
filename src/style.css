@@ -136,7 +136,7 @@ body {
     min-width:70vw;
     line-height: 30px;
     color:#525252;
-    font-family: Barlow-Semibold;
+    font-family: Barlow-SemiBold;
     font-size: 15px;
 }
 #btnregister{
@@ -161,7 +161,7 @@ input{
     height:35px;
     border: 0.5px solid #c5c5c5;
     border-radius: 8px;
-    font-family: Barlow-regular;
+    font-family: Barlow-Regular;
     font-size: 15px;
 }
 
@@ -229,7 +229,7 @@ input:focus{
     min-width:80vw;
     line-height: 30px;
     color:#525252;
-    font-family: Barlow-Semibold;
+    font-family: Barlow-SemiBold;
     font-size: 15px;
 }
 
@@ -242,6 +242,16 @@ input:focus{
     font-family: Barlow-Regular;
     font-size: 15px;
     resize: none;
+}
+
+.containerPost textarea{
+    width: 60vw;
+    font-family:Barlow-Regular;
+    font-size: 20px;
+    color: #525252;
+    padding:16px;
+    resize: none;
+    border: none;
 }
 
 .formpost textarea:focus{
@@ -265,7 +275,7 @@ input:focus{
     height: 30px;
     border-radius: 10px;
     font-size: 20px;
-    font-family: Barlow-SemiBold;
+    font-family:Barlow-SemiBold;
     font-style: bold;
     border: none;
     margin: 10px 0px 10px 0px;
@@ -284,7 +294,7 @@ input:focus{
     height: 50px;
     border-radius: 10px;
     font-size: 20px;
-    font-family: Barlow-Bold;
+    font-family:Barlow-Bold;
     font-style: bold;
     border: none;
     align-items: center;
@@ -295,7 +305,7 @@ input:focus{
 .texto{
     color: #525252;
     font-size: 15px;
-    font-family: Barlow-Regular;
+    font-family:Barlow-Regular;
     margin: 0px 30px 0px 30px;
     text-align: center;
 }
@@ -305,7 +315,7 @@ h1{
     margin:0;
     color: #525252;
     font-size: 20px;
-    font-family: Barlow-Bold;
+    font-family:Barlow-Bold;
     font-style: bold;  
     text-align: center;
     display: inline-block;
@@ -337,7 +347,7 @@ h1::after{
         height: 50px;
         border-radius: 10px;
         font-size: 20px;
-        font-family: Barlow-SemiBold;
+        font-family:Barlow-SemiBold;
         font-style: bold;
         border: none;
         align-items: center;
@@ -352,7 +362,7 @@ h1::after{
     width: 70vw;
     border: 1px solid #C5C5C5;
     border-radius: 10px;
-    font-family: Barlow-Regular;
+    font-family:Barlow-Regular;
     font-size: 23px;
     color: #525252;
     padding:10px;
@@ -377,16 +387,6 @@ h1::after{
 .containerButton p{
     margin: 0px;
 
-}
-
-.containerPost textarea {
-    width: 60vw;
-    font-family: Barlow-Regular;
-    font-size: 20px;
-    color: #525252;
-    padding:16px;
-    resize: none;
-    border: none;
 }
 
 .containerPost textarea:focus{
@@ -438,7 +438,7 @@ h1::after{
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-family: Barlow-Bold;
+    font-family:Barlow-Bold;
     font-size: 20px;
     margin-top: 15px;
     margin-left: 15vw;
@@ -447,7 +447,7 @@ h1::after{
 /* FECHA */
 .datePost{
     color:#69D9FF;
-    font-family: Barlow-regular;
+    font-family:Barlow-Regular;
     font-size: 16px;
     margin-bottom: 0px;
 }
@@ -462,6 +462,7 @@ h1::after{
     opacity: 1;
 }
 
+
 /* LOGOUT */
 
 #logout {
@@ -475,7 +476,7 @@ h1::after{
     height: 30px;
     border-radius: 10px;
     font-size: 20px;
-    font-family: Barlow-SemiBold;
+    font-family:Barlow-SemiBold;
     font-style: bold;
     border: none;
     text-align: center;
@@ -485,6 +486,10 @@ h1::after{
     background-color: #0079CB;    
     color: #fff;
 }
+
+/* #formpost2{
+    display: none;
+} */
 
 @media screen and (min-width:800px){
 
