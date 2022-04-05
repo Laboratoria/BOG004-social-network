@@ -1,4 +1,9 @@
-import { logOut, crearPost, readPost } from '../view-controller/controllers.js';
+import {
+  logOut, crearPost, readPost, updatePost,
+} from '../view-controller/controllers.js';
+
+window.editMode = false;
+window.id = '';
 
 export default () => {
   const viewFeed = `
@@ -63,7 +68,12 @@ export default () => {
         divElemt.querySelector('#atencion').style.display = 'none';
       });
     } else {
-      crearPost();
+      if (!editMode) {
+        crearPost();
+      } else {
+        console.log('editando');
+        updatePost(id, { content: contentFeed.value });
+      }
       posts.reset();
       readPost(mostrarPost, divForm);
     }

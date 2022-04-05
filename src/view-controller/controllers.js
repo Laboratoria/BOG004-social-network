@@ -12,6 +12,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
+  updateDoc,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -159,11 +160,11 @@ export function readPost(mostrarPost, divForm) {
         const doc = await getPost(dataset.post);
         const postEdit = doc.data();
         contentFeed.value = postEdit.content;
-
+        window.editMode = true;
+        id = doc.id;
         readPost(mostrarPost, divForm);
       });
     });
-
     const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
     console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
@@ -174,3 +175,5 @@ export function readPost(mostrarPost, divForm) {
     });
   });
 }
+
+export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
