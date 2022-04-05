@@ -33,6 +33,7 @@ export default () => {
   `;
 
   const divFeed = document.createElement('div');
+  divFeed.setAttribute('id', 'containerRecipe');
   divFeed.innerHTML = `${search} <div id="container-recipes"></div>${createRecipeForm}`;
 
   const taskForm = divFeed.querySelector('#task-form');
