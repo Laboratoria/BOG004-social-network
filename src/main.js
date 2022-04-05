@@ -41,4 +41,4 @@ const init = () => {
 };
 
 window.doLike = doLike;
-window.addEventListener('load', init);
+  window.addEventListener('load', init);

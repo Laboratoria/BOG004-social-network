@@ -23,14 +23,14 @@ export default () => {
           Continuar con Google
         </button>
 
-        <p>¿Aún no estás en mommi? <a href=""> Regístrate</p>
-
+        <p>¿Aún no estás en mommi? <a href=""> Regístrate</a> </p>
       </form>
     </div>
 
     <div class="section-picture-picture">
       <img src="img/picturemom.png" alt="logo-mommi" class="poster-mommi">
     </div>
+
     </section>
           `;
   const divElement = document.createElement('section');

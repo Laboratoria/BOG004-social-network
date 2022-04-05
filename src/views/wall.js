@@ -45,7 +45,11 @@ export default () => {
     </div>
     </section>
 
-    </section>`;
+    </section>
+    
+    <footer>
+    <p class="text-footer">Made by Nataly  Escobar y Lizeth Rodríguez <br>© 2022 mommi, Inc.</p>
+  </footer>`;
 
   const divElement = document.createElement('div');
   divElement.innerHTML = viewWall;
