@@ -1,5 +1,6 @@
 import {
-  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc, query, where, onSnapshot, getDoc
+  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc, query,
+  onSnapshot, getDoc,
 } from './firebase-imports.js';
 import { db } from './confiFirebase.js';
 
@@ -40,15 +41,22 @@ export const savePost = async (descripcion) => {
 }; */
 
 /* visualizacion de post */
-export const viewpost = async () => {
+// eslint-disable-next-line
+export const viewPost = async () => {
   try {
     const post = [];
     const querySnapshot = await getDocs(collection(db, 'posts'));
+    // eslint-disable-next-line
     querySnapshot.forEach((doc) => {
       post.push(doc);
     });
     return post;
   } catch (error) {
+    setTimeout(() => {
+    // eslint-disable-next-line
+      alert('Por favor inicia sesión')
+    }, 2000);
+    // eslint-disable-next-line
     console.log(error);
   }
 };
@@ -59,6 +67,7 @@ export const likePost = async (id, email) => {
   const post = await getDoc(saveLikes);
   const dataPost = post.data();
   const likesCount = dataPost.likesCounting;
+  // eslint-disable-next-line
   console.log(likesCount);
   if (dataPost.likes.includes(email)) {
     await updateDoc(saveLikes, {
@@ -70,38 +79,47 @@ export const likePost = async (id, email) => {
       likes: arrayUnion(email),
       likesCounting: likesCount + 1,
     });
+    // eslint-disable-next-line
     console.log(dataPost, 'que nos trae');
   }
 };
 
 /* Editar post */
-export const editar = async (id, descripcion) => {
+export const edit = async (id, descripcion) => {
   const post = doc(db, 'posts', id);
-  const actualizar = await updateDoc(post, {
+  const actualize = await updateDoc(post, {
     descripcion,
   });
-  return actualizar;
+  return actualize;
 };
 
 /* Eliminar post */
-export const deletepost = async (id, descripcion) => {
+export const deletePost = async (id, descripcion) => {
   const post = doc(db, 'posts', id);
-  const borrar = await deleteDoc(post, {
+  const postDelete = await deleteDoc(post, {
     descripcion,
   });
-  return borrar;
+  return postDelete;
 };
-/*actualizaciones en tiempo real*/
-export const actualizaciones = () => {
-  const q = query(collection(db, 'posts'), where('descripcion', '==', 'descripcion'));
-  const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    const posts = [];
-    querySnapshot.forEach((change) => {
-      if (change.type === "removed") {
-        console.log("Removed :", change.doc.data());
-      }
-      posts.push(doc.data().descripcion);
+
+/* actualizaciones en tiempo real */
+ /*export const actualize = () => {
+  const q = query(collection(db, 'posts')  orderBy('date', 'desc')) );
+  onSnapshot(q, (querySnapshot) => {
+    const boxPosts = [];
+    // eslint-disable-next-line
+    querySnapshot.forEach((doc) => {
+      boxPosts.push({
+        descripcion: doc.data().descripcion,
+        data: doc.data(),
+        // user: localStorage.getItem('emailForSignIn'),
+        dateCreated: new Date().toDateString(),
+        likes: [],
+        likesCounting: 0,
+      });
     });
-    console.log('actualizando post en tiempo real', posts.join(", "));
+    // eslint-disable-next-line
+    console.log(boxPosts, 'esto es lo que debe actualizar');
+    return boxPosts;
   });
-};
+};*/

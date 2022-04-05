@@ -16,19 +16,19 @@ describe('register', () => {
     // console.log(btn.dispatchEvent(new Event('click')))
   });
 
-  it('', () => {
+  it('click', () => {
     const result = register();
     const btn = result.querySelector('.btnconfirmation');
     btn.dispatchEvent(new Event('click'));
   });
 
-  it('', () => {
+  it('clicklogin', () => {
     const result = register();
     const btn = result.querySelector('#login2');
     btn.dispatchEvent(new Event('click'));
   });
 
-  it('', () => {
+  it('clickhome', () => {
     const result = register();
     const btn = result.querySelector('.logo-R');
     btn.dispatchEvent(new Event('click'));
