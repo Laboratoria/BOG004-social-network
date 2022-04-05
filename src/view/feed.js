@@ -56,6 +56,11 @@ export default () => {
       <h2>${recipe.title}</h2>
       <hr>
       <p>${recipe.description}</p>
+      <div class= 'iconos'>
+      <img id= 'likeImg' src='../img/like.png' alt='like_image'>
+      <img id= 'espatulaImg' src='../img/espatula.png' alt='espatula_image'>
+      <img id= 'rodilloImg' src='../img/rodillo.png' alt='rodillo_image'>
+      </div>
     </div>`;
       const recipesContainer = divFeed.querySelector('#container-recipes');
       recipesContainer.innerHTML = recipesToShow;
