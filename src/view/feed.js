@@ -1,4 +1,4 @@
-import { getRecipes, saveRecipe } from '../lib/firebase-base-de-datos.js';
+import { saveRecipe, onGetRecipes } from '../lib/firebase-base-de-datos.js';
 
 export default () => {
   const menuMobile = document.getElementById('navMobile');
@@ -45,21 +45,21 @@ export default () => {
   });
 
   // consultar todas las recetas y crrear cada caja de la receta;
-
-  getRecipes().then((recipes) => {
+  const data = onGetRecipes((querySnapshot) => {
     let recipesToShow = '';
-    console.log(recipes);
-    recipes.forEach((recipe) => {
+
+    querySnapshot.forEach((recipe) => {
       recipesToShow += `
-    <div class="box-recipe">
-      <h2>${recipe.title}</h2>
-      <hr>
-      <p>${recipe.description}</p>
-    </div>`;
+      <div class="box-recipe">
+        <h2>${recipe.data().title}</h2>
+        <hr>
+        <p>${recipe.data().description}</p>
+      </div>`;
       const recipesContainer = divFeed.querySelector('#container-recipes');
       recipesContainer.innerHTML = recipesToShow;
     });
   });
+  console.log('DATA', data);
 
   return divFeed;
 };

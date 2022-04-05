@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, collection, getDocs, addDoc,
+  getAuth, onAuthStateChanged, collection, getDocs, addDoc, onSnapshot,
 } from './firebase-utils.js';
 
 import { database } from './firebase-init.js';
@@ -12,6 +12,7 @@ async function getRecipes() {
   return recipesList;
 }
 
+const onGetRecipes = (callback) => onSnapshot(collection(database, 'recipes'), callback);
 const saveRecipe = (title, description) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
@@ -31,4 +32,4 @@ const saveRecipe = (title, description) => {
   });
 };
 
-export { getRecipes, saveRecipe };
+export { getRecipes, saveRecipe, onGetRecipes };
