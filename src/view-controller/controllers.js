@@ -113,9 +113,6 @@ export const logOut = () => {
 
 // AQUI EMPEZAMOS A USAR FIRESTORE
 const db = getFirestore();
-
-// esta es la funcion que crea los post
-let editStatus = false;
 export async function crearPost() {
   try {
     const docRef = await addDoc(collection(db, 'Posts'), {
@@ -126,13 +123,13 @@ export async function crearPost() {
     console.error('Error adding document: ', e);
   }
 }
-
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
 
 export function readPost(mostrarPost, divForm) {
   // console.log('lo que recibe como param: ', mostrarPost);
   const contentFeed = divForm.querySelector('#contentFeed');
+  console.log(contentFeed);
   // const mostrarPost = document.querySelector('#mostrarPost');
   const querySnapshot = getDocs(collection(db, 'Posts'));
   querySnapshot.then((res) => {
@@ -162,8 +159,8 @@ export function readPost(mostrarPost, divForm) {
         const doc = await getPost(dataset.post);
         const postEdit = doc.data();
         contentFeed.value = postEdit.content;
-        editStatus = true;
-        readPost(mostrarPost);
+
+        readPost(mostrarPost, divForm);
       });
     });
 
@@ -172,7 +169,7 @@ export function readPost(mostrarPost, divForm) {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.post);
-        readPost(mostrarPost);
+        readPost(mostrarPost, divForm);
       });
     });
   });
