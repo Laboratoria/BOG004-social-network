@@ -37,8 +37,12 @@ export default () => {
     <div class="post" id="posts">
     </div>
     </div>
-
+    </section>
     
+    <section class="banner-img">
+    <div class="img-univer-wall">
+    <img src="img/picturemom.png" alt="Poster mommi" class="logo-unv">
+    </div>
     </section>
 
     </section>`;
