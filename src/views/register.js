@@ -1,18 +1,18 @@
-import { signInUser } from '../Firebase/fbFunction.js'
-import { auth } from '../view-controler/controllers.js'
-import { loginGoogle } from '../Firebase/fbFunction.js'
-import { provider } from '../view-controler/controllers.js'
+import { signInUser } from '../Firebase/fbFunction.js';
+import { auth } from '../view-controler/controllers.js';
+import { loginGoogle } from '../Firebase/fbFunction.js';
+import { provider } from '../view-controler/controllers.js';
 
 export const clickSignIn = (div) => {
   const email = div.querySelector('#inputEmail').value;
   const password = div.querySelector('#inputPassword').value;
   const errorMessageLogin = div.querySelector('#errorMessage');
   signInUser(auth, email, password);
-}
+};
 
 export const logoGoogleClick = (div) => {
-  loginGoogle(auth, provider)
-}
+  loginGoogle(auth, provider);
+};
 
 export default () => {
   const viewRegister = `
@@ -45,7 +45,3 @@ export default () => {
   btnGoogle.addEventListener('click', () => logoGoogleClick(divRegister));
   return divRegister;
 };
-
-
-
-
