@@ -118,12 +118,10 @@ export default () => {
               const recipeToLike = await editeRecipe(target.id);
               const likeUser = recipeToLike.data().likes;
               console.log(likeUser);
-              console.log(target.id);
+              console.log(target);
               console.log(uid)
               if (likeUser.includes(uid)) {
                 dislikeRecipe(`${uid}`, `${target.id}`);
-                const btnLike = document.querySelectorAll('.likeRecipe');
-                btnLike.style.filter = 'grayscale(100%)';
               } else {
                 likeRecipe(`${uid}`, `${target.id}`);
               }
