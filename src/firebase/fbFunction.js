@@ -3,7 +3,7 @@ import { app } from './fbkeys.js';
 import { createUser } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
-
+app();
 /* Creamos una funcion createUser para exportarla y activarla
 cuando se de click a el boton de registrarte y le pasamos como parametro email y contraseña */
 export const createNewUser = (email, password) => {
