@@ -12,18 +12,20 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
+  query,
+  orderBy,
 } from './firebase-utils.js';
 
 import { database } from './firebase-init.js';
 
 async function getRecipes() {
-  const recipesCollection = collection(database, 'recipes');
+  const recipesCollection = query(collection(database, 'recipes'), orderBy('fechaPublicacion', 'desc'));
   const recipesSnapshot = await getDocs(recipesCollection);
   const recipesList = recipesSnapshot.docs.map((document) => document.data());
   return recipesList;
 }
 
-const onGetRecipes = (callback) => onSnapshot(collection(database, 'recipes'), callback);
+const onGetRecipes = (callback) => onSnapshot(query(collection(database, 'recipes'), orderBy('fechaPublicacion', 'desc')), callback);
 const saveRecipe = (title, description) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
@@ -34,7 +36,7 @@ const saveRecipe = (title, description) => {
       addDoc(
         collection(database, 'recipes'),
         {
-          title, description, user: userRecipe, likes: 0,
+          title, description, user: userRecipe, likes: [], fechaPublicacion: new Date(),
         },
       );
     }
