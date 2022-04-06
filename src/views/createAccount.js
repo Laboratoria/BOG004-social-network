@@ -1,5 +1,5 @@
 // importamos la funcion de createUser
-import { createNewUser } from '../Firebase/fbFunction.js';
+import { createNewUser } from '../firebase/fbFunction.js';
 
 export const clickRegister = (div) => {
   const userName = div.querySelector('#inputName').value;
@@ -61,4 +61,3 @@ export default () => {
   /* creamos constantes para capturar los datos ingresados por el usuario */
   return divAccount;
 };
-
