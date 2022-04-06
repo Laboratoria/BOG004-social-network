@@ -339,7 +339,7 @@ input:focus {
   color: #00B4CC;
 }
 
-#btn-task-save {
+#btn-task-save, #search {
   color: rgb(71, 68, 68);
   background-color: #FFA8BE;
   margin: 12px;
@@ -447,7 +447,7 @@ input:focus {
   height: 40px;
 }
 
-#btn-task-save {
+#search {
   height: 40px;
   width: 100px;
 }
@@ -570,7 +570,7 @@ input:focus {
    padding: 5px;
 }
 
-#btn-task-save {
+#search {
   height: 40px;
   width: 100px;
 }

@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from '../lib/firebase-utils.js';
 import { changeView } from '../view-controler/router.js'; 
 
 export default () => {
+  document.querySelector('#sectionGrid').style.display = 'block';
   const viewLogin = `
     <div class='containerLogin'>
       <button class='returnBtn'><</button>

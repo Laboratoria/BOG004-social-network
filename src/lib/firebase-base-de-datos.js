@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, collection, getDocs, addDoc, onSnapshot, deleteDoc, doc, getDoc
+  getAuth, onAuthStateChanged, collection, getDocs, addDoc, onSnapshot, deleteDoc, doc, getDoc, updateDoc
 } from './firebase-utils.js';
 
 import { database } from './firebase-init.js';
@@ -33,4 +33,5 @@ const saveRecipe = (title, description) => {
 };
 export const deleteRecipe = (id) => deleteDoc(doc(database, 'recipes', id));
 export const editeRecipe = (id) => getDoc(doc(database, 'recipes', id));
+export const updateRecipe = (id, newChanges) => updateDoc(doc(database, 'recipes', id), newChanges);
 export { getRecipes, saveRecipe, onGetRecipes };

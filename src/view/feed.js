@@ -1,6 +1,8 @@
-import { saveRecipe, onGetRecipes, deleteRecipe, editeRecipe } from '../lib/firebase-base-de-datos.js';
+import { saveRecipe, onGetRecipes, deleteRecipe, editeRecipe, updateRecipe } from '../lib/firebase-base-de-datos.js';
 
 export default () => {
+  let editStatus = false;
+  let idRecipe = '';
   const menuMobile = document.getElementById('navMobile');
   menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
@@ -10,12 +12,13 @@ export default () => {
   <div class='searchFeed'>
     <form class='formFeed' id="feed-form">
       <input type='search' id='search-feed' class='inputsearch' placeholder='Explorar' required input/>
-      <button id="btn-task-save">Buscar</button>
+      <button id="search">Buscar</button>
     </form>
     <div id="task-container"></div>
   </div>`;
 
   const createRecipeForm = `
+  <h2>¡Publica tus mejores recetas!</h2>
     <form class='formtext' id='task-form'>
     <img id='recipeForm' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
       <div>
@@ -28,27 +31,23 @@ export default () => {
         </br>
         <textarea id='task-description' rows="3" placeholder="Escribe tu receta"></textarea>
       </div>
-      <button  id="btn-task-save">Guardar</button>
+      <button id="btn-task-save">Publicar</button>
     </form>
   `;
 
   const divFeed = document.createElement('div');
   divFeed.setAttribute('id', 'containerRecipe');
-  divFeed.innerHTML = `${search} <div id="container-recipes"></div>${createRecipeForm}`;
+  divFeed.innerHTML = `${search} ${createRecipeForm}<div id="container-recipes"></div>`;
 
   const taskForm = divFeed.querySelector('#task-form');
-  taskForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const title = taskForm['task-title'];
-    const description = taskForm['task-description'];
-    saveRecipe(title.value, description.value);
-    taskForm.reset();
-  });
+
+  let titleRecipe = divFeed.querySelector('#task-title');
+  let descriptionRecipe = divFeed.querySelector('#task-description');
+
 
   // consultar todas las recetas y crrear cada caja de la receta;
   const data = onGetRecipes((querySnapshot) => {
     let recipesToShow = '';
-
     querySnapshot.forEach((recipe) => {
       recipesToShow += `
       <div class="box-recipe">
@@ -64,25 +63,47 @@ export default () => {
       const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
       btnDelete.forEach(btn => {
         btn.addEventListener('click', (event) => {
-          deleteRecipe(event.target.id);
+          let confMessage = confirm("¿Estás seguro que quieres eliminar esta receta?");
+            //Verificamos si el usuario acepto el mensaje
+            if (confMessage) {
+              deleteRecipe(event.target.id);
+            }
+            else {
+            }
         });
       });
-      
-      // const recipeForm = recipesContainer.querySelector('#task-form');
-      let titleRecipe = divFeed.querySelector('#task-title');
-      let descriptionRecipe = divFeed.querySelector('#task-description');
+
       const btnEdit = recipesContainer.querySelectorAll('.editRecipe');
       btnEdit.forEach(btn => {
-        btn.addEventListener('click', async ({target}) => {
+        btn.addEventListener('click', async ({ target }) => {
           const doc = await editeRecipe(target.id);
           const recipe = doc.data();
           titleRecipe.value = recipe.title;
           descriptionRecipe.value = recipe.description;
+          editStatus = true;
+          divFeed.querySelector('#btn-task-save').innerText = 'Actualizar';
+          return idRecipe = target.id;
+
         });
       });
     });
   });
-  console.log('DATA', data);
 
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = taskForm['task-title'];
+    const description = taskForm['task-description'];
+    if (editStatus !== true) {
+      saveRecipe(title.value, description.value);
+    } else {
+      console.log('hola')
+      updateRecipe(idRecipe, {
+        title: title.value,
+        description: description.value
+      });
+      editStatus = false;
+    }
+    taskForm.reset();
+  });
   return divFeed;
 };
