@@ -448,6 +448,10 @@ input:focus {
  #task-title, #task-description{
    width: 100vh;
 }
+
+.img-like {
+  width: 16px;
+}
 /*TABLETS*/
 @media only screen and (min-width: 576px) and (max-width: 992px) {
   .leftColumn {

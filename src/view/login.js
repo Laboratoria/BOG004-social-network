@@ -20,7 +20,7 @@ export default () => {
     </div>`;
 
   const divLogin = document.createElement('div');
-  divLogin.setAttribute('id', 'login'); 
+  divLogin.setAttribute('id', 'login');
   divLogin.innerHTML = viewLogin;
 
   divLogin.querySelector('#login-form').addEventListener('submit', (e) => {

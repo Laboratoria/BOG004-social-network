@@ -54,6 +54,10 @@ export default () => {
         <h2>${recipe.data().title}</h2>
         <hr>
         <p>${recipe.data().description}</p>
+        <div id='container-likes'>
+           ${recipe.data().likes.length}
+          <img src='../img/vegan-img.jpg' class='img-like' data-id='${recipe.id}'>
+        </div>  
       </div>`;
       const recipesContainer = divFeed.querySelector('#container-recipes');
       recipesContainer.innerHTML = recipesToShow;
