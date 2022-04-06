@@ -1,6 +1,7 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { createPost, getPost, readAllPost} from '../firebaseController.js'
+import { createPost, getPost, readAllPost, currentUser} from '../firebaseController.js'
 
+//función principal para crear template
 export default () => {
   const divDaily = document.createElement('div');
   divDaily.setAttribute('class', 'container-div-daily');
@@ -34,10 +35,12 @@ export default () => {
   `;
   divDaily.innerHTML = viewDaily;
 
+  const userInfo = currentUser();
+
   const btnCreate = divDaily.querySelector('#btn-post-create');
   let background = divDaily.querySelector('#modal-background');
   let modalPost = divDaily.querySelector('#modal_post-container');
-  const postDescription = divDaily.querySelector('#post-description'); //revisen esta vaina
+  const postDescription = divDaily.querySelector('#post-description'); //revisar
 
   btnCreate.addEventListener('click', () => {
     console.log('Opened');
@@ -57,11 +60,11 @@ export default () => {
     modalPost.reset();    
   });
 
-  const postController = () => {
+  const postController = (currentUserInfo) => {
     const postContainer = divDaily.querySelector('#post-container');
     const querySnapshot = getPost();
     //función para leer las publicaciones en tiempo real 
-    querySnapshot.then((response) => {
+    readAllPost((response) => {
       let postTemplate = '';
       response.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().postDescription}`);
@@ -80,7 +83,7 @@ export default () => {
     });
     readAllPost(querySnapshot);
   };
-  postController();
+  postController(userInfo);
 
   // declaracion modalClose para evento de cierre de modal
   let modalClose = divDaily.querySelector('#close'); 

@@ -1,13 +1,14 @@
-// Add Firebase products that you want to use
-// eslint-disable-next-line import/no-unresolved
+// Importamos las funciones del Firebase y FireStore
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-// eslint-disable-next-line import/no-unresolved
+
 import { 
   getAuth, 
   GoogleAuthProvider,  
   createUserWithEmailAndPassword,
   signInWithPopup,
   signInWithEmailAndPassword, 
+  onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import { 
@@ -18,6 +19,8 @@ import {
   onSnapshot,
   doc,
   query,
+  serverTimestamp,
+  orderBy,
   } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
 
 const firebaseConfig = {
@@ -47,6 +50,7 @@ export {
   createUserWithEmailAndPassword,
   signInWithPopup,
   signInWithEmailAndPassword, 
+  onAuthStateChanged,
   getFirestore,
   collection, 
   addDoc,
@@ -54,4 +58,6 @@ export {
   onSnapshot,
   doc,
   query,
+  serverTimestamp,
+  orderBy,
   };
