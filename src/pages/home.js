@@ -1,9 +1,6 @@
-// import { router } from '../lib/index.js';
-// import { router } from '../routes.js';
-
-export default {
-  path: '#',
-  template: `
+export default { // Exportamos un objeto con la descripcion de la ruta home.
+  path: '#', // Ruta
+  template: ` 
   <div class='paws-image'>
   <img class='paws' src='images/animalsBackground.png' alt='paws' />
 </div>
@@ -21,16 +18,16 @@ export default {
 
 
 
-    `,
-  state: 'unlogged',
-  script: () => {
-    const btnModal = document.querySelector('#sign-up');
-    btnModal.addEventListener('click', () => {
-      window.location.hash = 'registro';
+    `, // Template de vista home (página principal).
+  state: 'unlogged', // Solo puede acceder a esta ruta si no está logueado
+  script: () => { // Función que se ejecuta al cargar la vista home.
+    const btnRegister = document.querySelector('#sign-up'); // Botón para abrir la opcion de registro.
+    btnRegister.addEventListener('click', () => { // Cuando se hace click en el botón de registro.
+      window.location.hash = 'registro'; // Redireccionamos a registro.
     });
-    const btnLogin = document.querySelector('#log-in');
-    btnLogin.addEventListener('click', () => {
-      window.location.hash = 'login';
+    const btnLogin = document.querySelector('#log-in'); // Botón para abrir la opcion de login.
+    btnLogin.addEventListener('click', () => { // Cuando se hace click en el botón de login.
+      window.location.hash = 'login'; // Redireccionamos a login.
     });
-  },
-};
+  }, // Fin de la función script.
+}; // Fin de la ruta home.

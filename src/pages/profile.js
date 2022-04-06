@@ -1,7 +1,7 @@
 // import { createUserWithEmailAndPassword } from '../lib/firebase.js';
 
-export default {
-  path: '#perfil',
+export default { // Exportamos un objeto con la descripcion de la ruta profile.
+  path: '#perfil', // Ruta
   template: `
   <header class='nav-bar'>
   <img
@@ -27,26 +27,28 @@ export default {
       <a href=''><i class='fa-solid fa-magnifying-glass'></i> </a>
     </footer>
   
-      `,
-  state: 'logged',
-  script: () => {
-    document.querySelector('.btnSingOut').addEventListener('click', () => {
-      sessionStorage.clear();
-      window.location.hash = '#';
+      `, // Template
+  state: 'logged', // Solo puede acceder a esta ruta si está logueado
+  script: () => { // Función que se ejecuta al cargar la ruta
+    document.querySelector('.btnSingOut').addEventListener('click', () => { // Evento click para cerrar sesión
+      sessionStorage.clear(); // Limpiamos el storage
+      window.location.hash = '#'; // Redireccionamos a la ruta Home.
     });
 
-    const btnPostFooter = document.querySelector('#postFooter');
+    const btnPostFooter = document.querySelector('#postFooter'); // Botón para ir a la sección post
 
-    btnPostFooter.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.hash = 'post';
+    // evento vista movil.
+    btnPostFooter.addEventListener('click', (e) => { // Evento click para ir a la sección post
+      e.preventDefault(); // Evitamos que se recargue la página
+      window.location.hash = 'post'; // Redireccionamos a la ruta post.
     });
-    const btnPostHeader = document.querySelector('#postHeader');
+    const btnPostHeader = document.querySelector('#postHeader'); // Botón para ir a la sección post
 
-    btnPostHeader.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.hash = 'post';
-    });
+    // evento vista escritorio
+    btnPostHeader.addEventListener('click', (e) => { // Evento click para ir a la sección post
+      e.preventDefault(); // Evitamos que se recargue la página
+      window.location.hash = 'post'; // Redireccionamos a la ruta post.
+    }); // Fin de la función script.
   },
 };
 

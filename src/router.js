@@ -1,54 +1,53 @@
 /* eslint-disable class-methods-use-this */
+// Usamos método class constructor definiendo como miembros de la clase
+// los parametros que recibe routes y loadInitialRoute.
 export default class Router {
   constructor(rutas) {
-    this.routes = rutas;
-    this.loadInitialRoute();
+    this.routes = rutas; // Array de rutas
+    this.loadInitialRoute(); // carga la ruta inicial
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  getState() {
-    const usuario = JSON.parse(sessionStorage.getItem('user'));
-    if (usuario && usuario.emailVerified) {
-      return 'logged';
+  getState() { // obtiene el estado de la sesion
+    const usuario = JSON.parse(sessionStorage.getItem('user')); // obtenemos el usuario de sessionStorage
+    if (usuario && usuario.emailVerified) { // si el usuario existe y esta verificado
+      return 'logged'; // retornamos logged
     }
-    return 'unlogged';
+    return 'unlogged'; // si no retornamos unlogged
   }
 
-  removeSlash(path) {
-    return path.substring(1);
+  removeSlash(path) { // elimina los slash de la ruta
+    return path.substring(1); // retorna la ruta sin slash
   }
 
-  loadInitialRoute() {
-    const ruta = this.removeSlash(window.location.hash);
+  loadInitialRoute() { // carga la ruta inicial
+    const ruta = this.removeSlash(window.location.hash); // obtenemos la ruta
     // console.log(window.location);
-    this.loadRoute(ruta);
+    this.loadRoute(ruta); // cargamos la ruta
   }
 
-  loadRoute(ruta) {
-    const matchedRoute = this.matchUrlToRoute(ruta);
+  loadRoute(ruta) { // carga la ruta
+    const matchedRoute = this.matchUrlToRoute(ruta); // obtenemos la ruta
     // console.log(matchedRoute);
-    const routerOutElm = document.getElementById('container');
-    if (matchedRoute !== undefined) {
+    const routerOutElm = document.getElementById('container'); // obtenemos el elemento container
+    if (matchedRoute !== undefined) { // si la ruta existe
+      // si el estado de la ruta es igual al estado de la sesion
       if (matchedRoute.state === this.getState()) {
-        routerOutElm.innerHTML = matchedRoute.template;
-        matchedRoute.script();
-      } else {
-        // eslint-disable-next-line no-lonely-if
-        if (this.getState() === 'logged') {
-          window.location.hash = 'perfil';
-        } else {
-          window.location.hash = '';
-        }
+        routerOutElm.innerHTML = matchedRoute.template; // cargamos la ruta
+        matchedRoute.script(); // cargamos el script
+      } else if (this.getState() === 'logged') { // si el estado de la sesion es logged
+        window.location.hash = 'perfil'; // redireccionamos a perfil
+      } else { // si el estado de la sesion es unlogged
+        window.location.hash = ''; // redireccionamos a home
       }
-    } else {
-      routerOutElm.innerHTML = `<div class="no404"> <figure>
+    } else { // si la ruta no existe
+      routerOutElm.innerHTML = `<div class="no404"> <figure> 
       <img src="https://res.cloudinary.com/dtaq1ip2g/image/upload/v1647617297/404-removebg-preview_rdmlwg.png" alt="Trulli" style="width:100%">
       </figure></div>
-      <footer></footer>`;
+      <footer></footer>`; // cargamos la ruta no encontrada
     }
   }
 
-  matchUrlToRoute(ruta) {
-    return this.routes.find((rout) => this.removeSlash(rout.path) === ruta);
+  matchUrlToRoute(ruta) { // obtiene la ruta
+    return this.routes.find((rout) => this.removeSlash(rout.path) === ruta); // retorna la ruta
   }
-}
+} // fin de la clase

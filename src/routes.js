@@ -5,5 +5,5 @@ import login from './pages/login.js';
 import profile from './pages/profile.js';
 import Router from './router.js';
 
-export const routes = [home, registro, post, login, profile];
-export const router = new Router(routes);
+export const routes = [home, registro, post, login, profile]; // Array de rutas
+export const router = new Router(routes); // instanciamos el router

@@ -62,4 +62,10 @@ describe('signInGoogle retorna post', () => {
     await signInGoogle();
     expect(window.location.hash).toBe('#post');
   });
+  // it('se mantiene en login', async () => {
+  //   await signInGoogle();
+  //   window.location.hash = 'login';
+  //   sessionStorage.clear();
+  //   expect(window.location.hash).toBe('#login');
+  // });
 });

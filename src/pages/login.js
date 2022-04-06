@@ -1,8 +1,8 @@
-import { signInGoogle, logInEmail } from '../lib/firebase.js';
+import { signInGoogle, logInEmail } from '../lib/firebase.js'; // Importamos las funciones de firebase
 
-export default {
-  path: '#login',
-  template: `
+export default { // Exportamos un objeto con la descripcion de la ruta login.
+  path: '#login', // Ruta
+  template: ` 
   <div class='paws-image'>
     <img class='paws' src='images/animalsBackground.png' alt='paws' />
   </div>
@@ -33,17 +33,20 @@ export default {
  </div>
   
    
-              `,
-  state: 'unlogged',
-  script: () => {
-    const btn = document.querySelector('#logIn');
-    btn.addEventListener('click', () => {
-      const email = document.querySelector('#emailLogin').value;
-      const password = document.querySelector('#passwordLogin').value;
+              `, // Template de vista login.
+  state: 'unlogged', // Solo puede acceder a esta ruta si no está logueado
+  script: () => { // Función que se ejecuta al cargar la vista login.
+    const btn = document.querySelector('#logIn'); // Botón para iniciar sesión.
+    btn.addEventListener('click', () => { // Cuando se hace click en el botón de iniciar sesión.
+      const email = document.querySelector('#emailLogin').value; // Obtenemos el correo ingresado.
+      const password = document.querySelector('#passwordLogin').value; // Obtenemos la contraseña ingresada.
       logInEmail(email, password);
+      // Llamamos a la función de firebase logInEmail para iniciar sesión.
     });
 
-    const btnSignInGoogle = document.querySelector('#btnSignInGoogle');
+    const btnSignInGoogle = document.querySelector('#btnSignInGoogle'); // Botón para iniciar sesión con google.
     btnSignInGoogle.addEventListener('click', signInGoogle);
+    // Cuando se hace click en el botón de iniciar sesión con
+    // google se llama la funcion signInGoogle de firebase.
   },
 };

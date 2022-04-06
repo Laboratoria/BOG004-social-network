@@ -1,8 +1,8 @@
-import { signInGoogle, signInEmail } from '../lib/firebase.js';
-import { expresiones, validateField } from '../utils.js';
+import { signInGoogle, signInEmail } from '../lib/firebase.js'; // Importamos la función de autenticación
+import { expresiones, validateField } from '../utils.js'; // Importamos las expresiones regulares y la función de validación
 
-export default {
-  path: '#registro',
+export default { // Exportamos un objeto con la descripción de la ruta registro.
+  path: '#registro', // Ruta
   template: `
   <div class='paws-image'>
   <img class='paws' src='images/animalsBackground.png' alt='paws' />
@@ -42,44 +42,45 @@ export default {
     </div>
   
   
-`,
-  state: 'unlogged',
-  script: () => {
-    const btn = document.querySelector('#btn-register');
-    const inputs = document.querySelectorAll('#form input');
+`, // Template de vista registro.
+  state: 'unlogged', // Solo puede acceder a esta ruta si no está logueado
+  script: () => { // Función que se ejecuta al cargar la vista registro.
+    const btn = document.querySelector('#btn-register'); // Botón para registrarse.
+    const inputs = document.querySelectorAll('#form input'); // Todos los inputs del formulario.
 
-    const btnSignInGoogle = document.querySelector('#btnSignInGoogle');
+    const btnSignInGoogle = document.querySelector('#btnSignInGoogle'); // Botón para ingresar con Google.
     btnSignInGoogle.addEventListener('click', signInGoogle);
+    // Cuando se hace click en el botón de ingresar con Google.
 
-    btn.addEventListener('click', () => {
-      const name = document.querySelector('#name').value;
-      const email = document.querySelector('#email').value;
-      const password = document.querySelector('#password').value;
-      if (name && email && password) {
-        signInEmail(email, password, name);
-      } else {
-        alert('Los campos no pueden estar vacios');
+    btn.addEventListener('click', () => { // Cuando se hace click en el botón de registrarse.
+      const name = document.querySelector('#name').value; // Nombre ingresado.
+      const email = document.querySelector('#email').value; // Correo ingresado.
+      const password = document.querySelector('#password').value; // Contraseña ingresada.
+      if (name && email && password) { // Si todos los campos están llenos.
+        signInEmail(email, password, name); // Llamamos a la función de autenticación.
+      } else { // Si alguno de los campos está vacío.
+        alert('Los campos no pueden estar vacios'); // Mostramos un mensaje de error.
       }
     });
 
-    const validarForm = (e) => {
-      switch (e.target.name) {
-        case 'name':
-          validateField(expresiones.name, e.target, 'name');
-          break;
+    const validarForm = (e) => { // Función que valida los campos del formulario.
+      switch (e.target.name) { // Seleccionamos el campo que se está validando.
+        case 'name': // Si es el campo nombre.
+          validateField(expresiones.name, e.target, 'name'); // Llamamos a la función de validación.
+          break; // Salimos del switch.
         case 'email':
           validateField(expresiones.email, e.target, 'email');
           break;
         case 'password':
           validateField(expresiones.password, e.target, 'password');
           break;
-        default:
+        default: // Si no es ninguno de los campos anteriores.
       }
     };
 
-    inputs.forEach((input) => {
-      input.addEventListener('keyup', validarForm);
-      input.addEventListener('blur', validarForm);
-    });
+    inputs.forEach((input) => { // Recorremos todos los inputs del formulario.
+      input.addEventListener('keyup', validarForm); // Cuando se escribe en el input.
+      input.addEventListener('blur', validarForm); // Cuando se quita el foco del input.
+    }); // Fin de la función que valida los campos del formulario.
   },
 };
