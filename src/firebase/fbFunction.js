@@ -1,5 +1,5 @@
 // Importamos app para inicializar firebase
-// import { app } from './fbkeys.js'; 
+import { app } from './fbkeys.js'; 
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
