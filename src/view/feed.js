@@ -88,7 +88,6 @@ export default () => {
           editStatus = true;
           divFeed.querySelector('#btn-task-save').innerText = 'Actualizar';
           return idRecipe = target.id;
-
         });
       });
     });
@@ -109,6 +108,7 @@ export default () => {
       editStatus = false;
     }
     taskForm.reset();
+    divFeed.querySelector('#btn-task-save').innerText = 'Publicar';
   });
   return divFeed;
 };
