@@ -51,6 +51,7 @@ export const newLogin = (email, password) => {
       console.log('logueado...');
       window.location.assign('#/feed');
       const user = userCredential.user;
+      console.log(user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -130,7 +131,6 @@ export const getPost = (id) => getDoc(doc(db, 'Posts', id));
 export function readPost(mostrarPost, divForm) {
   // console.log('lo que recibe como param: ', mostrarPost);
   const contentFeed = divForm.querySelector('#contentFeed');
-  console.log(contentFeed);
   // const mostrarPost = document.querySelector('#mostrarPost');
   const querySnapshot = getDocs(collection(db, 'Posts'));
   querySnapshot.then((res) => {
@@ -148,17 +148,18 @@ export function readPost(mostrarPost, divForm) {
         <div class="btnPost">
           <button class="btnEdit" data-post="${doc.id}">Editar</button>
           <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
+          <a class="like" type="button"><img src="img/like-azul.png" alt="Me gusta"></a>
         </div>
       </div>
     `;
     });
     mostrarPost.innerHTML = templateMostrarPost;
     const btnsEdit = mostrarPost.querySelectorAll('.btnEdit');
-    console.log(btnsEdit);
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async ({ target: { dataset } }) => {
         const doc = await getPost(dataset.post);
         const postEdit = doc.data();
+        console.log(postEdit);
         contentFeed.value = postEdit.content;
         window.editMode = true;
         id = doc.id;
@@ -166,13 +167,19 @@ export function readPost(mostrarPost, divForm) {
       });
     });
     const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
-    console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         if (window.confirm('¿Estás seguro de eliminar?')) {
           deletePost(dataset.post);
         }
         readPost(mostrarPost, divForm);
+      });
+    });
+    const btnsLike = mostrarPost.querySelectorAll('.like');
+    btnsLike.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        console.log(btnsLike);
+        btn.classList.add('darLike');
       });
     });
   });

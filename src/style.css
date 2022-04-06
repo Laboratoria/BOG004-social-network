@@ -415,6 +415,15 @@ a:visited {
     font-size: 20px;
 }
 
+/* BOTONES LIKE */
+.like img{
+    width: 20px;
+    height: 20px;
+}
+.darLike{
+    background: red;
+}
+
 @media (min-width: 768px){
     #container {
         height: 100vh;
