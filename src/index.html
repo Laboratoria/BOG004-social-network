@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Red Social para proveedores y clientes de servicios Tics</title>
+</head>
 <nav class="nav">
     <div class="nav-title">
         <a href="#/">
-            <img class="nav-logo" src="./images/logo-ninja-signup-responsive.png" />
+            <img class="nav-logo" src="./images/logo-ninja-signup-responsive.png" alt="logo">
         </a>
     </div>
     <div class="nav-items">
@@ -18,23 +26,12 @@
     </div>
 </nav>
 
-<head>
-    <title>
-        Ninja Red Social para proveedores y clientes de servicios Tics
-    </title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-</head>
-
 <body>
-    <header></header>
-    <div id="root"></div>
-    <script type="module" src="Firebase/firebase-controller.js"></script>
-    <!-- <script type="module" src="Firebase/firebase-import.js"> </script>
-    <script type="module" src="Firebase/auth.js"></script>-->
-    <script type="module" src="main.js"></script>
+    <header>
+        <div id="root"></div>
+    </header>
+    <script type="module" src="./Firebase/firebase-controller.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>
