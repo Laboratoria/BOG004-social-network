@@ -15,6 +15,7 @@ import {
 export default () => {
   let editStatus = false;
   let idRecipe = '';
+  let likeInit = '';
   const menuMobile = document.getElementById('navMobile');
   menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
@@ -57,9 +58,10 @@ export default () => {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const uid = user.uid;
+        let uid = user.uid;
         let recipesToShow = '';
         querySnapshot.forEach((recipe) => {
+          likeInit = recipe.data().likes.length;
           recipesToShow += `
                 <div class="box-recipe">
                   <h2>${recipe.data().title}</h2>
@@ -68,7 +70,7 @@ export default () => {
                   
                   <div class= 'iconos'>
                     <div class="content-icon">
-                      <img id='${recipe.id}' data-id='${recipe.id}' class= 'icon-recipe likeRecipe' src='${recipe.data().likes.includes(uid) ? '../img/like.png' : '../img/dislike.png'}'  alt='like_image'>
+                      <img id='${recipe.id}' class= 'icon-recipe likeRecipe' src='../img/like.png'  alt='like_image'>
                       <p class='likeText'>${recipe.data().likes.length} Me gusta</p>  
                     </div>
                     <div class="content-icon">
@@ -85,19 +87,6 @@ export default () => {
 
           const titleRecipe = divFeed.querySelector('#task-title');
           const descriptionRecipe = divFeed.querySelector('#task-description');
-
-          const btnLike = document.querySelectorAll('.likeRecipe');
-          btnLike.forEach((btn) => {
-            btn.addEventListener('click', async ({ target }) => {
-              const recipeToLike = await editeRecipe(target.dataset.id);
-              const likeUser = recipeToLike.data().likes;
-              if (likeUser.includes(uid)) {
-                dislikeRecipe(uid, target.dataset.id);
-              } else {
-                likeRecipe(`${uid}`, `${target.dataset.id}`);
-              }
-            });
-          });
 
           const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
           btnDelete.forEach((btn) => {
@@ -122,6 +111,19 @@ export default () => {
               idRecipe = target.id;
             });
           });
+
+          const btnLike = document.querySelectorAll('.likeRecipe');
+          btnLike.forEach((btn) => {
+            btn.addEventListener('click', async ({ target }) => {
+              const recipeToLike = await editeRecipe(target.id);
+              const likeUser = recipeToLike.data().likes;
+              if (likeUser.uid) {
+                dislikeRecipe(uid, target.id);
+              } else {
+                likeRecipe(`${uid}`, `${target.id}`);
+              }
+            });
+          });
         });
       }
     });
@@ -137,6 +139,7 @@ export default () => {
       updateRecipe(idRecipe, {
         title: title.value,
         description: description.value,
+        like:[],
       });
       editStatus = false;
     }

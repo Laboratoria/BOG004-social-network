@@ -34,7 +34,7 @@ const saveRecipe = (title, description) => {
       addDoc(
         collection(database, 'recipes'),
         {
-          title, description, user: userRecipe, likes: 0,
+          title, description, user: userRecipe, likes: [],
         },
       );
     }
