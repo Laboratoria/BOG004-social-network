@@ -18,7 +18,7 @@ export default () => {
   </div>`;
 
   const createRecipeForm = `
-  <h2>¡Publica tus mejores recetas!</h2>
+    <h2>¡Publica tus mejores recetas!</h2>
     <form class='formtext' id='task-form'>
     <img id='recipeForm' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
       <div>
@@ -54,9 +54,14 @@ export default () => {
         <h2>${recipe.data().title}</h2>
         <hr>
         <p>${recipe.data().description}</p>
-        <button class='deleteRecipe' id='${recipe.id}'>Eliminar</button>
-        <button class='editRecipe' id='${recipe.id}'>Editar</button>
+        <div class= 'iconos'>
+          <img id='${recipe.id}' class= 'likeRecipe' src='../img/like.png' alt='like_image'><p class='likeText'>Me gusta</p>
+          <img id='${recipe.id}' class='deleteRecipe' src='../img/espatula.png' alt='espatula_image'><p class='eliminarText'>Eliminar</p>
+          <img id='${recipe.id}' class='editRecipe' href='#/feed'  src='../img/rodillo.png' alt='rodillo_image'><p class='editarText'>Editar</p>
+        </div>
       </div>`;
+      // <button class='deleteRecipe' id='${recipe.id}'>Eliminar</button>
+      // <button class='editRecipe' id='${recipe.id}'>Editar</button>
       const recipesContainer = divFeed.querySelector('#container-recipes');
       recipesContainer.innerHTML = recipesToShow;
 
