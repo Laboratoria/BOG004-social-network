@@ -1,6 +1,6 @@
-import { signInUser } from '../Firebase/fbFunction.js';
+import { signInUser } from '../firebase/fbFunction.js';
 import { auth } from '../view-controler/controllers.js';
-import { loginGoogle } from '../Firebase/fbFunction.js';
+import { loginGoogle } from '../firebase/fbFunction.js';
 import { provider } from '../view-controler/controllers.js';
 
 export const clickSignIn = (div) => {
