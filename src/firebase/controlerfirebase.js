@@ -1,7 +1,8 @@
 import {
   getAuth, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider,
-  getDocs, collection, addDoc, getFirestore, doc, setDoc, getDoc,
+  signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup,
+  GoogleAuthProvider,
+  getDocs, collection, addDoc, getFirestore, doc, setDoc, getDoc, serverTimestamp, orderBy, query,
 } from './firebase-utils.js';
 
 const createUser = (email, password) => {
@@ -70,8 +71,11 @@ function observerUserState() {
 
 const closeSession = () => {
   const auth = getAuth();
+  const user = auth.currentUser;
+
   signOut(auth)
     .then(() => {
+      console.log('sesion cerrada');
     })
     .catch((error) => {
       console.error(error);
@@ -98,14 +102,14 @@ const signInWithGoogle = () => {
 
 const getPostList = async () => {
   const db = getFirestore();
-  const querySnapshot = await getDocs(collection(db, 'posts'));
+  const querySnapshot = await getDocs(query(collection(db, 'posts'), orderBy('date', 'desc')));
   const getDivPosts = document.getElementById('posts');
   let Posts = '';
   let PostJS = '';
 
   querySnapshot.forEach((document) => {
     const data = document.data();
-    let likes = data.likes;    
+    let likes = data.likes;
     // 2.1 likes === undefined tengo que crear el arreglo
     if (likes === undefined) {
       likes = [];
@@ -164,6 +168,7 @@ const addPost = async (thinking) => {
       email: usuario.email,
       photoUrl: usuario.photoURL,
       thinking,
+      date: serverTimestamp(),
     });
     console.log('Document written with ID: ', docRef.id);
     getPostList();
