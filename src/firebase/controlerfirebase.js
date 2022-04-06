@@ -201,7 +201,6 @@ const doLike = async (idPost) => {
       // 2.2.2 Si SI esta, lo quita del arreglo algo.remove
       likes.splice(index);
     }
-
     // 3. setDoc
     await setDoc(
       docRef,
