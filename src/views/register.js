@@ -1,3 +1,14 @@
+import { signInUser } from '../Firebase/fbFunction.js'
+import { auth } from '../view-controler/controllers.js'
+
+export const clickSignIn = (div) => {
+  const email = div.querySelector('#inputEmail').value;
+  const password = div.querySelector('#inputPassword').value;
+  const errorMessageLogin = div.querySelector('#errorMessage');
+  signInUser(auth, email, password);
+}
+
+
 export default () => {
   const viewRegister = `
   <div class='container'>
@@ -8,7 +19,8 @@ export default () => {
     <div class='gridBody'>
       <input class='inputStyle' id='inputEmail' type='email' placeholder='Correo Electrónico'>
       <input class='inputStyle' id='inputPassword' type='password' placeholder='Contraseña'>
-      <button class='btnLogin'><a href='#/ecoTraveler'>Ingresar</a></button>
+      <p class='alertMessage' id='errorMessage'></p>
+      <button class='btnLogin' id='signInBtn'>Ingresar</button>
       <h3 class='textGoogle'>Iniciar sesión con google</h3>
       <img src='img/google-logo.svg' alt='googleLogo' class='googleLogo'>
     </div>
@@ -21,5 +33,11 @@ export default () => {
   const divRegister = document.createElement('div');
   divRegister.innerHTML = viewRegister;
 
+  const btnSignIn = divRegister.querySelector('#signInBtn');
+  btnSignIn.addEventListener('click', () => clickSignIn(divRegister));
+
   return divRegister;
 };
+
+
+

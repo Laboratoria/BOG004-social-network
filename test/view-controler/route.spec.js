@@ -7,25 +7,25 @@ jest.mock('../../src/firebase/firebaseImport.js');
 // funciones para cada caso
 
 const viewRegisterTest = () => {
-  const registerTest = `<p id='viewTest'>Esto es un texto de prueba para register</p>`;
+  const registerTest = '<p id="viewTest">Esto es un texto de prueba para register</p>';
   const divRegisterTest = document.createElement('div');
   divRegisterTest.innerHTML = registerTest;
   return divRegisterTest;
 };
 const viewEcotravelerTest = () => {
-  const EcotravelerTest = `<p id='viewTest'>Esto es un texto de prueba para el muro</p>`;
+  const EcotravelerTest = '<p id="viewTest">Esto es un texto de prueba para el muro</p>';
   const divEcotravelerTest = document.createElement('div');
   divEcotravelerTest.innerHTML = EcotravelerTest;
   return divEcotravelerTest;
 };
 const viewAccountTest = () => {
-  const AccountTest = `<p id='viewTest'>Esto es un texto de prueba para create account</p>`;
+  const AccountTest = '<p id="viewTest">Esto es un texto de prueba para create account</p>';
   const divAccountTest = document.createElement('div');
   divAccountTest.innerHTML = AccountTest;
   return divAccountTest;
 };
 const viewNotFoundTest = () => {
-  const notFoundTest = `<p id='viewTest'>Esto es un texto de prueba para notFound 404</p>`;
+  const notFoundTest = '<p id="viewTest">Esto es un texto de prueba para notFound 404</p>';
   const divNotFoundTest = document.createElement('div');
   divNotFoundTest.innerHTML = notFoundTest;
   return divNotFoundTest;
