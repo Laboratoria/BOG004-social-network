@@ -108,7 +108,6 @@ export default () => {
   //   createPost(postDescription.value);
   //   modalPost.reset();
   // });
-<<<<<<< HEAD
 
 
   // declaracion modalClose para evento de cierre de boton en version mobile
@@ -154,8 +153,6 @@ export default () => {
   // };
   // postController();
   
-=======
->>>>>>> fcac88cffe29ca6ae004f39b65ff2baa5d9e3bd0
   
   return divDaily;
 };

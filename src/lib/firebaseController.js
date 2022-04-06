@@ -50,25 +50,6 @@ export const readAllPost = (querySnapshot) => {
   return onSnapshot(dbPublications, querySnapshot);
 };
 
-<<<<<<< HEAD
-
-
-
-//funcion para leer todas las publicación
-// export const readAllPost = () => {
-//   getPost().then
-//   const querySnapshot = getDocs(dbPublications);
-//   querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// }); 
-//   // console.log ('hola soy la actualización: ',onSnapshot(dbPublications, querySnapshot))
-//   // return onSnapshot(dbPublications, querySnapshot);
-// };
-
-
-
-=======
->>>>>>> fcac88cffe29ca6ae004f39b65ff2baa5d9e3bd0
 // //funcion para leer todas la publicaciones
 // export const readPost = () => {
 //   getPost().then((res)=>console.log('promesa: ', res));
