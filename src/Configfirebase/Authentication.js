@@ -51,8 +51,6 @@ export const submithandler = (email, password, userName) => {
         default:
           // eslint-disable-next-line
           console.log('Esto no sirve.');
-      /* if (error.message = 'Error (auth/invalid-email)') {
-        alert('Por favor escribe un correo valido')} */
       }
     });
 };
@@ -60,7 +58,7 @@ export const submithandler = (email, password, userName) => {
 /* Enviar email de confirmación */
 
 const actionCodeSettings = {
-  url: 'http://localhost:3000/#login',
+  url: 'http://192.168.1.1:3000/#login',
   handleCodeInApp: true,
 };
 

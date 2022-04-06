@@ -3,6 +3,7 @@ import { login } from './login.js';
 import { register } from './register.js';
 import { wall } from './wall.js';
 
+/* Aqui añadimos las rutas creadas */
 const content = document.getElementById('root');
 const router = (route) => {
   content.innerHTML = '';

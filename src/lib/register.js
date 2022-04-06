@@ -1,6 +1,6 @@
 import { submithandler, emailSend, SignGoogle } from '../Configfirebase/Authentication.js';
 
-export const register = () => {
+export const register = () => { /* Aqui creamos el template del registro */
   const divElement = document.createElement('div');
   const template = `
   <header>
@@ -40,24 +40,31 @@ export const register = () => {
   const password = divElement.querySelector('#password');
   const username = divElement.querySelector('#username');
 
+  /* añadimos un evento para activar la ventana modal y que a
+  su vez nos trajera el valor del email y password */
   buttonregister.addEventListener('click', () => {
     modalwindow.classList.add('active');
     submithandler(email.value, password.value, username.value);
   });
 
+  /* añadimos un evento para cerrar la ventana modal y se
+  enviara un mail de verificacion al usuario */
   buttonclose.addEventListener('click', () => {
     modalwindow.classList.remove('active');
     emailSend(email.value);
   });
 
+  /* Aqui ejecutamos la funcion para registrarnos sesion con Google */
   buttonGoogle.addEventListener('click', () => {
     SignGoogle();
   });
 
+  /* Aqui añadimos un evento para redirigir a la vista login */
   buttonlogin2.addEventListener('click', () => {
     window.location = '#login';
   });
 
+  /* Aqui añadimos un evento para redirigir a la vista home */
   buttonhome.addEventListener('click', () => {
     window.location = '';
   });

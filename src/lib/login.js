@@ -1,6 +1,6 @@
 import { SignGoogle, loginUser } from '../Configfirebase/Authentication.js';
 
-export const login = () => {
+export const login = () => { /* Aqui creamos el template del login */
   const divElement = document.createElement('div');
   const template = `
   <header>
@@ -26,14 +26,17 @@ export const login = () => {
   const email = divElement.querySelector('#email');
   const password = divElement.querySelector('#password');
 
+  /* Aqui ejecutamos la funcion para traer el valor del email y password */
   buttonlogin.addEventListener('click', () => {
     loginUser(email.value, password.value);
   });
 
+  /* Aqui ejecutamos la funcion para iniciar sesion con Google */
   buttonGoogle.addEventListener('click', () => {
     SignGoogle();
   });
 
+  /* Aqui añadimos un evento para redirigir a la vista home */
   buttonhome.addEventListener('click', () => {
     window.location = '';
   });
