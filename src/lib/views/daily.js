@@ -103,13 +103,13 @@ export default () => {
   // });
 
 
-  // // declaracion modalClose para evento de cierre de boton en version mobile
-  // let modalClose = divDaily.querySelector('#fa-solid'); 
-  // modalClose.addEventListener('click',()=>{
-  //   console.log('Close');
-  //   background.style.display= "none";
-  //   modalPost.style.display= "";
-  // });
+  // declaracion modalClose para evento de cierre de boton en version mobile
+  let modalClose = divDaily.querySelector('#close'); 
+  modalClose.addEventListener('click',()=>{
+    console.log('Close');
+    background.style.display= "none";
+    modalPost.style.display= "";
+  });
 
 
   // postDescription.addEventListener('keyup', () => { // evento del textarea

@@ -44,6 +44,14 @@ export const getPost = () => {
 };
 
 
+// funcion para leer todas las publicación
+export const readAllPost = (querySnapshot) => {
+  console.log('muestranos: ', onSnapshot(dbPublications, querySnapshot));
+  return onSnapshot(dbPublications, querySnapshot);
+};
+
+
+
 
 //funcion para leer todas las publicación
 // export const readAllPost = () => {
