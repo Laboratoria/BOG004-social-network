@@ -110,7 +110,7 @@ p {
   color: rgb(71, 69, 69);
   font-size: 13px;
   margin-top: 0px;
-  margin: 0px;
+  margin-bottom: 10px;
 }
 
 
@@ -485,7 +485,7 @@ a {
 
 .button {
   border: none;
-  background-color: white;
+  background-color: rgba(249, 226, 218, 1);
   cursor: pointer;
   padding: 0px;
   

@@ -11,13 +11,13 @@ export default () => {
         <nav class="nav">
           <ul>
           <div class="img-mommi-wall"><img src="img/logo.png" alt="logo-mommi" class="logo-mommi-nav"></div>
-            <li class="active"><a href="#">Wall</a></li>
+            <li class="active"><a href="#">Muro</a></li>
             <li><a href="#">Blogs</a></li>
-            <li><a href="#">Books</a></li>
-            <li><a href="#">Featured</a></li>
-            <li><a href="#">Most Recent</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Picture</a></li>
+            <li><a href="#">Libros</a></li>
+            <li><a href="#">Destacados</a></li>
+            <li><a href="#">Más Reciente</a></li>
+            <li><a href="#">Personas</a></li>
+            <li><a href="#">Imagenes</a></li>
             <button class="button" id="logoutBtn">
             <i class="fa fa-sign-out icono-cerrar-sesion" aria-hidden="true">
             </i>
@@ -31,7 +31,7 @@ export default () => {
     <p class="welcome-text">Mommi Wall</p>
     <div id="wall-content">
     <div id="editPost">
-      <textarea id="thinksuseredit" rows="4" placeholder="¿Que estas pensado?..."></textarea>
+      <textarea id="thinksuseredit" rows="4" placeholder="¿Que estas pensado?..." maxlength="200"></textarea>
       <button id = "btnSaveThought"class="btn-post">Publicar</button>
       </div>
     <div class="post" id="posts">
