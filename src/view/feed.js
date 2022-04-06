@@ -117,8 +117,13 @@ export default () => {
             btn.addEventListener('click', async ({ target }) => {
               const recipeToLike = await editeRecipe(target.id);
               const likeUser = recipeToLike.data().likes;
-              if (likeUser.uid) {
-                dislikeRecipe(uid, target.id);
+              console.log(likeUser);
+              console.log(target.id);
+              console.log(uid)
+              if (likeUser.includes(uid)) {
+                dislikeRecipe(`${uid}`, `${target.id}`);
+                const btnLike = document.querySelectorAll('.likeRecipe');
+                btnLike.style.filter = 'grayscale(100%)';
               } else {
                 likeRecipe(`${uid}`, `${target.id}`);
               }
