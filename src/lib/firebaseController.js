@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
   db,
   collection,
   addDoc,
@@ -86,29 +87,13 @@ export const readAllPost = (querySnapshot) => {
 };
 
 
-
-// //funcion para leer todas la publicaciones
-// export const readPost = () => {
-//   getPost().then((res)=>console.log('promesa: ', res));
-//   const q = query(collection(db, "posts"));
-//   const post = [];
-//   onSnapshot(q, (querySnapshot) => {    
-//     querySnapshot.forEach((doc) => {
-//       post.push({
-//         id: doc.id,
-//         description: doc.data(),
-//       });
-//       console.log('post in: ', post);
-//     });
-//   });
-//   console.log('total post: ', post);
-//   return post 
-// };
-
-
-
-
 // export const deletePost = (id) => {
 //   deleteDoc(doc(db, 'Posts', id));
 // };
+
+export const logout = () => {
+  const auth = getAuth();
+  const logOutUser = signOut(auth);
+  return logOutUser;
+};
 

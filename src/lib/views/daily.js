@@ -1,5 +1,5 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { createPost, getPost, readAllPost, currentUser} from '../firebaseController.js'
+import { createPost, getPost, readAllPost, currentUser, logout} from '../firebaseController.js'
 
 //función principal para crear template
 export default () => {
@@ -8,6 +8,7 @@ export default () => {
   const viewDaily = `
   <header id='banner'>
     <img id='Banner_img' src='./img/title.png'>
+    <i class='fa-solid fa-arrow-right-from-bracket' id='logout' ></i> 
   </header>
   <main>
     <button type='button' id='btn-post-create'>create +</button> 
@@ -104,6 +105,16 @@ export default () => {
       btnSave.disabled = false; // boton publicar activo
     }
   });
+
+  // Evento click a boton de cerrar sesión
+  const btnLogout = divDaily.querySelector('#logout');
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout()
+      .then(() => {
+        window.location.hash = '#/login';
+      })
+    });
 
   // btnSave.addEventListener('click', (e) => {
   //   e.preventDefault()

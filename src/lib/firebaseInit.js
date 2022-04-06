@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword, 
   onAuthStateChanged,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import { 
@@ -51,6 +52,7 @@ export {
   signInWithPopup,
   signInWithEmailAndPassword, 
   onAuthStateChanged,
+  signOut,
   getFirestore,
   collection, 
   addDoc,
