@@ -1,9 +1,9 @@
 import { login, authGoogle } from '../lib/auth.js';
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
-import { changeView } from '../view-controler/router.js'; 
+import { changeView } from '../view-controler/router.js';
 
 export default () => {
-  // document.querySelector('#sectionGrid').style.display = 'block';
+  document.querySelector('#sectionGrid').style.display = 'block';
   const viewLogin = `
     <div class='containerLogin'>
       <button class='returnBtn'><</button>
@@ -27,24 +27,22 @@ export default () => {
     e.preventDefault(); // previene la recarga por defecto de la página
     const email = divLogin.querySelector('#loginEmail').value;
     const password = divLogin.querySelector('#loginPassword').value;
-    console.log(email, password);
     login(email, password);
   });
   const googleButton = divLogin.querySelector('.googleLogo');
   const provider = new GoogleAuthProvider();
   googleButton.addEventListener('click', async () => {
-    let respuesta = await authGoogle(provider)
-    console.log('respuesta', respuesta)
+    const respuesta = await authGoogle(provider);
     if (respuesta === true) {
       changeView('#/feed');
     } else {
-      console.log('error al iniciar sesión')
+      console.log('error al iniciar sesión');
     }
   });
   const returnBtn = divLogin.querySelector('.returnBtn');
-  returnBtn.addEventListener('click', (event) => {
+  returnBtn.addEventListener('click', () => {
     changeView('#/');
   });
-  
+
   return divLogin;
 };

@@ -30,7 +30,6 @@ const changeView = (hash) => {
       return sectionMain.appendChild(components.Interest());
     }
     case '#/cerrar-sesion': {
-      console.log('usuario cerró sesion');
       window.location.hash = '#/';
     }
     // eslint-disable-next-line no-fallthrough

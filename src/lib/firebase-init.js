@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp, getFirestore } from '../lib/firebase-utils.js';
+import { initializeApp, getFirestore } from './firebase-utils.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCD3vDNvAc4fuPUfuqxSUlLO1oPpe8UQGg',
@@ -13,6 +13,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const database = getFirestore(app);
-export const getrecipes = () => {
-  console.log('recipe list');
-};

@@ -13,4 +13,15 @@ export {
   onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
-export {collection, getDocs, addDoc, onSnapshot} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+export {
+  collection,
+  getDocs,
+  addDoc,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';

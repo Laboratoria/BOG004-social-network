@@ -293,7 +293,42 @@ input:focus {
 }
 
 /* Feed*/
+.likeRecipe,
+.deleteRecipe,
+.editRecipe {
+  width: 32px;
+ 
+}
 
+.content-icon {
+  display: flex;
+}
+
+.icon-recipe {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.iconos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ 
+}
+.text-justify{
+text-align: justify;
+}
+
+.box-recipe{
+  width: 80%;
+  border-radius: 20px;
+  margin: 10px auto 10px auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+  padding: 30px;
+ 
+  
+}
 .searchFeed {
   margin: 30px;
   display: flex;
@@ -339,7 +374,7 @@ input:focus {
   color: #00B4CC;
 }
 
-#btn-task-save {
+#btn-task-save, #search {
   color: rgb(71, 68, 68);
   background-color: #FFA8BE;
   margin: 12px;
@@ -403,7 +438,7 @@ input:focus {
 
   #menuHtml {
     padding: 20px 0px 20px 0px;
-    height: 87vh;
+    height: 100%;
   }
 
   #sectionGrid {
@@ -435,7 +470,7 @@ input:focus {
   height: 40px;
 }
 
-#btn-task-save {
+#search {
   height: 40px;
   width: 100px;
 }
@@ -443,7 +478,7 @@ input:focus {
   width: 100%;
 }
 #task-form{
-  width: 900px;
+  width: 80%;
 }
  #task-title, #task-description{
    width: 100vh;
@@ -562,7 +597,7 @@ input:focus {
    padding: 5px;
 }
 
-#btn-task-save {
+#search {
   height: 40px;
   width: 100px;
 }
@@ -570,7 +605,7 @@ input:focus {
   width: 100%;
 }
 #task-form{
-  width: 90%;
+  width: 80%;
   border-radius: 20px;
   background-color: white;
   margin: 10px auto 10px auto;

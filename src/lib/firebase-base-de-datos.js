@@ -1,6 +1,17 @@
 /* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, collection, getDocs, addDoc, onSnapshot,
+  getAuth,
+  onAuthStateChanged,
+  collection,
+  getDocs,
+  addDoc,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from './firebase-utils.js';
 
 import { database } from './firebase-init.js';
@@ -8,7 +19,7 @@ import { database } from './firebase-init.js';
 async function getRecipes() {
   const recipesCollection = collection(database, 'recipes');
   const recipesSnapshot = await getDocs(recipesCollection);
-  const recipesList = recipesSnapshot.docs.map((doc) => doc.data());
+  const recipesList = recipesSnapshot.docs.map((document) => document.data());
   return recipesList;
 }
 
@@ -26,10 +37,16 @@ const saveRecipe = (title, description) => {
           title, description, user: userRecipe, likes: 0,
         },
       );
-    } else {
-      console.error('No hay usuario logueado');
     }
   });
 };
-
+export const deleteRecipe = (id) => deleteDoc(doc(database, 'recipes', id));
+export const editeRecipe = (id) => getDoc(doc(database, 'recipes', id));
+export const updateRecipe = (id, newChanges) => updateDoc(doc(database, 'recipes', id), newChanges);
+export const likeRecipe = (uid, idRecipe) => updateDoc(doc(database, 'recipes', idRecipe), {
+  likes: arrayUnion(uid),
+});
+export const dislikeRecipe = (uid, idRecipe) => updateDoc(doc(database, 'recipes', idRecipe), {
+  likes: arrayRemove(uid),
+});
 export { getRecipes, saveRecipe, onGetRecipes };
