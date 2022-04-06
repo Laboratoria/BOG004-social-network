@@ -1,4 +1,4 @@
-import { auth, provider } from '../firebaseInit.js';
+// import { auth, provider } from '../firebaseInit.js';
 import { newRegister, loginGoogle } from '../firebaseController.js';
 
 export default () => {
@@ -50,7 +50,7 @@ export default () => {
     errorMessageJoin.innerHTML = '';
 
     if (name !== '') {
-      newRegister(auth, email, password, name)
+      newRegister(email, password, name)
         .then(() => {
           // const user = userCredential.user;
 
@@ -92,7 +92,7 @@ export default () => {
   googleBotton.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('Click en Google');
-    loginGoogle(auth, provider)
+    loginGoogle()
       .then(() => {
         window.location.hash = '#/daily';
       });

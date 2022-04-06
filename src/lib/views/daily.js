@@ -1,6 +1,5 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { db } from '../firebaseInit.js';
-import { createPost, getPost, readPost } from '../firebaseController.js';
+import { createPost, getPost, readAllPost} from '../firebaseController.js'
 
 export default () => {
   const divDaily = document.createElement('div');
@@ -10,26 +9,27 @@ export default () => {
     <img id='Banner_img' src='./img/title.png'>
   </header>
   <main>
+    <button type='button' id='btn-post-create'>create +</button> 
     <div id='modal-background'>
       <form id='modal_post-container' class="post-container">
         <div id='modal_header'>
           <img id='user_img' src='./img/Icono_Harry.png'>
           <div id='name-container'>Wizard</div>
-          <i class="fa-solid fa-xmark" id="fa-solid"></i>
+          <i class="fa-solid fa-xmark" id="close"></i>
         </div>
         <div id='line'>
           <div id='text-container'>
             <textarea type='text' id='post-description' placeholder='Reveal your secrets'></textarea>
           </div>
         </div>
-        <button disabled type='button' id='btn-post-save' class='btn-post-inactive'>Save</button>  
+        <button disabled type='submit' id='btn-post-save' class='btn-post-inactive'>Save</button>  
       </form>
     </div>
     <div id='post-container' class="post-container">        
     </div>       
   </main>
   <footer id='create-post'>
-    <button type='button' id='btn-post-create'>create +</button> 
+    
   </footer>
   `;
   divDaily.innerHTML = viewDaily;
@@ -37,7 +37,7 @@ export default () => {
   const btnCreate = divDaily.querySelector('#btn-post-create');
   let background = divDaily.querySelector('#modal-background');
   let modalPost = divDaily.querySelector('#modal_post-container');
-  const postDescription = divDaily.querySelector('#post-description');
+  const postDescription = divDaily.querySelector('#post-description'); //revisen esta vaina
 
   btnCreate.addEventListener('click', () => {
     console.log('Opened');
@@ -48,28 +48,50 @@ export default () => {
     
   })
 
-  // const modalForm = divDaily.querySelector('#modal_post-container');
-  const btnSave = divDaily.querySelector('#btn-post-save');
+  const formPublication = divDaily.querySelector('#modal_post-container');
 
-  btnSave.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log('Saved');
-    
-    createPost(postDescription.value);
-    
-    modalPost.reset();
+  formPublication.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formPublicationContent = formPublication['post-description'];
+    createPost(formPublicationContent.value);
+    modalPost.reset();    
   });
 
+  const postController = () => {
+    const postContainer = divDaily.querySelector('#post-container');
+    const querySnapshot = getPost();
+    //función para leer las publicaciones en tiempo real 
+    querySnapshot.then((response) => {
+      let postTemplate = '';
+      response.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().postDescription}`);
+      postTemplate += `
+          <div id='post-container' class="post-container"> 
+            <div id='post-container-header' class='post-container-header'>
+              <img id='user_img' src='./img/Icono_Harry.png'>
+              <div id='name-container'>Wizard</div>
+              <div class='btn-post-container'></div>
+            </div>  
+            <p>${doc.data().postDescription}</p>       
+          </div>    
+          `;          
+    });
+    postContainer.innerHTML = postTemplate;
+    });
+    readAllPost(querySnapshot);
+  };
+  postController();
 
-  // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#fa-solid'); 
+  // declaracion modalClose para evento de cierre de modal
+  let modalClose = divDaily.querySelector('#close'); 
   modalClose.addEventListener('click',()=>{
     console.log('Close');
     background.style.display= "none";
     modalPost.style.display= "";
   });
 
-
+  // Función para no publicar espacios en blanco
+  const btnSave = divDaily.querySelector('#btn-post-save')
   postDescription.addEventListener('keyup', () => { // evento del textarea
     const postContent = postDescription.value.trim();
     // trim() metodo que no permite activar boton con espacio
@@ -80,26 +102,12 @@ export default () => {
     }
   });
 
-  const postController = () => {
-    const postContainer = divDaily.querySelector('#post-container');
-    const querySnapshot = getPost();
-    console.log(querySnapshot);
-    // readPost(() => {
-    //   let postStructure = '';
-    //   snapShopResult.foreach((doc) => {
-    //     const post= doc.data();
-    //     postStructure += `
-    //     <div id='post-container' class="post-container"> 
-    //       <p>${post.postDescription}</p>       
-    //     </div>    
-    //     `;
-    //   });
-    //   postContainer.innerHTML = postStructure;
-    // });  
-    readPost();
-  };
-  postController();
-  
+  // btnSave.addEventListener('click', (e) => {
+  //   e.preventDefault()
+  //   console.log('Saved');
+  //   createPost(postDescription.value);
+  //   modalPost.reset();
+  // });
   
   return divDaily;
 };

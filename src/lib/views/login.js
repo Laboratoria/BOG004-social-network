@@ -1,5 +1,5 @@
 //* En esta pestaña ira la segunda vista que tiene la parte de loguearse a la SN *//
-import { auth, provider } from '../firebaseInit.js';
+// import { auth, provider } from '../firebaseInit.js';
 import { loginWithEmailAndPassword, loginGoogle } from '../firebaseController.js';
 
 export default () => {
@@ -41,7 +41,7 @@ export default () => {
     const email = divLogin.querySelector('#email').value;
     const password = divLogin.querySelector('#password').value;
 
-    loginWithEmailAndPassword(auth, email, password)
+    loginWithEmailAndPassword(email, password)
       .then(() => {
         // const user = userCredential.user;
         console.log('Login');
@@ -71,10 +71,10 @@ export default () => {
   });
 
   const googleBotton = divLogin.querySelector('#googleButton');
-  googleBotton.addEventListener('click', (event) => {
-    event.preventDefault();
+  googleBotton.addEventListener('click', (e) => {
+    e.preventDefault();
     console.log('Click en Google');
-    loginGoogle(auth, provider)
+    loginGoogle()
       .then(() => {
         window.location.hash = '#/daily';
       });
