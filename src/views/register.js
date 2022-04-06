@@ -1,5 +1,7 @@
 import { signInUser } from '../Firebase/fbFunction.js'
 import { auth } from '../view-controler/controllers.js'
+import { loginGoogle } from '../Firebase/fbFunction.js'
+import { provider } from '../view-controler/controllers.js'
 
 export const clickSignIn = (div) => {
   const email = div.querySelector('#inputEmail').value;
@@ -8,6 +10,9 @@ export const clickSignIn = (div) => {
   signInUser(auth, email, password);
 }
 
+export const logoGoogleClick = (div) => {
+  loginGoogle(auth, provider)
+}
 
 export default () => {
   const viewRegister = `
@@ -22,7 +27,7 @@ export default () => {
       <p class='alertMessage' id='errorMessage'></p>
       <button class='btnLogin' id='signInBtn'>Ingresar</button>
       <h3 class='textGoogle'>Iniciar sesión con google</h3>
-      <img src='img/google-logo.svg' alt='googleLogo' class='googleLogo'>
+      <img src='img/google-logo.svg' id='loginGoogle' alt='googleLogo' class='googleLogo'>
     </div>
     <div class='gridRegister'>
       <h3 class='textAccount'>¿Aún no tienes cuenta?</h3>
@@ -36,8 +41,11 @@ export default () => {
   const btnSignIn = divRegister.querySelector('#signInBtn');
   btnSignIn.addEventListener('click', () => clickSignIn(divRegister));
 
+  const btnGoogle = divRegister.querySelector('#loginGoogle');
+  btnGoogle.addEventListener('click', () => logoGoogleClick(divRegister));
   return divRegister;
 };
+
 
 
 

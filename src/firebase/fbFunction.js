@@ -1,8 +1,10 @@
 // Importamos app para inicializar firebase
 import { app } from './fbkeys.js'; 
-import { createUser } from '../view-controler/controllers.js';
+import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
+import { signInWithGoogle } from '../view-controler/controllers.js';
+import { GoogleAuthProvider } from '../firebase/firebaseImport.js';
 
 /* Creamos una funcion createUser para exportarla y activarla
 cuando se de click a el boton de registrarte y le pasamos como parametro email y contraseña */
@@ -62,3 +64,26 @@ export const signInUser = (auth, email, password) => {
     });
     }
  
+    // const auth = getAuth();
+    export const loginGoogle = (auth, provider) => {
+      signInWithGoogle(auth,provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        changeView('#/ecoTraveler');
+        // ...
+        console.log(signInWithGoogle, 'probando función signin')
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+    }
