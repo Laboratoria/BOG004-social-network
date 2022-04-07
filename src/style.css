@@ -271,6 +271,7 @@ a {
   .all-wall{
     flex-direction: row !important;
     flex-wrap: nowrap;
+    height: 120vh;
   }
 
   .wall-nav {
