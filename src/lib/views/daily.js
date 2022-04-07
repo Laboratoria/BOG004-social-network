@@ -68,7 +68,7 @@ export default () => {
     readAllPost((response) => {
       let postTemplate = '';
       response.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().postDescription}`);
+        // console.log(`${doc.id} => ${doc.data().postDescription}`);
       postTemplate += `
           <div id='div-post-container' class='div-post-container'> 
             <div id='post-container-header' class='post-container-header'>

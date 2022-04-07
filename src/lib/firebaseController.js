@@ -15,6 +15,7 @@ import {
   provider,
   serverTimestamp,
   orderBy,
+  deleteDoc
 } from './firebaseInit.js';
 
 //Función para crear usuario con correo y contraseña
@@ -87,9 +88,9 @@ export const readAllPost = (querySnapshot) => {
 };
 
 
-// export const deletePost = (id) => {
-//   deleteDoc(doc(db, 'Posts', id));
-// };
+export const deletePost = (id) => {
+  deleteDoc(doc(dbPublications, 'posts', id));
+};
 
 export const logout = () => {
   const auth = getAuth();
