@@ -1,9 +1,72 @@
 import {
-  logOut, crearPost, readPost, updatePost,
+  logOut,
+  crearPost,
+  updatePost,
+  deletePost,
+  getPost,
+  getDocsFn,
+  viewDataRealtime,
+
 } from '../view-controller/controllers.js';
 
-window.editMode = false;
-window.id = '';
+let editMode = false;
+let id = '';
+
+function deleteEachPost(mostrarPost) {
+  const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
+  console.log(btnsDelete);
+  btnsDelete.forEach((btn) => {
+    btn.addEventListener('click', ({ target: { dataset } }) => {
+      if (window.confirm('¿Estás seguro de eliminar?')) {
+        deletePost(dataset.post);
+      }
+      viewDataRealtime();
+    });
+  });
+}
+
+function editEachPost(mostrarPost) {
+  const btnsEdit = mostrarPost.querySelectorAll('.btnEdit');
+  console.log('edit: ', btnsEdit);
+  btnsEdit.forEach((btn) => {
+    btn.addEventListener('click', async ({ target: { dataset } }) => {
+      const doc = await getPost(dataset.post);
+      const postEdit = doc.data();
+      contentFeed.value = postEdit.content;
+      editMode = true;
+      id = doc.id;
+      viewDataRealtime();
+    });
+  });
+}
+
+function readPost(mostrarPost) {
+  let templateMostrarPost = '';
+  const querySnapshot = getDocsFn();
+  console.log('docs fn: ', getDocsFn());
+  viewDataRealtime.then((res) => {
+    res.forEach((doc) => {
+      const post = doc.data();
+      templateMostrarPost += `
+      <div class="contenedorPost">
+        <div class="contentPost">
+          <p>${post.content}</p>
+        </div>
+        <div class="btnPost">
+          <button class="btnEdit" data-post="${doc.id}">Editar</button>
+          <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
+        </div>
+      </div>
+    `;
+    });
+    console.log('templateMostrarPost: ', templateMostrarPost);
+    mostrarPost.innerHTML = templateMostrarPost;
+
+    editEachPost(mostrarPost);
+    deleteEachPost(mostrarPost);
+  });
+  viewDataRealtime(querySnapshot);
+}
 
 export default () => {
   const viewFeed = `
@@ -57,8 +120,7 @@ export default () => {
   const btnSubmit = divElemt.querySelector('#submitPost');
   const mostrarPost = divElemt.querySelector('#mostrarPost');
   const contentFeed = divElemt.querySelector('#contentFeed');
-  const divForm = divElemt.querySelector('#divForm');
-  console.log('mostrarPost :', mostrarPost);
+  console.log('mostrarPost elemento:', mostrarPost);
   btnSubmit.addEventListener('click', () => {
     console.log(contentFeed.value);
     if (contentFeed.value === '') {
@@ -75,9 +137,11 @@ export default () => {
         updatePost(id, { content: contentFeed.value });
       }
       posts.reset();
-      readPost(mostrarPost, divForm);
+      viewDataRealtime();
     }
   });
-  readPost(mostrarPost, divForm);
+  readPost(mostrarPost);
+  viewDataRealtime();
+
   return divElemt;
 };

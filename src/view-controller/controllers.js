@@ -13,6 +13,9 @@ import {
   doc,
   getDoc,
   updateDoc,
+  onSnapshot,
+  orderBy,
+  query,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -51,7 +54,6 @@ export const newLogin = (email, password) => {
       console.log('logueado...');
       window.location.assign('#/feed');
       const user = userCredential.user;
-      console.log(user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -114,10 +116,11 @@ export const logOut = () => {
 };
 
 // AQUI EMPEZAMOS A USAR FIRESTORE
-const db = getFirestore();
+export const db = getFirestore();
+export const dbPost = collection(db, 'Posts');
 export async function crearPost() {
   try {
-    const docRef = await addDoc(collection(db, 'Posts'), {
+    const docRef = await addDoc(dbPost, {
       content: document.querySelector('#contentFeed').value,
     });
     console.log('Document written with ID: ', docRef.id);
@@ -125,64 +128,10 @@ export async function crearPost() {
     console.error('Error adding document: ', e);
   }
 }
+
+const orderPost = query(dbPost, orderBy('Posts', 'desc'));
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
-
-export function readPost(mostrarPost, divForm) {
-  // console.log('lo que recibe como param: ', mostrarPost);
-  const contentFeed = divForm.querySelector('#contentFeed');
-  // const mostrarPost = document.querySelector('#mostrarPost');
-  const querySnapshot = getDocs(collection(db, 'Posts'));
-  querySnapshot.then((res) => {
-    // console.log(res);
-    let templateMostrarPost = '';
-    res.forEach((doc) => {
-      // console.log('doc: ', doc);
-      const post = doc.data();
-      // console.log(doc);
-      templateMostrarPost += `
-      <div class="contenedorPost">
-        <div class="contentPost">
-          <p>${post.content}</p>
-        </div>
-        <div class="btnPost">
-          <button class="btnEdit" data-post="${doc.id}">Editar</button>
-          <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
-          <a class="like" type="button"><img src="img/like-azul.png" alt="Me gusta"></a>
-        </div>
-      </div>
-    `;
-    });
-    mostrarPost.innerHTML = templateMostrarPost;
-    const btnsEdit = mostrarPost.querySelectorAll('.btnEdit');
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async ({ target: { dataset } }) => {
-        const doc = await getPost(dataset.post);
-        const postEdit = doc.data();
-        console.log(postEdit);
-        contentFeed.value = postEdit.content;
-        window.editMode = true;
-        id = doc.id;
-        readPost(mostrarPost, divForm);
-      });
-    });
-    const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
-    btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        if (window.confirm('¿Estás seguro de eliminar?')) {
-          deletePost(dataset.post);
-        }
-        readPost(mostrarPost, divForm);
-      });
-    });
-    const btnsLike = mostrarPost.querySelectorAll('.like');
-    btnsLike.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        console.log(btnsLike);
-        btn.classList.add('darLike');
-      });
-    });
-  });
-}
-
+export const getDocsFn = () => getDocs(dbPost);
+export const viewDataRealtime = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnapshot);
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
