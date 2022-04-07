@@ -5,7 +5,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase
 
 import {
   registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession, getPostList,
-  registerAddPost, doLike, showEditThought, deletePost,
+  registerAddPost, doLike, showEditThought, deletePost, doEditPost,
 } from './controlerview.js';
 
 // Este es el punto de entrada de tu aplicacion
@@ -42,5 +42,6 @@ const init = () => {
 
 window.doLike = doLike;
 window.showEditThought = showEditThought;
+window.doEditPost = doEditPost;
 window.deletePost = deletePost;
 window.addEventListener('load', init);
