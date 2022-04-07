@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.container{
+    /* display: grid; */
+    font-family: 'Lato', sans-serif;
+}
+.gridHeader{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    justify-items: center;
+}
+.logo{
+    height: 78px;
+    width: 87.35px;
+    align-self: end;
+}
+.tittle{
+    /* align-self: center; */
+    margin-bottom: 2px;
+    font-size: 40px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.gridBody{
+    display: grid;
+    row-gap: 10px;
+    justify-items: center;
+}
+.inputStyle{
+    width: 270px;
+    height: 28px;
+    border:0;
+    border-radius: 10px;
+    background-color:#E1F0DC;
+    color: #838181;
+    text-align: center;
+} 
+#inputEmail{
+    margin-top:40px;
+}
+.btnLogin{
+    margin-top: 13px;
+    width: 100px;
+    height: 34px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 14px;
+    font-weight: 600;
+}
+.textGoogle{
+    font-size: 14px;
+    font-weight: 350;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.googleLogo{
+    height: 42px;
+    width: 42px;
+    margin-bottom: 20px;
+}
+.gridRegister{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: baseline;
+    justify-items: center;
+    margin-right: 15px;
+}
+.textAccount{
+    font-size: 14px;
+    font-weight: 350;
+}
+.btnRegister{
+    height: 34px;
+    width: 120px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 14px;
+    font-weight: 600;
+}
+a:link{
+    text-decoration: none;
+}
+a:visited {
+    color: #838181;
+  }
+.gridHeaderAccount {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.logoAccount {
+    height: 78px;
+    width: 87.35px;
+}
+.tittleAccount {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.gridBodyAccount {
+    display: grid;
+    row-gap: 20px;
+    justify-items: center;
+}
+#inputName {
+    margin-top: 20px;
+}
+#viewWall {
+    margin-top: 15px;
+}
+.alertMessage {
+    color: #F35B5B;
+    margin: 0%;
+    justify-items: center;
+    font-size: revert;
+}
+.signOut{
+    width: 25px;
+    height: 25px;
+    }
+.containerWall{
+width: 100%;
+height: 100vh;
+    }
+.gridHeaderWall{
+display: grid;
+grid-template-columns: 70% 30%;
+padding: 0;
+margin-left: 15px;
+margin-right: 15px;
+justify-items: center;
+align-items: center;
+}
+#tittleWall{
+justify-self: start;
+}
+#signOutIcon{
+justify-self: end;
+}
+.containerPost{
+    display: grid;
+    justify-items: center;
+    height: 90vh;
+}
+#inputPost{
+    width: 80%;
+    height: 30%;
+    border-radius: 10px;
+}
+.containerIcons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 20%;
+    justify-items: start;
+    height: 10%;
+}
+.icons{
+width: 5%;
+height: 5%;
+}
+
+@media (min-width: 600px) {
+
+.gridHeader{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 0;
+    margin-left: 300px;
+    margin-right: 300px;
+    justify-items: center
+}
+.tittle{
+    margin-top: 0px;
+    font-size: 120px;
+    font-weight: 500;
+    }
+    .logo{
+    height: 180px;
+    width: 203.38px;
+    }
+    .inputStyle{
+    width: 991px;
+    height: 50px;
+    color: #aca5a5;
+    text-align: center;
+    font-size: 25px;
+    } 
+    #inputPassword {
+    margin-top: 8px;
+    }
+    .btnLogin{
+    margin-top: 13px;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    }
+.textGoogle{
+    font-size: 25px;
+    font-weight: 350;
+    margin-top: 25px;
+    margin-bottom: 0;
+    }
+    .googleLogo{
+    height: 50px;
+    width: 50px;
+    margin-top:10px;
+    margin-bottom: 20px;
+    }
+    .gridRegister{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: baseline;
+        /* justify-items: center; */
+    }
+    .textAccount{
+    font-size: 25px;
+    font-weight: 350;
+    justify-self: end;
+    margin-right: 40px;
+    }
+    .btnRegister{
+    height: 50px;
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 25px;
+    font-weight: 600;
+    justify-self: start;
+    margin-left: 20px;
+    }
+    a:link{
+    text-decoration: none;
+    box-shadow: none; 
+    }
+    a:visited {
+    color: #838181;
+      }
+    #viewWall {
+    margin-top: 15px;
+    justify-self: center;
+    }
+.logoAccount {
+    height: 84px;
+    width: 93.35px;
+    }
+    .tittleAccount {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 60px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+    }
+    .alertMessage {
+        font-size: x-large;
+    }
+}
