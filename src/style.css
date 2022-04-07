@@ -1,91 +1,65 @@
 * {
   font-family: 'Roboto', sans-serif;
   text-align: center;
-
 }
-
 header {
   display: none;
 }
-
 .liDelete {
   display: none;
 }
-
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/*MENU*/
-#menuHtml {
-  display: block;
-  text-transform: uppercase;
-  background-color: #F6E1E8;
-  text-align: center;
-}
-
-#navMenuLogo {
-  width: 100px;
-}
-
-ul {
-  text-decoration: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-li {
-  list-style: none;
-  padding: 30px 20px 30px 20px;
-}
-
-#menuHtml a {
-  color: rgb(141, 137, 137);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-#menuHtml a:focus {
-  color: black;
-  font-weight: 550;
-
-}
-
-#menuHtml a:hover {
-  color: black;
-  font-weight: 550;
-
-}
-
-footer {
-  background-color: rgba(255, 255, 255, 0.425);
-  height: 60px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 400;
-  color: rgb(141, 137, 137);
-}
-
-/*HOME*/
-body {
   margin: 0px;
   padding: 0px;
   height: 100%;
 }
-
+.container {
+  display: flex;
+}
+h2 {
+  font-family: 'Amatic SC', cursive;
+  color: #FFA8BE;
+  font-size: 50px;
+  padding: 0px;
+  text-align: center;
+}
+input:focus {
+  outline: none;
+}
+/*---------------------------HOME--------------------------*/
+/*HOME-columna izquierda--*/
 .leftColumn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 0px;
+  border-radius: 100% 20% 100% 20%;
+}
+.leftColumn h2 {
+  font-family: 'Amatic SC', cursive;
+  color: #FFA8BE;
+  float: left;
+  font-size: 100px;
+  padding: 0px;
+  padding-left: 300px;
+  margin: 0px;
+}
+.leftColumn p {
+  font-weight: 500;
+  color: rgb(141, 137, 137);
+  text-align: center;
+  font-size: 15px;
+}
+#homeImg {
+  width: 550px;
 }
 
+/*HOME-columna derecha--*/
 .rightColumn {
   display: flex;
   justify-content: center;
@@ -96,59 +70,256 @@ body {
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.425);
 }
-
-/*columna izquierda*/
-.leftColumn {
-  border-radius: 100% 20% 100% 20%;
-}
-
-.leftColumn h2 {
-  font-family: 'Amatic SC', cursive;
-  color: #FFA8BE;
-  float: left;
-  font-size: 100px;
-  padding: 0px;
-  padding-left: 300px;
-  margin: 0px;
-
-}
-
-.leftColumn p {
-  font-weight: 500;
-  color: rgb(141, 137, 137);
-  text-align: center;
-  font-size: 15px;
-}
-
-#homeImg {
-  width: 550px;
-}
-
 #nibblesLogo {
   display: block;
   margin: 0px auto 30px auto;
   width: 150px;
   padding-top: 10px;
 }
-
-/*columna derecha*/
 hr {
   padding: 0px;
   height: 0.25px;
   width: 20%;
   background-color: rgb(179, 177, 177);
 }
+.parraf-google {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgb(71, 68, 68);
+  font-size: 12px;
+  padding-top: 70px;
+  margin: 0px;
+}
+/*---------------------------LOGIN--------------------------*/
 
-.googleLogo {
-  width: 40px;
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+}
+.formLogin :focus-visible {
+  border: none;
+}
+#loginEmail,
+#loginPassword {
+  width: 250px;
+  border: none;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 6px 20px 6px 20px;
+  font-weight: 500;
+}
+#loginEmail {
+  background-color: #A6CF98;
+  color: rgb(71, 68, 68);
+}
+#loginPassword {
+  background-color: #A6CF98;
+  color: rgb(71, 68, 68);
 }
 
-.text-center {
+/*---------------------------REGISTER--------------------------*/
+#register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#slogan-nibbles {
+  color: rgb(79, 78, 78);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+}
+.formulario {
+  background-color: #A6CF98;
+  color: #000;
+  margin: 12px;
+  border-radius: 20px;
+  border: none;
+  padding: 8px;
+  width: 250px;
+}
+.with-error {
+  border: 1px solid rgb(238, 58, 58);
+  color: #000;
+}
+.error-message-hidden {
+  display: none;
+}
+#error-message-email,
+#error-message-password {
+  margin: 0px;
+  font-size: 12px;
+  color: red;
+}
+
+/*---------------------------FEED--------------------------*/
+/*FEED-buscador--*/
+.containerSearch {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#search-feed {
+  border: 3px solid #FFA8BE;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+  color: #9DBFAF;
+}
+#search-feed:focus {
+  color: #FFA8BE;
+}
+
+
+.likeRecipe,
+.deleteRecipe,
+.editRecipe {
+  width: 32px;
+}
+
+.content-icon {
+  display: flex;
+}
+
+.icon-recipe {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.iconos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.box-recipe {
+  width: 80%;
+  border-radius: 20px;
+  margin: 10px auto 10px auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+  padding: 30px;
+
+
+}
+
+
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+}
+
+
+
+/*-----*/
+.containerLogin,
+#containerRegister {
+  background-color: white;
+  margin: 10vh auto 10vh auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+}
+
+
+#recipeForm {
+  border-radius: 20px 20px 0px 0px;
+}
+
+#task-form {
+  border-radius: 20px;
+  background-color: white;
+  margin: 10vh auto 10vh auto;
+  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+  background-color: rgba(255, 255, 255, 0.425);
+}
+
+#task-title,
+#task-description {
+  border: 0px;
+  border-radius: 5px;
+}
+
+.formtext label {
+  color: rgb(79, 78, 78);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+}
+
+.formtext input,
+.formtext textarea {
+  margin: 10px 0px;
+}
+
+.formtext img {
+  margin-bottom: 10px;
+}
+
+/*-----MENU-----*/
+#menuHtml {
+  display: block;
+  text-transform: uppercase;
+  background-color: #F6E1E8;
   text-align: center;
-  color: fff;
 }
-
-/*BOTONES*/
+#navMenuLogo {
+  width: 100px;
+}
+ul {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+  padding: 30px 20px 30px 20px;
+}
+#menuHtml a {
+  color: rgb(141, 137, 137);
+  font-weight: 500;
+  text-decoration: none;
+}
+#menuHtml a:focus {
+  color: black;
+  font-weight: 550;
+}
+#menuHtml a:hover {
+  color: black;
+  font-weight: 550;
+}
+footer {
+  background-color: rgba(255, 255, 255, 0.425);
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  color: rgb(141, 137, 137);
+}
+/*-------------------------BOTONES-------------------------*/
+/*BOTONES-generales--*/
+.returnBtn {
+  display: block;
+  border: none;
+  border-radius: 100%;
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-weight: 700;
+  background-color: #cae4c1;
+}
+/*BOTONES-home---*/
 #loginBtn,
 #createUserBtn {
   width: 200px;
@@ -162,15 +333,16 @@ hr {
   font-weight: 500;
   letter-spacing: 1px;
 }
-
 #loginBtn {
   background-color: #FFA8BE;
 }
-
 #createUserBtn {
   background-color: #A6CF98;
 }
-
+.googleLogo {
+  width: 40px;
+}
+/*BOTONES-submit-de-login-y-register---*/
 .btn-submit,
 #btnLogin {
   color: rgb(71, 68, 68);
@@ -183,198 +355,9 @@ hr {
   padding: 10px 20px 10px 20px;
   text-transform: uppercase;
 }
-
-/*LOGIN*/
-.formLogin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  border: none;
-}
-
-.formLogin :focus-visible {
-  border: none;
-}
-
-#loginEmail {
-  background-color: #A6CF98;
-  color: rgb(71, 68, 68);
-  ;
-}
-
-#loginPassword {
-  background-color: #A6CF98;
-  color: rgb(71, 68, 68);
-}
-
-#loginEmail,
-#loginPassword {
-  width: 250px;
-  border: none;
-  border-radius: 20px;
-  margin: 10px;
-  padding: 6px 20px 6px 20px;
-  font-weight: 500;
-}
-
-h2 {
-  font-family: 'Amatic SC', cursive;
-  color: #FFA8BE;
-  font-size: 50px;
-  padding: 0px;
-  text-align: center;
-}
-
-input:focus {
-  outline: none;
-}
-
-.parraf-google {
-  font-weight: 500;
-  text-transform: uppercase;
-  color: rgb(71, 68, 68);
-  font-size: 12px;
-  padding-top: 70px;
-  margin: 0px;
-}
-.returnBtn{
-  display: block;
-  border: none;
-  border-radius: 100%;
-  padding: 10px 15px;
-  margin-left: 10px;
-  font-weight: 700;
-  background-color:#cae4c1;
-}
-/*REGISTER*/
-#register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#slogan-nibbles {
-  color: rgb(79, 78, 78);
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
-}
-
-.with-error {
-  border: 1px solid rgb(238, 58, 58);
-  color: #000;
-}
-
-.error-message-hidden {
-  display: none;
-}
-
-#register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.formulario {
-  background-color: #A6CF98;
-  color: #000;
-  margin: 12px;
-  border-radius: 20px;
-  border: none;
-  padding: 8px;
-  width: 250px;
-}
-
-#error-message-email,
-#error-message-password {
-  margin: 0px;
-  font-size: 12px;
-  color: red;
-}
-
-/* Feed*/
-.likeRecipe,
-.deleteRecipe,
-.editRecipe {
-  width: 32px;
- 
-}
-
-.content-icon {
-  display: flex;
-}
-
-.icon-recipe {
-  cursor: pointer;
-  margin-right: 8px;
-}
-
-.iconos{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
- 
-}
-.text-justify{
-text-align: justify;
-}
-
-.box-recipe{
-  width: 80%;
-  border-radius: 20px;
-  margin: 10px auto 10px auto;
-  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
-  background-color: rgba(255, 255, 255, 0.425);
-  padding: 30px;
- 
-  
-}
-.searchFeed {
-  margin: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.textBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  border: none;
-}
-
-.container {
-  display: flex;
-}
-
-/*-----*/
-.containerLogin,
-#containerRegister {
-  background-color: white;
-  margin: 10vh auto 10vh auto;
-  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
-  background-color: rgba(255, 255, 255, 0.425);
-}
-
-.searchFeed{  
-  position: relative;
-  display: flex;
-}
-
-#search-feed {
-  border: 3px solid #FFA8BE;
-  padding: 5px;   
-  border-radius: 10px;
-  outline: none;
-  color: #9DBFAF;
-}
-
-#search-feed:focus{
-  color: #00B4CC;
-}
-
-#btn-task-save, #search {
+/*BOTONES-Feed-----------------------*/
+#btn-task-save,
+#search {
   color: rgb(71, 68, 68);
   background-color: #FFA8BE;
   margin: 12px;
@@ -384,31 +367,6 @@ text-align: justify;
   letter-spacing: 1px;
   padding: 10px 20px 10px 20px;
   text-transform: uppercase;
-}
-#recipeForm{
-  border-radius: 20px 20px 0px 0px;
-}
-#task-form{
-  border-radius: 20px;
-  background-color: white;
-  margin: 10vh auto 10vh auto;
-  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
-  background-color: rgba(255, 255, 255, 0.425);
-}
- #task-title, #task-description{
-   border: 0px;
-   border-radius: 5px;
-}
-.formtext label{
-  color: rgb(79, 78, 78);
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
-}
-.formtext input, .formtext textarea{
-  margin: 10px 0px; 
-}
-.formtext img{
-  margin-bottom: 10px;
 }
 /* Escritorio extra grande */
 @media only screen and (min-width: 992px) {
@@ -458,7 +416,8 @@ text-align: justify;
   .menuBtn {
     display: none;
   }
-  .btn-submit{
+
+  .btn-submit {
     margin-top: 50px;
   }
 }
@@ -474,19 +433,24 @@ text-align: justify;
   height: 40px;
   width: 100px;
 }
-#recipeForm{
+
+#recipeForm {
   width: 100%;
 }
-#task-form{
+
+#task-form {
   width: 80%;
 }
- #task-title, #task-description{
-   width: 100vh;
+
+#task-title,
+#task-description {
+  width: 100vh;
 }
 
 .img-like {
   width: 16px;
 }
+
 /*TABLETS*/
 @media only screen and (min-width: 576px) and (max-width: 992px) {
   .leftColumn {
@@ -563,73 +527,87 @@ text-align: justify;
     background-color: rgba(255, 255, 255, 0.425);
     padding: 5px;
   }
-  .btn-submit{
+
+  .btn-submit {
     margin-top: 20px;
   }
-  h2{
+
+  h2 {
     font-size: 42px;
     margin-bottom: 5px;
   }
-  .text-center{
+
+  .text-center {
     margin-top: 20px;
   }
-  #slogan-nibbles{
+
+  #slogan-nibbles {
     font-size: 13px;
   }
+
   /*-----FEED-----*/
-.searchFeed{
-  display: flex;
-  width: auto;
-}
+  .searchFeed {
+    display: flex;
+    width: auto;
+  }
 
-#search-feed {
-  width: auto;
-   /* margin: 25px 20px; */
-   margin-left: 10px;
-   margin-right: 10px;
-   /* padding-top: 10px;
+  #search-feed {
+    width: auto;
+    /* margin: 25px 20px; */
+    margin-left: 10px;
+    margin-right: 10px;
+    /* padding-top: 10px;
    padding-bottom: 25px; */
-   /* padding: 10px 0px; */
-   border-radius: 20px;
-   /* margin: 10vh auto 10vh auto; */
-   box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
-   background-color: rgba(255, 255, 255, 0.425);
-   padding: 5px;
-}
+    /* padding: 10px 0px; */
+    border-radius: 20px;
+    /* margin: 10vh auto 10vh auto; */
+    box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+    background-color: rgba(255, 255, 255, 0.425);
+    padding: 5px;
+  }
 
-#search {
-  height: 40px;
-  width: 100px;
-}
-#recipeForm{
-  width: 100%;
-}
-#task-form{
-  width: 80%;
-  border-radius: 20px;
-  background-color: white;
-  margin: 10px auto 10px auto;
-  box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
-  background-color: rgba(255, 255, 255, 0.425);
-}
- #task-title, #task-description{
-   border: 0px;
-   border-radius: 5px;
-   width: 90%;
-}
-.formtext label{
-  color: rgb(79, 78, 78);
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
-}
-.formtext input, .formtext textarea{
-  margin: 10px 0px; 
-}
-.formtext img{
-  margin-bottom: 10px;
-  width: 100%;
-}
-.formtex{
-  margin: 10px 0px;
-}
+  #search {
+    height: 40px;
+    width: 100px;
+  }
+
+  #recipeForm {
+    width: 100%;
+  }
+
+  #task-form {
+    width: 80%;
+    border-radius: 20px;
+    background-color: white;
+    margin: 10px auto 10px auto;
+    box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 10%);
+    background-color: rgba(255, 255, 255, 0.425);
+  }
+
+  #task-title,
+  #task-description {
+    border: 0px;
+    border-radius: 5px;
+    width: 90%;
+  }
+
+  .formtext label {
+    color: rgb(79, 78, 78);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+  }
+
+  .formtext input,
+  .formtext textarea {
+    margin: 10px 0px;
+  }
+
+  .formtext img {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .formtex {
+    margin: 10px 0px;
+  }
 }

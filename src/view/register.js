@@ -139,10 +139,10 @@ const saveUser = () => {
     const repeatPassword = document.querySelector(
       '#register-repeat-password',
     ).value;
-
-    if (password === repeatPassword) {
+    if (password.trim() !== '' && password === repeatPassword) {
       register(email, password);
     } else {
+      console.log('aaaaaaaaa')
       const errorMessage = document.getElementById('error-message-password');
       errorMessage.classList.remove('error-message-hidden'); // ocultar mensaje de error
     }

@@ -22,7 +22,7 @@ export default () => {
   document.querySelector('#sectionGrid').style.display = 'grid';
 
   const search = `
-  <div class='searchFeed'>
+  <div class='containerSearch'>
     <form class='formFeed' id="feed-form">
       <input type='search' id='search-feed' class='inputsearch' placeholder='Explorar' required input/>
       <button id="search">Buscar</button>
