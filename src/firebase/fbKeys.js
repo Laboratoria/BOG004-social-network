@@ -1,4 +1,4 @@
-import { initializeApp } from './firebaseImport.js';
+import { initializeApp } from '../firebase/firebaseImport.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
