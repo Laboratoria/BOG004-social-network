@@ -259,8 +259,15 @@ main {
 }
 
 .post-container {
+<<<<<<< HEAD
     margin: auto;
     margin-top: 20px;
+=======
+    width: 400px;
+    height: 200px;
+    border: 1px solid #272121;
+        
+>>>>>>> 81b08f4f949649d48d05b0001ba4996b41637161
 }
 
 #modal_header {
