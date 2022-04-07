@@ -70,10 +70,24 @@ function registerAddPost() {
 }
 
 function showEditThought(idPost, thought) {
-  document.getElementById(`thougth${idPost}`).style.display = 'none';
-  document.getElementById(`editThougth${idPost}`).style.display = 'block';
-  document.getElementById(`editThougth${idPost}`).value = thought;
-  document.getElementById(`checkEdit${idPost}`).style.display = 'block';
+  const selectEditThought = document.getElementById(`editThougth${idPost}`);
+  const selectPThought = document.getElementById(`thougth${idPost}`);
+  const selectCheck = document.getElementById(`checkEditP${idPost}`);
+  const hideEditor = selectEditThought.classList.contains('hide-edit-thought');
+
+  if (hideEditor) {
+    selectEditThought.classList.remove('hide-edit-thought');
+    selectEditThought.classList.add('show-edit-thought');
+    selectPThought.classList.add('hide-thougth');
+    selectCheck.classList.remove('hide-thougth');
+  } else {
+    selectEditThought.classList.remove('show-edit-thought');
+    selectEditThought.classList.add('hide-edit-thought');
+    selectPThought.classList.remove('hide-thougth');
+    selectCheck.classList.add('hide-thougth');
+  }
+  console.log(hideEditor);
+  console.log(thought);
 }
 
 function doEditPost(idPost) {
