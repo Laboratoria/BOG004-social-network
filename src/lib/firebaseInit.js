@@ -22,6 +22,7 @@ import {
   query,
   serverTimestamp,
   orderBy,
+  deleteDoc
   } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
 
 const firebaseConfig = {
@@ -62,4 +63,5 @@ export {
   query,
   serverTimestamp,
   orderBy,
+  deleteDoc
   };
