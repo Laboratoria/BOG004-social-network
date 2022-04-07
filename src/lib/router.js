@@ -6,21 +6,15 @@ const changeView = (route) => {
   const container = document.getElementById('root');
   container.innerHTML = '';
   // eslint-disable-next-line no-console
-  console.log(window.location.hash);
+  console.log(`Route: ${route}`);
   switch (route) {
     case '': {
-      if (getUser() != null) {
-        console.log(`Route ${route} user null`);
-        closeSession();
-      }
+      closeSession();
       return container.appendChild(components.record());
     }
 
     case '#login': {
-      if (getUser() != null) {
-        console.log(`Route ${route} user null`);
-        closeSession();
-      }
+      closeSession();
       return container.appendChild(components.login());
     }
 
