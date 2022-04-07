@@ -2,7 +2,8 @@ import {
   getAuth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup,
   GoogleAuthProvider,
-  getDocs, collection, addDoc, getFirestore, doc, setDoc, getDoc, serverTimestamp, orderBy, query,
+  getDocs, collection, addDoc, getFirestore, doc, setDoc, getDoc, serverTimestamp, orderBy,
+  query, deleteDoc,
 } from './firebase-utils.js';
 
 const createUser = (email, password) => {
@@ -139,13 +140,15 @@ const getPostList = async () => {
         <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon" style="color: ${likeColor}"></i><span class= "styleCountLike">${likes.length}<span>
         </div>
         <i class="fa-solid fa-pen-to-square posticon"></i>
-        <i class="fa-solid fa-trash-can posticon"></i>
+        <i  id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>
         </div>
       
     `;
 
     PostJS += `
       document.getElementById('doLikeImg${document.id}').addEventListener('click', () => {doLike('${document.id}');});
+
+      document.getElementById('btnDeletePost${document.id}').addEventListener('click', () => {deletePost('${document.id}');});
     `;
   });
 
@@ -218,7 +221,15 @@ const doLike = async (idPost) => {
   getPostList();
 };
 
+// Eliminar posts
+const deletePost = (id) => {
+  console.log(id);
+  const db = getFirestore();
+  deleteDoc(doc(db, 'posts', id));
+  getPostList();
+};
+
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  addPost, editPosts, getUser, doLike,
+  addPost, editPosts, getUser, doLike, deletePost,
 };
