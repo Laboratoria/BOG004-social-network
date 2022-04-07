@@ -125,6 +125,50 @@ a:visited {
     justify-items: center;
     font-size: revert;
 }
+.signOut{
+    width: 25px;
+    height: 25px;
+    }
+.containerWall{
+width: 100%;
+height: 100vh;
+    }
+.gridHeaderWall{
+display: grid;
+grid-template-columns: 70% 30%;
+padding: 0;
+margin-left: 15px;
+margin-right: 15px;
+justify-items: center;
+align-items: center;
+}
+#tittleWall{
+justify-self: start;
+}
+#signOutIcon{
+justify-self: end;
+}
+.containerPost{
+    display: grid;
+    justify-items: center;
+    height: 90vh;
+}
+#inputPost{
+    width: 80%;
+    height: 30%;
+    border-radius: 10px;
+}
+.containerIcons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 20%;
+    justify-items: start;
+    height: 10%;
+}
+.icons{
+width: 5%;
+height: 5%;
+}
 
 @media (min-width: 600px) {
 
