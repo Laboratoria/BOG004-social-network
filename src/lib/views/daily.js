@@ -6,16 +6,15 @@ export default () => {
   divDaily.setAttribute('class', 'container-div-daily');
   const viewDaily = `
   <header id='banner'>
-    <img id='Banner_img' src='./img/title.png'>
+    <div class='tittle-daily'></div>
   </header>
-  <main>
-    <button type='button' id='btn-post-create'>create +</button> 
+  <main class='main-daily'>
     <div id='modal-background'>
-      <form id='modal_post-container' class="post-container">
+      <form id='modal_post-container' class='modal_post-container'>
         <div id='modal_header'>
           <img id='user_img' src='./img/Icono_Harry.png'>
           <div id='name-container'>Wizard</div>
-          <i class="fa-solid fa-xmark" id="close"></i>
+          <i class='fa-solid fa-xmark' id='close'></i>
         </div>
         <div id='line'>
           <div id='text-container'>
@@ -25,7 +24,8 @@ export default () => {
         <button disabled type='submit' id='btn-post-save' class='btn-post-inactive'>Save</button>  
       </form>
     </div>
-    <div id='post-container' class="post-container">        
+    <button type='button' id='btn-post-create' class='btn-post-create'>Comment +</button>        
+    <div id='post-container' class='post-container'>
     </div>       
   </main>
   <footer id='create-post'>
@@ -66,11 +66,15 @@ export default () => {
       response.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().postDescription}`);
       postTemplate += `
-          <div id='post-container' class="post-container"> 
+          <div id='div-post-container' class='div-post-container'> 
             <div id='post-container-header' class='post-container-header'>
-              <img id='user_img' src='./img/Icono_Harry.png'>
-              <div id='name-container'>Wizard</div>
-              <div class='btn-post-container'></div>
+              <img class='user_img' src='./img/Icono_Harry.png'>
+              <div class='name-container'>Wizard</div>
+              <div class='btns-post-container'>
+                <img class='edit-img' src='./img/Edit.png'>
+                <img class='delete-img' src='./img/Delete.png'>
+                  <imgs class='like-img' src='./img/like.png'>
+              </div>
             </div>  
             <p>${doc.data().postDescription}</p>       
           </div>    
@@ -86,8 +90,8 @@ export default () => {
   let modalClose = divDaily.querySelector('#close'); 
   modalClose.addEventListener('click',()=>{
     console.log('Close');
-    background.style.display= "none";
-    modalPost.style.display= "";
+    background.style.display= 'none';
+    modalPost.style.display= '';
   });
 
   // Función para no publicar espacios en blanco
