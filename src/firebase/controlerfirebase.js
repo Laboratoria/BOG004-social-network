@@ -127,7 +127,7 @@ const getPostList = async () => {
     Posts += `
       <section class="post-container">
         <div class="post-avatar">
-          <img class="avatar" src="${data.photoUrl}" />
+          ${data.photoUrl != null ? `<img class="avatar" src="${data.photoUrl}" />` : '<i class="fa-solid fa-user posticon fa-2xl"></i>'}
         </div>
         <div class="post-content">
           <h3 class="user-name">${data.user}</h4>
