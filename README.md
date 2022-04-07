@@ -1,16 +1,15 @@
 # mommi
 
-1. [General Info](#general-info)
-2. [Technologies](#technologies)
-3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+- [mommi](#mommi)
+- [Project description](#project-description)
+- [Technologies](#technologies)
+  - [Installation](#installation)
 
-# Descripción del proyecto
+# Project description
 
 **mommi** is a social network dedicated to all the mothers  in the world, for those who feel proud and happy to be a mother. In our social network **mommi** you can share all your knowledge about motherhood, parenting, education, edit and delete your posts and support the content and thoughts of other network users. This idea of a **mommi**  social network arose from the fact that we are continually bombarded with any type of information  on other social networks, but since it was not such an important stage for women, they would not have their own space to share all their thoughts. And we continue to work on it.
 
-# Tecnologias usadas 
+# Technologies
 
 A list of technologies used within the project:
 * [Technologie CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): Version CSS3
