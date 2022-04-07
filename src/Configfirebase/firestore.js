@@ -1,6 +1,5 @@
 import {
-  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc, query,
-  onSnapshot, getDoc,
+  collection, addDoc, getDocs, updateDoc, arrayUnion, arrayRemove, doc, deleteDoc, getDoc,
 } from './firebase-imports.js';
 import { db } from './confiFirebase.js';
 
@@ -103,7 +102,7 @@ export const deletePost = async (id, descripcion) => {
 };
 
 /* actualizaciones en tiempo real */
- /*export const actualize = () => {
+/* export const actualize = () => {
   const q = query(collection(db, 'posts')  orderBy('date', 'desc')) );
   onSnapshot(q, (querySnapshot) => {
     const boxPosts = [];
@@ -122,4 +121,4 @@ export const deletePost = async (id, descripcion) => {
     console.log(boxPosts, 'esto es lo que debe actualizar');
     return boxPosts;
   });
-};*/
+}; */

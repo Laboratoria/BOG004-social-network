@@ -1,4 +1,4 @@
-import { login } from '../../src/lib/login';
+import { login } from '../../src/lib/login.js';
 
 jest.mock('../../src/Configfirebase/firebase-imports.js');
 

@@ -1,4 +1,4 @@
-import { register } from '../../src/lib/register';
+import { register } from '../../src/lib/register.js';
 
 jest.mock('../../src/Configfirebase/firebase-imports.js');
 
