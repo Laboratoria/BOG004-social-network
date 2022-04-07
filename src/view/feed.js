@@ -1,4 +1,6 @@
 import { changeView } from "../view-controler/controler.js";
+import { saveFormPost, getPost } from "../Firebase/firestore.js";
+
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -20,16 +22,18 @@ export const feed = () => {
             <a href=""><img src="../images/logout 1.png" alt="Sign Out"></a>
         </div>
     </section>
-    <section>
-        <h3>Nuevo Post</h3>
-        <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?"></textarea>
-        <div>
+    <section id="section-post">
+        <form action="" id="form-post">
+         <label for="newpost">Nuevo Post</label>
+         <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?"></textarea>
+            <div>
             <input type="checkbox" id="type-post-offer" name="Oferta">
             <label for="offer">Oferta</label>
             <input type="checkbox" id="type-post-demand" name="Búsqueda">
             <label for="demand">Búsqueda</label>
-            <a href=""><img src="../images/send 1.png" alt="Send"></a>
-        </div>
+           <button id="send-post" type="submit"><img src="../images/send 1.png" alt="Send"></button>
+            </div>
+         </form>
     </section>
     <section>
         <div>
@@ -58,5 +62,23 @@ export const feed = () => {
         window.location.hash = "/";
     });
 
+    
+    const querySnapshot = getPost();
+    console.log(querySnapshot);
+    
+
+    const postForm = document.querySelector("#form-post");
+    postForm.addEventListener("submit", (e) =>{
+        e.preventDefault();
+
+        const textAreaPost = postForm['area-post'];
+        saveFormPost(textAreaPost.value);
+        
+        postForm.reset()
+        
+    });
+    
+
     return viewFeedHtml;
 };
+
