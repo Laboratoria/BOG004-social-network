@@ -406,6 +406,17 @@ a {
   align-items: flex-end;
 }
 
+.edit_post {
+  background-color: rgb(231, 228, 228);
+  border: rgb(175, 173, 173);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  max-width: 508.5px !important;
+  padding: 5px;
+  color: rgb(8, 8, 8);
+}
+
 
 .post-container{
   display: flex;

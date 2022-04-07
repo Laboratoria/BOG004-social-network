@@ -69,7 +69,14 @@ function registerAddPost() {
   });
 }
 
+function showEditThought(idPost, thought) {
+  document.getElementById(`thougth${idPost}`).style.display = 'none';
+  document.getElementById(`editThougth${idPost}`).style.display = 'block';
+  document.getElementById(`editThougth${idPost}`).value = thought;
+}
+
 export {
-  registerUser, loginUser, observerUserState, authAddGoogle, registerCloseSession, deletePost,
-  getPostList, registerAddPost, doLike,
+  registerUser, loginUser, observerUserState, authAddGoogle,
+  registerCloseSession, getPostList, registerAddPost, doLike,
+  deletePost, showEditThought,
 };
