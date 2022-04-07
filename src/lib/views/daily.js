@@ -1,21 +1,22 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { createPost, getPost, readAllPost} from '../firebaseController.js'
+import { createPost, getPost, readAllPost, currentUser, logout} from '../firebaseController.js'
 
+//función principal para crear template
 export default () => {
   const divDaily = document.createElement('div');
   divDaily.setAttribute('class', 'container-div-daily');
   const viewDaily = `
   <header id='banner'>
-    <img id='Banner_img' src='./img/title.png'>
+    <div class="tittle-daily"></div>
   </header>
-  <main>
-    <button type='button' id='btn-post-create'>create +</button> 
+  <i class='fa-solid fa-arrow-right-from-bracket' id='logout' ></i>
+  <main class='main-daily'>
     <div id='modal-background'>
-      <form id='modal_post-container' class="post-container">
+      <form id='modal_post-container' class='modal_post-container'>
         <div id='modal_header'>
           <img id='user_img' src='./img/Icono_Harry.png'>
           <div id='name-container'>Wizard</div>
-          <i class="fa-solid fa-xmark" id="close"></i>
+          <i class='fa-solid fa-xmark' id='close'></i>
         </div>
         <div id='line'>
           <div id='text-container'>
@@ -25,7 +26,8 @@ export default () => {
         <button disabled type='submit' id='btn-post-save' class='btn-post-inactive'>Save</button>  
       </form>
     </div>
-    <div id='post-container' class="post-container">        
+    <button type='button' id='btn-post-create' class='btn-post-create'>Comment +</button>        
+    <div id='post-container' class='post-container'>
     </div>       
   </main>
   <footer id='create-post'>
@@ -34,10 +36,12 @@ export default () => {
   `;
   divDaily.innerHTML = viewDaily;
 
+  const userInfo = currentUser();
+
   const btnCreate = divDaily.querySelector('#btn-post-create');
   let background = divDaily.querySelector('#modal-background');
   let modalPost = divDaily.querySelector('#modal_post-container');
-  const postDescription = divDaily.querySelector('#post-description'); //revisen esta vaina
+  const postDescription = divDaily.querySelector('#post-description'); //revisar
 
   btnCreate.addEventListener('click', () => {
     console.log('Opened');
@@ -57,20 +61,24 @@ export default () => {
     modalPost.reset();    
   });
 
-  const postController = () => {
+  const postController = (currentUserInfo) => {
     const postContainer = divDaily.querySelector('#post-container');
     const querySnapshot = getPost();
     //función para leer las publicaciones en tiempo real 
-    querySnapshot.then((response) => {
+    readAllPost((response) => {
       let postTemplate = '';
       response.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().postDescription}`);
+        // console.log(`${doc.id} => ${doc.data().postDescription}`);
       postTemplate += `
-          <div id='post-container' class="post-container"> 
+          <div id='div-post-container' class='div-post-container'> 
             <div id='post-container-header' class='post-container-header'>
-              <img id='user_img' src='./img/Icono_Harry.png'>
-              <div id='name-container'>Wizard</div>
-              <div class='btn-post-container'></div>
+              <img class='user_img' src='./img/Icono_Harry.png'>
+              <div class='name-container'>Wizard</div>
+              <div class='btns-post-container'>
+                <img class='edit-img' src='./img/Edit.png'>
+                <img class='delete-img' src='./img/Delete.png'>
+                  <imgs class='like-img' src='./img/like.png'>
+              </div>
             </div>  
             <p>${doc.data().postDescription}</p>       
           </div>    
@@ -80,14 +88,14 @@ export default () => {
     });
     readAllPost(querySnapshot);
   };
-  postController();
+  postController(userInfo);
 
   // declaracion modalClose para evento de cierre de modal
   let modalClose = divDaily.querySelector('#close'); 
   modalClose.addEventListener('click',()=>{
     console.log('Close');
-    background.style.display= "none";
-    modalPost.style.display= "";
+    background.style.display= 'none';
+    modalPost.style.display= '';
   });
 
   // Función para no publicar espacios en blanco
@@ -101,6 +109,16 @@ export default () => {
       btnSave.disabled = false; // boton publicar activo
     }
   });
+
+  // Evento click a boton de cerrar sesión
+  const btnLogout = divDaily.querySelector('#logout');
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout()
+      .then(() => {
+        window.location.hash = '#/login';
+      })
+    });
 
   // btnSave.addEventListener('click', (e) => {
   //   e.preventDefault()
