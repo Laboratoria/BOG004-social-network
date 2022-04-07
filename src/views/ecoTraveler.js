@@ -5,13 +5,14 @@ export default () => {
     <h1 class='tittleAccount' id='tittleWall'>EcoTraveler</h1>
     <img src='img/cerrar-sesion.png' alt='signOut' class='signOut' id='signOutIcon' />
      </div>
-       <div class='containerPost'>
+        <div class='containerPost'>
        <input type="text" name="post" id="inputPost">
-         <div class='containerIcons'>
+       </div>
+       <div class='containerIcons'>
     <img src="img/heart.png" alt="like" class="icons">
     <img src="img/pencil (1).png" alt="editPost" class="icons">
     <img src="img/bin.png" alt="deletePost" class="icons">
-    </div>
+     <button class='btnPublic' id='publicBtn'>Publicar</button>
      </div>
      </div>`;
 

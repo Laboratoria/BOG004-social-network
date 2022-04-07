@@ -4,6 +4,9 @@
     /* display: grid; */
     font-family: 'Lato', sans-serif;
 }
+body{
+    margin: 0%;
+}
 .gridHeader{
     display: grid;
     grid-template-columns: 30% 70%;
@@ -132,10 +135,13 @@ a:visited {
 .containerWall{
 width: 100%;
 height: 100vh;
+margin: 0%;
+background-image: url('./img/fondo.svg') ;
+
     }
 .gridHeaderWall{
 display: grid;
-grid-template-columns: 70% 30%;
+grid-template-columns: 80% 20%;
 padding: 0;
 margin-left: 15px;
 margin-right: 15px;
@@ -144,30 +150,48 @@ align-items: center;
 }
 #tittleWall{
 justify-self: start;
+color: #838181;
+margin-top: 10%;
 }
 #signOutIcon{
-justify-self: end;
+justify-self: center;
+margin-top: 18%;
 }
 .containerPost{
-    display: grid;
+     display: grid;
     justify-items: center;
-    height: 90vh;
+    height: 15vh;
+    padding: 0%;
+    margin-bottom: 5%;
 }
 #inputPost{
-    width: 80%;
-    height: 30%;
+ width: 80%;
+    height: 100%;
     border-radius: 10px;
+    background-color: #BAD7C1;
+    border: 2px solid #838181;
 }
 .containerIcons{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 20%;
+    grid-template-columns: 10% 10% 10% 70%;
+    width: 75%;
     justify-items: start;
     height: 10%;
+    position: relative;
+    left: 13%;
+}
+.btnPublic{
+    height: 5%;
+    width: 50%;
+    border: 0;
+    border-radius: 20px;
+    background-color: #838181;
+    color: #FFFFFF;
+    font-size: 14px;
+    justify-self: end;
 }
 .icons{
-width: 5%;
-height: 5%;
+   height: 4%;
 }
 
 @media (min-width: 600px) {
