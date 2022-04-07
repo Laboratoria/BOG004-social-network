@@ -1,7 +1,5 @@
 export default () => {
   const viewError = `
-  <h1>404</h1>
-  <h>Page Not Found</h1>;
       <input id="toggle" type="checkbox"></input>  
       <label for="toggle" class="hamburger">
           <div class="top-bun"></div>
@@ -21,7 +19,9 @@ export default () => {
               </ul>
             </nav>
           </div>
-        </div> 
+        </div>
+        <h1>404</h1>
+        <h>Page Not Found</h1>;
       `;
 
   const divElement = document.createElement('div');

@@ -3,28 +3,146 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-@media (max-width: 760px) {
-    body {
-        background: whitesmoke;
-        color: black;
-        text-align: center;
-        max-width: 100%;
-        overflow-x: hidden;
-        padding: 0;
-        margin: 0;
-    }
+body {
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
 
-    h1 {
-        text-align: center;
-        letter-spacing: 1px;
-        word-spacing: 0.15em;
-        font-size: 3em;
-        line-height: 1.2;
-        transform: translateY(52%);
-    }
+h1 {
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 0.15em;
+    font-size: 3em;
+    line-height: 1.2;
+    transform: translateY(52%);
+}
+
+#footby{
+    font-size: 11px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 8px;
+    padding: 40px;
+    font-weight: 100;
+}
+
+#loginWithG{
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  #loginWithG:hover {
+    cursor: pointer;
+  }
+
+  #loginSignIn{
+    display: inline-block;
+    background: rgb(245, 136, 28);
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: thin solid rgb(245, 136, 28);
+  }
+
+  #loginSignIn , #signUpBttn:hover {
+    cursor: pointer;
+  }
+
+  #signUpBttn{
+    display: inline-block;
+    background: rgb(245, 136, 28);
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: thin solid rgb(245, 136, 28);
+  }
+
+  /* Menu timeline */
+
+  #menuTimeline{
+    width: auto;
+    height: 90px;
+    margin: 0 auto;
+    background-color: #f1841a;
+    margin-top: 0%;
+    box-sizing: border-box;
+    align-items: center;
+
+  }
+
+  #userLogOut{
+      margin-left: 300px;
+      margin-top: 50px;
+      border-radius: 5px;
+      width: 80px;
+      height: 30px;
+
+  }
+
+  #post-form{
+      margin-top: 50px;
+  }
+
+ /* Posts */
+
+  #save-postIt{
+    display: inline-block;
+    background: rgb(245, 136, 28);
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    border: thin solid rgb(245, 136, 28) ;
+  }
+  #update-postIt{
+    display: none;
+    background: rgb(245, 136, 28);
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    border: thin solid rgb(245, 136, 28) ;
+  }
+
+  
+  #postIt-description{
+    width: 260px;
+    height: 80px;
+  }
+
+  .btndelete-postIt{
+      border-radius: 5px;
+      background-color: rgb(249, 78, 78);
+      border: thin solid rgb(249, 78, 78) ;
+
+  }
+
+  .btnedit-postIt{
+      border-radius: 5px;
+      background-color: rgb(176, 246, 70);
+      border: thin solid rgb(176, 246, 70);
+  }
+
+@media (max-width: 760px) {
       
     #toggle {
         display: none;
+    }
+
+    #container{
+        line-height: 50px;
     }
       
       /**
@@ -93,9 +211,6 @@
         left: -0.5em;
         transition: all 0.2s ease-in-out;
     }
-    nav a:hover {
-        color: white;
-    }
     nav a:hover:before {
         height: 100%;
     }
@@ -121,143 +236,125 @@
         transform: scale(1);
     }
 
+    #home-img {
+        width: 200px;
+        height: 200px;
+        padding: 45px;
+        margin-top: 150px;
+    }
+
+    #home-textContent {
+        font-size: 15px;
+        padding: 5%;
+        line-height: 17px;
+    }
+
     #hello {
         font-size: 30px;
         margin-top: 10px;
         text-align: center;
     }
-    
-    #home-textContent {
-        font-size: 15px;
-        padding: 5%;
-        line-height: 17px;
 
-    }
-
-    #footby{
-        font-size: 11px;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        height: 8px;
-        padding: 40px;
-        font-weight: 100;
-    }
-
-    #container{
-        /* margin-top: 150px; */
-        line-height: 50px;
-    }
-
-    #loginWithG{
-        display: inline-block;
-        background: white;
-        color: #444;
-        width: 250px;
-        height: 30px;
-        border-radius: 5px;
-        border: thin solid #888;
-        box-shadow: 1px 1px 1px grey;
-        white-space: nowrap;
-        vertical-align: middle;
-      }
-  
-      #loginWithG:hover {
-        cursor: pointer;
-      }
-
-      .imgcontainer{
+    .imgcontainer{
         margin-top: -30px;
       }
 
-      #loginSignIn{
-        display: inline-block;
-        background: rgb(245, 136, 28);
-        width: 200px;
-        height: 30px;
-        border-radius: 5px;
-        border: thin solid rgb(245, 136, 28);
-      }
+    .imgSignIn {
+        width: 300px;
+        height: 200px;
+        padding: 50px;
+    }
 
-      #signUpBttn{
-        display: inline-block;
-        background: rgb(245, 136, 28);
-        width: 200px;
-        height: 30px;
-        border-radius: 5px;
-        border: thin solid rgb(245, 136, 28);
-      }
+    .avatarSignUp {
+        width: 250px;
+        height: 200px;
+        padding: 55px;
+    }
 
-      /* Menu timeline */
+    #userMail {
+        margin-top: 150px;
+        padding: 2px;
+    }
 
-      #menuTimeline{
-        width: auto;
-        height: 90px;
-        margin: 0 auto;
-        background-color: #f1841a;
-        margin-top: 0%;
-        box-sizing: border-box;
-        align-items: center;
+    #firstName {
+        margin-top: 150px;
+        padding: 2px;
+    }
+}
 
-      }
+@media (min-width: 761px) and (max-width: 2000px) {
 
-      #userLogOut{
-          margin-left: 300px;
-          margin-top: 50px;
-          border-radius: 5px;
-          width: 80px;
-          height: 30px;
-
-      }
-
-      #post-form{
-          margin-top: 50px;
-      }
-
-     /* Posts */
-
-      #save-postIt{
-        display: inline-block;
-        background: rgb(245, 136, 28);
-        width: 80px;
-        height: 30px;
-        border-radius: 5px;
-        border: thin solid rgb(245, 136, 28) ;
-      }
-      #update-postIt{
+    #toggle {
         display: none;
-        background: rgb(245, 136, 28);
-        width: 80px;
-        height: 30px;
-        border-radius: 5px;
-        border: thin solid rgb(245, 136, 28) ;
-      }
+    }
 
-      
-      #postIt-description{
-        width: 260px;
-        height: 80px;
-      }
+    ul.list-bar {
+        background-color: #e29d4e;
+        margin:  0px;
+        padding: 30px;
+    }
 
-      .btndelete-postIt{
-          border-radius: 5px;
-          background-color: rgb(249, 78, 78);
-          border: thin solid rgb(249, 78, 78) ;
-    
-      }
-    
-      .btnedit-postIt{
-          border-radius: 5px;
-          background-color: rgb(176, 246, 70);
-          border: thin solid rgb(176, 246, 70);
-      }
-}
+    a {
+        text-decoration: none;
+        line-height: 25px;
+        padding: 25px;
+        font-size: 23px;
+        margin-right: 25px;
+    }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    /* Tablets adn Ipads (landscape) */
-}
+    li {
+        display: inline-table;
+    }
 
+    .nav {
+        text-align: right;
+    }
 
-@media (min-width: 1281px) {
-    /* Desktops and Laptops  */
+    #home-img {
+        width: 250px;
+        height: 250px;
+        padding: 45px;
+        margin-top: 50px;
+    }
+
+    #home-textContent {
+        margin: 0;
+        padding: 5%;
+        font-size: 18px;
+    }
+
+    #hello {
+        font-size: 33px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .passwordLink, .psw {
+        font-size: 15px;
+    }
+
+    .imgSignIn {
+        width: 350px;
+        height: 250px;
+        padding: 50px;
+        margin-top: 4rem;
+    }
+
+    #userMail, #userPass, #loginSignIn, #loginWithG {
+        margin-top: 150px;
+        padding: 2px;
+        margin-top: 3rem;
+    }
+
+    #firstName, #lastName, #usersEmail, #userPassword, #signUpBttn {
+        padding: 4px;
+        margin-top: 1.5rem;
+    }
+
+    .avatarSignUp {
+        width: 300px;
+        height: 250px;
+        padding: 55px;
+        margin-top: 2rem;
+    }
 }

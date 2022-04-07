@@ -21,7 +21,7 @@ export default () => {
           </div>
         </div> 
   
-    <img src="./img/home-image.png" alt="Girl-with-dog" width="200" height="200" style="padding:45px">
+    <img src="./img/home-image.png" alt="Girl-with-dog" id="home-img">
     <h2 id="hello">Welcome to PetShare</h2>
     <p id="home-textContent">
     PetShare is the foremost social network dedicated to people who love pets.

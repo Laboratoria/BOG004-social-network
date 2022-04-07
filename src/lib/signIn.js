@@ -22,9 +22,9 @@ export default () => {
             </nav>
           </div>
         </div> 
-  <div class="container">
+  <div class="containerOne">
     
-        <label for="umail"><b>UserEmail</b></label>
+        <label for="umail"><b>User Email</b></label>
             <input type="email" id="userMail" placeholder="Enter email" name="uname" required>
             <br>
 
@@ -43,12 +43,12 @@ export default () => {
             <br>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-        <span class="psw">Forgot <a href="#">password?</a></span>
+  <div class="containerTwo">
+        <span class="psw">Forgot <href="#" id="passwordLink" >password?</href=></span>
   </div>
 
   <div class="imgcontainer">
-    <img src="./img/SignIn.png" width="300" height="200" style="padding:50px" alt="Avatar" class="avatar">
+    <img src="./img/SignIn.png" alt="Avatar" class="imgSignIn">
   </div>
     </form> `;
 
