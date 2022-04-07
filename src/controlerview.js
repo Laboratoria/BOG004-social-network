@@ -1,6 +1,6 @@
 import {
   createUser, existingUser, observerUserState, signInWithGoogle,
-  closeSession, getPostList, addPost, doLike, deletePost,
+  closeSession, getPostList, addPost, doLike, deletePost, editPosts,
 } from './firebase/controlerfirebase.js';
 
 function registerUser() {
@@ -73,10 +73,16 @@ function showEditThought(idPost, thought) {
   document.getElementById(`thougth${idPost}`).style.display = 'none';
   document.getElementById(`editThougth${idPost}`).style.display = 'block';
   document.getElementById(`editThougth${idPost}`).value = thought;
+  document.getElementById(`checkEdit${idPost}`).style.display = 'block';
+}
+
+function doEditPost(idPost) {
+  const thinkingValue = document.getElementById(`editThougth${idPost}`).value;
+  editPosts(idPost, thinkingValue);
 }
 
 export {
   registerUser, loginUser, observerUserState, authAddGoogle,
   registerCloseSession, getPostList, registerAddPost, doLike,
-  deletePost, showEditThought,
+  deletePost, showEditThought, doEditPost,
 };

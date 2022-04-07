@@ -140,9 +140,9 @@ const getPostList = async () => {
         <div>
         <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon" style="color: ${likeColor}"></i><span class= "styleCountLike">${likes.length}<span>
         </div>
-        <i id= "btnEditThougth${document.id}" class="fa-solid fa-pen-to-square posticon"></i>
-        <i id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>
-        <i id= "checkEdit${document.id}" class="fa-solid fa-check"></i>
+        <i id= "btnEditThougth${document.id}" class="fa-solid fa-pen-to-square posticon"></i>        
+        <i id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>      
+        <i id= "checkEdit${document.id}" class="fa-solid fa-check"  style="display:none"></i>  
         </div>
       
     `;
@@ -150,6 +150,7 @@ const getPostList = async () => {
     PostJS += `
       document.getElementById('doLikeImg${document.id}').addEventListener('click', () => {doLike('${document.id}');});
       document.getElementById('btnEditThougth${document.id}').addEventListener('click', () => {showEditThought('${document.id}', '${data.thinking}');});
+      document.getElementById('checkEdit${document.id}').addEventListener('click', () => {doEditPost('${document.id}');});
       document.getElementById('btnDeletePost${document.id}').addEventListener('click', () => {deletePost('${document.id}');});
     `;
   });
@@ -163,14 +164,15 @@ const editPosts = async (idPost, thinking) => {
   const db = getFirestore();
   const docRef = doc(collection(db, 'posts'), idPost);
   await setDoc(
-   docRef,
-   {
-     thinking,
+    docRef,
+    {
+      thinking,
     },
     { merge: true },
- );
+  );
   console.log(`${idPost} ${thinking}`);
-}; 
+  getPostList();
+};
 
 const addPost = async (thinking) => {
   try {
