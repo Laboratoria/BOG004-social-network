@@ -133,7 +133,7 @@ const getPostList = async () => {
           <h3 class="user-name">${data.user}</h4>
           <h4 class="e-mail">${data.email}</h4>
           <p id="thougth${document.id}" class="text-post-g">${data.thinking}</p>
-          <textarea id="editThougth${document.id}" cols="30" rows="10" style="display:none" class="edit_post"></textarea>
+          <textarea id="editThougth${document.id}" cols="30" rows="10" class="edit_post hide-edit-thought">${data.thinking}</textarea>
         </div>
         </section>
         <div class="posticons">
@@ -142,7 +142,9 @@ const getPostList = async () => {
         </div>
         <i id= "btnEditThougth${document.id}" class="fa-solid fa-pen-to-square posticon"></i>        
         <i id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>      
-        <i id= "checkEdit${document.id}" class="fa-solid fa-check"  style="display:none"></i>  
+        <p id= "checkEditP${document.id}" class="hide-thougth">
+          <i id= "checkEdit${document.id}" class="hide-thougth fa-solid fa-check posticon"></i>  
+        </p>
         </div>
       
     `;
