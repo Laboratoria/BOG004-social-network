@@ -163,14 +163,14 @@ const editPosts = async (idPost, thinking) => {
   const db = getFirestore();
   const docRef = doc(collection(db, 'posts'), idPost);
   await setDoc(
-    docRef,
-    {
-      thinking,
+   docRef,
+   {
+     thinking,
     },
     { merge: true },
-  );
+ );
   console.log(`${idPost} ${thinking}`);
-};
+}; 
 
 const addPost = async (thinking) => {
   try {
@@ -240,5 +240,5 @@ const deletePost = (id) => {
 
 export {
   createUser, existingUser, observerUserState, signInWithGoogle, closeSession, getPostList,
-  addPost, editPosts, getUser, doLike, deletePost,
+  addPost, getUser, doLike, deletePost, editPosts,
 };
