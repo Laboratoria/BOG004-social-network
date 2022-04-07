@@ -64,11 +64,11 @@ export const signInEmail = (email, password, name) => {
 
 // registrarse o iniciar sesión con google
 
-export const signInGoogle = () => { // inicia sesion con google
+export const signInGoogle = () => {
   const provider = new GoogleAuthProvider(); // crea proveedor de google
   // console.log(auth);
   signInWithPopup(auth, provider) // inicia sesion con google
-    .then((result) => { // si se inicia sesion
+    .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       // obtiene credencial de google
       const token = credential.accessToken; // obtiene token de google
@@ -76,11 +76,12 @@ export const signInGoogle = () => { // inicia sesion con google
       sessionStorage.setItem('token', token); // guarda token en sessionStorage
       sessionStorage.setItem('user', JSON.stringify(user)); // guarda usuario en sessionStorage
       window.location.hash = 'post'; // redirecciona a post.
+      console.log(credential, user);
     })
-    .catch((error) => { // si no se inicia sesion
+    .catch((error) => {
       const errorMessage = error.message; // obtiene el mensaje de error
+      alert('Lo siento no concluiste tu acceso a tu perfil de google'); // muestra mensaje de error
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // obtiene credencial de google
       console.log(credential); // muestra credencial de google en consola
       console.log(errorMessage); // muestra mensaje de error en consola
     });
@@ -89,18 +90,18 @@ export const signInGoogle = () => { // inicia sesion con google
 // Iniciar sesión
 export const logInEmail = (email, password) => {
   signInWithEmailAndPassword(auth, email, password) // inicia sesion con correo
-    .then((userCredential) => { // si se inicia sesion
+    .then((userCredential) => {
       const user = userCredential.user; // obtiene el usuario
       if (user.emailVerified) { // si el correo esta verificado
         sessionStorage.setItem('user', JSON.stringify(user)); // guarda usuario en sessionStorage
         window.location.hash = 'post'; // redirecciona a post.
       } else {
-        alert('Para iniciar sesión debes confirmar el link que enviamos a tu correo electrónico');
+        window.alert('Para iniciar sesión debes confirmar el link que enviamos a tu correo electrónico');
       }
     })
     .catch((error) => {
       const errorMessage = error.message;
-      alert('Usario y/o contraseña inválido');
+      window.alert('Usario y/o contraseña inválido');
       console.log(errorMessage);
     });
 };

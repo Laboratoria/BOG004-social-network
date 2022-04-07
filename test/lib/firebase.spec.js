@@ -1,6 +1,6 @@
 // import { async } from '/regenerator-runtime';
 import { signInEmail, logInEmail, signInGoogle } from '../../src/lib/firebase.js';
-// import { signInWithPopup } from '../../src/lib/firebase.util.js';
+import { signInWithPopup } from '../../src/lib/firebase.util.js';
 
 jest.mock('../../src/lib/firebase.util.js');
 
@@ -35,25 +35,30 @@ describe('logInEmail retorna inicio sesión', () => {
     window.sessionStorage = { setItem: jest.fn() };
     window.JSON = { stringify: jest.fn() };
   });
-  // afterAll(() => {
-  //   jest.resetAllMocks();
-  // });
+
   it('should change to post', async () => {
-    const email = 'augusto@ejemplo.com';
+    const email = 'verificado';
     const password = '4321';
     await logInEmail(email, password);
     expect(window.location.hash).toBe('#post');
   });
   it('should to post', async () => {
-    const email = 'joel@ejemplo.com';
+    const email = 'no_verificado';
     const password = '4321';
     await logInEmail(email, password);
-    expect(window.alert).toHaveBeenCalled();
+    expect(window.alert).toHaveBeenLastCalledWith('Para iniciar sesión debes confirmar el link que enviamos a tu correo electrónico');
+  });
+  it('should to post ejempleo', async () => {
+    const email = 'error';
+    const password = '4321';
+    await logInEmail(email, password);
+    expect(window.alert).toHaveBeenLastCalledWith('Usario y/o contraseña inválido');
   });
 });
 
 describe('signInGoogle retorna post', () => {
   beforeAll(() => {
+    // window.alert = jest.fn();
     window.sessionStorage = { setItem: jest.fn() };
     window.JSON = { stringify: jest.fn() };
   });
@@ -62,10 +67,31 @@ describe('signInGoogle retorna post', () => {
     await signInGoogle();
     expect(window.location.hash).toBe('#post');
   });
-  // it('se mantiene en login', async () => {
-  //   await signInGoogle();
-  //   window.location.hash = 'login';
-  //   sessionStorage.clear();
-  //   expect(window.location.hash).toBe('#login');
-  // });
+  it('se mantiene en login', async () => {
+    // sessionStorage.clear();
+    // window.location.hash = 'login';
+    const userVerified = {
+      user: { emailVerified: true },
+    };
+
+    // Caso de error de autenticacion.
+    const errorObj = {
+      code: 0,
+      message: 'Failed',
+    };
+
+    signInWithPopup.mockImplementation(jest.fn(
+      (auth, provider) => new Promise((resolve, reject) => {
+        console.log(provider);
+        if (auth === 'houtsf') {
+          resolve(userVerified);
+        } else {
+          reject(errorObj);
+        }
+      }),
+    ));
+    await signInGoogle();
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaa');
+    expect(window.alert).toHaveBeenCalled();
+  });
 });

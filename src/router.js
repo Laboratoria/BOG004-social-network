@@ -36,7 +36,7 @@ export default class Router {
         matchedRoute.script(); // cargamos el script
       } else if (this.getState() === 'logged') { // si el estado de la sesion es logged
         window.location.hash = 'perfil'; // redireccionamos a perfil
-      } else { // si el estado de la sesion es unlogged
+      } else {
         window.location.hash = ''; // redireccionamos a home
       }
     } else { // si la ruta no existe

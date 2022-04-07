@@ -39,9 +39,9 @@ export const createUserWithEmailAndPassword = jest.fn(
 // Export de logInEmail
 export const signInWithEmailAndPassword = jest.fn(
   (auth, email, password) => new Promise((resolve, reject) => {
-    if (email === 'augusto@ejemplo.com') { // si el correo es el correcto
+    if (email === 'verificado') { // si el correo es el correcto
       resolve(userVerified); // Resuelve el usuario
-    } else if (email === 'joel@ejemplo.com') { // si el correo no es el correcto
+    } else if (email === 'no_verificado') { // si el correo no es el correcto
       resolve(userNotVerified); // caso de usuario no verificado
     } else {
       reject(errorObj); // caso de error
@@ -49,25 +49,20 @@ export const signInWithEmailAndPassword = jest.fn(
   }),
 );
 
-// Mock de credencial de google
 export class GoogleAuthProvider {
   static credentialFromResult() {
-    return { accessToken: 'token' };
+    return { accessToken: '' };
   }
 
   static credentialFromError() {
-    return { };
+    return {};
   }
 }
 
-const accessToken = 'token';
 export const signInWithPopup = jest.fn(
   (auth, provider) => new Promise((resolve, reject) => {
-    if (accessToken !== 'token') {
-      reject(errorObj);
-    } else {
-      resolve(userVerified);
-    }
+    sessionStorage.setItem('user', JSON.stringify(userVerified));
+    resolve(window.location.hash = '#post');
   }),
 );
 
