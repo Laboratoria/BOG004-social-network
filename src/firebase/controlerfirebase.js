@@ -72,7 +72,7 @@ function observerUserState() {
 
 const closeSession = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
+  // const user = auth.currentUser;
 
   signOut(auth)
     .then(() => {
@@ -132,22 +132,24 @@ const getPostList = async () => {
         <div class="post-content">
           <h3 class="user-name">${data.user}</h4>
           <h4 class="e-mail">${data.email}</h4>
-          <p class="text-post-g">${data.thinking}</p>
+          <p id="thougth${document.id}" class="text-post-g">${data.thinking}</p>
+          <textarea id="editThougth${document.id}" cols="30" rows="10" style="display:none" class="edit_post"></textarea>
         </div>
         </section>
         <div class="posticons">
         <div>
         <i id="doLikeImg${document.id}" class="fa-solid fa-heart posticon" style="color: ${likeColor}"></i><span class= "styleCountLike">${likes.length}<span>
         </div>
-        <i class="fa-solid fa-pen-to-square posticon"></i>
-        <i  id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>
+        <i id= "btnEditThougth${document.id}" class="fa-solid fa-pen-to-square posticon"></i>
+        <i id="btnDeletePost${document.id}" class="fa-solid fa-trash-can posticon"></i>
+        <i id= "checkEdit${document.id}" class="fa-solid fa-check"></i>
         </div>
       
     `;
 
     PostJS += `
       document.getElementById('doLikeImg${document.id}').addEventListener('click', () => {doLike('${document.id}');});
-
+      document.getElementById('btnEditThougth${document.id}').addEventListener('click', () => {showEditThought('${document.id}', '${data.thinking}');});
       document.getElementById('btnDeletePost${document.id}').addEventListener('click', () => {deletePost('${document.id}');});
     `;
   });
@@ -156,11 +158,18 @@ const getPostList = async () => {
   // eslint-disable-next-line no-eval
   eval(PostJS);
 };
-// El primer parametro es el uid del post y el segundo el pensamiento editado
-const editPosts = (id, thinking) => {
-  // usuario.displayName
-  // usuario.email
-  console.log(`${id} ${thinking}`);
+
+const editPosts = async (idPost, thinking) => {
+  const db = getFirestore();
+  const docRef = doc(collection(db, 'posts'), idPost);
+  await setDoc(
+    docRef,
+    {
+      thinking,
+    },
+    { merge: true },
+  );
+  console.log(`${idPost} ${thinking}`);
 };
 
 const addPost = async (thinking) => {
@@ -208,7 +217,7 @@ const doLike = async (idPost) => {
     await setDoc(
       docRef,
       {
-        likes,
+        likes, // thinking: valor
       },
       { merge: true },
     );

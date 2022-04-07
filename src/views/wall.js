@@ -31,7 +31,7 @@ export default () => {
     <p class="welcome-text">Mommi Wall</p>
     <div id="wall-content">
     <div id="editPost">
-      <textarea id="thinksuseredit" rows="4" placeholder="¿Que estas pensado?..." maxlength="200"></textarea>
+      <textarea id="thinksuseredit"  rows="4" placeholder="¿Que estas pensado?..." maxlength="200"></textarea>
       <button id = "btnSaveThought"class="btn-post">Publicar</button>
       </div>
     <div class="post" id="posts">
