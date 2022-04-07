@@ -7,9 +7,9 @@ export default () => {
   divDaily.setAttribute('class', 'container-div-daily');
   const viewDaily = `
   <header id='banner'>
-    <img id='Banner_img' src='./img/title.png'>
-    <i class='fa-solid fa-arrow-right-from-bracket' id='logout' ></i> 
+    <div class="tittle-daily"></div>
   </header>
+  <i class='fa-solid fa-arrow-right-from-bracket' id='logout' ></i>
   <main class='main-daily'>
     <div id='modal-background'>
       <form id='modal_post-container' class='modal_post-container'>
