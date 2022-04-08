@@ -482,6 +482,11 @@ align-items: center;
   width: 4rem;
 }
 
+.fa-2xl{
+  background: white !important;
+  color: rgba(147, 142, 142, 1) !important;
+}
+
 .thinksuser{
   padding: 8px;
   text-align: justify;
