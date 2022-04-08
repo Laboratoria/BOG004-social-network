@@ -9,7 +9,6 @@ import {
 
 let editMode = false;
 let id = '';
-
 function likeEachPost(mostrarPost) {
   const btnsLike = mostrarPost.querySelectorAll('.like');
   btnsLike.forEach((btn) => {
@@ -32,7 +31,6 @@ function deleteEachPost(mostrarPost) {
     });
   });
 }
-
 function editEachPost(mostrarPost) {
   const btnsEdit = mostrarPost.querySelectorAll('.btnEdit');
   btnsEdit.forEach((btn) => {
@@ -50,7 +48,6 @@ function editEachPost(mostrarPost) {
     });
   });
 }
-
 function renderPosts(posts) {
   const mostrarPost = document.querySelector('#mostrarPost');
   let templateMostrarPost = '';
@@ -69,9 +66,7 @@ function renderPosts(posts) {
       </div>
     `;
   });
-
   mostrarPost.innerHTML = templateMostrarPost;
-
   editEachPost(mostrarPost);
   deleteEachPost(mostrarPost);
   likeEachPost(mostrarPost);
@@ -90,14 +85,12 @@ export default () => {
         <button> <img id="imgBotonIr" src="img/ir-img.png" alt="Ir"> </button>
         <button> <img id="imgLogout" src="img/logout-img.png" alt="Cerrar sesión"> </button>
     </div>
-
     <div class="barra">
       <img src="img/home.png" alt="Logo Codering">
       <img src="img/mensajes.png" alt="Logo Codering">
       <img src="img/perfil.png" alt="Logo Codering">
       <img src="img/notif.png" alt="Logo Codering">
     </div>
-
     <div class="postGeneral">
       <div class="divForm" id="divForm">
         <form class="posts" id="posts">
@@ -108,12 +101,11 @@ export default () => {
       <div id="mostrarPost">
       </div>
     </div>
-
     <div id="atencion" class="modal">
        <div class="contenidoModal">
         <div class="modalHeader flex">
           <h2>Atención!</h2>
-          <span class="cerrar" id="cerrar">&times;</span>  
+          <span class="cerrar" id="cerrar">&times;</span>
         </div>
         <div class="modalBody">
           <p id="mensaje"></p>
@@ -122,13 +114,13 @@ export default () => {
     </div>
   </div>
   `;
-
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewFeed;
   const btnLogout = divElemt.querySelector('#imgLogout');
   btnLogout.addEventListener('click', () => {
     logOut();
   });
+  onPost(renderPosts);
   const posts = divElemt.querySelector('#posts');
   const btnSubmit = divElemt.querySelector('#submitPost');
   const contentFeed = divElemt.querySelector('#contentFeed');
@@ -149,6 +141,5 @@ export default () => {
       posts.reset();
     }
   });
-
   return divElemt;
 };

@@ -9,8 +9,9 @@ import {
   getDoc,
   updateDoc,
   onSnapshot,
-  arrayUnion, 
-  arrayRemove,
+  serverTimestamp,
+  orderBy,
+  query,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -40,8 +41,9 @@ export {
   getDoc,
   updateDoc,
   onSnapshot,
-  arrayUnion,
-  arrayRemove,
+  serverTimestamp,
+  orderBy,
+  query,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use

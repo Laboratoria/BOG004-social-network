@@ -13,11 +13,14 @@ import {
   getDoc,
   updateDoc,
   onSnapshot,
+  serverTimestamp,
+  orderBy,
+  query,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
-// const user = auth.userCredential;
-// console.log(user);
+const user = auth.userCredential;
+console.log(user);
 export const newRegister = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -47,13 +50,12 @@ export const newRegister = (email, password) => {
       }
     });
 };
-
 export const newLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('logueado...');
       window.location.assign('#/feed');
-      const user = userCredential.user;
+      const user = userCredential.user.email;
       console.log('esto es lo que quiero:', user);
     })
     .catch((error) => {
@@ -79,7 +81,6 @@ export const newLogin = (email, password) => {
 };
 export const provider = new GoogleAuthProvider();
 export const googlePopUp = () => signInWithPopup(auth, provider);
-
 // Acceso a la aplicación logueando con google
 export const googleLogin = () => {
   googlePopUp(auth, provider)
@@ -88,10 +89,11 @@ export const googleLogin = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
+      const user = result.user.email;
       // ...
       window.location.assign('#/feed');
       console.log('logueado con google');
+      console.log(user);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -106,7 +108,6 @@ export const googleLogin = () => {
       // ...
     });
 };
-
 // Función para cerrar sesión
 export const logOut = () => {
   signOut(auth).then(() => {
@@ -117,7 +118,6 @@ export const logOut = () => {
   });
   console.log('adiós, vuelve pronto');
 };
-
 // AQUI EMPEZAMOS A USAR FIRESTORE
 // Creamos la base de datos
 export const db = getFirestore();
@@ -131,6 +131,7 @@ export async function crearPost() {
       user: localStorage.getItem('email'),
       likes: [],
       likesCount: 0,
+      fecha: serverTimestamp(),
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -138,11 +139,13 @@ export async function crearPost() {
   }
 }
 
+// consulta de pub de forma descendente
+const orderPost = query(dbPost, orderBy('fecha', 'desc'));
 // función para borrar Post
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 // función para obtener los posts
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
 // función para mostrar los Post en tempo real
-export const onPost = (querySnapshot) => onSnapshot(dbPost, querySnapshot);
+export const onPost = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnapshot);
 // función para editar Post
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
