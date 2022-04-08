@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-cycle
 import { login, authGoogle } from '../lib/auth.js';
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
+// eslint-disable-next-line import/no-cycle
 import { changeView } from '../view-controler/router.js';
 
 export default () => {
@@ -36,7 +38,7 @@ export default () => {
     if (respuesta === true) {
       changeView('#/feed');
     } else {
-      console.log('error al iniciar sesión');
+      // console.log('error al iniciar sesión');
     }
   });
   const returnBtn = divLogin.querySelector('.returnBtn');

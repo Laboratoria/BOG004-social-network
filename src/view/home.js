@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from '../lib/firebase-utils.js';
 // eslint-disable-next-line import/no-cycle
 import { authGoogle } from '../lib/auth.js';
+// eslint-disable-next-line import/no-cycle
 import { changeView } from '../view-controler/router.js';
 
 export default () => {
@@ -11,7 +12,7 @@ export default () => {
 
   const leftColumn = document.createElement('div');
   leftColumn.classList.add('leftColumn');
-  const viewLeft = `<img id='homeImg' src='../img/home-img.png' alt='boot_image'>`;
+  const viewLeft = '<img id="homeImg" src="../img/home-img.png" alt="boot_image">';
   leftColumn.innerHTML = viewLeft;
   container.appendChild(leftColumn);
 
@@ -42,7 +43,7 @@ export default () => {
     if (respuesta === true) {
       changeView('#/feed');
     } else {
-      console.log(respuesta);
+      // console.log(respuesta);
     }
   });
   return container;

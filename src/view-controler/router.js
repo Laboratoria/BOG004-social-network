@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { signOut, checkAuthStatus } from '../lib/auth.js';
+// eslint-disable-next-line import/no-cycle
 import { components } from '../view/index.js';
 // este import está pendiente para ser movido a otro archivo
 
@@ -12,6 +13,9 @@ const changeView = async (hash) => {
     case '':
     case '#':
     case '#/': {
+      if (user) {
+        changeView('#/feed');
+      }
       return sectionMain.appendChild(components.Home());
     }
     case '#/createUser': {
@@ -39,12 +43,6 @@ const changeView = async (hash) => {
       window.location.hash = '#/';
       return '';
     }
-    // case '#/profile': {
-    //   return sectionMain.appendChild(components.Profile());
-    // }
-    // case '#/interest': {
-    //   return sectionMain.appendChild(components.Interest());
-    // }
     default:
       return sectionMain.appendChild(components.Different());
   }

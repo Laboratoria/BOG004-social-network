@@ -1,13 +1,15 @@
+// eslint-disable-next-line import/no-cycle
 import { register } from '../lib/auth.js';
-import { changeView } from '../view-controler/router.js'; 
+// eslint-disable-next-line import/no-cycle
+import { changeView } from '../view-controler/router.js';
 
 const createFormUser = () => {
   document.querySelector('#sectionGrid').style.display = 'block';
   const divElem = document.createElement('div');
-  divElem.setAttribute('id', 'containerRegister'); 
+  divElem.setAttribute('id', 'containerRegister');
   const viewCreateUser = `
   <button class='returnBtn'><</button>
-  <h2 class=\'text-center\'>Crea una cuenta en Nibbles</h2>
+  <h2 class='text-center'>Crea una cuenta en Nibbles</h2>
   <p id='slogan-nibbles'>¡Una experiencia deliciosa comienza aquí!<br>Publica tus mejores recetas</p>`;
   divElem.innerHTML = viewCreateUser;
   const htmlFormRegister = () => {
@@ -29,7 +31,7 @@ const createFormUser = () => {
     email.setAttribute('autocomplete', 'off');
 
     const errorEmail = document.createElement('p');
-    errorEmail.innerText = 'Ingresa un email valido';
+    errorEmail.textContent = 'Ingresa un email valido';
     errorEmail.setAttribute('id', 'error-message-email');
     errorEmail.setAttribute('class', 'error-message-hidden');
 
@@ -58,7 +60,7 @@ const createFormUser = () => {
     submit.setAttribute('class', 'btn-submit');
 
     const errorPassword = document.createElement('p');
-    errorPassword.innerText = 'La contraseña no coincide';
+    errorPassword.textContent = 'La contraseña no coincide';
     errorPassword.setAttribute('id', 'error-message-password');
     errorPassword.setAttribute('class', 'error-message-hidden');
 
@@ -73,11 +75,11 @@ const createFormUser = () => {
     divElem.appendChild(form);
   };
   htmlFormRegister();
+
   const returnBtn = divElem.querySelector('.returnBtn');
-  returnBtn.addEventListener('click', (event) => {
+  returnBtn.addEventListener('click', () => {
     changeView('#/');
   });
-
   return divElem;
 };
 
@@ -142,7 +144,6 @@ const saveUser = () => {
     if (password.trim() !== '' && password === repeatPassword) {
       register(email, password);
     } else {
-      console.log('aaaaaaaaa')
       const errorMessage = document.getElementById('error-message-password');
       errorMessage.classList.remove('error-message-hidden'); // ocultar mensaje de error
     }
