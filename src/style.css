@@ -14,6 +14,12 @@ body {
     background-repeat: no-repeat;
 }
 
+hr{
+    color: rgba(109, 184, 223, 0.5);
+    width: 98%;
+    height: 3px;
+}
+
 h1 {
     font-size: 1.12em;
     margin-bottom: 1.25em;
@@ -171,28 +177,107 @@ h1 .relevant {
     margin-top: 0.5em;
 }
 
-#info-user {
+#root #feed-template {
+    display: grid;
+    grid-template-columns: 100%;
+    align-content: center;
+    background-color: #fff;
+}
+          
+#feed-template #info-user {
     width: 90%;
-    height: 40%;
+    height: auto;
+    margin: 20px 0;
+    padding: 1.3em;
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows: auto auto;
+    border: none;
+    border-radius: 0.625em;
     background-color: rgba(109, 184, 223, 0.37);
 }
 
-#div-profile {
+#info-user #div-profile {
     display: grid;
     grid-template-columns: 30% 70%;
 }
 
-#photo-profile {
+.button-profile {
+    justify-self: end;
+}
+
+#info-user #photo-profile {
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-#div-speciality {
+#info-user #div-speciality {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#feed-template #section-post {
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 1.3em;
+    display: grid;
+    grid-column: 1/2;
+    border: none;
+    border-radius: 0.625em;
+    background-color: rgba(109, 184, 223, 0.37);
+}
+
+#section-post #area-post {
+    width: 96%;
+    height: 40%;
+    border-radius: 0.5em;
+    align-self: center;
+}
+
+#div-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#send-post {
+    color: transparent; 
+    background-color: transparent; 
+    border-color: transparent; 
+    cursor: default;
+}
+
+#feed-template #feed-user {
+    width: 90%;
+    height: auto;
+    padding: 1.3em;
+    display: grid;
+    grid-column: 1/2;
+    grid-template-rows: 20% 70% 10%;
+    background-color: #fff;
+    border: solid;
+    border-width: 0.125em;
+    border-radius: 0.625em;
+    border-color: rgba(109, 184, 223, 0.37);
+    margin-bottom: 20px;
+}
+
+#feed-user #div-profile-feed {
+    display: flex;
+    justify-content: space-around;
+}
+
+#feed-user #div-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+#feed-user #div-post {
+    text-align: justify;
+    align-self: center;
 }
 
 @media screen and (min-device-width: 1000px) and (-webkit-min-device-pixel-ratio: 1) {

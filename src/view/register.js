@@ -110,4 +110,4 @@ export const register = () => {
             });
     });
     return viewRegisterHtml;
-};
+}
