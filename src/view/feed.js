@@ -1,5 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost, getPost } from "../Firebase/firestore.js";
+import { saveFormPost } from "../Firebase/firestore.js";
 
 
 export const feed = () => {
@@ -73,7 +73,7 @@ export const feed = () => {
     });
 
     //Mostrar todos los post apenas se ingresa al feed
-    getPost();
+    // getPost();
 
     const postForm = document.querySelector("#form-post");
     postForm.addEventListener("submit", (e) => {
@@ -87,15 +87,15 @@ export const feed = () => {
     });
 
     //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
-    getPost().then((response) => {
-        const divPost = document.querySelector('#div-post');
-        response.forEach((text) => {
-            console.log(text);
-            divPost.innerHTML += `
-                <p> ${text.textAreaPost} </p>
-            `;
-        });
-    });
+    // getPost().then((response) => {
+    //     const divPost = document.querySelector('#div-post');
+    //     response.forEach((text) => {
+    //         console.log(text);
+    //         divPost.innerHTML += `
+    //             <p> ${text.textAreaPost} </p>
+    //         `;
+    //     });
+    // });
 
 
     //     const containerPost = divElem.querySelector('#containerPost');
