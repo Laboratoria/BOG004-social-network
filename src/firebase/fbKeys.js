@@ -1,4 +1,5 @@
 import { initializeApp } from './firebaseImport.js';
+import { getFirestore } from './firebaseImport.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,3 +17,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore
+ export const db = getFirestore(app);
