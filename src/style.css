@@ -111,6 +111,7 @@ p {
   font-size: 13px;
   margin-top: 0px;
   margin-bottom: 10px;
+  max-width: 450px;
 }
 
 
@@ -158,10 +159,12 @@ h4{
 footer {
   background-color: rgba(249, 226, 218, 1);
   width: 100%;
-  position:relative;
+  position:inherit;
   left:0px;
   bottom:0px;
   margin: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .text-footer {
@@ -259,7 +262,14 @@ a {
   width: 100%;
 }
 
-@media (min-width: 768px){
+.post {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+@media (min-width: 860px){
   #thinksuseredit{
     padding: 0;
   }
@@ -271,7 +281,7 @@ a {
   .all-wall{
     flex-direction: row !important;
     flex-wrap: nowrap;
-    height: 120vh;
+    min-height: 90vh;
   }
 
   .wall-nav {
@@ -305,7 +315,7 @@ a {
   .icono-cerrar-sesion {
     background: white !important;
     position: fixed;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
   }
 
@@ -334,8 +344,21 @@ a {
   .nav ul{
     margin: 5vh;
   }
-  
+
+  .edit-post{
+    width: 350px !important;
+    min-width: 280px;
+  }
+
+  .edit_post {
+    width: 400px !important;
+  }
+
+  .post-container{
+    width: 508px;
+  }
 }
+
 @media (min-width: 1140px){
   .banner-img{
     display: block;
@@ -383,7 +406,8 @@ a {
 .all-wall{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
+  min-height: 90vh;
 }
 
 .btn-post {
@@ -403,7 +427,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .edit_post {
@@ -424,12 +448,14 @@ a {
   padding: 8px;
   border-radius: 10px;
   max-width: 600px;
+  min-width: 360px;
+  justify-content: space-around;
 }
 
 .post-container .post-content{
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 1.5rem 1.5rem 4rem;
+  grid-template-rows: 1.5rem 1.5rem 5rem;
 }
 
 .post-container .post-avatar{
