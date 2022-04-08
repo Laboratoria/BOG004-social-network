@@ -1,10 +1,13 @@
 // Importamos app para inicializar firebase
 import { app } from './fbKeys.js'; 
+import { db } from './fbKeys.js';
+import {  addDoc, collection } from './firebaseImport.js'
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
 import { signInWithGoogle } from '../view-controler/controllers.js';
 import { GoogleAuthProvider } from './firebaseImport.js'
+
 
 /* Creamos una funcion createUser para exportarla y activarla
 cuando se de click a el boton de registrarte y le pasamos como parametro email y contraseña */
@@ -87,3 +90,5 @@ export const signInUser = (auth, email, password) => {
         // ...
       });
     }
+
+    export const savePost = (post) => addDoc(collection(db, 'posts'), {post});

@@ -128,17 +128,18 @@ a:visited {
     justify-items: center;
     font-size: revert;
 }
+.containerWall{
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    background-image: url('./img/fondo.svg');
+    
+        }
 .signOut{
     width: 25px;
     height: 25px;
     }
-.containerWall{
-width: 100%;
-height: 100vh;
-margin: 0%;
-background-image: url('./img/fondo.svg') ;
 
-    }
 .gridHeaderWall{
 display: grid;
 grid-template-columns: 80% 20%;
