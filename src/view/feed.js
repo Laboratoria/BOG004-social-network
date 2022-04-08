@@ -6,53 +6,63 @@ export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
     const view = `
     <a href="#/feed"></a>
+    <div id="feed-template">
     <section id="info-user">
         <div id="div-profile">
-            <img id="photo-profile" src="../images/Ellipse 2.png" alt="">
+            <img id="photo-profile" src="../imageS/Ellipse 1.png" alt="">
             <div>
                 <h3 id="name-user">Nombre Apellido</h3>
                 <p id="type-user">Empresa</p>
                 <p id="description-user">Hola solicito información</p>
             </div>
         </div>
-        <a href="" id="edit-profile"><img src="../images/edit 1.png" alt="Edit"></a>
+        <a href="" id="edit-profile" class="button-profile"><img src="../images/edit 1.png" alt="Edit"></a>
         <div id="div-speciality">
             <div class="speciality">Developer Js</div>
             <div class="speciality">Angular</div>
             <div class="speciality">React</div>
         </div>
-        <a href=""><img src="../images/logout 1.png" alt="Sign Out"></a>
+        <a href="" class="button-profile"><img src="../images/logout 1.png" alt="Sign Out"></a>
     </section>
     <section id="section-post">
         <form action="" id="form-post">
-            <label for="newpost">Nuevo Post</label>
-            <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?"></textarea>
-            <div id="div-check">
-                <input type="checkbox" id="type-post-offer" name="Oferta">
-                <label for="offer">Oferta</label>
-                <input type="checkbox" id="type-post-demand" name="Búsqueda">
-                <label for="demand">Búsqueda</label>
-                <button id="send-post" type="submit"><img src="../images/send 1.png" alt="Send"></button>
+            <div id="form-textarea">
+                <label for="newpost">Nuevo Post</label>
+                <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?">    
+                </textarea>
             </div>
-         </form>
+            <div id="div-check">
+                <span>
+                    <input type="checkbox" id="type-post-offer" name="Oferta">
+                    <label for="offer">Oferta</label>
+                    <input type="checkbox" id="type-post-demand" name="Búsqueda">
+                    <label for="demand">Búsqueda</label>
+                </span>
+                <button id="send-post" class="button-profile" type="submit"><img src="../images/send 1.png" alt="Send"></button>
+            </div>
+        </form>
     </section>
-    <section>
+    <section id="feed-user">
         <div id="div-profile-feed">
         <img src="../images/Ellipse 2.png" alt="">
-            <h3 id="name-user"></h3>
-            <p id="type-user"></p>
-            <a href=""><img src="../images/Group 2.png" alt="Options Group"></a>
+            <div>
+                <h3 id="name-user">Nombre Apellido</h3>
+                <p id="type-user">Programador</p>
+            </div>
+            <a href="" class="button-profile"><img src="../images/Group 2.png" alt="Options Group"></a>
         </div>
         <div id="div-post">
-            <p>publicado <time datetime="2008-02-14 20:00"></time></p>
+            <p>publicado <time datetime=" "></time></p>
         </div>
         <div id="div-options">
             <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
             <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
             <a href=""><img src="../images/share 1.png" alt="Share"></a>
         </div>
+        <hr>
+        <button id="buttonHero"> Inicio </button>
     </section>
-    <button id="buttonHero"> Inicio </button>
+    </div>
     `;
 
     viewFeedHtml.innerHTML = view;
