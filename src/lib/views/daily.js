@@ -1,5 +1,5 @@
 //* EN ESTA PESTAÑA PONDREMOS TODO LO QUE IRA EN EL MURO *//
-import { createPost, getPost, readAllPost, currentUser, deletePost, logout} from '../firebaseController.js'
+import { createPost, getPost, readAllPost, currentUser, deletePost, logout, giveMethePost} from '../firebaseController.js'
 
 //función principal para crear template
 export default () => {
@@ -80,7 +80,7 @@ putUp(userInfo, divDaily);
         if (currentUserInfo.uid === doc.data().uidPost) {
           deleteEditSection = `
             <button class='edit-img' id='edit' data-postid='${doc.id}'>Editar</button>
-            <button class='save-img  hidenBtn' data-postid='${doc.id}'>Guardar</button>
+            <button class='save-img hidenBtn' id='save' data-postid='${doc.id}'>Guardar</button>
             <button class='delete-img' id='delete' data-postid='${doc.id}'>Eliminar</button>          
           `;
         } else {
@@ -94,8 +94,8 @@ putUp(userInfo, divDaily);
               <div class='name-container'>Wizard</div>
               <div class='btns-post-container'>${deleteEditSection}
               </div>
-            </div>  
-            <p>${doc.data().postDescription}</p>       
+            </div>
+            <textarea type='text' class='textarea-post-container' readonly id='${doc.id}'>${doc.data().postDescription}</textarea>       
           </div>    
           `;          
     });
@@ -113,6 +113,29 @@ putUp(userInfo, divDaily);
     };
     postDelete();
     // FIN funcion para eliminar post
+    const postEdit = () => {
+      const editPostContent = divDaily.querySelector('.textarea-post-container')
+      const btnEdit = divDaily.querySelector('#edit')
+      const btnSave = divDaily.querySelector('#save')
+      btnEdit.forEach((buttonEdit, index) => {
+        buttonEdit.addEventListener('click', (e) => {
+          console.log('click')
+          const clickBtnEdit = e.target.dataset.postid;
+          giveMethePost(clickBtnEdit);
+          .then(() => {
+            editPostContent.forEach((textArea) => {
+              if (textArea.id === clickBtnEdit) {
+                textArea.removeAttribute('readonly');
+                btnEdit.classList.add('hidenBtn');
+                btnSave[index].classList.remove('hidenBtn');
+              }
+            });
+          });
+        });
+      })
+
+    }
+    postEdit();
     });
     readAllPost(querySnapshot);
   };
@@ -148,56 +171,6 @@ putUp(userInfo, divDaily);
       })
     });
 
-  // btnSave.addEventListener('click', (e) => {
-  //   e.preventDefault()
-  //   console.log('Saved');
-  //   createPost(postDescription.value);
-  //   modalPost.reset();
-  // });
-
-
-  // declaracion modalClose para evento de cierre de boton en version mobile
-  let modalClose = divDaily.querySelector('#close'); 
-  modalClose.addEventListener('click',()=>{
-    console.log('Close');
-    background.style.display= "none";
-    modalPost.style.display= "";
-  });
-
-
-  // postDescription.addEventListener('keyup', () => { // evento del textarea
-  //   const postContent = postDescription.value.trim();
-  //   // trim() metodo que no permite activar boton con espacio
-  //   if (postContent === '') {
-  //     btnSave.disabled = true; // boton publicar inactivo
-  //   } else {
-  //     btnSave.disabled = false; // boton publicar activo
-  //   }
-  // });
-
-  // const postController = () => {
-  //   const postContainer = divDaily.querySelector('#post-container');
-  //   const postData = readPost();
-  //   console.log('postData: ', postData.length);
-  //   postData.forEach(element => {
-  //     console.log('ele', element)
-      
-  //   });
-    
-      // // let postStructure = '';
-      // // snapShopResult.foreach((doc) => {
-      // //   //const post= doc.data();
-      //   postStructure += `
-      //   <div id='post-container' class="post-container"> 
-      //     <p>${post.postDescription}</p>       
-      //   </div>    
-      //   `;
-      // });
-    //   postContainer.innerHTML = postStructure.join("");
-    // });  
-    // readPost();
-  // };
-  // postController();
   
   
   return divDaily;
