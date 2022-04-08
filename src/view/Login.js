@@ -1,8 +1,8 @@
-import {loginUser} from '../view-controler/firebase.js';
+import {loginUser, authenticate} from '../view-controler/firebaseControle.js';
 import {changeView} from '../view-controler/router.js';
 
 export default () => {
-  const viewHome = `
+  const viewLogin = `
     <h2 class= 'title-login'>¡Welcome, ¡Hi,baby!</h2>
   <form action="">
 <div>
@@ -22,7 +22,7 @@ export default () => {
 
    //creación de elemento
   const divElement = document.createElement("div");
-  divElement.innerHTML = viewHome;
+  divElement.innerHTML = viewLogin;
 
  //Selectores del Dom
   const ingressButton = divElement.querySelector("#ingress");
@@ -38,10 +38,12 @@ export default () => {
     changeView("#/timeLine")
   });
 
-  createButton.addEventListener("click" , () =>{
+  createButton.addEventListener("click" , () => {
   changeView("#/register")
   });
 
   return divElement;
+  
 };
+
 

@@ -7,9 +7,10 @@ window.location.hash=route;
   container.innerHTML = "";
   switch (route) {
     case "#/": {
-      return container.appendChild(components.home());
+      return container.appendChild(components.Login());
     }
     case "#/register": {
+      
       return container.appendChild(components.register());
     }
     case "#/timeLine": {

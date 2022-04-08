@@ -1,5 +1,9 @@
-import { authenticate } from "../view-controler/firebase.js";
+import { authenticate, loginUser } from "../view-controler/firebaseControle.js";
 import {changeView} from '../view-controler/router.js';
+import { auth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, }
+   from '../view-controler/firebase.js'
 
 export default () => {
   const viewRegister = `
@@ -45,20 +49,69 @@ export default () => {
 <div class="button">
 <button type="submit" class="SingUp" id="SingUp">Registrate</button>
 </div>
+
+//<div id='errorMessage'></div>
 </ul>
     `;
 
   const divElement = document.createElement("div");
+  //aquí se debe crear una clase al div //
   divElement.innerHTML = viewRegister;
   const registerButton = divElement.querySelector("#SingUp");
-
   registerButton.addEventListener("click", () => {
-    const password = divElement.querySelector("#ingressPassword").value;
+    
     const email = divElement.querySelector("#email").value;
+    const password = divElement.querySelector("#ingressPassword").value;
+    //const confirmPassword = divElement.querySelector("#confirmPassword").value;
+    //const errorMessage = divElement.querySelector ('#errorMessage');
+    //errorMessage.innerHTML = '';
+    
+    authenticate(email, password)
+    .then((userCredential) => {
 
-    authenticate(email, password);
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
 
-    changeView("#/timeLine")
-  });
+
+    //loginUser(email, password)
+    //.then((userCredential) => {
+      // Signed in
+      //const user = userCredential.user;
+      // ...
+    //})
+    //.catch((error) => {
+      //const errorCode = error.code;
+      //const errorMessage = error.message;
+    //});
+
+  })
+  console.log(divElement)
   return divElement;
 };
+  
+
+
+  //autenticar datos para el registro
+//function authenticate (email, password){
+  //console.log(email, password)
+//const auth= getAuth();
+//createUserWithEmailAndPassword(auth, email, password)
+  
+  //}
+
+  //usuario existente
+  //function loginUser  (email, password) {
+//const auth = getAuth();
+//signInWithEmailAndPassword(auth, email, password)
+
+//authenticate(email, password, user)
+     //loginUser(email, password)
+     //changeView("#/timeLine")
+  
