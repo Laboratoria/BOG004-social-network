@@ -1,3 +1,4 @@
+/* eslint-disable-next-line no-alert */
 import {
   saveRecipe,
   onGetRecipes,
@@ -102,6 +103,7 @@ export default () => {
           const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
           btnDelete.forEach((btn) => {
             btn.addEventListener('click', (event) => {
+              // eslint-disable-next-line no-restricted-globals
               const confMessage = confirm('¿Estás seguro que quieres eliminar esta receta?');
               // Verificamos si el usuario acepto el mensaje
               if (confMessage) {

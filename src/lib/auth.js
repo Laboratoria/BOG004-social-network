@@ -25,9 +25,6 @@ const showErrorAuth = (error) => {
     case 'auth/weak-password':
       document.getElementById('message').innerText = 'La contraseña debe tener mínimo 6 caracteres';
       break;
-    case 'auth/invalid-email':
-      document.getElementById('message').innerText = 'El correo es inválido';
-      break;
     default:
       document.getElementById('message').innerText = 'Ocurrió un error, intentelo de nuevo';
       break;
@@ -37,11 +34,8 @@ const showErrorAuth = (error) => {
 export const login = (email, password) => {
   singIn(email, password)
     .then((userCredential) => {
-      console.log(userCredential);
       const user = userCredential.user;
-      console.log(user.user);
       if (user.emailVerified) {
-        console.log(user.emailVerified);
         changeView('#/feed');
       } else {
         document.querySelector('#messageAlert').innerText = 'Su correo no ha sido verificado, por favor revise su email';
@@ -77,7 +71,6 @@ export const authGoogle = (provider) => {
         const token = credential.accessToken;
         const user = result.user;
         resolve(true); // terminar la promesa
-        // changeView('#/feed');
       })
       .catch((error) => {
         resolve(false); // terminar la promesa
