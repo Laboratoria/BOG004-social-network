@@ -1,3 +1,4 @@
+/* eslint-disable-next-line no-alert */
 import {
   saveRecipe,
   onGetRecipes,
@@ -15,7 +16,6 @@ import {
 export default () => {
   let editStatus = false;
   let idRecipe = '';
-  let likeInit = '';
   const menuMobile = document.getElementById('navMobile');
   menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
@@ -33,7 +33,7 @@ export default () => {
   const createRecipeForm = `
     <h2>¡Publica tus mejores recetas!</h2>
     <form class='formtext' id='task-form'>
-    <img id='recipeForm' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
+    <img id='bannerPostImg' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
       <div>
         <label for='title'>Título:</label>
         </br>
@@ -58,27 +58,26 @@ export default () => {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        let uid = user.uid;
+        const uid = user.uid;
         let recipesToShow = '';
         querySnapshot.forEach((recipe) => {
-          likeInit = recipe.data().likes.length;
           recipesToShow += `
                 <div class="box-recipe">
                   <h2>${recipe.data().title}</h2>
                   <hr>
                   <p class='text-justify'>${recipe.data().description}</p>
                   
-                  <div class= 'iconos'>
-                    <div class="content-icon">
+                  <div class= 'containerIcons'>
+                    <div class="containerIcon">
                       <img id='${recipe.id}' class= 'icon-recipe likeRecipe' src='../img/like.png'  alt='like_image'>
                       <p class='likeText'>${recipe.data().likes.length} Me gusta</p>  
                     </div>
-                    <div class="content-icon">
+                    <div class="containerIcon">
                       <img id='${recipe.id}' class='icon-recipe deleteRecipe' src='../img/espatula.png' alt='espatula_image'>
                       <p class='eliminarText'>Eliminar</p>
                     </div>
-                    <div class="content-icon">
-                      <img id='${recipe.id}' class='icon-recipe editRecipe' href='#/feed'  src='../img/rodillo.png' alt='rodillo_image'><p class='editarText'>Editar</p>
+                    <div class="containerIcon">
+                      <img id='${recipe.id}' class='icon-recipe editRecipe' src='../img/rodillo.png' alt='rodillo_image'><p class='editarText'>Editar</p>
                     </div>
                   </div>
                 </div>`;
@@ -88,9 +87,23 @@ export default () => {
           const titleRecipe = divFeed.querySelector('#task-title');
           const descriptionRecipe = divFeed.querySelector('#task-description');
 
+          const btnLike = document.querySelectorAll('.likeRecipe');
+          btnLike.forEach((btn) => {
+            btn.addEventListener('click', async ({ target }) => {
+              const recipeToLike = await editeRecipe(target.dataset.id);
+              const likeUser = recipeToLike.data().likes;
+              if (likeUser.includes(uid)) {
+                dislikeRecipe(uid, target.dataset.id);
+              } else {
+                likeRecipe(`${uid}`, `${target.dataset.id}`);
+              }
+            });
+          });
+
           const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
           btnDelete.forEach((btn) => {
             btn.addEventListener('click', (event) => {
+              // eslint-disable-next-line no-restricted-globals
               const confMessage = confirm('¿Estás seguro que quieres eliminar esta receta?');
               // Verificamos si el usuario acepto el mensaje
               if (confMessage) {
@@ -109,22 +122,7 @@ export default () => {
               editStatus = true;
               divFeed.querySelector('#btn-task-save').innerText = 'Actualizar';
               idRecipe = target.id;
-            });
-          });
-
-          const btnLike = document.querySelectorAll('.likeRecipe');
-          btnLike.forEach((btn) => {
-            btn.addEventListener('click', async ({ target }) => {
-              const recipeToLike = await editeRecipe(target.id);
-              const likeUser = recipeToLike.data().likes;
-              console.log(likeUser);
-              console.log(target);
-              console.log(uid)
-              if (likeUser.includes(uid)) {
-                dislikeRecipe(`${uid}`, `${target.id}`);
-              } else {
-                likeRecipe(`${uid}`, `${target.id}`);
-              }
+              window.scrollTo(0, 0);
             });
           });
         });
@@ -142,7 +140,6 @@ export default () => {
       updateRecipe(idRecipe, {
         title: title.value,
         description: description.value,
-        like:[],
       });
       editStatus = false;
     }
