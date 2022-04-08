@@ -14,26 +14,25 @@ import {
 
 export default () => {
   const post = `
-<form id='form-container'>
-<div class = 'navPost'>
-<h1 class = 'titlePost'>PAPYRUS</h1>
-<div class = 'userInfo'>
-<img src='${auth.currentUser.photoURL}' class = 'photoUrl'>
-<p class = 'userName'>${auth.currentUser.displayName}</p>
-<button id="logout">Log out</button>
-</div>
-</div>
-<figure>
+  <form id='form-container'>
+  <div class = 'navPost'>
+  <div class = 'userInfo'>
+  <img src='${auth.currentUser.photoURL}' class = 'photoUrl'>
+  <p class = 'userName'>${auth.currentUser.displayName}</p>
+  </div>
+  <button id="logout">Log out</button>
+  </div>
+  <figure>
       <img class="IconoPost" src="images/iPhone 13/Logo.png" alt="Icono">
     </figure>
-<div class = 'postContainer'>
-<label for="comment" id = 'commentText'>Comment!</label>
-<textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
-<span class='errorMessage'></span>
-<button type="submit" id="btn-task-save">Publish!</button>
-</div>
-</form>
-<div id="comments-container"></div>
+  <div class = 'postContainer'>
+  <label for="comment" id = 'commentText'>Comment!</label>
+  <textarea id="task-comment" rows="3" placeholder="Post..."></textarea>
+  <span class='errorMessage'></span>
+  <button type="submit" id="btn-task-save">Publish!</button>
+  </div>
+  </form>
+  <div id="comments-container"></div>
 `;
 
   const taskContainer = document.createElement('div');
@@ -50,16 +49,17 @@ export default () => {
   formContainer.addEventListener('submit', (e) => {
     // eslint-disable-next-line no-undef
     e.preventDefault();
-    if(postContainer.value !== '') { 
-    if (!editStatus) {
-      saveComment(postContainer.value);
-    } else {
-      updateComment(id, { comment: postContainer.value });
-      editStatus = false;
+    if (postContainer.value !== '') {
+      if (!editStatus) {
+        saveComment(postContainer.value);
+      } else {
+        updateComment(id, { comment: postContainer.value });
+        editStatus = false;
+      }
+      errorMessage.innerHTML = '';
     }
-    errorMessage.innerHTML = '';}
-    else{
-        errorMessage.innerHTML = 'Please write your comment';
+    else {
+      errorMessage.innerHTML = 'Please write your comment';
     }
     formContainer.reset();
   });
@@ -71,7 +71,6 @@ export default () => {
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       // eslint-disable-next-line no-unused-vars
-      console.log(task)
       html += `
         <div class='commentCreated'>
         <div class= 'headerPost'>
@@ -79,11 +78,11 @@ export default () => {
         <img src="${task.email}" class = 'photoUrl'>
         <p class = 'userName'>${task.name}</p>
         </div>
-        <input type="button" value="X" id="btn-delete" data-id="${doc.id}">  
+        <input type="button" id="btn-delete" data-id="${doc.id}" value = '&#128465' >
         </div>    
         <p class = 'postText'>${task.comment}</p>
         <div class='commentBtns'>
-        <input type="button" value="Edit" id="btn-edit" data-id="${doc.id}">
+        <button  id="btn-edit"  data-id="${doc.id}"><i class="fa-solid fa-pen"></i>  Edit</button>
         <button id="btn-like" value='${doc.id}'><i class="fas fa-thumbs-up">&nbsp&nbsp</i>${task.likesCounter}</button>
             </div>
         </div> `;
@@ -94,7 +93,8 @@ export default () => {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         if (window.confirm('¿Are you sure delete this post?')) {
-          deleteComment(dataset.id) ;
+          deleteComment(dataset.id);
+          
         }
        
       });

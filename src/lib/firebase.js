@@ -60,7 +60,6 @@ export const SignUpUser = (email, password) => createUserWithEmailAndPassword(au
     (userCredential) => {
       sendEmailVerification(auth.currentUser).then(() => {
         const user = userCredential.user;
-        console.log(auth.currentUser);
         // eslint-disable-next-line no-alert
         alert(`Se ha enviado un correo de verificación a${email}`);
       });
@@ -117,17 +116,17 @@ export const updateLikeBtn = async (id, userLike) => {
   // console.log('getPost: ', getPost.data());
   // console.log('getPost likescounter: ', getPost.data().likesCounter);
   const uLike = getPost.data().usersLikes;
-  console.log('este es el array de usuario', uLike);
+  //console.log('este es el array de usuario', uLike);
   const likesCount = getPost.data().likesCounter;
 
   if (uLike.includes(userLike)) {
-    console.log('Contiene el usuario, se remueve el usuario del array');
+    //console.log('Contiene el usuario, se remueve el usuario del array');
     await updateComment(id, {
       usersLikes: arrayRemove(userLike),
       likesCounter: likesCount - 1,
     });
   } else {
-    console.log('No contiene el usuario, se agrega el usuario al array');
+    //console.log('No contiene el usuario, se agrega el usuario al array');
     await updateComment(id, {
       usersLikes: arrayUnion(userLike),
       likesCounter: likesCount + 1,
