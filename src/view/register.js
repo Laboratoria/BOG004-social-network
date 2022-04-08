@@ -16,7 +16,7 @@ const createFormUser = () => {
     form.setAttribute('id', 'register-form');
     const message = document.createElement('p');
     message.setAttribute('id', 'message');
-    message.innerText = '';
+    message.innerContent = '';
 
     const contenedorEmail = document.createElement('div');
     const email = document.createElement('input');

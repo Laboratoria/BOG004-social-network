@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import {
-  singIn, singUp, singInGoogle, emailSingUp, singWithPopUp, errorSingUpWithPopUp,
+  singIn, singUp, singInGoogle, emailSingUp, singWithPopUp, errorSingUpWithPopUp, signOutUser,
 } from '../view-controler/controllers.js';
 // eslint-disable-next-line
 import { changeView } from '../view-controler/router.js';
+import { getAuth, onAuthStateChanged } from './firebase-utils.js';
 // LOGIN
 
 const showErrorAuth = (error) => {
@@ -92,3 +93,16 @@ export const authGoogle = (provider) => {
   });
   return resultoPromesa;
 };
+
+export const signOut = () => signOutUser();
+
+export const checkAuthStatus = () => new Promise((resolve, reject) => {
+  try {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      resolve(user);
+    });
+  } catch (e) {
+    reject(Error(`api failed ${e}`));
+  }
+});

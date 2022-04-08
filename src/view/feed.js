@@ -15,7 +15,6 @@ import {
 export default () => {
   let editStatus = false;
   let idRecipe = '';
-  let likeInit = '';
   const menuMobile = document.getElementById('navMobile');
   menuMobile.style.display = 'none';
   document.querySelector('header').style.display = 'block';
@@ -58,10 +57,9 @@ export default () => {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        let uid = user.uid;
+        const uid = user.uid;
         let recipesToShow = '';
         querySnapshot.forEach((recipe) => {
-          likeInit = recipe.data().likes.length;
           recipesToShow += `
                 <div class="box-recipe">
                   <h2>${recipe.data().title}</h2>
@@ -88,6 +86,19 @@ export default () => {
           const titleRecipe = divFeed.querySelector('#task-title');
           const descriptionRecipe = divFeed.querySelector('#task-description');
 
+          const btnLike = document.querySelectorAll('.likeRecipe');
+          btnLike.forEach((btn) => {
+            btn.addEventListener('click', async ({ target }) => {
+              const recipeToLike = await editeRecipe(target.dataset.id);
+              const likeUser = recipeToLike.data().likes;
+              if (likeUser.includes(uid)) {
+                dislikeRecipe(uid, target.dataset.id);
+              } else {
+                likeRecipe(`${uid}`, `${target.dataset.id}`);
+              }
+            });
+          });
+
           const btnDelete = recipesContainer.querySelectorAll('.deleteRecipe');
           btnDelete.forEach((btn) => {
             btn.addEventListener('click', (event) => {
@@ -112,22 +123,6 @@ export default () => {
               window.scrollTo(0, 0);
             });
           });
-
-          const btnLike = document.querySelectorAll('.likeRecipe');
-          btnLike.forEach((btn) => {
-            btn.addEventListener('click', async ({ target }) => {
-              const recipeToLike = await editeRecipe(target.id);
-              const likeUser = recipeToLike.data().likes;
-              console.log(likeUser);
-              console.log(target);
-              console.log(uid)
-              if (likeUser.includes(uid)) {
-                dislikeRecipe(`${uid}`, `${target.id}`);
-              } else {
-                likeRecipe(`${uid}`, `${target.id}`);
-              }
-            });
-          });
         });
       }
     });
@@ -143,7 +138,6 @@ export default () => {
       updateRecipe(idRecipe, {
         title: title.value,
         description: description.value,
-        like:[],
       });
       editStatus = false;
     }

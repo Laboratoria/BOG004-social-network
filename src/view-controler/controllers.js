@@ -5,6 +5,7 @@ import {
   sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from '../lib/firebase-utils.js';
 
 export const singIn = (email, password) => {
@@ -26,3 +27,8 @@ export const singInGoogle = (provider) => {
 export const singWithPopUp = (result) => GoogleAuthProvider.credentialFromResult(result);
 
 export const errorSingUpWithPopUp = (error) => GoogleAuthProvider.credentialFromError(error);
+
+export const signOutUser = () => {
+  const auth = getAuth();
+  return signOut(auth);
+};
