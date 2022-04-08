@@ -11,14 +11,22 @@ export default () => {
         <nav class="nav">
           <ul>
           <div class="img-mommi-wall"><img src="img/logo.png" alt="logo-mommi" class="logo-mommi-nav"></div>
-            <li class="active"><a href="#">Muro</a></li>
-            <li><a href="https://viviendomontessori.com/crianza-apego/mejores-blogs-maternidad-crianza/"<a/>Mommi Blogs</a></li>
-            <li><a href="https://www.diezminutos.es/maternidad/embarazo/g38648189/20-mejores-libros-sobre-la-maternidad/">Mommi Libros</a></li>
-            <li><a href="https://clinicadelamujer.com.co/directorio-medico/">Especialidades medicas</a></li>
-            <li><a href="https://losmejoresjardines.com/">Jardines Infantiles</a></li>
-            <li><a href="https://www.marketingdirecto.com/digital-general/social-media-marketing/madres-influencers-populares-instagram">Madres Influencers</a></li>
-            <li><a href="https://es.123rf.com/imagenes-de-archivo/maternidad.html?sti=ljzq163i357h9p412j|">Imagenes</a></li>
-            <button class="button" id="logoutBtn">
+           
+          <li class="active"><a href="#">Muro</a></li>
+            
+          <li><a href="https://viviendomontessori.com/crianza-apego/mejores-blogs-maternidad-crianza/" target="_blank"<a/>Mommi Blogs</a></li>
+            
+          <li><a href="https://www.diezminutos.es/maternidad/embarazo/g38648189/20-mejores-libros-sobre-la-maternidad/" target="_blank">Mommi Libros</a></li>
+           
+          <li><a href="https://clinicadelamujer.com.co/directorio-medico/" target="_blank">Especialidades medicas</a></li>
+            
+          <li><a href="https://losmejoresjardines.com/" target="_blank">Jardines Infantiles</a></li>
+           
+          <li><a href="https://www.marketingdirecto.com/digital-general/social-media-marketing/madres-influencers-populares-instagram" target="_blank">Madres Influencers</a></li>
+          
+          <li><a href="https://es.123rf.com/imagenes-de-archivo/maternidad.html?sti=ljzq163i357h9p412j|" target="_blank">Imagenes</a></li>
+          
+          <button class="button" id="logoutBtn">
             <i class="fa fa-sign-out icono-cerrar-sesion" aria-hidden="true">
             </i>
             </button>

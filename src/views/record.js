@@ -26,7 +26,7 @@ export default () => {
         Continuar con Google
       </button>
 
-      <p>¿Ya eres miembro?<a href="#login">Iniciar sesión</a></p>
+      <p>¿Ya eres miembro? <a href="#login">Iniciar sesión</a></p>
 
     </form>
     </div>

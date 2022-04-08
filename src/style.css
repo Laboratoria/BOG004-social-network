@@ -281,6 +281,7 @@ align-items: center;
   .all-wall{
     flex-direction: row !important;
     flex-wrap: nowrap;
+    justify-content: space-around;
     min-height: 90vh;
   }
 
@@ -332,9 +333,6 @@ align-items: center;
     color: rgb(71, 69, 69);
     padding: 1rem;
     align-content: flex-start;
-  }
-  .all-wall{
-    justify-content: center;
   }
 
   .banner-img{
@@ -406,7 +404,7 @@ align-items: center;
 .all-wall{
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-around;
   min-height: 90vh;
 }
 
