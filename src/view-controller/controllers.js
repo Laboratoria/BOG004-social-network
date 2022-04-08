@@ -16,6 +16,8 @@ import {
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
+// const user = auth.userCredential;
+// console.log(user);
 export const newRegister = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -52,6 +54,7 @@ export const newLogin = (email, password) => {
       console.log('logueado...');
       window.location.assign('#/feed');
       const user = userCredential.user;
+      console.log('esto es lo que quiero:', user);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -125,6 +128,9 @@ export async function crearPost() {
   try {
     const docRef = await addDoc(dbPost, {
       content: document.querySelector('#contentFeed').value,
+      user: localStorage.getItem('email'),
+      likes: [],
+      likesCount: 0,
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {

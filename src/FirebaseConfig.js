@@ -9,6 +9,8 @@ import {
   getDoc,
   updateDoc,
   onSnapshot,
+  arrayUnion, 
+  arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -38,6 +40,8 @@ export {
   getDoc,
   updateDoc,
   onSnapshot,
+  arrayUnion,
+  arrayRemove,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use

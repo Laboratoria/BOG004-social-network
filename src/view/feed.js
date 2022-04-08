@@ -10,6 +10,14 @@ import {
 let editMode = false;
 let id = '';
 
+function likeEachPost(mostrarPost) {
+  const btnsLike = mostrarPost.querySelectorAll('.like');
+  btnsLike.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('darLike');
+    });
+  });
+}
 function deleteEachPost(mostrarPost) {
   // le pasamos el parametro para que cuando se ejecute sepa donde esta
   // identificamos el grupo de botones para asignarle a cada uno el id del post
@@ -42,6 +50,7 @@ function editEachPost(mostrarPost) {
     });
   });
 }
+
 function renderPosts(posts) {
   const mostrarPost = document.querySelector('#mostrarPost');
   let templateMostrarPost = '';
@@ -55,6 +64,7 @@ function renderPosts(posts) {
         <div class="btnPost">
           <button class="btnEdit" data-post="${doc.id}">Editar</button>
           <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
+          <a class="like" type="button"><img src="img/like-azul.png" alt="Me gusta"></a>
         </div>
       </div>
     `;
@@ -64,6 +74,7 @@ function renderPosts(posts) {
 
   editEachPost(mostrarPost);
   deleteEachPost(mostrarPost);
+  likeEachPost(mostrarPost);
 }
 // ejecutamos la función onPost para que nos muestre en tiempo real cualquier cambio detectado
 // le pasamos como parametro la función render post para que muestre el template, y los
@@ -90,7 +101,7 @@ export default () => {
     <div class="postGeneral">
       <div class="divForm" id="divForm">
         <form class="posts" id="posts">
-            <textarea class="contentFeed" id="contentFeed"></textarea>
+            <textarea class="contentFeed" id="contentFeed" placeholder='Escribe aquí tu post!'></textarea>
         </form>
         <button type="submit" id="submitPost">Publicar</button>
       </div>
