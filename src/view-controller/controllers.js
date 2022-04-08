@@ -8,14 +8,11 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
   deleteDoc,
   doc,
   getDoc,
   updateDoc,
   onSnapshot,
-  orderBy,
-  query,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -48,6 +45,7 @@ export const newRegister = (email, password) => {
       }
     });
 };
+
 export const newLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -79,6 +77,7 @@ export const newLogin = (email, password) => {
 export const provider = new GoogleAuthProvider();
 export const googlePopUp = () => signInWithPopup(auth, provider);
 
+// Acceso a la aplicación logueando con google
 export const googleLogin = () => {
   googlePopUp(auth, provider)
     .then((result) => {
@@ -105,6 +104,7 @@ export const googleLogin = () => {
     });
 };
 
+// Función para cerrar sesión
 export const logOut = () => {
   signOut(auth).then(() => {
   // Sign-out successful.
@@ -116,8 +116,11 @@ export const logOut = () => {
 };
 
 // AQUI EMPEZAMOS A USAR FIRESTORE
+// Creamos la base de datos
 export const db = getFirestore();
+// Creación de la collection
 export const dbPost = collection(db, 'Posts');
+// Crear el documento donde se alojara el post
 export async function crearPost() {
   try {
     const docRef = await addDoc(dbPost, {
@@ -129,9 +132,11 @@ export async function crearPost() {
   }
 }
 
-const orderPost = query(dbPost, orderBy('Posts', 'desc'));
+// función para borrar Post
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
+// función para obtener los posts
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
-export const getDocsFn = () => getDocs(dbPost);
-export const viewDataRealtime = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnapshot);
+// función para mostrar los Post en tempo real
+export const onPost = (querySnapshot) => onSnapshot(dbPost, querySnapshot);
+// función para editar Post
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);

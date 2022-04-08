@@ -4,50 +4,50 @@ import {
   updatePost,
   deletePost,
   getPost,
-  getDocsFn,
-  viewDataRealtime,
-
+  onPost,
 } from '../view-controller/controllers.js';
 
 let editMode = false;
 let id = '';
 
 function deleteEachPost(mostrarPost) {
+  // le pasamos el parametro para que cuando se ejecute sepa donde esta
+  // identificamos el grupo de botones para asignarle a cada uno el id del post
   const btnsDelete = mostrarPost.querySelectorAll('.btnDelete');
-  console.log(btnsDelete);
   btnsDelete.forEach((btn) => {
     btn.addEventListener('click', ({ target: { dataset } }) => {
+      // confirma al usuario si está seguro de borrar el post
       if (window.confirm('¿Estás seguro de eliminar?')) {
+        // ejecuta la función borrar
         deletePost(dataset.post);
       }
-      viewDataRealtime();
     });
   });
 }
 
 function editEachPost(mostrarPost) {
   const btnsEdit = mostrarPost.querySelectorAll('.btnEdit');
-  console.log('edit: ', btnsEdit);
   btnsEdit.forEach((btn) => {
     btn.addEventListener('click', async ({ target: { dataset } }) => {
+      // traemos la data y usamos async await ya que es asincrono
       const doc = await getPost(dataset.post);
+      // guardamos la data en una constante para poder acceder a ella más adelante
       const postEdit = doc.data();
+      // igualamos el valor del input al valor por el que se quiere editar
       contentFeed.value = postEdit.content;
+      // se enciende el modo edición
       editMode = true;
+      // igualamos el id vacio al id que se obtiene de la publicación, al guardar lo reemplaza
       id = doc.id;
-      viewDataRealtime();
     });
   });
 }
-
-function readPost(mostrarPost) {
+function renderPosts(posts) {
+  const mostrarPost = document.querySelector('#mostrarPost');
   let templateMostrarPost = '';
-  const querySnapshot = getDocsFn();
-  console.log('docs fn: ', getDocsFn());
-  viewDataRealtime.then((res) => {
-    res.forEach((doc) => {
-      const post = doc.data();
-      templateMostrarPost += `
+  posts.forEach((doc) => {
+    const post = doc.data();
+    templateMostrarPost += `
       <div class="contenedorPost">
         <div class="contentPost">
           <p>${post.content}</p>
@@ -58,15 +58,17 @@ function readPost(mostrarPost) {
         </div>
       </div>
     `;
-    });
-    console.log('templateMostrarPost: ', templateMostrarPost);
-    mostrarPost.innerHTML = templateMostrarPost;
-
-    editEachPost(mostrarPost);
-    deleteEachPost(mostrarPost);
   });
-  viewDataRealtime(querySnapshot);
+
+  mostrarPost.innerHTML = templateMostrarPost;
+
+  editEachPost(mostrarPost);
+  deleteEachPost(mostrarPost);
 }
+// ejecutamos la función onPost para que nos muestre en tiempo real cualquier cambio detectado
+// le pasamos como parametro la función render post para que muestre el template, y los
+// cambios de las funciones edit and delete.
+onPost(renderPosts);
 
 export default () => {
   const viewFeed = `
@@ -118,11 +120,8 @@ export default () => {
   });
   const posts = divElemt.querySelector('#posts');
   const btnSubmit = divElemt.querySelector('#submitPost');
-  const mostrarPost = divElemt.querySelector('#mostrarPost');
   const contentFeed = divElemt.querySelector('#contentFeed');
-  console.log('mostrarPost elemento:', mostrarPost);
   btnSubmit.addEventListener('click', () => {
-    console.log(contentFeed.value);
     if (contentFeed.value === '') {
       document.querySelector('#mensaje').innerHTML = 'Este campo no puede estar vacío';
       document.querySelector('#atencion').style.display = 'flex';
@@ -133,15 +132,12 @@ export default () => {
       if (!editMode) {
         crearPost();
       } else {
-        console.log('editando');
         updatePost(id, { content: contentFeed.value });
+        editMode = false;
       }
       posts.reset();
-      viewDataRealtime();
     }
   });
-  readPost(mostrarPost);
-  viewDataRealtime();
 
   return divElemt;
 };

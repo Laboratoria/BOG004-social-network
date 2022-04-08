@@ -1,4 +1,4 @@
-import { newLogin, googleLogin, viewDataRealtime } from '../view-controller/controllers.js';
+import { newLogin, googleLogin } from '../view-controller/controllers.js';
 
 export default () => {
   const viewLogin = `
