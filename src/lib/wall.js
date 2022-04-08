@@ -122,7 +122,9 @@ export const showPosts = (viewPost2) => {
         likecounting.innerText = likesPost;
         /* Añadimos el evento que nos permite poner o quitar likes de cada post */
         likeButton.addEventListener('click', () => {
-          likePost(post.id, localStorage.getItem('emailForSignIn'));
+          likePost(post.id, localStorage.getItem('emailForSignIn')).then(() => {
+            showPosts(viewPost2);
+          });
           // eslint-disable-next-line
          console.log('likes', likecounting);
         });
@@ -146,8 +148,10 @@ export const showPosts = (viewPost2) => {
           btnPost.addEventListener('click', () => {
             // eslint-disable-next-line
             console.log(inputPost.value);
-            edit(post.id, inputPost.value);
-            btnPost.style.display = 'none';
+            edit(post.id, inputPost.value).then(() => {
+              showPosts(viewPost2);
+              btnPost.style.display = 'none';
+            });
           });
         });
         /* Añadimos el evento que nos permite crear la confirmacion de eliminar cada post */
@@ -170,8 +174,10 @@ export const showPosts = (viewPost2) => {
           console.log(post.id, post.data().descripcion);
           /* Añadimos el evento que nos permite eliminar cada post */
           modalButton.addEventListener('click', () => {
-            deletePost(post.id, post.data().descripcion);
-            modalwindow.classList.remove('active');
+            deletePost(post.id, post.data().descripcion).then(() => {
+              showPosts(viewPost2);
+              modalwindow.classList.remove('active');
+            });
           });
         });
         // commentButton.addEventListener('click', () => {
