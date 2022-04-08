@@ -284,9 +284,17 @@ main {
     font-weight: bold;
 }
 
-.fa-solid {
+#close {
     margin-left: 150px;
     cursor: pointer;
+}
+
+#logout {
+    display: flex;
+    justify-content: flex-end;
+    width: 1000px;
+    height: 10px;
+    margin: auto;
 }
 
 #post-description {
@@ -333,7 +341,7 @@ main {
     color: beige;
     font-size: 18px;
     border: 2px solid #272121;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     cursor: pointer;
     margin: auto;
 }
@@ -351,7 +359,8 @@ main {
     display: flex;
     border-bottom: #272121 solid 2px;
     height: 55px;
-    background-color: #67453358;
+    background-color:#272121;
+    
 }
 
 .btns-post-container {
@@ -359,15 +368,28 @@ main {
     height: 40px;
     margin-left: 95px;
     margin-top: 10px;
+    background-color: red;
+    /* background-image: url('./img/Edit.png');
+    background-image: url('./img/Delete.png');
+    background-repeat: no-repeat ; */
 }
+
+/* .btns{
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+} */
 
 .edit-img {
     margin-right: 10px;
     cursor: pointer;
+    background-image: url('./img/Edit.png');
+    
 }
 
 .delete-img {
     cursor: pointer;
+    background-image: url('./img/Delete.png');
 }
 
 .user_img {
@@ -381,7 +403,8 @@ main {
     margin-left:20px;
     margin-top: 10px;
     font-size: 22px;
-    font-weight: bold;
+    /* font-weight: bold; */
+    color: beige;
 }
 
 @media screen and (min-width: 800px) {
