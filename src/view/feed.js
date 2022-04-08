@@ -33,7 +33,7 @@ export default () => {
   const createRecipeForm = `
     <h2>¡Publica tus mejores recetas!</h2>
     <form class='formtext' id='task-form'>
-    <img id='recipeForm' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
+    <img id='bannerPostImg' src='../img/banner-recipeForm.jpg' alt='banner-recipeForm'>
       <div>
         <label for='title'>Título:</label>
         </br>
@@ -68,17 +68,17 @@ export default () => {
                   <hr>
                   <p class='text-justify'>${recipe.data().description}</p>
                   
-                  <div class= 'iconos'>
-                    <div class="content-icon">
+                  <div class= 'containerIcons'>
+                    <div class="containerIcon">
                       <img id='${recipe.id}' class= 'icon-recipe likeRecipe' src='../img/like.png'  alt='like_image'>
                       <p class='likeText'>${recipe.data().likes.length} Me gusta</p>  
                     </div>
-                    <div class="content-icon">
+                    <div class="containerIcon">
                       <img id='${recipe.id}' class='icon-recipe deleteRecipe' src='../img/espatula.png' alt='espatula_image'>
                       <p class='eliminarText'>Eliminar</p>
                     </div>
-                    <div class="content-icon">
-                      <img id='${recipe.id}' class='icon-recipe editRecipe' href='#/feed'  src='../img/rodillo.png' alt='rodillo_image'><p class='editarText'>Editar</p>
+                    <div class="containerIcon">
+                      <img id='${recipe.id}' class='icon-recipe editRecipe' src='../img/rodillo.png' alt='rodillo_image'><p class='editarText'>Editar</p>
                     </div>
                   </div>
                 </div>`;
@@ -109,6 +109,7 @@ export default () => {
               editStatus = true;
               divFeed.querySelector('#btn-task-save').innerText = 'Actualizar';
               idRecipe = target.id;
+              window.scrollTo(0, 0);
             });
           });
 

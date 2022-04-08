@@ -11,9 +11,7 @@ export default () => {
 
   const leftColumn = document.createElement('div');
   leftColumn.classList.add('leftColumn');
-  const viewLeft = `
-    <img id='homeImg' src='../img/home-img.png' alt='boot_image'>
-    `;
+  const viewLeft = `<img id='homeImg' src='../img/home-img.png' alt='boot_image'>`;
   leftColumn.innerHTML = viewLeft;
   container.appendChild(leftColumn);
 
