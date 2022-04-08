@@ -103,6 +103,7 @@ export const logInEmail = (email, password) => {
       const errorMessage = error.message;
       window.alert('Usario y/o contraseña inválido');
       console.log(errorMessage);
+      // throw error;
     });
 };
 

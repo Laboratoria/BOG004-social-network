@@ -4,33 +4,28 @@ import { signInWithPopup } from '../../src/lib/firebase.util.js';
 
 jest.mock('../../src/lib/firebase.util.js');
 
-describe('8990850', () => {
+describe('El usuario se registra y habilita su acceso a login', () => {
   beforeAll(() => {
     window.alert = jest.fn();
   });
-  // afterAll(() => {
-  //   //jest.resetAllMocks();
-  // });
   it('should change to login', async () => {
     const email = 'pepe@pepe.com';
     const password = '123';
-
     await signInEmail(email, password);
-
     expect(window.location.hash).toBe('#login');
   });
   it('should stay in register', async () => {
     const email = 'pepita@pepe.com';
     const password = '123';
     window.location.hash = 'registro';
-
     await signInEmail(email, password);
     expect(window.location.hash).toBe('#registro');
   });
 });
 
+// jest.spyOn(window, 'alert').mockImplementation(() => {});
 describe('logInEmail retorna inicio sesión', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     window.alert = jest.fn();
     window.sessionStorage = { setItem: jest.fn() };
     window.JSON = { stringify: jest.fn() };
@@ -51,8 +46,13 @@ describe('logInEmail retorna inicio sesión', () => {
   it('should to post ejempleo', async () => {
     const email = 'error';
     const password = '4321';
-    await logInEmail(email, password);
-    expect(window.alert).toHaveBeenLastCalledWith('Usario y/o contraseña inválido');
+    expect.assertions(1);
+    try {
+      await logInEmail(email, password);
+      expect(window.alert).toHaveBeenLastCalledWith('Usario y/o contraseña inválido');
+    } catch (error) {
+      console.log(error);
+    }
   });
 });
 

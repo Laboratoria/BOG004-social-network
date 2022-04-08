@@ -17,6 +17,7 @@ const errorObj = {
   code: 0,
   message: 'Failed',
 };
+
 export const initializeApp = () => ({});
 export const getAnalytics = () => ({});
 export const getFirestore = () => ({});
@@ -38,13 +39,14 @@ export const createUserWithEmailAndPassword = jest.fn(
 );
 // Export de logInEmail
 export const signInWithEmailAndPassword = jest.fn(
-  (auth, email, password) => new Promise((resolve, reject) => {
+  (auth, email, password) => new Promise((resolve) => {
     if (email === 'verificado') { // si el correo es el correcto
+      console.log('entro');
       resolve(userVerified); // Resuelve el usuario
     } else if (email === 'no_verificado') { // si el correo no es el correcto
       resolve(userNotVerified); // caso de usuario no verificado
     } else {
-      reject(errorObj); // caso de error
+      throw (errorObj); // caso de error
     }
   }),
 );
