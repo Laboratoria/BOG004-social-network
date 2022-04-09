@@ -12,12 +12,12 @@ import {
 let editMode = false;
 let id = '';
 
-function likeEachPost(mostrarPost) {
-  const btnsLike = mostrarPost.querySelectorAll('.like');
+async function likeEachPost(mostrarPost) {
+  const btnsLike = await mostrarPost.querySelectorAll('.like');
   btnsLike.forEach((btn) => {
     btn.addEventListener('click', ({ target: { dataset } }) => {
-      likePost(dataset.post);
       btn.classList.toggle('darLike');
+      likePost(dataset.post);
     });
   });
 }

@@ -21,6 +21,7 @@ import {
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
+let usuarioLoguedo = '';
 
 export const newRegister = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
@@ -54,9 +55,9 @@ export const newRegister = (email, password) => {
 export const newLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log('logueado...');
+      window.location.assign('#/feed');
       const user = userCredential.user.email;
-      console.log('esto es lo que quiero:', user);
+      usuarioLoguedo = user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -90,8 +91,10 @@ export const googleLogin = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user.email;
+      usuarioLoguedo = user;
+      window.location.assign('#/feed');
       console.log('logueado con google');
-      console.log(user);
+      console.log(usuarioLoguedo);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -173,6 +176,6 @@ export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), conte
 export const likePost = async (id) => {
   const postLike = doc(db, 'Posts', id);
   await updateDoc(postLike, {
-    likes: arrayUnion('aaiiiuda'),
+    likes: arrayUnion(usuarioLoguedo),
   });
 };
