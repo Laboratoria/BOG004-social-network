@@ -1,4 +1,4 @@
-import { newLogin, googleLogin, readPost } from '../view-controller/controllers.js';
+import { newLogin, googleLogin } from '../view-controller/controllers.js';
 
 export default () => {
   const viewLogin = `
@@ -16,7 +16,7 @@ export default () => {
           <span class="cerrar" id="cerrar">&times;</span>  
         </div>
         <div class="modalBody">
-          <p id="mensaje" >Hola</p>
+          <p id="mensaje"></p>
         </div>
        </div>
       </div>
@@ -29,7 +29,7 @@ export default () => {
         <label>Correo electrónico</label>
         <input type="text" id="correoLogin" class="formulario"></input>
         <label>Contraseña</label>
-        <input type="password" id="contraseñaLogin" class="formulario"></input>
+        <input type="password" id="contraseñaLogin" class="formulario" required></input>
         <button type="submit" class="botones">INICIAR SESIÓN</button>
       </form>
 
@@ -57,7 +57,6 @@ export default () => {
     const password = divElemt.querySelector('#contraseñaLogin').value;
     formularioLogin.reset();
     newLogin(email, password);
-    readPost();
   });
   divElemt.querySelector('#cerrar').addEventListener('click', () => {
     divElemt.querySelector('#atencion').style.display = 'none';
@@ -66,7 +65,6 @@ export default () => {
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogin();
-    readPost();
   });
   return divElemt;
 };

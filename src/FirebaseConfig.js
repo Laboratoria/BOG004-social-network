@@ -4,9 +4,16 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
   deleteDoc,
   doc,
+  getDoc,
+  updateDoc,
+  onSnapshot,
+  serverTimestamp,
+  orderBy,
+  query,
+  arrayUnion,
+  arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -31,9 +38,16 @@ export {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
   deleteDoc,
   doc,
+  getDoc,
+  updateDoc,
+  onSnapshot,
+  serverTimestamp,
+  orderBy,
+  query,
+  arrayUnion,
+  arrayRemove,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use
