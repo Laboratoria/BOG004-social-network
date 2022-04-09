@@ -12,6 +12,7 @@ import {
   serverTimestamp,
   orderBy,
   query,
+  arrayUnion,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import {
@@ -44,6 +45,7 @@ export {
   serverTimestamp,
   orderBy,
   query,
+  arrayUnion,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use

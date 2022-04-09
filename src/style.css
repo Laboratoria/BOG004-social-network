@@ -416,12 +416,16 @@ a:visited {
 }
 
 /* BOTONES LIKE */
-.like img{
-    width: 20px;
-    height: 20px;
+.btnPost .like {
+    background-image: url('./img/like-rosa.png');
+    background-color: transparent;
+    background-size:cover;
+    border: none;
+    width: 25px;
+    height: 25px;
 }
-.darLike{
-    background: red;
+.btnPost .darLike{
+    background-image: url('./img/like-rosa2.png');
 }
 
 @media (min-width: 768px){

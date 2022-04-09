@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  onAuthStateChanged,
   getFirestore,
   collection,
   addDoc,
@@ -16,11 +17,11 @@ import {
   serverTimestamp,
   orderBy,
   query,
+  arrayUnion,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
-const user = auth.userCredential;
-console.log(user);
+
 export const newRegister = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -54,7 +55,6 @@ export const newLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('logueado...');
-      window.location.assign('#/feed');
       const user = userCredential.user.email;
       console.log('esto es lo que quiero:', user);
     })
@@ -90,8 +90,6 @@ export const googleLogin = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user.email;
-      // ...
-      window.location.assign('#/feed');
       console.log('logueado con google');
       console.log(user);
     }).catch((error) => {
@@ -118,6 +116,23 @@ export const logOut = () => {
   });
   console.log('adiós, vuelve pronto');
 };
+
+// funcion que observa el "estado: logueado o no"
+export const currentUserOnline = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user === null || user === undefined) {
+      setTimeout(() => {
+        window.location.hash = '#';
+      }, 2000);
+      document.querySelector('#mensaje').innerHTML = 'Debe iniciar sesión para poder ver las publicaciones';
+      document.querySelector('#atencion').style.display = 'flex';
+    } else {
+      console.log('si inicio sesion');
+      window.location.assign('#/feed');
+    }
+  });
+};
+
 // AQUI EMPEZAMOS A USAR FIRESTORE
 // Creamos la base de datos
 export const db = getFirestore();
@@ -141,11 +156,23 @@ export async function crearPost() {
 
 // consulta de pub de forma descendente
 const orderPost = query(dbPost, orderBy('fecha', 'desc'));
+
 // función para borrar Post
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
+
 // función para obtener los posts
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
+
 // función para mostrar los Post en tempo real
 export const onPost = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnapshot);
+
 // función para editar Post
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
+
+// funcion para dar like al post
+export const likePost = async (id) => {
+  const postLike = doc(db, 'Posts', id);
+  await updateDoc(postLike, {
+    likes: arrayUnion('aaiiiuda'),
+  });
+};

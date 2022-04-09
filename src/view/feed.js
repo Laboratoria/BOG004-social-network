@@ -5,14 +5,18 @@ import {
   deletePost,
   getPost,
   onPost,
+  currentUserOnline,
+  likePost,
 } from '../view-controller/controllers.js';
 
 let editMode = false;
 let id = '';
+
 function likeEachPost(mostrarPost) {
   const btnsLike = mostrarPost.querySelectorAll('.like');
   btnsLike.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', ({ target: { dataset } }) => {
+      likePost(dataset.post);
       btn.classList.toggle('darLike');
     });
   });
@@ -61,7 +65,7 @@ function renderPosts(posts) {
         <div class="btnPost">
           <button class="btnEdit" data-post="${doc.id}">Editar</button>
           <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
-          <a class="like" type="button"><img src="img/like-azul.png" alt="Me gusta"></a>
+          <button class="like" data-post="${doc.id}"></button>
         </div>
       </div>
     `;
@@ -121,6 +125,7 @@ export default () => {
     logOut();
   });
   onPost(renderPosts);
+  currentUserOnline();
   const posts = divElemt.querySelector('#posts');
   const btnSubmit = divElemt.querySelector('#submitPost');
   const contentFeed = divElemt.querySelector('#contentFeed');
