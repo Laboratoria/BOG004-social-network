@@ -146,7 +146,6 @@ export async function crearPost() {
   try {
     const docRef = await addDoc(dbPost, {
       content: document.querySelector('#contentFeed').value,
-      user: localStorage.getItem('email'),
       likes: [],
       likesCount: 0,
       fecha: serverTimestamp(),

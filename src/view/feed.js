@@ -18,6 +18,7 @@ async function likeEachPost(mostrarPost) {
     btn.addEventListener('click', ({ target: { dataset } }) => {
       btn.classList.toggle('darLike');
       likePost(dataset.post);
+      console.log('funcion like: ', dataset);
     });
   });
 }
