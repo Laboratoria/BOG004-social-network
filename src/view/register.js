@@ -3,33 +3,32 @@ import {changeView} from '../view-controler/router.js';
 
 export default () => {
   const viewRegister = `
-    <h2 class= 'text-center'> Aquí te puedes registrar en ¡Hi,baby! </h2>
-    
-    <ul>
-
+    <h2 class= 'title-register'> ¡Here you can register!</h2>
+  
+<form action="" class="form-register">
 <div> 
-<label for="name">Nombre</label>
+<label for="name" class="text-register">Nombre</label>
 <input type="text" id="name" name="name">
 </div>
 <div> 
-<label for="lastName">Apellido</label>
+<label for="lastName" class="text-register">Apellido</label>
 <input type="text" id="lastName" name="lastName">
 </div>
 <div> 
-<label for="email">Correo Electrónico</label>
+<label for="email"  class="text-register">Correo Electrónico</label>
 <input type="email" id="email" name="email">
 </div>
 <div> 
-<label for="ingressPassword">Contraseña nueva</label>
+<label for="ingressPassword"  class="text-register">Contraseña nueva</label>
 <input type="password" id="ingressPassword" name="ingressPassword">
 </div>
 <div> 
-<label for="confirmPassword">Confirme su contraseña</label>
+<label for="confirmPassword"  class="text-register">Confirme su contraseña</label>
 <input type="password" id="confirmPassword" name="confirmPassword">
 </div>
 <div> 
-<label for="gender">Genero</label>
-<select id="gender" name="gender">
+<label for="gender"  class="text-register">Genero</label>
+<select id="gender" name="gender"  class="text-register">
 <option value="zero"></option>
 <option value="Feminine">Femenino</option>
 <option value="Male">Masculino</option>
@@ -38,14 +37,14 @@ export default () => {
 </select>
 
 <div>
-<label for="birth">Fecha de Nacimiento</label>
+<label for="birth" class="text-register">Fecha de Nacimiento</label>
 <input type="date" id="birth" name="birth">
 </div>
 
 <div class="button">
 <button type="submit" class="SingUp" id="SingUp">Registrate</button>
 </div>
-</ul>
+</form>
     `;
 
   const divElement = document.createElement("div");
