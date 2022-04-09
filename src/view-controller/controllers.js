@@ -22,7 +22,8 @@ import {
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
-let usuarioLoguedo = '';
+// Declaramos una variable vacia, para guardar el email del usuario logueado
+let usuarioLogueado = '';
 
 export const newRegister = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
@@ -58,7 +59,8 @@ export const newLogin = (email, password) => {
     .then((userCredential) => {
       window.location.assign('#/feed');
       const user = userCredential.user.email;
-      usuarioLoguedo = user;
+      // guardamos el email del usuario después de loguearse
+      usuarioLogueado = user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -92,10 +94,11 @@ export const googleLogin = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user.email;
-      usuarioLoguedo = user;
+       // guardamos el email del usuario después de loguearse
+      usuarioLogueado = user;
       window.location.assign('#/feed');
       console.log('logueado con google');
-      console.log(usuarioLoguedo);
+      console.log(usuarioLogueado);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -150,6 +153,7 @@ export async function crearPost() {
       likes: [],
       likesCount: 0,
       fecha: serverTimestamp(),
+      usuario: usuarioLogueado,
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -157,7 +161,7 @@ export async function crearPost() {
   }
 }
 
-// consulta de pub de forma descendente
+// consulta de pub de forma descendente, se añadió Timestamp para la cronología
 const orderPost = query(dbPost, orderBy('fecha', 'desc'));
 
 // función para borrar Post
@@ -173,22 +177,26 @@ export const onPost = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnap
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
 
 // funcion para dar like al post
-
 export const likePost = async (id) => {
+  // Declaramos una variable para guardar toda la db
   const postLike = doc(db, 'Posts', id);
+  // Obtenemos el documento de cada post
   const post = await getDoc(postLike);
+  // Guardamos la información del post en una constante
   const dataPost = post.data();
+  // Creamos una constante para guardar la inf del contador likes
   const likesCount = dataPost.likesCount;
-  if (!dataPost.likes.includes(usuarioLoguedo)) {
-    console.log('me gusta');
+  // Ponemos condicional para saber si el usuario ya le dio like
+  if (!dataPost.likes.includes(usuarioLogueado)) {
+    // si no le ha dado like, este guarda el usuario y suma 1
     await updateDoc(postLike, {
-      likes: arrayUnion(usuarioLoguedo),
+      likes: arrayUnion(usuarioLogueado),
       likesCount: likesCount + 1,
     });
   } else {
-    console.log('No me gusta');
+    // si ya le ha dado like, este quita el usuario y resta 1
     await updateDoc(postLike, {
-      likes: arrayRemove(usuarioLoguedo),
+      likes: arrayRemove(usuarioLogueado),
       likesCount: likesCount - 1,
     });
   }

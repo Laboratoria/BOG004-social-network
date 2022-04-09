@@ -16,9 +16,10 @@ async function likeEachPost(mostrarPost) {
   const btnsLike = await mostrarPost.querySelectorAll('.like');
   btnsLike.forEach((btn) => {
     btn.addEventListener('click', ({ target: { dataset } }) => {
-      btn.classList.toggle('darLike');
+      // Traemos la función likePost desde el controller.
       likePost(dataset.post);
-      console.log('funcion like: ', dataset);
+      // Adicionar o quitar clase al darle me gusta
+      btn.classList.toggle('darLike');
     });
   });
 }
@@ -60,6 +61,9 @@ function renderPosts(posts) {
     const post = doc.data();
     templateMostrarPost += `
       <div class="contenedorPost">
+        <div class='usuarioAutor'>
+          <h3>User: ${post.usuario}</h3>
+        </div>
         <div class="contentPost">
           <p>${post.content}</p>
         </div>
@@ -67,6 +71,7 @@ function renderPosts(posts) {
           <button class="btnEdit" data-post="${doc.id}">Editar</button>
           <button class="btnDelete" data-post="${doc.id}">Eliminar</button>
           <button class="like" data-post="${doc.id}"></button>
+          <p>${post.likesCount}</p>
         </div>
       </div>
     `;
@@ -91,10 +96,11 @@ export default () => {
         <button> <img id="imgLogout" src="img/logout-img.png" alt="Cerrar sesión"> </button>
     </div>
     <div class="barra">
-      <img src="img/home.png" alt="Logo Codering">
-      <img src="img/mensajes.png" alt="Logo Codering">
-      <img src="img/perfil.png" alt="Logo Codering">
-      <img src="img/notif.png" alt="Logo Codering">
+      <a href='https://docs.oracle.com/en/java/' target="_blank"><img src='img/java.png'></a>
+      <a href='https://docs.python.org/es/3/' target="_blank"><img src='img/python.png'></a>
+      <a href='https://es.reactjs.org/docs/getting-started.html' target="_blank"><img src='img/atom.png'></a>
+      <a href='https://developer.mozilla.org/es/docs/Web/JavaScript' target="_blank" ><img src='img/js.png'></a>
+
     </div>
     <div class="postGeneral">
       <div class="divForm" id="divForm">
