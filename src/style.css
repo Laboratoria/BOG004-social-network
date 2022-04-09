@@ -6,32 +6,29 @@ padding:0;
 body {
   font-family: sans-serif;
   background-image : url('./img/mom-2208928_1280.jpg');
+  width: 100vw;
 }
+
 .header {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
  background-color:white;
- padding: 10px;
- margin-bottom: 45px;
+ padding: 10px 0 10px 0;
+ margin-bottom: 30px;
 }
+
 .header .title {
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   font-size: large;
   color: white;
- 
+justify-content: center;
 }
+
 .title-one{
- height:30px;
-   width:30px;
-   -moz-border-radius:50px;
-   -webkit-border-radius:50px;
+ height: 25px;
+   width: 25px;
    border-radius:50px;
-   text-align:center;
-  padding-top:5px;  
+  padding-top:2px;  
   background: #662c92;
+ text-align: center;
 }
 
 #title-blue{
@@ -54,82 +51,216 @@ background-color: #c6805a;
 #title-dark-blue {
 background-color: #1a75bf;
 }
+
 .title-login
 {
 color:white;
-margin-bottom: 30px;
+margin-bottom: 20px;
+font-size: 23px;
 text-align: center;
-font-size: 25px;
 }
 
 form{
 margin: 0 auto;
-width:  420px;
-padding: 10px;
+width:  260px;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
-
 
 .text-login{
 background-color:rgba(255, 255, 255, 0.198);
-border: 0;
+border: 0px;
 border-radius: 11px 15px 11px 15px;
 outline: none;
-padding: 25px;
-width: 400px;
+padding: 20px;
+width: 217px;
 margin-bottom: 3px;
-font-size: 20px;
-text-align: center;
+font-size: 15px;
 }
 
 .text-login:focus{
 background-color: rgba(255, 255, 255, 0.198);
-color: #d9dfe7;
+color:#d9dfe7;
 }
 
-::placeholder {
+.container-icon .text-login{
+padding-left: 30px;
+}
+.container-icon{
+position:relative
+}
+.container-icon i {
+position:absolute;
+top: 10px;
+left: 0;
+padding: 9px 8px;
+color:#fffeff;
+font-weight: 600px;
+ outline: none;
+ font-size: 17px;
+}
+
+::placeholder{
     color:#d9dfe7;
 }
 
+button{
+cursor:pointer; cursor: hand;
+}
+
 .ingress {
-background-color: #456493af;
-color: #f5fffd;
+background-color: #456493;
+color:white;
 border: 0px;
-padding: 25px;
-width: 400px;
+padding: 20px;
+width: 217px;
 border-radius: 11px 15px 11px 15px;
-font-size: 20px;
+font-size: 15px;
 text-align: center;
 margin-top: 10px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .create {
-background-color: #ed008e35 ;
-color: #f5fffd;
+background-color: #ed008e ;
+color:white;
 border: 0px;
-padding: 25px;
-width: 400px;
+padding: 20px;
+width: 217px;
 border-radius: 11px 15px 11px 15px;
-font-size: 20px;
+font-size: 15px;
+text-align: center;
+margin-top: 10px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-google
+{
+  background-color: white;
+color:rgb(32, 29, 29); 
+border: 0px;
+padding: 20px;
+width: 217px;
+border-radius: 11px 15px 11px 15px;
+font-size: 15px;
+margin-top: 10px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+display: flex;
+justify-content:space-around;
+}
+
+.img-google{
+ width: 20px;
+margin-top: 4px;;
+}
+
+.title-register
+{
+color:white;
+margin-bottom: 30px;
+font-size: 23px;
 text-align: center;
 }
 
+.form-register{
+margin: 0 auto;
+width:  260px;
+text-align: center;
+background-color: #f5ebe7;
+}
+
+.text-register{
+color:#a98b66;
+}
+
+.title-timeline
+{
+color:white;
+margin-bottom: 30px;
+font-size: 23px;
+text-align: center;
+}
 .footer{
 background-color: #48221836;
   width: 100vw;
-  height: 50px;
-  padding: 15px 25px;
-  color: white;
+  height: 45px;
+ color: white;
   font-size: 17px;
-  display: flex;
   margin: 0;
-  justify-content: center;
-  margin-bottom: 30px;
   position: fixed;
  bottom: 0; 
-
+text-align: center;
 }
 
-@media  ( max-width: 750px) {
-/*ajusto el elemnto que se rompió*/
+
+@media(min-width: 1200px)
+{
+  .title-one{
+ height:30px;
+   width:30px;
+  padding-top:5px;  
+}
+
+.title-login
+{
+font-size: 28px;
+}
+
+form{
+width:  420px;
+}
+
+.text-login{
+padding: 25px;
+width: 400px;
+font-size: 20px;
+}
+
+.container-icon .text-login{
+padding-left: 54px;
+}
+
+.container-icon i {
+position:absolute;
+top: 17px;
+left: 0;
+padding: 10px 20px;
+color:#fffeff;
+ outline: none;
+ font-size: 20px;
+}
+
+.ingress {
+padding: 25px;
+width: 400px;
+font-size: 20px;
+}
+
+.create {
+padding: 25px;
+width: 400px;
+font-size: 20px;
+}
+
+.btn-google{
+padding: 25px;
+width: 400px;
+font-size: 20px;
+display: flex;
+justify-content:space-around;
+}
+
+.img-google{
+width: 25px;
+}
+
+.footer{
+  width: 100vw;
+  height: 50px;
+  padding: 15px 25px;
+  font-size: 17px;
+}
+
 }
   
