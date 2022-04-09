@@ -18,6 +18,7 @@ import {
   orderBy,
   query,
   arrayUnion,
+  arrayRemove,
 } from '../FirebaseConfig.js';
 
 export const auth = getAuth();
@@ -172,9 +173,23 @@ export const onPost = (querySnapshot) => onSnapshot(orderPost, dbPost, querySnap
 export const updatePost = (id, content) => updateDoc(doc(db, 'Posts', id), content);
 
 // funcion para dar like al post
+
 export const likePost = async (id) => {
   const postLike = doc(db, 'Posts', id);
-  await updateDoc(postLike, {
-    likes: arrayUnion(usuarioLoguedo),
-  });
+  const post = await getDoc(postLike);
+  const dataPost = post.data();
+  const likesCount = dataPost.likesCount;
+  if (!dataPost.likes.includes(usuarioLoguedo)) {
+    console.log('me gusta');
+    await updateDoc(postLike, {
+      likes: arrayUnion(usuarioLoguedo),
+      likesCount: likesCount + 1,
+    });
+  } else {
+    console.log('No me gusta');
+    await updateDoc(postLike, {
+      likes: arrayRemove(usuarioLoguedo),
+      likesCount: likesCount - 1,
+    });
+  }
 };
