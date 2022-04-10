@@ -66,7 +66,7 @@ const putUp = (currentUserInfo, divDaily) => {
   e.preventDefault();
   const postFormContent = postForm['post-description'];
   const postUid = currentUserInfo.uid;
-  createPost(postForm.value, postUid);
+  createPost(postFormContent.value, postUid);
   modalPost.reset();    
   });
 };
