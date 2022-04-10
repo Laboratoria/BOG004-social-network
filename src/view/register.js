@@ -138,9 +138,7 @@ const saveUser = () => {
 
     const email = document.querySelector('#register-email').value;
     const password = document.querySelector('#register-password').value;
-    const repeatPassword = document.querySelector(
-      '#register-repeat-password',
-    ).value;
+    const repeatPassword = document.querySelector('#register-repeat-password').value;
     if (password.trim() !== '' && password === repeatPassword) {
       register(email, password);
     } else {

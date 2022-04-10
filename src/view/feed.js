@@ -90,12 +90,12 @@ export default () => {
           const btnLike = document.querySelectorAll('.likeRecipe');
           btnLike.forEach((btn) => {
             btn.addEventListener('click', async ({ target }) => {
-              const recipeToLike = await editeRecipe(target.dataset.id);
+              const recipeToLike = await editeRecipe(target.id);
               const likeUser = recipeToLike.data().likes;
               if (likeUser.includes(uid)) {
-                dislikeRecipe(uid, target.dataset.id);
+                dislikeRecipe(uid, target.id);
               } else {
-                likeRecipe(`${uid}`, `${target.dataset.id}`);
+                likeRecipe(`${uid}`, `${target.id}`);
               }
             });
           });
