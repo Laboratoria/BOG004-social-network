@@ -6,7 +6,9 @@ currentUser,
 deletePost, 
 logout, 
 giveMethePost, 
-updatePost
+updatePost,
+likes,
+dislikes,
 } 
 from '../firebaseController.js'
 
@@ -66,7 +68,8 @@ const putUp = (currentUserInfo, divDaily) => {
   e.preventDefault();
   const postFormContent = postForm['post-description'];
   const postUid = currentUserInfo.uid;
-  createPost(postForm.value, postUid);
+  const likeIds = []; // Array vacio para likes
+  createPost(postFormContent.value, postUid, likeIds);
   modalPost.reset();    
   });
 };
@@ -80,10 +83,11 @@ const postController = (currentUserInfo) => {
   readAllPost((response) => {
     let postTemplate = '';
     response.forEach((doc) => {
+      const post = doc.data(); 
       let deleteEditSection;
       // console.log('Este es el User ID :', currentUserInfo.uid);
       // console.log('Este es el docID: ', doc.data().uidPost)
-      if (currentUserInfo.uid === doc.data().uidPost) {
+      if (currentUserInfo.uid === post.uidPost) {
         deleteEditSection = `
           <button class='edit-img' id='edit' data-postid='${doc.id}'></button>
           <button class='save-img hidenBtn'  id='save'  data-postid='${doc.id}'>Guardar</button>
@@ -92,7 +96,7 @@ const postController = (currentUserInfo) => {
       } else {
         deleteEditSection = '';
       }
-    // console.log(`${doc.id} => ${doc.data().postDescription}`);
+    const likeIcon = post.arraylike.includes(currentUserInfo.uid) ? 'fa-solid' : 'fa-regular';
     postTemplate += `
         <div id='div-post-container' class='div-post-container'> 
           <div id='post-container-header' class='post-container-header'>
@@ -102,6 +106,11 @@ const postController = (currentUserInfo) => {
             </div>
           </div>
           <textarea type='text' class='post-content inp-post-modal-post' readonly id='${doc.id}'>${doc.data().postDescription}</textarea>  
+          <div>
+            <button class='like' id='${doc.id}'><i class="${likeIcon} fa-heart" id='${doc.id}></i></button>
+            
+            <p class='like-lenght'>${post.arraylike.length}</p>
+          </div>
         </div>    
       `;          
   });
@@ -159,6 +168,32 @@ const postController = (currentUserInfo) => {
     });
   };
   editPost();  
+
+  //Dar like
+  const giveMetheLike = () => {
+    const UserInfoId = currentUserInfo.uid;
+    const BtnLike = divDaily.querySelectorAll('.like');
+    BtnLike.forEach((like) => {
+      like.addEventListener('click', () => {
+        const liked = like.id;
+        giveMethePost(liked)
+          .then((docLike) => {
+            const justOnePost = docLike.data();
+            const likeIds= justOnePost.arraylike;
+            if (likeIds.includes(UserInfoId)) {
+              dislikes(liked, UserInfoId);
+            } else {
+              likes(liked, UserInfoId);
+            }
+          })
+          // .catch((error) => {
+          //   showNotification(error);
+          // });
+      });
+    });
+  };
+  giveMetheLike();
+  // FIN funcion para dar like al post
   });
   readAllPost(querySnapshot);
 };

@@ -301,6 +301,14 @@ main {
     display: none;
 }
 
+.like{
+    border: none;
+    background-color: var(--textwhite);
+}
+.like i{
+    color: var(--btnfuccia2);
+}
+
 .inp-post-modal-post:focus{
     outline: none;
 }

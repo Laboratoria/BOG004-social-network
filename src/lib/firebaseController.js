@@ -17,7 +17,9 @@ import {
   provider,
   serverTimestamp,
   orderBy,
-  deleteDoc
+  deleteDoc,
+  arrayUnion, 
+  arrayRemove,
 } from './firebaseInit.js';
 
 //Crear usuario con correo y contraseña
@@ -68,9 +70,9 @@ export const currentUser = () => {
 const dbPublications = collection(db, 'posts');
 
 //Crear post
-export const createPost = (postDescription, uidPost) => {
+export const createPost = (postDescription, uidPost, arraylike) => {
   console.log(postDescription);
-  return addDoc(dbPublications, { postDescription, uidPost, postCreatedAt: serverTimestamp(),
+  return addDoc(dbPublications, { postDescription, uidPost, arraylike, postCreatedAt: serverTimestamp(),
   });
 };
 
@@ -103,6 +105,16 @@ export const giveMethePost = (id) => {
 //Actualizar una publicación
 export const updatePost = (id, postDescriptionUpdate) => {
   updateDoc(doc(dbPublications, id), postDescriptionUpdate);
+};
+
+//Agregar like
+export const likes = (id, UserInfoId) => {
+  updateDoc(doc(dbPublications, id), { arraylike: arrayUnion(UserInfoId) });
+};
+
+//Quitar like
+export const dislikes = (id, UserInfoId) => {
+  updateDoc(doc(dbPublications, id), { arraylike: arrayRemove(UserInfoId) });
 };
 
 //Cerrar Sesion
