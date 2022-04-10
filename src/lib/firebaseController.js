@@ -62,13 +62,14 @@ export const currentUser = () => {
   return user;
 };
 
+
 // creacion db
 const dbPublications = collection(db, 'posts');
 
 // creacion publicacion
-export const createPost = (postDescription) => {
-  //console.log(postDescription);
-  return addDoc(dbPublications, { postDescription, postCreatedAt: serverTimestamp(),
+export const createPost = (postDescription, uidPost) => {
+  console.log(postDescription);
+  return addDoc(dbPublications, { postDescription, uidPost, postCreatedAt: serverTimestamp(),
   });
 };
 
@@ -89,7 +90,13 @@ export const readAllPost = (querySnapshot) => {
 
 
 export const deletePost = (id) => {
-  deleteDoc(doc(dbPublications, 'posts', id));
+  deleteDoc(doc(dbPublications, id))
+};
+
+export const giveMethePost = (id) => {
+  const docRef = doc(dbPublications, id);
+  const docSnap = getDocs(docRef);
+  return docSnap;
 };
 
 export const logout = () => {
