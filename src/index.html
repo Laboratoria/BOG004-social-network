@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <link rel='stylesheet' href='style.css' />
+  <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+  <title>Nibbles</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+  <div id='sectionGrid'>
+    <header>
+      <nav id='menuHtml'>
+        <img id='navMenuLogo' src='./img/logo-nibbles.png' alt='logo-nibbles'>
+        <img id='menuBtn' class='menuBtn' src='https://raw.githubusercontent.com/MafeValenciaCastillo/BOG004-social-network/main/src/img/menu-nav.png' alt='menu-mobile'>
+        <ul class='navDesktop'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+        <ul id='navMobile' class='navMobile'>
+          <li class='liDelete'>
+            <a href='#/'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/createUser'></a>
+          </li>
+          <li class='liDelete'>
+            <a href='#/login'></a>
+          </li>
+          <li>
+            <a href='#/feed'>feed</a>
+          </li>
+          <li>
+            <a href='#/cerrar-sesion'>cerrar sesion</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id='container'></section>
+  </div>
+  <footer> Creado por María José Saavedra - Leidy Tapias - María Valencia </footer>
+  <script type='module' src='../lib/firebase-init.js'></script>
+  <script type='module' src='main.js'></script>
 </body>
 </html>
