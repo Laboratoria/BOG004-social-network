@@ -1,9 +1,10 @@
-import {loginUser, authenticate} from '../view-controler/firebaseControle.js';
+import {loginUser, loginGoogle,} from '../view-controler/firebaseControle.js';
 import {changeView} from '../view-controler/router.js';
+
 
 export default () => {
   const viewLogin = `
-    <h2 class= 'title-login'>¡Welcome, ¡Hi,baby!</h2>
+    <h2 class= 'title-login'>¡Welcome!</h2>
   <form action="">
 <div class="container-icon">
  <i class="fa-solid fa-user" aria-hidden="true"></i>
@@ -44,11 +45,15 @@ export default () => {
     const emailUser= divElement.querySelector("#emailUser").value;
     
     loginUser(emailUser, passwordUser);
-    changeView("#/timeLine")
+    
   });
 
   createButton.addEventListener("click" , () => {
   changeView("#/register")
+  });
+
+   googleButton.addEventListener("click", () => {
+  loginGoogle ();
   });
 
   return divElement;

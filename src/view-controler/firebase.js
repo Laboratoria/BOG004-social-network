@@ -3,7 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebas
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword,GoogleAuthProvider,
+  signInWithPopup,
+
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,4 +28,6 @@ export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 
-export { createUserWithEmailAndPassword, signInWithEmailAndPassword };
+export { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider,
+  signInWithPopup,
+ };

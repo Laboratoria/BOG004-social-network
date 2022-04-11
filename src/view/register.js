@@ -1,9 +1,5 @@
-import { authenticate, loginUser } from "../view-controler/firebaseControle.js";
-import {changeView} from '../view-controler/router.js';
-import { auth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, }
-   from '../view-controler/firebase.js'
+import { authenticate } from "../view-controler/firebaseControle.js";
+
 
 export default () => {
   const viewRegister = `
@@ -57,39 +53,17 @@ export default () => {
   //aquí se debe crear una clase al div //
   divElement.innerHTML = viewRegister;
   const registerButton = divElement.querySelector("#SingUp");
-  registerButton.addEventListener("click", () => {
+  registerButton.addEventListener("click", (e) => {
+    e.preventDefault();
     
     const email = divElement.querySelector("#email").value;
     const password = divElement.querySelector("#ingressPassword").value;
     //const confirmPassword = divElement.querySelector("#confirmPassword").value;
     //const errorMessage = divElement.querySelector ('#errorMessage');
     //errorMessage.innerHTML = '';
-    
-    authenticate(email, password)
-    .then((userCredential) => {
 
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
-
-
-    //loginUser(email, password)
-    //.then((userCredential) => {
-      // Signed in
-      //const user = userCredential.user;
-      // ...
-    //})
-    //.catch((error) => {
-      //const errorCode = error.code;
-      //const errorMessage = error.message;
-    //});
-
+    authenticate(email,password);
+  
   })
   console.log(divElement)
   return divElement;

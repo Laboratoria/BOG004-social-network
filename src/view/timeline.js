@@ -15,8 +15,6 @@ export default () => {
           <a class="menu-three" href="#/difference404">404</a>
         </li>
         <ul>
-
-
     `;
 
   const divElement = document.createElement("div");

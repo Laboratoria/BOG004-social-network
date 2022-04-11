@@ -2,7 +2,7 @@ import { components } from "../view/index.js";
 
 const changeView = (route) => {
 window.location.hash=route;
-
+console.log(route)
   const container = document.getElementById("container");
   container.innerHTML = "";
   switch (route) {
