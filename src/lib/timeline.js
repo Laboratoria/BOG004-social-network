@@ -1,6 +1,6 @@
 import {
   close, savingPost, onGettingPost, deletePosts, getPost, updatePost,
-} from '../firebase.js';
+} from './firebase.js';
 
 export default () => {
   const viewTimeline = `
@@ -92,4 +92,8 @@ export default () => {
     });
   });
   return divElement;
+};
+
+export {
+  close, savingPost, onGettingPost, deletePosts, getPost, updatePost,
 };

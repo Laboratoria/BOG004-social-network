@@ -1,8 +1,10 @@
 // importamos la funcion que vamos a testear
-// import { myFunction } from '../../src/lib/index';
+import { components } from '../../src/lib/index.js';
 
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
+jest.mock('../../src/lib/firebase-utils.js');
+
+describe('view components', () => {
+  it('debería ser una función', () => {
+    expect(typeof components).toBe('object');
+  });
+});

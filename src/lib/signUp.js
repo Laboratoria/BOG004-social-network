@@ -1,4 +1,4 @@
-import { signingUp } from '../firebase.js';
+import { signingUp } from './firebase.js';
 
 export default () => {
   const viewSignUp = `
@@ -62,3 +62,5 @@ export default () => {
 
   return divElement;
 };
+
+export { signingUp };

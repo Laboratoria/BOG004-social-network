@@ -1,4 +1,4 @@
-import { userSignIn, googleLogIn } from '../firebase.js';
+import { userSignIn, googleLogIn } from './firebase.js';
 
 export default () => {
   const viewSignIn = `
@@ -67,3 +67,5 @@ export default () => {
   });
   return divElement;
 };
+
+export { userSignIn, googleLogIn };

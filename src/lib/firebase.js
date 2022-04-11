@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 /* eslint-disable no-undef */
@@ -5,7 +6,7 @@
 /* eslint-disable import/no-unresolved */
 // Configuración Firebase
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
+import { initializeApp } from './firebase-utils.js';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -14,7 +15,7 @@ import {
   signInWithPopup,
   // onAuthStateChanged,
   signOut,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+} from './firebase-utils.js';
 
 import {
   getFirestore,
@@ -25,7 +26,7 @@ import {
   doc,
   getDoc,
   updateDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+} from './firebase-utils.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -66,19 +67,22 @@ export const signingUp = (nameFirst, nameLast, email, password) => {
 };
 
 // Log in
-export const userSignIn = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+export const userSignIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    if (userCredential) {
       const user = userCredential.user;
       window.location.hash = '#/timeline';
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      return true;
+    }
+    return false;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
 
-      alert(errorMessage);
-    });
-};
+    alert(errorMessage);
+    return false;
+  });
 
 // Log in with Google
 export const googleLogIn = () => {
