@@ -1,5 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost } from "../Firebase/firestore.js";
+import { saveFormPost, getPosts } from "../Firebase/firestore.js";
 
 
 export const feed = () => {
@@ -75,6 +75,11 @@ export const feed = () => {
     //Mostrar todos los post apenas se ingresa al feed
     // getPost();
 
+
+    const divPost = document.getElementById('div-post')
+    console.log(divPost);
+
+    //función para hacer un post
     const postForm = document.querySelector("#form-post");
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -86,27 +91,37 @@ export const feed = () => {
 
     });
 
-    //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
-    // getPost().then((response) => {
-    //     const divPost = document.querySelector('#div-post');
-    //     response.forEach((text) => {
-    //         console.log(text);
-    //         divPost.innerHTML += `
-    //             <p> ${text.textAreaPost} </p>
-    //         `;
-    //     });
-    // });
-
-
-    //     const containerPost = divElem.querySelector('#containerPost');
-    // response.forEach((element) => {
-    //   console.log(element);
-    //   containerPost.innerHTML += `
-    //     <h3>  ${element.id} </h3>
-    // //     <p> ${element.post} </p>
-    // //     <button class="delete" data-set=${element.id}> Eliminar </button>   
-    // //     <button class="edit" data-set='${element.id}', '${element.post}'> Editar </button>  
-    // //    `;
 
     return viewFeedHtml;
 };
+
+
+
+
+
+
+
+
+
+
+//Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
+// getPost().then((response) => {
+//     const divPost = document.querySelector('#div-post');
+//     response.forEach((text) => {
+//         console.log(text);
+//         divPost.innerHTML += `
+//             <p> ${text.textAreaPost} </p>
+//         `;
+//     });
+// });
+
+
+//     const containerPost = divElem.querySelector('#containerPost');
+// response.forEach((element) => {
+//   console.log(element);
+//   containerPost.innerHTML += `
+//     <h3>  ${element.id} </h3>
+// //     <p> ${element.post} </p>
+// //     <button class="delete" data-set=${element.id}> Eliminar </button>   
+// //     <button class="edit" data-set='${element.id}', '${element.post}'> Editar </button>  
+// //    `;
