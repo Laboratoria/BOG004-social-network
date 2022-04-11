@@ -297,6 +297,40 @@ main {
     margin: auto;
 }
 
+.hidenBtn{
+    display: none;
+}
+
+.like{
+    border: none;
+    background-color: var(--textwhite);
+    background-image: url('./img/like.png');
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+}
+
+
+.inp-post-modal-post:focus{
+    outline: none;
+}
+
+.inp-post-modal-post:active{
+    outline: none;
+}
+
+textarea { 
+    resize: none;
+    background-color: transparent;
+    /* border: none; */
+    width: 305px;
+    height: 100px;
+    margin: auto;
+    font-size: 20px;
+    margin: auto;
+    padding: 0 5px 10px;
+}
+
 #post-description {
     margin: auto;
     margin-top: 20px;
@@ -365,31 +399,25 @@ main {
 
 .btns-post-container {
     width: 100px;
-    height: 40px;
+    height:50px;
     margin-left: 95px;
     margin-top: 10px;
-    background-color: red;
-    /* background-image: url('./img/Edit.png');
-    background-image: url('./img/Delete.png');
-    background-repeat: no-repeat ; */
+    
 }
-
-/* .btns{
-    background-color: blue;
-    width: 30px;
-    height: 30px;
-} */
 
 .edit-img {
     margin-right: 10px;
     cursor: pointer;
     background-image: url('./img/Edit.png');
-    
+    width: 40px;
+    height: 40px;
 }
 
 .delete-img {
     cursor: pointer;
     background-image: url('./img/Delete.png');
+    width: 40px;
+    height: 40px;
 }
 
 .user_img {
@@ -442,10 +470,15 @@ main {
         margin: auto;
     }
 
-  .btns-post-container {
+    .btns-post-container {
     width: 100px;
     height: 40px;
     margin-left: 770px;
     margin-top: 10px;
+}
+
+textarea { 
+    width: 1000px;
+    height: 200px;
 }
 }
