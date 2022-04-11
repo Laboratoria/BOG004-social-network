@@ -57,28 +57,36 @@ export const feed = () => {
     });
 
     //Mostrar todos los post apenas se ingresa al feed
-
+    const divPost = document.querySelector("#feed-user");
     const postForm = document.querySelector("#form-post");
+    let editStatus = false;
+
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const infoPost = {
-            textAreaPost: postForm["area-post"].value,
-            creationDate: new Date()
+                textAreaPost: postForm["area-post"].value,
+                creationDate: new Date()
+            }
+            // saveFormPost(infoPost);
+        if (editStatus) {
+            console.log('Actualizando')
+        } else {
+            saveFormPost(infoPost);
         }
-        saveFormPost(infoPost);
 
         postForm.reset();
     });
 
+
     //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
 
     onGetPost((response) => {
-        const divPost = document.querySelector("#feed-user");
         let infoPostUser = "";
         let postfeed = [];
         response.forEach((text) => {
             const datapost = text.data();
             console.log(datapost);
+            console.log(text);
             postfeed.push({ textAreaPost: datapost.textAreaPost });
             const divpostuser = `
                 <div id="div-profile-feed">
@@ -106,7 +114,6 @@ export const feed = () => {
             infoPostUser += divpostuser;
         });
         divPost.innerHTML = infoPostUser;
-        console.log(divPost);
 
         const btnsDelete = divPost.querySelectorAll(".btn-delete");
 
@@ -122,12 +129,15 @@ export const feed = () => {
         });
 
         const btnsEdit = divPost.querySelectorAll(".btn-edit");
+        console.log(btnsEdit);
         btnsEdit.forEach((btn) => {
             btn.addEventListener('click', async(e) => {
-                const doc = await getOnePost(e.target.dataset.id)
-                const editPost = doc.data()
+                const doc = await getOnePost(e.target.dataset.id);
+                const editPost = doc.data();
+                console.log(editPost);
+                postForm["area-post"].value = editPost.textAreaPost;
 
-                postForm["area-post"].value = editPost.textAreaPost
+                editStatus = true;
             });
         });
 
