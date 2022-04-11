@@ -77,6 +77,7 @@ putUp(userInfo, divDaily);
 
 //Controlador de Post (Read, Update, Delete)
 const postController = (currentUserInfo) => {
+  console.log('¿qué entra como currentUserInfo? : ', currentUserInfo);
   const postContainer = divDaily.querySelector('#post-container');
   const querySnapshot = getPost();
   //función para leer las publicaciones en tiempo real 
@@ -85,9 +86,10 @@ const postController = (currentUserInfo) => {
     response.forEach((doc) => {
       const post = doc.data(); 
       let deleteEditSection;
-      // console.log('Este es el User ID :', currentUserInfo.uid);
-      // console.log('Este es el docID: ', doc.data().uidPost)
-      if (currentUserInfo.uid === post.uidPost) {
+      console.log('Este es el User ID :', currentUserInfo.uid);
+      const userIdLogin = currentUserInfo.uid
+      console.log('Este es el docID: ', doc.data().uidPost)
+      if (userIdLogin === post.uidPost) {
         deleteEditSection = `
           <button class='edit-img' id='edit' data-postid='${doc.id}'></button>
           <button class='save-img hidenBtn'  id='save'  data-postid='${doc.id}'>Guardar</button>
@@ -96,7 +98,7 @@ const postController = (currentUserInfo) => {
       } else {
         deleteEditSection = '';
       }
-    const likeIcon = post.arraylike.includes(currentUserInfo.uid) ? 'fa-solid' : 'fa-regular';
+    const likeIcon = post.arraylike.includes(currentUserInfo.uid);
     postTemplate += `
         <div id='div-post-container' class='div-post-container'> 
           <div id='post-container-header' class='post-container-header'>
@@ -107,7 +109,7 @@ const postController = (currentUserInfo) => {
           </div>
           <textarea type='text' class='post-content inp-post-modal-post' readonly id='${doc.id}'>${doc.data().postDescription}</textarea>  
           <div>
-            <button class='like' id='${doc.id}'><i class="${likeIcon} fa-heart" id='${doc.id}></i></button>
+            <button class='like' id='${doc.id}'><i class="${likeIcon}" id='${doc.id}></i></button>
             
             <p class='like-lenght'>${post.arraylike.length}</p>
           </div>
@@ -171,19 +173,21 @@ const postController = (currentUserInfo) => {
 
   //Dar like
   const giveMetheLike = () => {
-    const UserInfoId = currentUserInfo.uid;
-    const BtnLike = divDaily.querySelectorAll('.like');
-    BtnLike.forEach((like) => {
+    const userInfoId = currentUserInfo.uid;
+    const btnLikes = divDaily.querySelectorAll('.like');
+    console.log('btn likes ', btnLikes);
+    btnLikes.forEach((like) => {
+      console.log('cada like: ', like);
       like.addEventListener('click', () => {
         const liked = like.id;
         giveMethePost(liked)
           .then((docLike) => {
             const justOnePost = docLike.data();
             const likeIds= justOnePost.arraylike;
-            if (likeIds.includes(UserInfoId)) {
-              dislikes(liked, UserInfoId);
+            if (likeIds.includes(userInfoId)) {
+              dislikes(liked, userInfoId);
             } else {
-              likes(liked, UserInfoId);
+              likes(liked, userInfoId);
             }
           })
           // .catch((error) => {
@@ -196,6 +200,7 @@ const postController = (currentUserInfo) => {
   // FIN funcion para dar like al post
   });
   readAllPost(querySnapshot);
+ 
 };
 postController(userInfo);
 

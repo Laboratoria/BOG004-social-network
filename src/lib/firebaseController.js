@@ -108,13 +108,13 @@ export const updatePost = (id, postDescriptionUpdate) => {
 };
 
 //Agregar like
-export const likes = (id, UserInfoId) => {
-  updateDoc(doc(dbPublications, id), { arraylike: arrayUnion(UserInfoId) });
+export const likes = (id, userInfoId) => {
+  updateDoc(doc(dbPublications, id), { arraylike: arrayUnion(userInfoId) });
 };
 
 //Quitar like
-export const dislikes = (id, UserInfoId) => {
-  updateDoc(doc(dbPublications, id), { arraylike: arrayRemove(UserInfoId) });
+export const dislikes = (id, userInfoId) => {
+  updateDoc(doc(dbPublications, id), { arraylike: arrayRemove(userInfoId) });
 };
 
 //Cerrar Sesion

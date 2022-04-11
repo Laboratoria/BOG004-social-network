@@ -304,10 +304,12 @@ main {
 .like{
     border: none;
     background-color: var(--textwhite);
+    background-image: url('./img/like.png');
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
 }
-.like i{
-    color: var(--btnfuccia2);
-}
+
 
 .inp-post-modal-post:focus{
     outline: none;
@@ -400,7 +402,7 @@ textarea {
     height:50px;
     margin-left: 95px;
     margin-top: 10px;
-    background-color: red;
+    
 }
 
 .edit-img {
