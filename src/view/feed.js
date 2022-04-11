@@ -89,12 +89,12 @@ export const feed = () => {
                         <h3 id="name-user">Nombre Apellido</h3>
                         <p id="type-user">Programador</p>
                     </div>
-                    <div>
-                    <button id="options-post" class="button-profile" type="submit" data-toggle="dropdown" ><img src="../images/Group 2.png" alt="Options Group"></button>
-                    <ul class="menu-options-post" role="menu">
-                        <li><a href="">Editar Post</a></li>
-                        <li><a href="">Eliminar Post</a></li>
-                    </ul>
+                    <div class="dropdown">
+                    <button id="options-post" class="dropbtn" ><img src="../images/Group 2.png" alt="Options Group"></button>
+                        <div class="dropdown-content">
+                            <a href="#">Editar Post</a>
+                            <a href="#">Eliminar Post</a>
+                        </div>
                     </div>
                 </div>
                     <div> ${datapost.textAreaPost} </div>
@@ -110,8 +110,6 @@ export const feed = () => {
             });
 
         });
-    
-
 
     //     const containerPost = divElem.querySelector('#containerPost');
     // response.forEach((element) => {
