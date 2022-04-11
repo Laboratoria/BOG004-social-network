@@ -18,7 +18,7 @@ export default () => {
       </form>
       <p class='parraf-google'>Conéctate con</p>
       <hr class='divider'>
-      <img class='googleLogo' src='../img/google.png' alt='ingresa-con-google'>
+      <img class='googleLogo' src='https://raw.githubusercontent.com/MafeValenciaCastillo/BOG004-social-network/main/src/img/google.png' alt='ingresa-con-google'>
     </div>`;
 
   const divLogin = document.createElement('div');
