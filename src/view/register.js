@@ -44,9 +44,7 @@ export default () => {
 <div class="button">
 <button type="submit" class="SingUp" id="SingUp">Registrate</button>
 </div>
-
-//<div id='errorMessage'></div>
-</ul>
+</form>
     `;
 
   const divElement = document.createElement("div");
