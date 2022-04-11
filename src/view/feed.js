@@ -1,6 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost,  onGetPost } from "../Firebase/firestore.js";
-
+import { saveFormPost, onGetPost, deletePost, getPost, getOnePost } from "../Firebase/firestore.js";
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -43,15 +42,13 @@ export const feed = () => {
         </form>
     </section>
     <section id="feed-user">
-        
-        <div id="div-post">
-        </div>
+        <div id="div-post"></div>
         <form id="form-post-user" action=""></form>
         <button id="buttonHero"> Inicio </button>
     </section>
     </div>
     `;
-    
+
     viewFeedHtml.innerHTML = view;
 
     document.querySelector("#buttonHero").addEventListener("click", () => {
@@ -60,29 +57,30 @@ export const feed = () => {
     });
 
     //Mostrar todos los post apenas se ingresa al feed
-  
+
     const postForm = document.querySelector("#form-post");
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        const infoPost = {
+            textAreaPost: postForm["area-post"].value,
+            creationDate: new Date()
+        }
+        saveFormPost(infoPost);
 
-        const textAreaPost = postForm['area-post'];
-        saveFormPost(textAreaPost.value);
-
-        postForm.reset()
-
+        postForm.reset();
     });
 
     //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
- 
-        onGetPost((response)=>{
-            const divPost = document.querySelector('#feed-user');
-            let infoPostUser="";
-            let postfeed = [];
-            response.forEach((text) => {
-                const datapost = text.data()
-                postfeed.push({textAreaPost: datapost.textAreaPost})
-                console.log(text.data());
-                const divpostuser = `
+
+    onGetPost((response) => {
+        const divPost = document.querySelector("#feed-user");
+        let infoPostUser = "";
+        let postfeed = [];
+        response.forEach((text) => {
+            const datapost = text.data();
+            console.log(datapost);
+            postfeed.push({ textAreaPost: datapost.textAreaPost });
+            const divpostuser = `
                 <div id="div-profile-feed">
                  <img src="../images/Ellipse 2.png" alt="">
                     <div>
@@ -92,8 +90,8 @@ export const feed = () => {
                     <div class="dropdown">
                     <button id="options-post" class="dropbtn" ><img src="../images/Group 2.png" alt="Options Group"></button>
                         <div class="dropdown-content">
-                            <a href="#">Editar Post</a>
-                            <a href="#">Eliminar Post</a>
+                            <button class="btn-edit" data-id="${text.id}">Editar</button>
+                            <button class="btn-delete" data-id="${text.id}">Eliminar</button>                            
                         </div>
                     </div>
                 </div>
@@ -105,21 +103,35 @@ export const feed = () => {
                     </div>
                     <hr>            
                 `;
-                infoPostUser+=divpostuser,
-                divPost.innerHTML=infoPostUser
-            });
+            infoPostUser += divpostuser;
+        });
+        divPost.innerHTML = infoPostUser;
+        console.log(divPost);
 
+        const btnsDelete = divPost.querySelectorAll(".btn-delete");
+
+        btnsDelete.forEach((btn) => {
+            btn.addEventListener("click", ({ target: { dataset } }) => {
+                if (confirm("¿Estás seguro de eliminar este post?") === true) {
+                    deletePost(dataset.id)
+                    return alert("Tu post será eliminado")
+                } else {
+                    return alert("El post no ha sido eliminado")
+                }
+            });
         });
 
-    //     const containerPost = divElem.querySelector('#containerPost');
-    // response.forEach((element) => {
-    //   console.log(element);
-    //   containerPost.innerHTML += `
-    //     <h3>  ${element.id} </h3>
-    // //     <p> ${element.post} </p>
-    // //     <button class="delete" data-set=${element.id}> Eliminar </button>   
-    // //     <button class="edit" data-set='${element.id}', '${element.post}'> Editar </button>  
-    // //    `;
+        const btnsEdit = divPost.querySelectorAll(".btn-edit");
+        btnsEdit.forEach((btn) => {
+            btn.addEventListener('click', async(e) => {
+                const doc = await getOnePost(e.target.dataset.id)
+                const editPost = doc.data()
 
-    return viewFeedHtml;
+                postForm["area-post"].value = editPost.textAreaPost
+            });
+        });
+
+        return viewFeedHtml;
+    });
+
 };
