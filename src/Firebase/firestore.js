@@ -3,8 +3,11 @@ import {
     collection,
     addDoc,
     getDocs,
+    onSnapshot,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 import { getFirestore } from "./firebase-import.js";
+
+/* import { async } from "regenerator-runtime"; */
 // import { async } from "regenerator-runtim.js";
 
 // // codigo para uso de firestore
@@ -17,7 +20,18 @@ export const saveFormPost = (textAreaPost) => {
     addDoc(collection(db, "posts-collection"), { textAreaPost });
 };
 
-export const getPost = async() => {
+export const getPost= async() => getDocs(collection(db, "posts-collection"))
+
+export const onGetPost =  async (callback) => onSnapshot (collection(db, "posts-collection"), (callback))
+console.log('onGetPost');
+
+/* export{
+    onSnapshot,
+    collection,
+    db,
+} */
+
+/* export const getPost = async() => {
     const querySnapshot = await getDocs(collection(db, "posts-collection"));
     const postFeed = [];
     querySnapshot.forEach((doc) => {
@@ -25,4 +39,4 @@ export const getPost = async() => {
         // console.log(postFeed);
     });
     return postFeed;
-};
+}; */

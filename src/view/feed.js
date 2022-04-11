@@ -1,5 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost, getPost } from "../Firebase/firestore.js";
+import { saveFormPost,  onGetPost } from "../Firebase/firestore.js";
 
 
 export const feed = () => {
@@ -43,28 +43,15 @@ export const feed = () => {
         </form>
     </section>
     <section id="feed-user">
-        <div id="div-profile-feed">
-        <img src="../images/Ellipse 2.png" alt="">
-            <div>
-                <h3 id="name-user">Nombre Apellido</h3>
-                <p id="type-user">Programador</p>
-            </div>
-            <a href="" class="button-profile"><img src="../images/Group 2.png" alt="Options Group"></a>
-        </div>
+        
         <div id="div-post">
-            <p>publicado <time datetime=" "></time></p>
         </div>
-        <div id="div-options">
-            <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
-            <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
-            <a href=""><img src="../images/share 1.png" alt="Share"></a>
-        </div>
-        <hr>
+        <form id="form-post-user" action=""></form>
         <button id="buttonHero"> Inicio </button>
     </section>
     </div>
     `;
-
+    
     viewFeedHtml.innerHTML = view;
 
     document.querySelector("#buttonHero").addEventListener("click", () => {
@@ -73,8 +60,7 @@ export const feed = () => {
     });
 
     //Mostrar todos los post apenas se ingresa al feed
-    getPost();
-
+  
     const postForm = document.querySelector("#form-post");
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -87,15 +73,44 @@ export const feed = () => {
     });
 
     //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
-    getPost().then((response) => {
-        const divPost = document.querySelector('#div-post');
-        response.forEach((text) => {
-            console.log(text);
-            divPost.innerHTML += `
-                <p> ${text.textAreaPost} </p>
-            `;
+ 
+        onGetPost((response)=>{
+            const divPost = document.querySelector('#feed-user');
+            let infoPostUser="";
+            let postfeed = [];
+            response.forEach((text) => {
+                const datapost = text.data()
+                postfeed.push({textAreaPost: datapost.textAreaPost})
+                console.log(text.data());
+                const divpostuser = `
+                <div id="div-profile-feed">
+                 <img src="../images/Ellipse 2.png" alt="">
+                    <div>
+                        <h3 id="name-user">Nombre Apellido</h3>
+                        <p id="type-user">Programador</p>
+                    </div>
+                    <div>
+                    <button id="options-post" class="button-profile" type="submit" data-toggle="dropdown" ><img src="../images/Group 2.png" alt="Options Group"></button>
+                    <ul class="menu-options-post" role="menu">
+                        <li><a href="">Editar Post</a></li>
+                        <li><a href="">Eliminar Post</a></li>
+                    </ul>
+                    </div>
+                </div>
+                    <div> ${datapost.textAreaPost} </div>
+                    <div id="div-options">
+                     <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
+                     <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
+                     <a href=""><img src="../images/share 1.png" alt="Share"></a>
+                    </div>
+                    <hr>            
+                `;
+                infoPostUser+=divpostuser,
+                divPost.innerHTML=infoPostUser
+            });
+
         });
-    });
+    
 
 
     //     const containerPost = divElem.querySelector('#containerPost');
