@@ -25,36 +25,56 @@ export const auth = getAuth();
 // Declaramos una variable vacia, para guardar el email del usuario logueado
 let usuarioLogueado = '';
 
-export const newRegister = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log('registrado');
-      const user = userCredential.user;
+// function myLogin(email, password){
+// 	const auth = getAuth();
+// 	return signInWithEmailAndPassword(auth, email, password)
+// 	  .then((userCredential) => {
+// 	    const user = userCredential.user;
+// 	    if(user){
+// 	    	return true;
+// 	    }
+// 	    else {
+// 	    	return false;
+// 	    }
+// 	  })
+// 	  .catch((error) => {
+// 	    return false;
+// 	  });
+// }
+
+export const newRegister = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    console.log('registrado');
+    const user = userCredential.user;
+    if (userCredential) {
       document.querySelector('#mensaje').innerHTML = 'Usuario registrado exitosamente';
       document.querySelector('#atencion').style.display = 'flex';
-      window.location.assign('#/login');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log('erroCode: ', errorCode);
-      switch (errorCode) {
-        case 'auth/invalid-email':
-          document.querySelector('#mensaje').innerHTML = 'Debe ingresar un correo válido';
-          document.querySelector('#atencion').style.display = 'flex';
-          break;
-        case 'auth/email-already-in-use':
-          document.querySelector('#mensaje').innerHTML = 'El correo ya está registrado';
-          document.querySelector('#atencion').style.display = 'flex';
-          break;
-        case 'auth/weak-password':
-          document.querySelector('#mensaje').innerHTML = 'La contraseña debe tener mínimo 6 caracteres';
-          document.querySelector('#atencion').style.display = 'flex';
-          break;
-        default:
-          break;
-      }
-    });
-};
+      return true;
+    }
+    return false;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    console.log('erroCode: ', errorCode);
+    switch (errorCode) {
+      case 'auth/invalid-email':
+        document.querySelector('#mensaje').innerHTML = 'Debe ingresar un correo válido';
+        document.querySelector('#atencion').style.display = 'flex';
+        break;
+      case 'auth/email-already-in-use':
+        document.querySelector('#mensaje').innerHTML = 'El correo ya está registrado';
+        document.querySelector('#atencion').style.display = 'flex';
+        break;
+      case 'auth/weak-password':
+        document.querySelector('#mensaje').innerHTML = 'La contraseña debe tener mínimo 6 caracteres';
+        document.querySelector('#atencion').style.display = 'flex';
+        break;
+      default:
+        break;
+    }
+    return false;
+  });
+
 export const newLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -94,16 +114,21 @@ export const googleLogin = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
+      const user = result.user.email;
       // guardamos el email del usuario después de loguearse
       usuarioLogueado = user;
       window.location.assign('#/feed');
+      console.log('logueado con google');
+      console.log(usuarioLogueado);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
+      console.log(errorCode);
       const errorMessage = error.message;
+      console.log(errorMessage);
       // The email of the user's account used.
       const email = error.email;
+      console.log(email);
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
