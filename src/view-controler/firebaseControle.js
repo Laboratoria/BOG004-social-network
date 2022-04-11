@@ -27,17 +27,13 @@ import{changeView} from './router.js'
       //Signed in
       const user = userCredential.user;
       //...
-      changeView("#/timeLine");
+      changeView("#/register");
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
   }
-
-
-
-
 
 export const provider = new GoogleAuthProvider();
 export const googlePopUp = () => signInWithPopup(auth, provider);

@@ -28,7 +28,7 @@ export default () => {
 </div>
 </form>
     `;
-
+    
    //creación de elemento
   const divElement = document.createElement("div");
   divElement.innerHTML = viewLogin;
