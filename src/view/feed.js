@@ -12,8 +12,8 @@ import {
 let editMode = false;
 let id = '';
 
-async function likeEachPost(mostrarPost) {
-  const btnsLike = await mostrarPost.querySelectorAll('.like');
+function likeEachPost(mostrarPost) {
+  const btnsLike = mostrarPost.querySelectorAll('.like');
   btnsLike.forEach((btn) => {
     btn.addEventListener('click', ({ target: { dataset } }) => {
       // Traemos la función likePost desde el controller.
@@ -96,10 +96,11 @@ export default () => {
         <button> <img id="imgLogout" src="img/logout-img.png" alt="Cerrar sesión"> </button>
     </div>
     <div class="barra">
-      <a href='https://docs.oracle.com/en/java/' target="_blank"><img src='img/java.png'></a>
-      <a href='https://docs.python.org/es/3/' target="_blank"><img src='img/python.png'></a>
-      <a href='https://es.reactjs.org/docs/getting-started.html' target="_blank"><img src='img/atom.png'></a>
-      <a href='https://developer.mozilla.org/es/docs/Web/JavaScript' target="_blank" ><img src='img/js.png'></a>
+      <h2> Documentate aquí => </h2>
+      <a href='https://docs.oracle.com/en/java/' target="_blank"><img src='img/java.png' alt='Java' title='Java'></a>
+      <a href='https://docs.python.org/es/3/' target="_blank"><img src='img/python.png' alt='Python' title='Python'></a>
+      <a href='https://es.reactjs.org/docs/getting-started.html' target="_blank"><img src='img/atom.png' alt='React' title='React'></a>
+      <a href='https://developer.mozilla.org/es/docs/Web/JavaScript' target="_blank" ><img src='img/js.png' alt='JavaScript' title='JavaScript'></a>
 
     </div>
     <div class="postGeneral">

@@ -278,10 +278,13 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-size: small;
+    margin: 10px;
 }
 .barra img{
     height: 30px;
     width: 30px;
+    margin: 20px;
 }
 .postGeneral{
     width: 90%;
@@ -343,6 +346,14 @@ a:visited {
     justify-content: center;
     align-items: center;
 }
+.contentPost p{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
 .usuarioAutor{
     background-color: #34495e;
     width: 90%;
@@ -351,6 +362,7 @@ a:visited {
     padding: 5px 0 5px 10px;
     color: white;
     border-radius: 5px;
+    font-size: small;
 }
 .btnPost{
     display: flex;
@@ -444,7 +456,7 @@ a:visited {
 
 @media (min-width: 768px){
     #container {
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         border: 1px solid #ccc;
         display: flex;
@@ -496,7 +508,7 @@ a:visited {
 
 @media (min-width: 1024px){
     #container {
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         border: 1px solid #ccc;
     }

@@ -1,7 +1,4 @@
-// import { components } from '../view/index.js';
-
 export const changeTmp = (hash, components) => {
-  // const id = hash.split('/')[1];
   const sectionMain = document.getElementById('container');
   sectionMain.innerHTML = '';
 

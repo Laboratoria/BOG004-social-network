@@ -32,6 +32,7 @@ export const newRegister = (email, password) => {
       const user = userCredential.user;
       document.querySelector('#mensaje').innerHTML = 'Usuario registrado exitosamente';
       document.querySelector('#atencion').style.display = 'flex';
+      window.location.assign('#/login');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -93,21 +94,16 @@ export const googleLogin = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user.email;
-       // guardamos el email del usuario después de loguearse
+      const user = result.user;
+      // guardamos el email del usuario después de loguearse
       usuarioLogueado = user;
       window.location.assign('#/feed');
-      console.log('logueado con google');
-      console.log(usuarioLogueado);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
-      console.log(errorCode);
       const errorMessage = error.message;
-      console.log(errorMessage);
       // The email of the user's account used.
       const email = error.email;
-      console.log(email);
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
