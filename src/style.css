@@ -11,6 +11,8 @@ body{
     display: grid;
     grid-template-columns: 30% 70%;
     padding: 0;
+    margin-top: 10%;
+    margin-bottom: 5%;
     margin-left: 15px;
     margin-right: 15px;
     justify-items: center;
@@ -30,11 +32,11 @@ body{
 }
 .gridBody{
     display: grid;
-    row-gap: 10px;
+    row-gap: 8px;
     justify-items: center;
 }
 .inputStyle{
-    width: 270px;
+    width: 90%;
     height: 28px;
     border:0;
     border-radius: 10px;
@@ -98,6 +100,7 @@ a:visited {
     display: grid;
     align-items: center;
     justify-items: center;
+    margin-top:7%;
 }
 .logoAccount {
     height: 78px;
@@ -113,7 +116,7 @@ a:visited {
 }
 .gridBodyAccount {
     display: grid;
-    row-gap: 20px;
+    row-gap: 15px;
     justify-items: center;
 }
 #inputName {
@@ -121,6 +124,10 @@ a:visited {
 }
 #viewWall {
     margin-top: 15px;
+}
+#successRegister{
+    margin-top: 0;
+    margin-bottom: 0; 
 }
 .alertMessage {
     color: #F35B5B;
@@ -166,7 +173,7 @@ margin-top: 18%;
     margin-bottom: 5%;
 }
 #inputPost{
- width: 80%;
+     width: 80%;
     height: 100%;
     border-radius: 10px;
     background-color: #BAD7C1;
@@ -195,27 +202,37 @@ margin-top: 18%;
    height: 4%;
 }
 
+
 @media (min-width: 600px) {
+
+
 
 .gridHeader{
     display: grid;
-    grid-template-columns: 20% 80%;
+    width: 60%;
+    grid-template-columns: 35% 65%;
     padding: 0;
-    margin-left: 300px;
-    margin-right: 300px;
-    justify-items: center
+    margin-top:3%;
+    margin-bottom: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    column-gap: 20px;;
+    justify-items:center;
 }
 .tittle{
     margin-top: 0px;
     font-size: 120px;
     font-weight: 500;
+    justify-self: start;
     }
     .logo{
     height: 180px;
     width: 203.38px;
+    padding-right: 30px;
+    justify-self: end;
     }
     .inputStyle{
-    width: 991px;
+    width: 50%;
     height: 50px;
     color: #aca5a5;
     text-align: center;
@@ -249,6 +266,9 @@ margin-top: 18%;
     align-items: baseline;
         /* justify-items: center; */
     }
+    .gridHeaderAccount {
+        margin-top:2%;
+    }
     .textAccount{
     font-size: 25px;
     font-weight: 350;
@@ -275,7 +295,7 @@ margin-top: 18%;
     color: #838181;
       }
     #viewWall {
-    margin-top: 15px;
+    margin-top: 0px;
     justify-self: center;
     }
 .logoAccount {
@@ -292,5 +312,7 @@ margin-top: 18%;
     }
     .alertMessage {
         font-size: x-large;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
