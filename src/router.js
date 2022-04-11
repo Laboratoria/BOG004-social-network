@@ -15,12 +15,12 @@ export default class Router {
     return 'unlogged'; // si no retornamos unlogged
   }
 
-  removeSlash(path) { // elimina los slash de la ruta
+  removeHash(path) { // elimina los slash de la ruta
     return path.substring(1); // retorna la ruta sin slash
   }
 
   loadInitialRoute() { // carga la ruta inicial
-    const ruta = this.removeSlash(window.location.hash); // obtenemos la ruta
+    const ruta = this.removeHash(window.location.hash); // obtenemos la ruta
     // console.log(window.location);
     this.loadRoute(ruta); // cargamos la ruta
   }
@@ -48,6 +48,6 @@ export default class Router {
   }
 
   matchUrlToRoute(ruta) { // obtiene la ruta
-    return this.routes.find((rout) => this.removeSlash(rout.path) === ruta); // retorna la ruta
+    return this.routes.find((rout) => this.removeHash(rout.path) === ruta); // retorna la ruta
   }
 } // fin de la clase

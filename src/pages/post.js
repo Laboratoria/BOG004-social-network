@@ -1,4 +1,3 @@
-// import { router } from '../router.js';
 import {
   savePost,
   getOnlyPost,
@@ -19,7 +18,7 @@ export default { // Exportamos un objeto con la descripción de la ruta post.
   <div id='allPost'>
     <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
     <a href=''><i class='fa-solid fa-paw fa-3x'><p>Post</p></i> </a>
-    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
+    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x' id='filterHeader'><p>Buscar</p></i> </a>
   </div>
 </header>
 
@@ -51,7 +50,7 @@ export default { // Exportamos un objeto con la descripción de la ruta post.
     <footer>
       <a><i class='fa-solid fa-user' id='userFooter'></i> </a>
       <a href=''><i class='fa-solid fa-paw'></i> </a>
-      <a href=''><i class='fa-solid fa-magnifying-glass'></i> </a>
+      <a href=''><i class='fa-solid fa-magnifying-glass' id='filterFooter'></i> </a>
     </footer>`, // Template de vista post.
   state: 'logged', // Solo puede acceder a esta ruta si está logueado.
   script: () => { // Función que se ejecuta al cargar la vista post.
@@ -100,7 +99,7 @@ export default { // Exportamos un objeto con la descripción de la ruta post.
                         ${buttons} 
                       </div>
                       <div>
-                        <p>#Especie</p>
+                        <p>${postData.species}</p>
                       </div>  
                     </div>
                     <div class="singlePost_header">
@@ -161,13 +160,14 @@ export default { // Exportamos un objeto con la descripción de la ruta post.
       const postDescription = document.querySelector( // captura el texto del post.
         '#form__postCreate-text',
       ).value;
+      const species = document.querySelector('.select-post').value;
       // const image = document.querySelector('.fa-paperclip').value;
       // const image = document.querySelector('.singlePost_img'); // .value pendiente por definir;
       e.preventDefault(); // evita que se recargue la página.
       if (!editStatus) { // si no estamos editando.
-        savePost(postDescription, userId, countLike, userlikes); // guarda el post.
+        savePost(postDescription, userId, countLike, userlikes, species); // guarda el post.
       } else { // si estamos editando.
-        updatePost(id, { postDescription }); // actualiza el post.
+        updatePost(id, { postDescription, species }); // actualiza el post.
         editStatus = false; // Reiniciando el estados de la validación en false.
       }
       postForm.reset(); // limpia el formulario del textarea.
@@ -187,8 +187,15 @@ export default { // Exportamos un objeto con la descripción de la ruta post.
       e.preventDefault(); // evita que se recargue la página.
       window.location.hash = 'perfil'; // redirecciona a la página de perfil.
     });
+
+    document.querySelector('#filterHeader').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'filter';
+    });
+
+    document.querySelector('#filterFooter').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'filter';
+    });
   },
 };
-
-// const userName = convertObjJson.displayName;
-// const userPhotoURL = convertObjJson.photoURL;

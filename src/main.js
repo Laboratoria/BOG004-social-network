@@ -4,7 +4,7 @@ import { router } from './routes.js';
 
 // hashchange es un evento que se dispara cuando el hash de la URL cambia
 window.addEventListener('hashchange', () => {
-  router.loadRoute(router.removeSlash(window.location.hash)); // cargamos la ruta
+  router.loadRoute(router.removeHash(window.location.hash)); // cargamos la ruta
 });
 
 // window.addEventListener('popstate', () => { // cuando se hace un popstate

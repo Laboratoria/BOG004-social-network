@@ -108,8 +108,8 @@ export const logInEmail = (email, password) => {
 };
 
 const newCollection = collection(db, 'post'); // crea coleccion de post
-export const savePost = (postDescription, userId, countLike, userlikes) => addDoc(collection(db, 'post'), {
-  postDescription, userId, countLike, userlikes, createdAt: serverTimestamp(),
+export const savePost = (postDescription, userId, countLike, userlikes, species) => addDoc(collection(db, 'post'), {
+  postDescription, userId, countLike, userlikes, species, createdAt: serverTimestamp(),
 }); // guarda post
 const q = query(newCollection, orderBy('createdAt', 'desc')); // crea query de post
 export const onGetPost = (callback) => onSnapshot(q, collection(db, 'post'), callback); // obtiene los post

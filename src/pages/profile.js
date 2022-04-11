@@ -12,7 +12,7 @@ export default { // Exportamos un objeto con la descripcion de la ruta profile.
   <div id='allPost'>
   <a><i class='fa-solid fa-user fa-3x' id='userHeader'><p>Perfil</p></i> </a>
     <a href=''><i class='fa-solid fa-paw fa-3x' id='postHeader'><p>Post</p></i> </a>
-    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x'><p>Buscar</p></i> </a>
+    <a href=''><i class='fa-solid fa-magnifying-glass fa-3x' id='filterHeader'><p>Buscar</p></i> </a>
   </div>
 </header>
   <div class='container-profile'>
@@ -24,7 +24,7 @@ export default { // Exportamos un objeto con la descripcion de la ruta profile.
   <footer>
       <a href=''><i class='fa-solid fa-user' id='userFooter'></i> </a>
       <a href=''><i class='fa-solid fa-paw' id='postFooter'></i> </a>
-      <a href=''><i class='fa-solid fa-magnifying-glass'></i> </a>
+      <a href=''><i class='fa-solid fa-magnifying-glass' id='filterFooter'></i> </a>
     </footer>
   
       `, // Template
@@ -49,6 +49,31 @@ export default { // Exportamos un objeto con la descripcion de la ruta profile.
       e.preventDefault(); // Evitamos que se recargue la página
       window.location.hash = 'post'; // Redireccionamos a la ruta post.
     }); // Fin de la función script.
+
+    const userSessionStorage = sessionStorage.getItem('user'); // captura el usuario de la sesión.
+    const convertObjJson = JSON.parse(userSessionStorage);
+    const userName = convertObjJson.displayName;
+    const photoURL = convertObjJson.photoURL;
+    document.querySelector('.profileImg').src = photoURL;
+    document.querySelector('.nameUser').innerHTML = userName; // Mostramos el nombre del usuario.
+    if (convertObjJson.photoURL === null) {
+      document.querySelector('.profileImg').src = 'images/profile.png';
+    }
+
+    document.querySelector('#filterHeader').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'filter';
+    });
+
+    document.querySelector('#filterFooter').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'filter';
+    });
+
+    document.querySelector('#userHeader').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = 'perfil';
+    });
   },
 };
 
