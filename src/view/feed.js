@@ -1,6 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost, getPosts } from "../Firebase/firestore.js";
-
+import { saveFormPost, onGetPost, deletePost, getPost, getOnePost } from "../Firebase/firestore.js";
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -43,23 +42,8 @@ export const feed = () => {
         </form>
     </section>
     <section id="feed-user">
-        <div id="div-profile-feed">
-        <img src="../images/Ellipse 2.png" alt="">
-            <div>
-                <h3 id="name-user">Nombre Apellido</h3>
-                <p id="type-user">Programador</p>
-            </div>
-            <a href="" class="button-profile"><img src="../images/Group 2.png" alt="Options Group"></a>
-        </div>
-        <div id="div-post">
-            <p>publicado <time datetime=" "></time></p>
-        </div>
-        <div id="div-options">
-            <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
-            <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
-            <a href=""><img src="../images/share 1.png" alt="Share"></a>
-        </div>
-        <hr>
+        <div id="div-post"></div>
+        <form id="form-post-user" action=""></form>
         <button id="buttonHero"> Inicio </button>
     </section>
     </div>
@@ -73,55 +57,91 @@ export const feed = () => {
     });
 
     //Mostrar todos los post apenas se ingresa al feed
-    // getPost();
-
-
-    const divPost = document.getElementById('div-post')
-    console.log(divPost);
-
-    //función para hacer un post
+    const divPost = document.querySelector("#feed-user");
     const postForm = document.querySelector("#form-post");
+    let editStatus = false;
+
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        const infoPost = {
+                textAreaPost: postForm["area-post"].value,
+                creationDate: new Date()
+            }
+            // saveFormPost(infoPost);
+        if (editStatus) {
+            console.log('Actualizando')
+        } else {
+            saveFormPost(infoPost);
+        }
 
-        const textAreaPost = postForm['area-post'];
-        saveFormPost(textAreaPost.value);
-
-        postForm.reset()
-
+        postForm.reset();
     });
 
 
-    return viewFeedHtml;
+    //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
+
+    onGetPost((response) => {
+        let infoPostUser = "";
+        let postfeed = [];
+        response.forEach((text) => {
+            const datapost = text.data();
+            console.log(datapost);
+            console.log(text);
+            postfeed.push({ textAreaPost: datapost.textAreaPost });
+            const divpostuser = `
+                <div id="div-profile-feed">
+                 <img src="../images/Ellipse 2.png" alt="">
+                    <div>
+                        <h3 id="name-user">Nombre Apellido</h3>
+                        <p id="type-user">Programador</p>
+                    </div>
+                    <div class="dropdown">
+                    <button id="options-post" class="dropbtn" ><img src="../images/Group 2.png" alt="Options Group"></button>
+                        <div class="dropdown-content">
+                            <button class="btn-edit" data-id="${text.id}">Editar</button>
+                            <button class="btn-delete" data-id="${text.id}">Eliminar</button>                            
+                        </div>
+                    </div>
+                </div>
+                    <div> ${datapost.textAreaPost} </div>
+                    <div id="div-options">
+                     <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
+                     <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
+                     <a href=""><img src="../images/share 1.png" alt="Share"></a>
+                    </div>
+                    <hr>            
+                `;
+            infoPostUser += divpostuser;
+        });
+        divPost.innerHTML = infoPostUser;
+
+        const btnsDelete = divPost.querySelectorAll(".btn-delete");
+
+        btnsDelete.forEach((btn) => {
+            btn.addEventListener("click", ({ target: { dataset } }) => {
+                if (confirm("¿Estás seguro de eliminar este post?") === true) {
+                    deletePost(dataset.id)
+                    return alert("Tu post será eliminado")
+                } else {
+                    return alert("El post no ha sido eliminado")
+                }
+            });
+        });
+
+        const btnsEdit = divPost.querySelectorAll(".btn-edit");
+        console.log(btnsEdit);
+        btnsEdit.forEach((btn) => {
+            btn.addEventListener('click', async(e) => {
+                const doc = await getOnePost(e.target.dataset.id);
+                const editPost = doc.data();
+                console.log(editPost);
+                postForm["area-post"].value = editPost.textAreaPost;
+
+                editStatus = true;
+            });
+        });
+
+        return viewFeedHtml;
+    });
+
 };
-
-
-
-
-
-
-
-
-
-
-//Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
-// getPost().then((response) => {
-//     const divPost = document.querySelector('#div-post');
-//     response.forEach((text) => {
-//         console.log(text);
-//         divPost.innerHTML += `
-//             <p> ${text.textAreaPost} </p>
-//         `;
-//     });
-// });
-
-
-//     const containerPost = divElem.querySelector('#containerPost');
-// response.forEach((element) => {
-//   console.log(element);
-//   containerPost.innerHTML += `
-//     <h3>  ${element.id} </h3>
-// //     <p> ${element.post} </p>
-// //     <button class="delete" data-set=${element.id}> Eliminar </button>   
-// //     <button class="edit" data-set='${element.id}', '${element.post}'> Editar </button>  
-// //    `;

@@ -14,7 +14,7 @@ body {
     background-repeat: no-repeat;
 }
 
-hr{
+hr {
     color: rgba(109, 184, 223, 0.5);
     width: 98%;
     height: 3px;
@@ -183,7 +183,7 @@ h1 .relevant {
     align-content: center;
     background-color: #fff;
 }
-          
+
 #feed-template #info-user {
     width: 90%;
     height: auto;
@@ -231,10 +231,12 @@ h1 .relevant {
 }
 
 #section-post #area-post {
-    width: 96%;
+    width: 85%;
     height: 40%;
     border-radius: 0.5em;
     align-self: center;
+    padding: 2.5em;
+    cursor: default;
 }
 
 #div-check {
@@ -244,9 +246,9 @@ h1 .relevant {
 }
 
 #send-post {
-    color: transparent; 
-    background-color: transparent; 
-    border-color: transparent; 
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
     cursor: default;
 }
 
@@ -278,6 +280,70 @@ h1 .relevant {
 #feed-user #div-post {
     text-align: justify;
     align-self: center;
+}
+
+
+/* Dropdown Button */
+
+.dropbtn {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: default;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1
 }
 
 @media screen and (min-device-width: 1000px) and (-webkit-min-device-pixel-ratio: 1) {
