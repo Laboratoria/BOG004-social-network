@@ -123,7 +123,7 @@ export const feed = () => {
                     deletePost(dataset.id)
                     return alert("Tu post será eliminado")
                 } else {
-                    return alert("El post no ha sido eliminado")
+                    return false
                 }
             });
         });
