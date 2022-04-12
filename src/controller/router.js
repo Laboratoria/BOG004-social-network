@@ -4,6 +4,8 @@ const changeViews = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {
+    case '':
+    { return container.appendChild(components.home()); }
     case '#/':
     { return container.appendChild(components.home()); }
     case '#/signUp':

@@ -6,7 +6,6 @@ export const signInWithPopup = jest.fn(() => Promise.resolve({}));
 export const signInWithEmailAndPassword = jest.fn(() => Promise.resolve({}));
 export const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve({}));
 export const components = () => Promise.resolve({});
-export const userSignIn = () => ({});
 // export const onAuthStateChanged = () => Promise.resolve({});
 export const collection = () => Promise.resolve({});
 export const getDocs = () => Promise.resolve({});

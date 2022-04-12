@@ -9,6 +9,8 @@ describe('Ingreso a la página Petshare', () => {
   it('incorrect sign in', () => {
     const email = 'email@lau.com';
     const pass = '12345';
-    expect(userSignIn(email, pass)).toBeFalsy();
+    userSignIn(email, pass).then(() => {
+      expect(window.location.hash).toEqual('#/timeline');
+    });
   });
 });
