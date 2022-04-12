@@ -1,12 +1,13 @@
 // Importamos app para inicializar firebase
-import { app } from './fbKeys.js'; 
-import { db } from './fbKeys.js';
-import {  addDoc, collection } from './firebaseImport.js'
+import { app, db } from './fbKeys.js'; 
+import {  addDoc, collection, query, getDocs } from './firebaseImport.js'
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
 import { signInWithGoogle } from '../view-controler/controllers.js';
-import { GoogleAuthProvider } from './firebaseImport.js'
+import { GoogleAuthProvider } from './firebaseImport.js';
+import { paintPost } from '../views/ecoTraveler.js';
+
 
 
 /* Creamos una funcion createUser para exportarla y activarla
@@ -44,7 +45,9 @@ export const signInUser = (auth, email, password) => {
     // Signed in
     const user = userCredential.user;
     // ...
-      changeView('#/ecoTraveler');
+    changeView('#/ecoTraveler');
+    
+    /* console.log("Hola, soy auth", user.uid); */
       console.log(user, "Esta entrando a la funcion signIn");
     })
     .catch((error) => {
@@ -91,4 +94,14 @@ export const signInUser = (auth, email, password) => {
       });
     }
 
-    export const savePost = (post) => addDoc(collection(db, 'posts'), {post});
+    
+    export const savePost = ( post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
+
+  export const showsPost = async () => {
+    const querySnapshot = await getDocs(collection(db, 'posts'));
+/*     querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data().post);
+}); */
+return querySnapshot;
+  }

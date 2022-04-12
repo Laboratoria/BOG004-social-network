@@ -1,9 +1,24 @@
-import { savePost } from '../firebase/fbFunction.js';
+import { savePost, showsPost } from '../firebase/fbFunction.js';
+import { getAuth, serverTimestamp } from '../Firebase/firebaseImport.js';
+
+const auth = getAuth();
+
 const clickPost = (div) => {
+   const userName = auth.currentUser;
+   console.log("user name", userName.email);
+   const actualDate = serverTimestamp();
    const postValue = div.querySelector('#inputPost').value;
-   savePost(postValue);
-}
-export default () => {
+   savePost(postValue, userName.uid, actualDate );
+
+   showsPost()
+      .then((res) => res.forEach((e) => divEcotraveler.appendChild(paintPost(e.data().post)) )
+      )
+   }
+
+const divEcotraveler = document.createElement('div');
+
+
+export default () => { 
   const viewEcotraveler = `
   <div class='containerWall'>
    <div class='gridHeaderWall'>
@@ -14,16 +29,14 @@ export default () => {
        <textarea name='post' id='inputPost' rows= 4 placeholder='Comparte tu experiencia' autofocus></textarea>
        </div>
        <div class='containerIcons'>
-    <img src='img/heart.png' alt='like' class='icons'>
-    <img src='img/pencil (1).png' alt='editPost' class='icons'>
-    <img src='img/bin.png' alt='deletePost' class='icons'>
      <button class='btnPublic' id='publicBtn'>Publicar</button>
+     <div id='publicPost'></div>
      </div>
      </div>`;
      
-    
-  const divEcotraveler = document.createElement('div');
+   
   divEcotraveler.innerHTML = viewEcotraveler;
+  
   const btnPost = divEcotraveler.querySelector('#publicBtn');
   // creamos un evento al boton publicar
   btnPost.addEventListener('click', () => clickPost(divEcotraveler));
@@ -31,3 +44,33 @@ export default () => {
 };
 
 
+   
+
+
+export const paintPost = (post) =>{
+    const divPost = document.createElement('div');
+   let historyP = '';
+   
+   let historyPost =  `
+   <div class='containerWallPost'>
+        <div class='containerPost' id='postSpace'>
+       <textarea name='post' id='textAreaPost' >${post}</textarea>
+       </div>
+       <div class='containerIconsPost'>
+    
+     </div>
+     </div>
+   `;
+
+   
+   historyP += historyPost
+   divPost.innerHTML = historyP;
+   /* divEcotraveler.appendChild(divPost); */
+   divEcotraveler.appendChild(divPost);
+
+    return divPost; 
+}
+
+{/* <img src='img/heart.png' alt='like' class='icons'>
+    <img src='img/pencil (1).png' alt='editPost' class='icons'>
+    <img src='img/bin.png' alt='deletePost' class='icons'></img> */}

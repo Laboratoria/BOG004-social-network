@@ -3,6 +3,7 @@ import { auth } from '../view-controler/controllers.js';
 import { loginGoogle } from '../firebase/fbFunction.js';
 import { provider } from '../view-controler/controllers.js';
 
+
 export const clickSignIn = (div) => {
   const email = div.querySelector('#inputEmail').value;
   const password = div.querySelector('#inputPassword').value;
