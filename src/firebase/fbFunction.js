@@ -1,6 +1,6 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs } from './firebaseImport.js'
+import {  addDoc, collection, query, getDocs, orderBy } from './firebaseImport.js'
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
@@ -98,10 +98,10 @@ export const signInUser = (auth, email, password) => {
     export const savePost = (post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
 
   export const showsPost = async () => {
-    const querySnapshot = await getDocs(collection(db, 'posts'));
+    const querySnapshot = await getDocs(collection(db, 'posts'),orderBy('date','desc'));
 /*     querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data().post);
+      console.log(doc.id, " => ", doc.data().post);s
 }); */
 return querySnapshot;
   }

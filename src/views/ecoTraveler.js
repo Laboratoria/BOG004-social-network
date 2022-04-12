@@ -9,16 +9,18 @@ const clickPost = (div) => {
    console.log("user name", userName.email);
    const actualDate = serverTimestamp();
    const postValue = div.querySelector('#inputPost').value;
+   //   divEcotraveler.innerHTML = '';
    savePost(postValue, userName.uid, actualDate).then(()=> {
-      divPost.innerHTML = '';
+  divContainerPost.innerHTML = '';
       showsPost()
-      .then((res) => res.forEach((e) => divPost.appendChild(paintPost(e.data().post)) )
+      .then((res) => res.forEach((e) => { 
+         divContainerPost.appendChild(paintPost(e.data().post));
+      })
       )}) 
-   
+    divEcotraveler.appendChild(divContainerPost);
    }
-const divGeneral = document.createElement('div');
 const divEcotraveler = document.createElement('div');
-
+const divContainerPost = document.createElement('div');
 
 export default () => { 
   const viewEcotraveler = `
@@ -45,9 +47,9 @@ export default () => {
   return divEcotraveler;
 };
 
-const divPost = document.createElement('div');
+
 export const paintPost = (post) =>{
-   
+   const divPost = document.createElement('div');
    let historyPost =  `
    <div class='containerWallPost'>
         <div class='containerPost' id='postSpace'>
@@ -64,8 +66,8 @@ export const paintPost = (post) =>{
     return divPost; 
 }
 
-divGeneral.appendChild(divEcotraveler);
-divGeneral.appendChild(divPost);
+// divContainerPost.innerHTML = '';
+
 
 
 // {/* <img src='img/heart.png' alt='like' class='icons'>
