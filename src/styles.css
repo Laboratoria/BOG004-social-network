@@ -251,7 +251,7 @@ main {
 
 .div-post-container {
     width: 350px;
-    height: 200px;
+    height: 250px;
     border: #272121 solid 2px;
     margin-top: 25px;
     font-size: 20px;
@@ -292,9 +292,49 @@ main {
 #logout {
     display: flex;
     justify-content: flex-end;
-    width: 1000px;
+    width: 335px;;
     height: 10px;
     margin: auto;
+    cursor: pointer;
+}
+
+.hidenBtn{
+    display: none;
+}
+
+.like{
+    border: none;
+    background-color: var(--textwhite);
+    background-image: url('./img/like.png');
+    width: 55px;
+    height: 40px;
+    background-repeat: no-repeat;
+    transition: transform .2s;
+}
+
+.like:hover {
+    transform: scale(1.1);
+}
+
+
+.inp-post-modal-post:focus{
+    outline: none;
+}
+
+.inp-post-modal-post:active{
+    outline: none;
+}
+
+textarea { 
+    resize: none;
+    background-color: transparent;
+    /* border: none; */
+    width: 305px;
+    height: 100px;
+    margin: auto;
+    font-size: 20px;
+    margin: auto;
+    padding: 0 5px 10px;
 }
 
 #post-description {
@@ -344,6 +384,12 @@ main {
     /* border-radius: 10px; */
     cursor: pointer;
     margin: auto;
+    transition: 0.2s;
+}
+
+#btn-post-create:hover {
+    background-color: #272121bf;
+    border-color: #27212189;
 }
 
 .tittle-daily {
@@ -365,31 +411,51 @@ main {
 
 .btns-post-container {
     width: 100px;
-    height: 40px;
+    height:50px;
     margin-left: 95px;
     margin-top: 10px;
-    background-color: red;
-    /* background-image: url('./img/Edit.png');
-    background-image: url('./img/Delete.png');
-    background-repeat: no-repeat ; */
+    
 }
-
-/* .btns{
-    background-color: blue;
-    width: 30px;
-    height: 30px;
-} */
 
 .edit-img {
     margin-right: 10px;
     cursor: pointer;
     background-image: url('./img/Edit.png');
-    
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+    border: 1px solid #272121
+}
+
+.edit-img:hover {
+    border: 1px solid beige;
 }
 
 .delete-img {
     cursor: pointer;
     background-image: url('./img/Delete.png');
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+    border: 1px solid #272121
+}
+
+.delete-img:hover {
+    border: 1px solid beige;
+}
+
+.save-img {
+    margin-right: 10px;
+    cursor: pointer;
+    background-image: url('./img/Delete.png');
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+    border: 1px solid #272121
+}
+
+.save-img:hover {
+    border: 1px solid beige;
 }
 
 .user_img {
@@ -406,6 +472,29 @@ main {
     /* font-weight: bold; */
     color: beige;
 }
+
+.post-content{
+    margin: auto;
+    margin-top: 20px;
+    width: 300px;
+    height: 125px;
+    border: 0;
+    padding: 0 10px 15px;
+    font-size: large;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 5px;
+ }
+ 
+ .post-content:hover {
+    background-color: rgba(255, 255, 255, 0.468);
+ }
+
+ .counter-likebtn {
+    display: flex;
+    justify-content: center;
+ }
+ 
 
 @media screen and (min-width: 800px) {
     main {
@@ -430,9 +519,10 @@ main {
 
     .div-post-container {
         width: 1000px;
-        height: 200px;
+        height: 265px;
         border: #272121 solid 2px;
-        margin-top: 20px;
+        margin-top: 25px;
+        font-size: 20px;
     }
 
     .tittle-daily {
@@ -442,10 +532,18 @@ main {
         margin: auto;
     }
 
-  .btns-post-container {
-    width: 100px;
-    height: 40px;
-    margin-left: 770px;
-    margin-top: 10px;
-}
+    .btns-post-container {
+        width: 100px;
+        height: 40px;
+        margin-left: 770px;
+        margin-top: 10px;
+    }
+
+    .post-content {
+        width: 900px;
+    }
+
+    #logout {
+        width: 1000px;
+    }
 }
