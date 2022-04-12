@@ -64,19 +64,18 @@ export const feed = () => {
 
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        const infoPost = {
-                textAreaPost: postForm["area-post"].value,
-                creationDate: new Date()
-            }
-            // saveFormPost(infoPost);
+
+        const post = postForm["area-post"];
+        // saveFormPost(infoPost);
         if (!editStatus) {
-            saveFormPost(infoPost);
+            saveFormPost(post.value);
         } else {
             // saveFormPost(infoPost);
-            updatePost(id, textAreaPost.value);
+            updatePost(id, {
+                textAreaPost: post.value,
+            })
             editStatus = false;
         }
-
         postForm.reset();
     });
 
@@ -88,7 +87,6 @@ export const feed = () => {
         response.forEach((text) => {
             const datapost = text.data();
             console.log(datapost);
-            console.log(text);
             postfeed.push({ textAreaPost: datapost.textAreaPost });
             const divpostuser = `
                 <div id="div-profile-feed">
@@ -137,14 +135,17 @@ export const feed = () => {
                 const doc = await getOnePost(e.target.dataset.id);
                 const editPost = doc.data();
                 console.log(editPost);
+
                 postForm["area-post"].value = editPost.textAreaPost;
 
                 editStatus = true;
+                id = doc.id;
+
+                postForm['send-post'].innerHTML
             });
         });
 
         return viewFeedHtml;
-        id = doc.id;
     });
 
 };

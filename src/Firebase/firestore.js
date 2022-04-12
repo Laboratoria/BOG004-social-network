@@ -19,8 +19,8 @@ import { getFirestore } from "./firebase-import.js";
 // // TODO: Add SDKs for Firebase products that you want to use
 // // https://firebase.google.com/docs/web/setup#available-libraries
 
-export const saveFormPost = (info) => {
-    addDoc(collection(db, "posts-collection"), info);
+export const saveFormPost = (textAreaPost) => {
+    addDoc(collection(db, "posts-collection"), { textAreaPost });
 };
 
 export const getPost = async() => getDocs(collection(db, "posts-collection"));
