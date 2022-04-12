@@ -13,7 +13,8 @@
     "firebase": "readonly"
   },
   "plugins": ["jest"],
-  "parserOptions": {
+    // "max-len": [2, 120, 4],
+    "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
