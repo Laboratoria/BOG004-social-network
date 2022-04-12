@@ -305,7 +305,7 @@ main {
 .like{
     border: none;
     background-color: var(--textwhite);
-    background-image: url('./img/like.png');
+    background-image: url('./img/harryLike.png');
     width: 55px;
     height: 40px;
     background-repeat: no-repeat;
@@ -447,7 +447,7 @@ textarea {
 .save-img {
     margin-right: 10px;
     cursor: pointer;
-    background-image: url('./img/Delete.png');
+    background-image: url('./img/save.png');
     width: 40px;
     height: 40px;
     transition: 0.3s;
