@@ -1,6 +1,7 @@
 import { savePost, showsPost } from '../firebase/fbFunction.js';
 import { getAuth, serverTimestamp } from '../Firebase/firebaseImport.js';
 
+
 const auth = getAuth();
 
 const clickPost = (div) => {
@@ -8,13 +9,14 @@ const clickPost = (div) => {
    console.log("user name", userName.email);
    const actualDate = serverTimestamp();
    const postValue = div.querySelector('#inputPost').value;
-   savePost(postValue, userName.uid, actualDate );
-
-   showsPost()
-      .then((res) => res.forEach((e) => divEcotraveler.appendChild(paintPost(e.data().post)) )
-      )
+   savePost(postValue, userName.uid, actualDate).then(()=> {
+      divPost.innerHTML = '';
+      showsPost()
+      .then((res) => res.forEach((e) => divPost.appendChild(paintPost(e.data().post)) )
+      )}) 
+   
    }
-
+const divGeneral = document.createElement('div');
 const divEcotraveler = document.createElement('div');
 
 
@@ -43,13 +45,8 @@ export default () => {
   return divEcotraveler;
 };
 
-
-   
-
-
+const divPost = document.createElement('div');
 export const paintPost = (post) =>{
-    const divPost = document.createElement('div');
-   let historyP = '';
    
    let historyPost =  `
    <div class='containerWallPost'>
@@ -62,15 +59,15 @@ export const paintPost = (post) =>{
      </div>
    `;
 
-   
-   historyP += historyPost
-   divPost.innerHTML = historyP;
-   /* divEcotraveler.appendChild(divPost); */
-   divEcotraveler.appendChild(divPost);
-
+   divPost.innerHTML = historyPost;
+  
     return divPost; 
 }
 
-{/* <img src='img/heart.png' alt='like' class='icons'>
-    <img src='img/pencil (1).png' alt='editPost' class='icons'>
-    <img src='img/bin.png' alt='deletePost' class='icons'></img> */}
+divGeneral.appendChild(divEcotraveler);
+divGeneral.appendChild(divPost);
+
+
+// {/* <img src='img/heart.png' alt='like' class='icons'>
+//     <img src='img/pencil (1).png' alt='editPost' class='icons'>
+//     <img src='img/bin.png' alt='deletePost' class='icons'></img> */}
