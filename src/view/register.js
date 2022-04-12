@@ -1,6 +1,8 @@
 import { changeView } from "../view-controler/controler.js";
 import { registerUser } from "../Firebase/auth.js";
 import { feed } from "./feed.js";
+import { googleUser } from "../Firebase/auth.js";
+import { GoogleAuthProvider } from "../Firebase/firebase-import.js";
 
 export const register = () => {
     const viewRegisterHtml = document.getElementById("root");
@@ -8,7 +10,7 @@ export const register = () => {
         <div id="viewRegister">
           <a href="#/register"></a>
           <div>
-          <img id="logoRes-signUp" src="/images/logo-ninja-signup-responsive.png">
+          <img id="logoRes-signUp" src="./images/logo-ninja-signup-desktop.svg">
           </div>
             <div class="box-form">
               <form id="form-register" action="">
@@ -26,7 +28,7 @@ export const register = () => {
                 </div>
                 <div class="box-input">
                   <label class="labels" for="">Contraseña</label>
-                  <input class="inputs" id="passwordRegister" type="password" required>
+                  <input class="inputs" id="passwordRegister" type="password" placeholder="Debe contener más de 6 caracteres" required>
                 </div>
                 <section id="alertMessage" class="center-message">
                   <p id="errorMessage"></p>
@@ -38,7 +40,7 @@ export const register = () => {
                 </section>
                 <section id="register-google">
                 <h3>O registrate con:</h3> 
-                <a href=""><img class="btn-icon" src="/images/simbolo-de-google.png" alt="Google"></a>
+                <a href=""><img class="btn-icon" src="./images/simbolo-de-google.png" alt="Google" id="icongoogle"></a>
                 </section>
               </form>
             </div>
@@ -63,25 +65,49 @@ export const register = () => {
         formRegister.reset();
 
         registerUser(emailRegister, passwordRegister)
-            .then(response => {
-                changeView("#/feed")
+            .then((response) => {
+                changeView("#/feed");
                 console.log("registro exitoso :)");
             })
             .catch((error) => {
                 console.log("error");
                 const codeError = error.code;
-                const messageError = document.querySelector('#errorMessage');
+                const messageError = document.querySelector("#errorMessage");
                 switch (codeError) {
-                    case 'auth/email-already-in-use':
+                    case "auth/email-already-in-use":
                         messageError.innerHTML = "Este correo ya está registrado";
                         break;
-                    case 'auth/weak-password':
-                        messageError.innerHTML = "La contraseña debe tener mínimo 6 caracteres";
+                    case "auth/weak-password":
+                        messageError.innerHTML =
+                            "La contraseña debe tener mínimo 6 caracteres";
                         break;
                     default:
                         break;
                 }
+            });
+    });
+
+    document.querySelector("#icongoogle").addEventListener("click", (e) => {
+        e.preventDefault();
+        googleUser()
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                changeView("#/feed");
             })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
     });
     return viewRegisterHtml;
 }
