@@ -111,8 +111,8 @@ export const close = () => {
 };
 
 // Saving data -timeline view-
-export const savingPost = (postIt) => {
-  addDoc(collection(db, "timeline-posts"), { postIt });
+export const savingPost = (postTotal) => {
+  addDoc(collection(db, "timeline-posts"), postTotal);
 };
 
 // Getting data from Firestore -timeline view-
@@ -126,3 +126,8 @@ export const getPost = (id) => getDoc(doc(db, "timeline-posts", id));
 
 // Updating post -timeline view-
 export const updatePost = (id, content) => updateDoc(doc(db, "timeline-posts", id), content);
+
+// Liking posts -timeline view-
+export const likeItPost = (id) => {
+  const user = firebase.auth().currentUser;
+};

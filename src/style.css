@@ -120,6 +120,7 @@ h1 {
   #postIt-description{
     width: 260px;
     height: 80px;
+    border-radius: 13px;
   }
 
   .btndelete-postIt{
@@ -133,6 +134,11 @@ h1 {
       border-radius: 5px;
       background-color: rgb(176, 246, 70);
       border: thin solid rgb(176, 246, 70);
+  }
+  .btnlike-postIt{
+    border-radius: 5px;
+    background-color: rgb(62, 206, 241);
+    border: thin solid rgb(62, 206, 241);
   }
 
 @media (max-width: 760px) {
