@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Asap Condensed
+Author: Omnibus-Type
+Url: https://fonts.google.com/specimen/Asap+Condensed
+
+Font: Varela Round
+Author: Joe Prince
+Url: https://fonts.google.com/specimen/Varela+Round

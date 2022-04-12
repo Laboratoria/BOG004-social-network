@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Red Social para proveedores y clientes de servicios Tics</title>
 </head>
+<nav class="nav">
+    <div class="nav-title">
+        <a href="#/">
+            <img class="nav-logo" src="./images/logo-ninja-signup-responsive.png" alt="logo">
+        </a>
+    </div>
+    <div class="nav-items">
+        <button class="nav-btn-border" onclick="window.location.href='#/register';">
+        REGISTRARSE
+      </button>
+        <button class="nav-btn-bg" onclick="window.location.href='#/login';">
+        INICIAR SESIÓN
+      </button>
+        <a class="nav-btn" href="#" style="display: none;">Cerrar Sesión</a>
+        <a class="nav-btn" href="#" style="display: none;">Muro</a>
+    </div>
+</nav>
+
 <body>
-  <script type="module" src="main.js"></script>
+    <header>
+        <div id="root"></div>
+    </header>
+    <script type="module" src="./Firebase/firebase-controller.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
+
 </html>
