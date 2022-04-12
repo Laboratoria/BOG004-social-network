@@ -1,5 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
-import { saveFormPost, onGetPost, deletePost, getPost, getOnePost } from "../Firebase/firestore.js";
+import { saveFormPost, onGetPost, deletePost, getPost, getOnePost, updatePost } from "../Firebase/firestore.js";
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -8,7 +8,7 @@ export const feed = () => {
     <div id="feed-template">
     <section id="info-user">
         <div id="div-profile">
-            <img id="photo-profile" src="../imageS/Ellipse 1.png" alt="">
+            <img id="photo-profile" src="../images/Ellipse 1.png" alt="">
             <div>
                 <h3 id="name-user">Nombre Apellido</h3>
                 <p id="type-user">Empresa</p>
@@ -60,6 +60,7 @@ export const feed = () => {
     const divPost = document.querySelector("#feed-user");
     const postForm = document.querySelector("#form-post");
     let editStatus = false;
+    let id = '';
 
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -68,15 +69,16 @@ export const feed = () => {
                 creationDate: new Date()
             }
             // saveFormPost(infoPost);
-        if (editStatus) {
-            console.log('Actualizando')
-        } else {
+        if (!editStatus) {
             saveFormPost(infoPost);
+        } else {
+            // saveFormPost(infoPost);
+            updatePost(id, textAreaPost.value);
+            editStatus = false;
         }
 
         postForm.reset();
     });
-
 
     //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
 
@@ -90,7 +92,7 @@ export const feed = () => {
             postfeed.push({ textAreaPost: datapost.textAreaPost });
             const divpostuser = `
                 <div id="div-profile-feed">
-                 <img src="../images/Ellipse 2.png" alt="">
+                 <img class="square" src="../images/Ellipse 2.png" alt="">
                     <div>
                         <h3 id="name-user">Nombre Apellido</h3>
                         <p id="type-user">Programador</p>
@@ -142,6 +144,7 @@ export const feed = () => {
         });
 
         return viewFeedHtml;
+        id = doc.id;
     });
 
 };
