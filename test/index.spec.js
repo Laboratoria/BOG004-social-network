@@ -3,7 +3,7 @@ import { changeRoute } from '../src/lib/router';
 
 describe('changeRoute', () => {
   it('deberia cambia', () => {
-    document.body.innerHTML = '<div id="container"></div>'
+    document.body.innerHTML = '<div id="container"></div>';
     const components = {
       register: () => {
         const divLogin = document.createElement('div');

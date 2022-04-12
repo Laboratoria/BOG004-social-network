@@ -18,29 +18,29 @@ import {
   serverTimestamp,
   orderBy,
   deleteDoc,
-  arrayUnion, 
+  arrayUnion,
   arrayRemove,
 } from './firebaseInit.js';
 
-//Crear usuario con correo y contraseña
+// Crear usuario con correo y contraseña
 export const newRegister = (email, password, name) => {
   const auth = getAuth();
-  return createUserWithEmailAndPassword(auth, email, password, name)
+  return createUserWithEmailAndPassword(auth, email, password, name);
 };
 
-//Registro/ingreso con usuario y contraseña
+// Registro/ingreso con usuario y contraseña
 export const loginGoogle = () => {
   const auth = getAuth();
-  return signInWithPopup(auth, provider)
+  return signInWithPopup(auth, provider);
 };
 
-//Ingresar con correo y contraseña
+// Ingresar con correo y contraseña
 export const loginWithEmailAndPassword = (email, password) => {
   const auth = getAuth();
-  return signInWithEmailAndPassword(auth, email, password)
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
-//Observador
+// Observador
 export const watcher = () => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
@@ -52,12 +52,11 @@ export const watcher = () => {
   });
 };
 
-//Captar Informacion de Usuario
+// Captar Informacion de Usuario
 export const currentUser = () => {
   watcher();
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log (user);
   if (user === null || user === undefined) {
     window.location.hash = '#/login';
   } else {
@@ -66,61 +65,56 @@ export const currentUser = () => {
   return user;
 };
 
-//Declaracion db para guardar coleccion
+// Declaracion db para guardar coleccion
 const dbPublications = collection(db, 'posts');
 
-//Crear post
-export const createPost = (postDescription, uidPost, arraylike) => {
-  console.log(postDescription);
-  return addDoc(dbPublications, { postDescription, uidPost, arraylike, postCreatedAt: serverTimestamp(),
-  });
-};
+// Crear post
+export const createPost = (postDescription, uidPost, arraylike) => addDoc(dbPublications, {
+  postDescription,
+  uidPost,
+  arraylike,
+  postCreatedAt: serverTimestamp(),
+});
 
-//Obtener documento de 'Posts'
-export const getPost = () => {
-  return getDocs(dbPublications);
-};
+// Obtener documento de 'Posts'
+export const getPost = () => getDocs(dbPublications);
 
-//Consulta de publicaciones de manera ordenada
+// Consulta de publicaciones de manera ordenada
 const orderPost = query(dbPublications, orderBy('postCreatedAt', 'desc'));
 
-//Obtiene los documentos en tiempo real
-export const readAllPost = (querySnapshot) => {
-  //console.log('muestranos: ', onSnapshot(orderPost, dbPublications, querySnapshot));
-  return onSnapshot(orderPost, dbPublications, querySnapshot);
-};
+// Obtiene los documentos en tiempo real
+export const readAllPost = (querySnapshot) => onSnapshot(orderPost, dbPublications, querySnapshot);
 
-//Borrar documento de la coleccion
+// Borrar documento de la coleccion
 export const deletePost = (id) => {
-  deleteDoc(doc(dbPublications, id))
+  deleteDoc(doc(dbPublications, id));
 };
 
-//Acceder a un post por ID
+// Acceder a un post por ID
 export const giveMethePost = (id) => {
   const docRef = doc(dbPublications, id);
   const docSnap = getDoc(docRef);
   return docSnap;
 };
 
-//Actualizar una publicación
+// Actualizar una publicación
 export const updatePost = (id, postDescriptionUpdate) => {
   updateDoc(doc(dbPublications, id), postDescriptionUpdate);
 };
 
-//Agregar like
+// Agregar like
 export const likes = (id, userInfoId) => {
   updateDoc(doc(dbPublications, id), { arraylike: arrayUnion(userInfoId) });
 };
 
-//Quitar like
+// Quitar like
 export const dislikes = (id, userInfoId) => {
   updateDoc(doc(dbPublications, id), { arraylike: arrayRemove(userInfoId) });
 };
 
-//Cerrar Sesion
+// Cerrar Sesion
 export const logout = () => {
   const auth = getAuth();
   const logOutUser = signOut(auth);
   return logOutUser;
 };
-

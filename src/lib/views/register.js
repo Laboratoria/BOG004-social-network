@@ -1,4 +1,3 @@
-// import { auth, provider } from '../firebaseInit.js';
 import { newRegister, loginGoogle } from '../firebaseController.js';
 
 export default () => {
@@ -61,7 +60,6 @@ export default () => {
             window.location.hash = '#/daily';
           }, 4000);
           formNewRegister.reset();
-          console.log('Join');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -84,14 +82,12 @@ export default () => {
         });
     } else {
       errorMessageJoin.innerHTML = '⚠️ Name is a require field';
-      console.log('No ingresó nombre');
     }
   });
 
   const googleBotton = divRegister.querySelector('#googleButton');
   googleBotton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('Click en Google');
     loginGoogle()
       .then(() => {
         window.location.hash = '#/daily';
