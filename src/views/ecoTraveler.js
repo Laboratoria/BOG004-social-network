@@ -1,5 +1,5 @@
 import { savePost, showsPost } from '../firebase/fbFunction.js';
-import { getAuth, serverTimestamp } from '../Firebase/firebaseImport.js';
+import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
 const auth = getAuth();
@@ -10,11 +10,11 @@ const clickPost = (div) => {
    const actualDate = serverTimestamp();
    const postValue = div.querySelector('#inputPost').value;
    //   divEcotraveler.innerHTML = '';
-   savePost(postValue, userName.uid, actualDate).then(()=> {
-  divContainerPost.innerHTML = '';
+   savePost(postValue, userName.email, actualDate).then(()=> {
+//   divContainerPost.innerHTML = '';
       showsPost()
       .then((res) => res.forEach((e) => { 
-         divContainerPost.appendChild(paintPost(e.data().post));
+         divContainerPost.appendChild(paintPost(e.data()));
       })
       )}) 
     divEcotraveler.appendChild(divContainerPost);
@@ -53,10 +53,13 @@ export const paintPost = (post) =>{
    let historyPost =  `
    <div class='containerWallPost'>
         <div class='containerPost' id='postSpace'>
-       <textarea name='post' id='textAreaPost' >${post}</textarea>
+        <div class='userName'>${post.userName}</div>
+       <textarea name='post' id='textAreaPost' >${post.post}</textarea>
        </div>
        <div class='containerIconsPost'>
-    
+       <img src='img/heart.png' alt='like' class='icons'>
+       <img src='img/pencil (1).png' alt='editPost' class='icons'>
+       <img src='img/bin.png' alt='deletePost' class='icons'></img>
      </div>
      </div>
    `;
@@ -70,6 +73,4 @@ export const paintPost = (post) =>{
 
 
 
-// {/* <img src='img/heart.png' alt='like' class='icons'>
-//     <img src='img/pencil (1).png' alt='editPost' class='icons'>
-//     <img src='img/bin.png' alt='deletePost' class='icons'></img> */}
+
