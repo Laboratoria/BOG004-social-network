@@ -1,20 +1,22 @@
 // Importamos las funciones del Firebase y FireStore
 
+// eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
-import { 
-  getAuth, 
-  GoogleAuthProvider,  
+import {
+  getAuth,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
-import { 
+import {
   getFirestore,
-  collection, 
+  collection,
   addDoc,
   getDocs,
   getDoc,
@@ -25,9 +27,10 @@ import {
   orderBy,
   deleteDoc,
   updateDoc,
-  arrayUnion, 
+  arrayUnion,
   arrayRemove,
-  } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; 
+// eslint-disable-next-line import/no-unresolved
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrYZ67zhwpOS_Hfqv6FKtfRXFMNp5W7bY',
@@ -38,28 +41,22 @@ const firebaseConfig = {
   appId: '1:861904852247:web:e43702a3cbba18134a5352',
 };
 
-const app = initializeApp(firebaseConfig);
-console.log(app);
-
-// export const auth = getAuth();
-// console.log(auth);
+export const app = initializeApp(firebaseConfig);
 
 export const provider = new GoogleAuthProvider();
-console.log(provider);
 
 export const db = getFirestore();
-console.log(db);
 
 export {
-  getAuth, 
-  GoogleAuthProvider,  
+  getAuth,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   getFirestore,
-  collection, 
+  collection,
   addDoc,
   getDocs,
   getDoc,
@@ -70,6 +67,6 @@ export {
   orderBy,
   deleteDoc,
   updateDoc,
-  arrayUnion, 
+  arrayUnion,
   arrayRemove,
-  };
+};

@@ -1,22 +1,21 @@
-import { 
-createPost, 
-getPost, 
-readAllPost, 
-currentUser, 
-deletePost, 
-logout, 
-giveMethePost, 
-updatePost,
-likes,
-dislikes,
-} 
-from '../firebaseController.js'
+import {
+  createPost,
+  getPost,
+  readAllPost,
+  currentUser,
+  deletePost,
+  logout,
+  giveMethePost,
+  updatePost,
+  likes,
+  dislikes,
+} from '../firebaseController.js';
 
-//Template vista Daily
+// Template vista Daily
 export default () => {
   const divDaily = document.createElement('div');
-    divDaily.setAttribute('class', 'container-div-daily');
-      const viewDaily = `
+  divDaily.setAttribute('class', 'container-div-daily');
+  const viewDaily = `
         <header id='banner'>
           <div class="tittle-daily"></div>
         </header>
@@ -43,63 +42,57 @@ export default () => {
         <footer id='create-post'>          
         </footer>
       `;
-divDaily.innerHTML = viewDaily;
-  
-const userInfo = currentUser();
-  
-const btnCreate = divDaily.querySelector('#btn-post-create');
-let background = divDaily.querySelector('#modal-background');
-let modalPost = divDaily.querySelector('#modal_post-container');
-const postDescription = divDaily.querySelector('#post-description');
+  divDaily.innerHTML = viewDaily;
+  const userInfo = currentUser();
+  const btnCreate = divDaily.querySelector('#btn-post-create');
+  const background = divDaily.querySelector('#modal-background');
+  const modalPost = divDaily.querySelector('#modal_post-container');
+  const postDescription = divDaily.querySelector('#post-description');
 
-//Evento Boton crear
-btnCreate.addEventListener('click', () => {
-  console.log('Opened');
-  background.style.display = 'flex';
-  modalPost.style.display = 'block';
-  postDescription.focus();
-  postDescription.value = '';    
-})
-
-//Crear Post
-const putUp = (currentUserInfo, divDaily) => {
-  const postForm = divDaily.querySelector('#modal_post-container');
-  postForm .addEventListener('submit', (e) => {
-  e.preventDefault();
-  const postFormContent = postForm['post-description'];
-  const postUid = currentUserInfo.uid;
-  const likeIds = []; // Array vacio para likes
-  createPost(postFormContent.value, postUid, likeIds);
-  modalPost.reset();    
+  // Evento Boton crear
+  btnCreate.addEventListener('click', () => {
+    background.style.display = 'flex';
+    modalPost.style.display = 'block';
+    postDescription.focus();
+    postDescription.value = '';
   });
-};
-putUp(userInfo, divDaily);
 
-//Controlador de Post (Read, Update, Delete)
-const postController = (currentUserInfo) => {
-  console.log('¿qué entra como currentUserInfo? : ', currentUserInfo);
-  const postContainer = divDaily.querySelector('#post-container');
-  const querySnapshot = getPost();
-  //función para leer las publicaciones en tiempo real 
-  readAllPost((response) => {
-    let postTemplate = '';
-    response.forEach((doc) => {
-      const post = doc.data(); 
-      let deleteEditSection;
-      console.log('Este es el User ID :', currentUserInfo.uid);
-      const userIdLogin = currentUserInfo.uid
-      console.log('Este es el docID: ', doc.data().uidPost)
-      if (userIdLogin === post.uidPost) {
-        deleteEditSection = `
+  // Crear Post
+  const putUp = (currentUserInfo) => {
+    const postForm = divDaily.querySelector('#modal_post-container');
+    postForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const postFormContent = postForm['post-description'];
+      const postUid = currentUserInfo.uid;
+      const likeIds = []; // Array vacio para likes
+      createPost(postFormContent.value, postUid, likeIds);
+      modalPost.reset();
+    });
+  };
+  putUp(userInfo);
+
+  // Controlador de Post (Read, Update, Delete)
+  const postController = (currentUserInfo) => {
+    const postContainer = divDaily.querySelector('#post-container');
+    const querySnapshot = getPost();
+    // función para leer las publicaciones en tiempo real
+    readAllPost((response) => {
+      let postTemplate = '';
+      response.forEach((doc) => {
+        const post = doc.data();
+        let deleteEditSection;
+        const userIdLogin = currentUserInfo.uid;
+        if (userIdLogin === post.uidPost) {
+          deleteEditSection = `
           <button class='edit-img' id='edit' data-postid='${doc.id}'></button>
           <button class='save-img hidenBtn'  id='save'  data-postid='${doc.id}'></button>
           <button class='delete-img' id='delete' data-postid='${doc.id}'></button>          
         `;
-      } else {
-        deleteEditSection = '';
-      }
-    const likeIcon = post.arraylike.includes(currentUserInfo.uid);
-    postTemplate += `
+        } else {
+          deleteEditSection = '';
+        }
+        const likeIcon = post.arraylike.includes(currentUserInfo.uid);
+        postTemplate += `
         <div id='div-post-container' class='div-post-container'> 
           <div id='post-container-header' class='post-container-header'>
             <img class='user_img' src='./img/Icono_Harry.png'>
@@ -115,106 +108,97 @@ const postController = (currentUserInfo) => {
             </div>
           </div>
         </div>    
-      `;          
-  });
-  postContainer.innerHTML = postTemplate;
+      `;
+      });
+      postContainer.innerHTML = postTemplate;
 
-  //Eliminar post
-  const postDelete = () => {
-    const deleteButton = divDaily.querySelectorAll('#delete');
-    deleteButton.forEach((btnDelete) => {
-      btnDelete.addEventListener('click', ({ target: { dataset } }) => {
-        console.log('soy ID para eliminar post :', dataset.postid);
-      deletePost(dataset.postid);
-      });
-    });
-  };
-  postDelete();
-  
-  // Editar Post
-  const editPost = () => {
-    const editPostDescrip = divDaily.querySelectorAll('.post-content');
-    const editBtn = divDaily.querySelectorAll('#edit');
-    const saveBtn = divDaily.querySelectorAll('#save');
-    editBtn.forEach((btnEdit, index) => {
-      btnEdit.addEventListener('click', (e) => {
-        const clickBtnEdit = e.target.dataset.postid;
-        giveMethePost(clickBtnEdit)
-          .then(() => {
-            editPostDescrip.forEach((textArea) => {
-              if (textArea.id === clickBtnEdit) {
-                textArea.removeAttribute('readonly');
-                btnEdit.classList.add('hidenBtn');
-                saveBtn[index].classList.remove('hidenBtn');
-              }
-            });
-          })           
-      });
-    });
-    saveBtn.forEach((btnSave, index) => {
-      btnSave.addEventListener('click', (e) => {
-        const clickBtn = e.target.dataset.postid;
-        giveMethePost(clickBtn)
-          .then(() => {
-            editPostDescrip.forEach((textArea) => {
-              if (textArea.id === clickBtn) {
-                textArea.setAttribute('readonly', true);
-                btnSave.classList.add('hidenBtn');
-                editBtn[index].classList.remove('hidenBtn');
-                const postDescription = textArea.value;
-                console.log(postDescription);
-                updatePost(textArea.id, { postDescription });
-              }
-            });
-          })          
-      });
-    });
-  };
-  editPost();  
+      // Eliminar post
+      const postDelete = () => {
+        const deleteButton = divDaily.querySelectorAll('#delete');
+        deleteButton.forEach((btnDelete) => {
+          btnDelete.addEventListener('click', ({ target: { dataset } }) => {
+            deletePost(dataset.postid);
+          });
+        });
+      };
+      postDelete();
 
-  //Dar like
-  const giveMetheLike = () => {
-    const userInfoId = currentUserInfo.uid;
-    const btnLikes = divDaily.querySelectorAll('.like');
-    console.log('btn likes ', btnLikes);
-    btnLikes.forEach((like) => {
-      console.log('cada like: ', like);
-      like.addEventListener('click', () => {
-        const liked = like.id;
-        giveMethePost(liked)
-          .then((docLike) => {
-            const justOnePost = docLike.data();
-            const likeIds= justOnePost.arraylike;
-            if (likeIds.includes(userInfoId)) {
-              dislikes(liked, userInfoId);
-            } else {
-              likes(liked, userInfoId);
-            }
-          })
-          // .catch((error) => {
-          //   showNotification(error);
-          // });
-      });
+      // Editar Post
+      const editPost = () => {
+        const editPostDescrip = divDaily.querySelectorAll('.post-content');
+        const editBtn = divDaily.querySelectorAll('#edit');
+        const saveBtn = divDaily.querySelectorAll('#save');
+        editBtn.forEach((btnEdit, index) => {
+          btnEdit.addEventListener('click', (e) => {
+            const clickBtnEdit = e.target.dataset.postid;
+            giveMethePost(clickBtnEdit)
+              .then(() => {
+                editPostDescrip.forEach((textArea) => {
+                  if (textArea.id === clickBtnEdit) {
+                    textArea.removeAttribute('readonly');
+                    btnEdit.classList.add('hidenBtn');
+                    saveBtn[index].classList.remove('hidenBtn');
+                  }
+                });
+              });
+          });
+        });
+        saveBtn.forEach((btnSave, index) => {
+          btnSave.addEventListener('click', (e) => {
+            const clickBtn = e.target.dataset.postid;
+            giveMethePost(clickBtn)
+              .then(() => {
+                editPostDescrip.forEach((textArea) => {
+                  if (textArea.id === clickBtn) {
+                    textArea.setAttribute('readonly', true);
+                    btnSave.classList.add('hidenBtn');
+                    editBtn[index].classList.remove('hidenBtn');
+                    const postDescription = textArea.value;
+                    updatePost(textArea.id, { postDescription });
+                  }
+                });
+              });
+          });
+        });
+      };
+      editPost();
+
+      // Dar like
+      const giveMetheLike = () => {
+        const userInfoId = currentUserInfo.uid;
+        const btnLikes = divDaily.querySelectorAll('.like');
+        btnLikes.forEach((like) => {
+          like.addEventListener('click', () => {
+            const liked = like.id;
+            giveMethePost(liked)
+              .then((docLike) => {
+                const justOnePost = docLike.data();
+                const likeIds = justOnePost.arraylike;
+                if (likeIds.includes(userInfoId)) {
+                  dislikes(liked, userInfoId);
+                } else {
+                  likes(liked, userInfoId);
+                }
+              });
+          });
+        });
+      };
+      giveMetheLike();
+      // FIN funcion para dar like al post
     });
+    readAllPost(querySnapshot);
   };
-  giveMetheLike();
-  // FIN funcion para dar like al post
-  });
-  readAllPost(querySnapshot);
- 
-};
-postController(userInfo);
+  postController(userInfo);
 
   // declaracion modalClose para evento de cierre de modal
-  let modalClose = divDaily.querySelector('#close'); 
-  modalClose.addEventListener('click',()=>{
-    console.log('Close');
-    background.style.display= 'none';
-    modalPost.style.display= '';
+  const modalClose = divDaily.querySelector('#close');
+  modalClose.addEventListener('click', () => {
+    background.style.display = 'none';
+    modalPost.style.display = '';
   });
 
   // Función para no publicar espacios en blanco
-  const btnSave = divDaily.querySelector('#btn-post-save')
+  const btnSave = divDaily.querySelector('#btn-post-save');
   postDescription.addEventListener('keyup', () => { // evento del textarea
     const postContent = postDescription.value.trim();
     // trim() metodo que no permite activar boton con espacio
@@ -232,9 +216,8 @@ postController(userInfo);
     logout()
       .then(() => {
         window.location.hash = '#/login';
-      })
-    });   
+      });
+  });
 
-return divDaily;
+  return divDaily;
 };
-
