@@ -1,5 +1,6 @@
 import { changeView } from "../view-controler/controler.js";
 import { saveFormPost, onGetPost, deletePost, getPost, getOnePost, updatePost } from "../Firebase/firestore.js";
+// import { async } from "regenerator-runtime";
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -68,7 +69,7 @@ export const feed = () => {
         const post = postForm["area-post"];
         // saveFormPost(infoPost);
         if (!editStatus) {
-            saveFormPost(post.value);
+            saveFormPost(post.value, 0);
         } else {
             // saveFormPost(infoPost);
             updatePost(id, {
@@ -105,7 +106,7 @@ export const feed = () => {
                 </div>
                     <div> ${datapost.textAreaPost} </div>
                     <div id="div-options">
-                     <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
+                     <button data-id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes">${datapost.likes}</button>
                      <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
                      <a href=""><img src="../images/share 1.png" alt="Share"></a>
                     </div>
@@ -114,6 +115,21 @@ export const feed = () => {
             infoPostUser += divpostuser;
         });
         divPost.innerHTML = infoPostUser;
+
+        const btnsLike = divPost.querySelectorAll(".btn-likes");
+        btnsLike.forEach((btn) => {
+            btn.addEventListener("click", async(e) => {
+                console.log(e.target.dataset.id);
+                const doc = await getOnePost(e.target.dataset.id);
+                const editPost = doc.data();
+                console.log(editPost);
+                const likesSaves = editPost.likes;
+                const id = e.target.dataset.id;
+                updatePost(id, {
+                    likes: likesSaves + 1,
+                })
+            })
+        })
 
         const btnsDelete = divPost.querySelectorAll(".btn-delete");
 
