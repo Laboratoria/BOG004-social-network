@@ -199,7 +199,9 @@ margin-top: 18%;
     justify-self: end;
 }
 .icons{
-   height: 4%;
+   height: 3%;
+   width: 3%;
+   margin-left: 2%;
 }
 .containerWallPost{
     border: 2px solid blue;

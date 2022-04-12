@@ -1,6 +1,6 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs, orderBy } from './firebaseImport.js'
+import {  addDoc, collection, query, getDocs, orderBy, onSnapshot } from './firebaseImport.js'
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
@@ -9,7 +9,7 @@ import { GoogleAuthProvider } from './firebaseImport.js';
 import { paintPost } from '../views/ecoTraveler.js';
 
 
-
+// const userEmail
 /* Creamos una funcion createUser para exportarla y activarla
 cuando se de click a el boton de registrarte y le pasamos como parametro email y contraseña */
 export const createNewUser = (email, password) => {
@@ -39,6 +39,7 @@ export const createNewUser = (email, password) => {
     // ..
     });
 };
+
 export const signInUser = (auth, email, password) => {
   signIn(auth, email, password)
   .then((userCredential) => {
@@ -48,7 +49,7 @@ export const signInUser = (auth, email, password) => {
     changeView('#/ecoTraveler');
     
     /* console.log("Hola, soy auth", user.uid); */
-      console.log(user, "Esta entrando a la funcion signIn");
+      console.log(user.email, "Esta entrando a la funcion signIn");
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -69,7 +70,6 @@ export const signInUser = (auth, email, password) => {
       console.log(errorMessage, "No esta entrando a la funcion signIn");
     });
     }
- 
     // const auth = getAuth();
     export const loginGoogle = (auth, provider) => {
       signInWithGoogle(auth,provider)
