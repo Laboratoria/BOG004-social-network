@@ -6,7 +6,8 @@ import {
     onSnapshot,
     deleteDoc,
     doc,
-    getDoc
+    getDoc,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 import { getFirestore } from "./firebase-import.js";
 
@@ -29,3 +30,5 @@ export const onGetPost = async(callback) => onSnapshot(collection(db, "posts-col
 export const deletePost = async(id) => deleteDoc(doc(db, "posts-collection", id));
 
 export const getOnePost = async(id) => getDoc(doc(db, "posts-collection", id));
+
+export const updatePost = (id, newFields) => updateDoc(doc(db, "posts-collection", id), newFields)
