@@ -95,7 +95,7 @@ export const signInUser = (auth, email, password) => {
     }
 
     
-    export const savePost = ( post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
+    export const savePost = (post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
 
   export const showsPost = async () => {
     const querySnapshot = await getDocs(collection(db, 'posts'));
