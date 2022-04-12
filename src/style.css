@@ -10,7 +10,7 @@ nav {
 body {
     height: 100%;
     margin: 0;
-    background-image: url("/images/Tablet.svg");
+    background-image: url("./images/Tablet.svg");
     background-repeat: no-repeat;
 }
 
@@ -179,7 +179,7 @@ h1 .relevant {
     margin-top: 0.5em;
 }
 
-.square{
+.square {
     width: 2em;
     height: 2em;
 }
@@ -320,6 +320,7 @@ h1 .relevant {
     z-index: 1;
 }
 
+
 /* Links inside the dropdown */
 
 .dropdown-content button {
@@ -334,8 +335,9 @@ h1 .relevant {
 
 
 /* Change color of dropdown links on hover */
+
 .dropdown-content button:hover {
-    background-color:rgba(109, 184, 223, 0.3);
+    background-color: rgba(109, 184, 223, 0.3);
 }
 
 
@@ -356,7 +358,7 @@ h1 .relevant {
     body {
         height: 100%;
         margin: 0;
-        background-image: url("/images/bg-desktop.svg");
+        background-image: url("./images/bg-desktop.svg");
         background-repeat: no-repeat;
         background-size: cover;
     }
