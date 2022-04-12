@@ -92,7 +92,7 @@ const postController = (currentUserInfo) => {
       if (userIdLogin === post.uidPost) {
         deleteEditSection = `
           <button class='edit-img' id='edit' data-postid='${doc.id}'></button>
-          <button class='save-img hidenBtn'  id='save'  data-postid='${doc.id}'>Guardar</button>
+          <button class='save-img hidenBtn'  id='save'  data-postid='${doc.id}'></button>
           <button class='delete-img' id='delete' data-postid='${doc.id}'></button>          
         `;
       } else {
@@ -108,10 +108,11 @@ const postController = (currentUserInfo) => {
             </div>
           </div>
           <textarea type='text' class='post-content inp-post-modal-post' readonly id='${doc.id}'>${doc.data().postDescription}</textarea>  
-          <div>
+          <div class='counter-likebtn'>
             <button class='like' id='${doc.id}'><i class="${likeIcon}" id='${doc.id}></i></button>
-            
+            <div>
             <p class='like-lenght'>${post.arraylike.length}</p>
+            </div>
           </div>
         </div>    
       `;          
