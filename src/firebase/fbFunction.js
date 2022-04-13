@@ -1,6 +1,6 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs, orderBy, onSnapshot } from './firebaseImport.js'
+import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc } from './firebaseImport.js'
 import { createUser, provider } from '../view-controler/controllers.js';
 import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
@@ -94,7 +94,6 @@ export const signInUser = (auth, email, password) => {
       });
     }
 
-    
     export const savePost = (post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
 
   export const showsPost = async () => {
@@ -105,3 +104,10 @@ export const signInUser = (auth, email, password) => {
 }); */
 return querySnapshot;
   }
+  
+// export const editPost = (userName, post) => updateDoc(doc(db,'posts', userName),post)
+
+export const editPost = (userName, post) => {
+  console.log(userName, post)
+  return updateDoc(doc(db,'posts', userName),post)
+}

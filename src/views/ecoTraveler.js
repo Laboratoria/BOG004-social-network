@@ -1,4 +1,4 @@
-import { savePost, showsPost } from '../firebase/fbFunction.js';
+import { savePost, showsPost, editPost } from '../firebase/fbFunction.js';
 import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
@@ -12,12 +12,17 @@ const clickPost = (div) => {
    //   divEcotraveler.innerHTML = '';
    savePost(postValue, userName.email, actualDate).then(()=> {
 //   divContainerPost.innerHTML = '';
-      showsPost()
+showsPaintPost();
+}) 
+   }
+   const showsPaintPost = () => {
+      console.log('Hola entre');
+            showsPost()
       .then((res) => res.forEach((e) => { 
          divContainerPost.appendChild(paintPost(e.data()));
+           divEcotraveler.appendChild(divContainerPost);
       })
-      )}) 
-    divEcotraveler.appendChild(divContainerPost);
+      )
    }
 const divEcotraveler = document.createElement('div');
 const divContainerPost = document.createElement('div');
@@ -47,7 +52,7 @@ export default () => {
   return divEcotraveler;
 };
 
-
+// const pruebaedit = '';
 export const paintPost = (post) =>{
    const divPost = document.createElement('div');
    let historyPost =  `
@@ -57,20 +62,24 @@ export const paintPost = (post) =>{
        <textarea name='post' id='textAreaPost' >${post.post}</textarea>
        </div>
        <div class='containerIconsPost'>
-       <img src='img/heart.png' alt='like' class='icons'>
-       <img src='img/pencil (1).png' alt='editPost' class='icons'>
-       <img src='img/bin.png' alt='deletePost' class='icons'></img>
+       <img src='img/heart.png' alt='like' class='icons like' id='likePost_${post.userName}' >
+       <img src='img/pencil (1).png' alt='editPost' class='icons' id='edit_${post.userName}'>
+       <img src='img/bin.png' alt='deletePost' class='icons' ></img id='delete_${post.userName}'>
      </div>
      </div>
    `;
 
    divPost.innerHTML = historyPost;
-  
+//   pruebaedit.innerHTML= historyPost;
+
     return divPost; 
 }
-
-// divContainerPost.innerHTML = '';
-
+window.onload = showsPaintPost;
+// onclick= editPost('','')
+//   const btnEdit = document.querySelectorAll('.like');
+//   console.log(btnEdit, 'soy el boton edit')
+  // creamos un evento al boton publicar
+// btnEdit.addEventListener('click', () => console.log("soy el click editar"));
 
 
 
