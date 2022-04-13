@@ -28,7 +28,7 @@ export const feed = () => {
         <form action="" id="form-post">
             <div id="form-textarea">
                 <label for="newpost">Nuevo Post</label>
-                <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?">    
+                <textarea name="Post" id="area-post" cols="20" rows="3" maxlength="300" placeholder="¿Qué quieres compartir hoy?">    
                 </textarea>
             </div>
             <div id="div-check">
@@ -106,9 +106,9 @@ export const feed = () => {
                 </div>
                     <div> ${datapost.textAreaPost} </div>
                     <div id="div-options">
-                     <button data-id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes">${datapost.likes.length}</button>
-                     <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
-                     <a href=""><img src="../images/share 1.png" alt="Share"></a>
+                     <button data-id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
+                     <button class="btn-center"><img src="../images/speech-bubble 1.png" alt="Comments"></button>
+                     <button class="btn-center"><img src="../images/share 1.png" alt="Share"></button>
                     </div>
                     <hr>            
                 `;
@@ -120,19 +120,20 @@ export const feed = () => {
         btnsLike.forEach((btn) => {
             btn.addEventListener("click", async(e) => {
                 const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
-                console.log(uid);
+                console.log(e.target.dataset.id);
                 const doc = await getOnePost(e.target.dataset.id);
-                const editPost = doc.data();
-                console.log(editPost);
-                const likesSaves = editPost.likes;
+                const savedPost = doc.data();
+                const likesSaves = savedPost.likes;
+                console.log(uid, likesSaves);
                 const id = e.target.dataset.id;
                 if(likesSaves.includes(uid)){
-                    likesSaves.splice(uid)
-                    updatePost(id, {
-                        likes: likesSaves,
-                    })
+                    // likesSaves.splice(uid);
+                    // updatePost(id, {
+                    //     likes: likesSaves,
+                    // })
                     console.log("ya puse like");
                 } else {
+                    console.log("si entra");
                     likesSaves.push(uid);
                     updatePost(id, {
                         likes: likesSaves,
@@ -160,6 +161,7 @@ export const feed = () => {
             btn.addEventListener('click', async(e) => {
                 const doc = await getOnePost(e.target.dataset.id);
                 const editPost = doc.data();
+
                 console.log(editPost);
 
                 postForm["area-post"].value = editPost.textAreaPost;

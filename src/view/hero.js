@@ -15,7 +15,6 @@ export const hero = () => {
               <button id="btn-registerHero" class="btn-border">REGÍSTRATE</button>
               <button id="btn-loginHero" class="btn-background">INICIAR SESIÓN</button>
             </div>
-            <button id="btn-feed" class="btn-border">***FEED***</button>
         </div>
     `;
     viewHeroHtml.innerHTML = view;
@@ -25,8 +24,8 @@ export const hero = () => {
     document.querySelector("#btn-loginHero").addEventListener("click", () => {
         window.location.hash = "/login";
     });
-    document.querySelector("#btn-feed").addEventListener("click", () => {
-        window.location.hash = "/feed";
-    });
+    // document.querySelector("#btn-feed").addEventListener("click", () => {
+    //     window.location.hash = "/feed";
+    // });
     return viewHeroHtml;
 };

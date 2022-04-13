@@ -10,12 +10,11 @@ nav {
 body {
     height: 100%;
     margin: 0;
-    background-image: url("/images/Tablet.svg");
+    background-image: url("./images/Tablet.svg");
     background-repeat: no-repeat;
 }
 
 hr {
-    color: rgba(109, 184, 223, 0.5);
     background-color: rgba(109, 184, 223, 0.5);
     width: 98%;
     height: 2px;
@@ -179,9 +178,29 @@ h1 .relevant {
     margin-top: 0.5em;
 }
 
-.square{
+.square {
     width: 2em;
     height: 2em;
+}
+
+.btn-center{
+    align-self: center;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: default;
+    border: none;
+}
+
+.btn-likes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: default;
+    border: none;
 }
 
 .btn-likes-on{
@@ -240,11 +259,11 @@ h1 .relevant {
 }
 
 #section-post #area-post {
-    width: 78%;
+    width: 90%;
     height: 40%;
     border-radius: 0.5em;
     align-self: center;
-    padding: 2.5em;
+    padding: 1em;
     cursor: default;
 }
 
@@ -338,8 +357,9 @@ h1 .relevant {
 
 
 /* Change color of dropdown links on hover */
+
 .dropdown-content button:hover {
-    background-color:rgba(109, 184, 223, 0.3);
+    background-color: rgba(109, 184, 223, 0.3);
 }
 
 
@@ -360,7 +380,7 @@ h1 .relevant {
     body {
         height: 100%;
         margin: 0;
-        background-image: url("/images/bg-desktop.svg");
+        background-image: url("./images/bg-desktop.svg");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -557,4 +577,51 @@ h1 .relevant {
         height: 2.5em;
         margin-top: 0.5em;
     }
+
+    #root #feed-template {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        background-color: #fff;
+        justify-content: space-between;
+    }
+
+    #feed-template #info-user {
+        width: 28%;
+        height: max-content;
+        margin: 20px 0;
+        padding: 1.3em;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: auto auto;
+        border: none;
+        border-radius: 0.625em;
+        background-color: rgba(109, 184, 223, 0.37);
+    }
+
+    #feed-template #section-post {
+        width: 28%;
+        height: max-content;
+        margin: 20px 0;
+        padding: 1.3em;
+        display: grid;
+        grid-column: 1/2;
+        border: none;
+        border-radius: 0.625em;
+        background-color: rgba(109, 184, 223, 0.37);
+    }
+
+    #feed-template #feed-user {
+        width: 28%;
+        padding: 1.3em;
+        margin: 20px 0;
+        grid-template-rows: 20% 70% 10%;
+        background-color: #fff;
+        border: solid;
+        border-width: 0.125em;
+        border-radius: 0.625em;
+        border-color: rgba(109, 184, 223, 0.37);
+        margin-bottom: 20px;
+    }
 }
+
