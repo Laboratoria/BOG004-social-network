@@ -14,16 +14,16 @@ export default () => {
 <i class="fa-solid fa-lock"></i>
 <input type="password"  class="text-login" placeholder="Password" id="passwordUser" name="passwordUser">
 </div>
-<div class="button-group">
+<div>
 <button type="submit" class=ingress id=ingress>Sing in</button>
 </div>
 
-    <div class="button-group">
+    <div >
     <button type="submit" class="btn-google" id="btn-google">connect  with Google
     <img class="img-google"     src="img/google.png" alt="btn-google">
     </button>
     </div>
-<div class="button-group">
+<div>
 <button type="button" class=create id=create>Create your account</button>
 </div>
 </form>

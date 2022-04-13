@@ -10,7 +10,6 @@ console.log(route)
       return container.appendChild(components.Login());
     }
     case "#/register": {
-      
       return container.appendChild(components.register());
     }
     case "#/timeLine": {
@@ -28,7 +27,6 @@ console.log(route)
     default:
       break;
   }
-
   console.log(route);
 };
 export { changeView };

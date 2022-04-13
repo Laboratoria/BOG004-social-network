@@ -27,7 +27,8 @@ import{changeView} from './router.js'
       //Signed in
       const user = userCredential.user;
       //...
-      changeView("#/register");
+      console.log("funciona")
+      changeView("#/timeLine");
     })
     .catch((error) => {
       const errorCode = error.code;
