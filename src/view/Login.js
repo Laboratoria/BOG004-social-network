@@ -15,16 +15,16 @@ export default () => {
 <input type="password"  class="text-login" placeholder="Password" id="passwordUser" name="passwordUser">
 </div>
 <div>
-<button type="submit" class=ingress id=ingress>Sing in</button>
+<button type="submit" class="ingress" id="ingress">Sing in</button>
 </div>
 
     <div >
-    <button type="submit" class="btn-google" id="btn-google">connect  with Google
+    <button type="button" class="btn-google" id="btn-google">connect  with Google
     <img class="img-google"     src="img/google.png" alt="btn-google">
     </button>
     </div>
 <div>
-<button type="button" class=create id=create>Create your account</button>
+<button type="button" class="create" id="create">Create your account</button>
 </div>
 </form>
     `;
@@ -40,7 +40,8 @@ export default () => {
 
 
   //Eventos 
-  ingressButton.addEventListener("click", () => {
+  ingressButton.addEventListener("click", (e) => {
+    e.preventDefault()
     const passwordUser = divElement.querySelector("#passwordUser").value;
     const emailUser= divElement.querySelector("#emailUser").value;
     
