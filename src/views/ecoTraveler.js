@@ -15,8 +15,8 @@ const clickPost = (div) => {
 showsPaintPost();
 }) 
    }
-   const showsPaintPost = () => {
-      console.log('Hola entre');
+export const showsPaintPost = () => {
+      console.log('Hola entre')
             showsPost()
       .then((res) => res.forEach((e) => { 
          divContainerPost.appendChild(paintPost(e.data()));

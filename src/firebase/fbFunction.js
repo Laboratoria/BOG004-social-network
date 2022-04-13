@@ -6,7 +6,7 @@ import { signIn } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
 import { signInWithGoogle } from '../view-controler/controllers.js';
 import { GoogleAuthProvider } from './firebaseImport.js';
-import { paintPost } from '../views/ecoTraveler.js';
+import { paintPost, showsPaintPost } from '../views/ecoTraveler.js';
 
 
 // const userEmail
@@ -18,6 +18,7 @@ export const createNewUser = (email, password) => {
     // Signed in
       /* const user = userCredential.user; */
       changeView('#/ecoTraveler');
+      showsPaintPost();
     // ...
     })
     .catch((error) => {
@@ -47,6 +48,7 @@ export const signInUser = (auth, email, password) => {
     const user = userCredential.user;
     // ...
     changeView('#/ecoTraveler');
+    showsPaintPost();
     
     /* console.log("Hola, soy auth", user.uid); */
       console.log(user.email, "Esta entrando a la funcion signIn");
@@ -80,6 +82,7 @@ export const signInUser = (auth, email, password) => {
         // The signed-in user info.
         const user = result.user;
         changeView('#/ecoTraveler');
+        showsPaintPost();
         // ...
         console.log(signInWithGoogle, 'probando función signin')
       }).catch((error) => {
