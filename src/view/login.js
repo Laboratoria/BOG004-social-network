@@ -87,7 +87,7 @@ export const login = () => {
                 // The signed-in user info.
                 const user = result.user;
                 changeView("#/feed");
-                localStorage.setItem("userInfo", JSON.stringify(response.user));
+                localStorage.setItem("userInfo", JSON.stringify(result.user));
             })
             .catch((error) => {
                 // Handle Errors here.

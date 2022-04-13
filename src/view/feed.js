@@ -106,7 +106,7 @@ export const feed = () => {
                 </div>
                     <div> ${datapost.textAreaPost} </div>
                     <div id="div-options">
-                     <button data-id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
+                     <button id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
                      <button class="btn-center"><img src="../images/speech-bubble 1.png" alt="Comments"></button>
                      <button class="btn-center"><img src="../images/share 1.png" alt="Share"></button>
                     </div>
@@ -120,22 +120,22 @@ export const feed = () => {
         btnsLike.forEach((btn) => {
             btn.addEventListener("click", async(e) => {
                 const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
-                console.log(e.target.dataset.id);
-                const doc = await getOnePost(e.target.dataset.id);
+                console.log(e.currentTarget.id);
+                const doc = await getOnePost(e.currentTarget.id);
                 const savedPost = doc.data();
                 const likesSaves = savedPost.likes;
                 console.log(uid, likesSaves);
-                const id = e.target.dataset.id;
+                const idLike = e.currentTarget.id;
                 if(likesSaves.includes(uid)){
-                    // likesSaves.splice(uid);
-                    // updatePost(id, {
-                    //     likes: likesSaves,
-                    // })
-                    console.log("ya puse like");
+                  likesSaves.splice(uid);
+                  updatePost(idLike, {
+                    likes: likesSaves,
+                  })
+                  console.log("ya puse like");
                 } else {
                     console.log("si entra");
                     likesSaves.push(uid);
-                    updatePost(id, {
+                    updatePost(idLike, {
                         likes: likesSaves,
                     })
                 }
