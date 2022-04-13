@@ -2,19 +2,22 @@ import { components } from "../view/components.js";
 
 const changeView = (route) => {
     switch (route) {
-        case '#/':
+        case "#/":
             components.hero();
             break;
-        case '#/register':
+        case "#/register":
             components.register();
             break;
-        case '#/login':
+        case "#/login":
             components.login();
-            break;    
+            break;
+        case "#/feed":
+            components.feed();
+            break;
         default:
+            components.hero();
             break;
     }
-    console.log(route);
-}
+};
 
-export { changeView }
+export { changeView };
