@@ -1,5 +1,5 @@
 import {
-  close, savingPost, onGettingPost, deletePosts, getPost, updatePost, likeItPost,
+  close, savingPost, onGettingPost, deletePosts, getPost, updatePost, idUser,
 } from './firebase.js';
 
 export default () => {
@@ -28,8 +28,9 @@ export default () => {
   divElement.querySelector('#save-postIt').addEventListener('click', () => {
     const postIt = document.getElementById('postIt-description').value;
     const infoPost = {
+      user: idUser().uid,
       postIt,
-      likes: 0,
+      likes: [],
     };
     savingPost(infoPost);
 
@@ -57,7 +58,7 @@ export default () => {
                         <button type="button" class="btndelete-postIt" data-id="${doc.id}">Delete</button>
                         <button type="button" class="btnedit-postIt" data-id="${doc.id}">Edit</button>
                         <button type="button" class="btnlike-postIt" data-id="${doc.id}">I Like It!</button>
-                        <span> ${postData.likes} </span>
+                        <span> ${postData.likes.length} </span>
                         </div>
                     </div>
                     `;
@@ -71,9 +72,13 @@ export default () => {
         const doc = getPost(dataset.id);
         doc.then((response) => {
           const saveLikes = response.data().likes;
-          updatePost(dataset.id, { likes: saveLikes + 1 });
+          if (saveLikes.includes(idUser().uid)) {
+            saveLikes.splice(idUser().uid, 1);
+          } else {
+            saveLikes.push(idUser().uid);
+          }
+          updatePost(dataset.id, { likes: saveLikes });
         });
-        console.log(dataset.id);
       });
     });
 
@@ -114,5 +119,5 @@ export default () => {
 };
 
 export {
-  close, savingPost, onGettingPost, deletePosts, getPost, updatePost, likeItPost,
+  close, savingPost, onGettingPost, deletePosts, getPost, updatePost, idUser,
 };

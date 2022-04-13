@@ -127,7 +127,5 @@ export const getPost = (id) => getDoc(doc(db, "timeline-posts", id));
 // Updating post -timeline view-
 export const updatePost = (id, content) => updateDoc(doc(db, "timeline-posts", id), content);
 
-// Liking posts -timeline view-
-export const likeItPost = (id) => {
-  const user = firebase.auth().currentUser;
-};
+// User indicator
+export const idUser = () => getAuth().currentUser;
