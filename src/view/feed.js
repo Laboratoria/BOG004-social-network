@@ -126,11 +126,11 @@ export const feed = () => {
                 const likesSaves = savedPost.likes;
                 console.log(uid, likesSaves);
                 const id = e.target.dataset.id;
-                if(likesSaves.includes(uid)){
-                    // likesSaves.splice(uid);
-                    // updatePost(id, {
-                    //     likes: likesSaves,
-                    // })
+                if (likesSaves.includes(uid)) {
+                    likesSaves.splice(uid);
+                    updatePost(id, {
+                        likes: likesSaves,
+                    })
                     console.log("ya puse like");
                 } else {
                     console.log("si entra");
