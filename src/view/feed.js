@@ -122,8 +122,8 @@ export const feed = () => {
                 const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
                 console.log(e.target.dataset.id);
                 const doc = await getOnePost(e.target.dataset.id);
-                const editPost = doc.data();
-                const likesSaves = editPost.likes;
+                const savedPost = doc.data();
+                const likesSaves = savedPost.likes;
                 console.log(uid, likesSaves);
                 const id = e.target.dataset.id;
                 if(likesSaves.includes(uid)){
