@@ -66,7 +66,7 @@ export const register = () => {
 
         registerUser(emailRegister, passwordRegister)
             .then((response) => {
-                changeView("#/feed");
+                changeView("#/login");
                 console.log("registro exitoso :)");
             })
             .catch((error) => {
@@ -96,7 +96,7 @@ export const register = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                changeView("#/feed");
+                changeView("#/login");
             })
             .catch((error) => {
                 // Handle Errors here.

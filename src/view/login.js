@@ -58,7 +58,8 @@ export const login = () => {
         loginUser(emailLogin, passwordLogin)
             .then(response => {
                 changeView("#/feed")
-                console.log("Ingreso exitoso :)");
+                console.log(response);
+                localStorage.setItem("userInfo", JSON.stringify(response.user))
             })
             .catch((error) => {
                 console.log("error");
@@ -86,6 +87,7 @@ export const login = () => {
                 // The signed-in user info.
                 const user = result.user;
                 changeView("#/feed");
+                localStorage.setItem("userInfo", JSON.stringify(response.user));
             })
             .catch((error) => {
                 // Handle Errors here.
