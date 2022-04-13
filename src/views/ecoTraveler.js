@@ -13,11 +13,13 @@ const clickPost = (div) => {
    savePost(postValue, userName.email, actualDate).then(()=> {
 //   divContainerPost.innerHTML = '';
 showsPaintPost();
-}) 
-   }
+const cleanPost = document.querySelector('#inputPost');
+cleanPost.value= '';
+})
+}
 export const showsPaintPost = () => {
       console.log('Hola entre')
-            showsPost()
+         showsPost()
       .then((res) => res.forEach((e) => { 
          divContainerPost.appendChild(paintPost(e.data()));
            divEcotraveler.appendChild(divContainerPost);
@@ -59,10 +61,10 @@ export const paintPost = (post) =>{
    <div class='containerWallPost'>
         <div class='containerPost' id='postSpace'>
         <div class='userName'>${post.userName}</div>
-       <textarea name='post' id='textAreaPost' >${post.post}</textarea>
+       <textarea name='post' id='textAreaPost' readonly="readonly">${post.post}</textarea>
        </div>
        <div class='containerIconsPost'>
-       <img src='img/heart.png' alt='like' class='icons like' id='likePost_${post.userName}' >
+       <img src='img/heart (1).png' alt='like' class='icons like' id='likePost_${post.userName}' >
        <img src='img/pencil (1).png' alt='editPost' class='icons' id='edit_${post.userName}'>
        <img src='img/bin.png' alt='deletePost' class='icons' ></img id='delete_${post.userName}'>
      </div>
@@ -76,10 +78,21 @@ export const paintPost = (post) =>{
 }
 window.onload = showsPaintPost;
 // onclick= editPost('','')
-//   const btnEdit = document.querySelectorAll('.like');
-//   console.log(btnEdit, 'soy el boton edit')
-  // creamos un evento al boton publicar
+  const btnEdit = document.querySelectorAll('.like');
+  console.log(btnEdit, 'soy el boton edit')
+//   //creamos un evento al boton editar
 // btnEdit.addEventListener('click', () => console.log("soy el click editar"));
 
 
 
+//-----------------------------------------------------------------
+//  const noValidPost = document.querySelector('#inputPost');
+//    if (noValidPost != ''){
+
+// else { window.alert('debes escribir un comentario');
+// }
+
+   // const noValidPost = document.querySelector('#inputPost');
+   //  if (noValidPost = ''){
+   //     return window.alert('debes escribir un comentario');
+   //  }

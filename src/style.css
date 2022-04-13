@@ -206,7 +206,13 @@ margin-top: 18%;
 .containerWallPost{
     border: 2px solid blue;
 }
-
+#textAreaPost{
+     width: 80%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #BAD7C1;
+    border: 2px solid #838181;
+}
 @media (min-width: 600px) {
 
 
