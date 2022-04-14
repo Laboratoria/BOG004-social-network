@@ -127,23 +127,19 @@ export const feed = () => {
                 const savedPost = doc.data();
                 const likesSaves = savedPost.likes;
                 console.log(uid, likesSaves);
-                // console.log(idLike);
-                likesSaves.push(uid)
-                    // if (likesSaves.includes(uid)) {
-                console.log(likesSaves);
-                console.log(idLike);
-
-                updatePost(idLike, {
-                    likes: likesSaves,
-                })
-                console.log("ya puse like");
-                // } else {
-                //     console.log("si entra");
-                //     likesSaves.push(uid);
-                //     updatePost(id, {
-                //         likes: likesSaves,
-                //     })
-                // }
+                if (likesSaves.includes(uid)) {
+                    likesSaves.splice(uid)
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    console.log("ya quite el like");
+                } else {
+                    likesSaves.push(uid);
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    console.log("si ya puse like");
+                }
             })
         })
 
