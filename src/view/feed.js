@@ -115,30 +115,35 @@ export const feed = () => {
             infoPostUser += divpostuser;
         });
         divPost.innerHTML = infoPostUser;
-// like del post 
+
+        // like del post 
         const btnsLike = divPost.querySelectorAll(".btn-likes");
         btnsLike.forEach((btn) => {
             btn.addEventListener("click", async(e) => {
                 const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
+                const idLike = e.currentTarget.id
                 console.log(e.currentTarget.id);
                 const doc = await getOnePost(e.currentTarget.id);
                 const savedPost = doc.data();
                 const likesSaves = savedPost.likes;
                 console.log(uid, likesSaves);
-                const idLike = e.currentTarget.id;
-                if(likesSaves.includes(uid)){
-                  likesSaves.splice(uid);
-                  updatePost(idLike, {
+                // console.log(idLike);
+                likesSaves.push(uid)
+                    // if (likesSaves.includes(uid)) {
+                console.log(likesSaves);
+                console.log(idLike);
+
+                updatePost(idLike, {
                     likes: likesSaves,
-                  })
-                  console.log("ya puse like");
-                } else {
-                    console.log("si entra");
-                    likesSaves.push(uid);
-                    updatePost(idLike, {
-                        likes: likesSaves,
-                    })
-                }
+                })
+                console.log("ya puse like");
+                // } else {
+                //     console.log("si entra");
+                //     likesSaves.push(uid);
+                //     updatePost(id, {
+                //         likes: likesSaves,
+                //     })
+                // }
             })
         })
 
