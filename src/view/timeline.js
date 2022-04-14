@@ -1,4 +1,5 @@
 import {saveTask} from '../view-controler/firebase.js'
+import {changeView} from '../view-controler/router.js';
 
 export default () => {
   const viewTimeLine = `
@@ -29,23 +30,19 @@ export default () => {
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
   
-
   window.addEventListener('DOMContentLoaded', () =>{
-    
-  const taskForm = document.getElementById('task-form')
+  })
+
+  const taskForm = divElement.querySelector("#task-form")
   taskForm.addEventListener('submit', (e) =>{
-    e.preventDefault()
-    
-    const title = taskForm['task-title']
-    const description = taskForm['task-description']
-
-    saveTask(title.value,description.value)
-  } 
-  )
-
-})
-
-
-
+      e.preventDefault()
+      
+      const title = taskForm['task-title']
+      const description = taskForm['task-description']
+      saveTask(title.value,description.value)
+    })
   return divElement;
 };
+
+  
+  
