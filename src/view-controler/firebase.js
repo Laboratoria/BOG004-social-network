@@ -3,10 +3,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebas
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithPopup,
-
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,6 +30,18 @@ export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 
-export { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider,
+export const provider = new GoogleAuthProvider(); 
+
+const db= getFirestore()
+
+export const saveTask = (title, description) => 
+addDoc(collection(db,'tasks'),{title,description});
+
+
+export {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithPopup,
- };
+};
