@@ -1,4 +1,4 @@
-import home from "./home.js";
+import Login from "./Login.js";
 import register from "./register.js";
 import timeLine from "./timeline.js";
 import profile from "./profile.js";
@@ -6,7 +6,7 @@ import forum from "./forum.js";
 import difference404 from "./difference.js";
 
 const components = {
-  home: home,
+  Login: Login,
   register: register,
   timeline: timeLine,
   profile: profile,
