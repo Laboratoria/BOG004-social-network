@@ -25,10 +25,10 @@ export const saveFormPost = (textAreaPost, likes) => {
 
 export const getPost = async() => getDocs(collection(db, "posts-collection"));
 
-export const onGetPost = async(callback) => onSnapshot(collection(db, "posts-collection"), (callback));
+export const onGetPost = (callback) => onSnapshot(collection(db, "posts-collection"), (callback));
 
 export const deletePost = async(id) => deleteDoc(doc(db, "posts-collection", id));
 
 export const getOnePost = async(id) => getDoc(doc(db, "posts-collection", id));
 
-export const updatePost = (id, newFields) => updateDoc(doc(db, "posts-collection", id), newFields)
+export const updatePost = async(id, newChanges) => updateDoc(doc(db, "posts-collection", id), newChanges);
