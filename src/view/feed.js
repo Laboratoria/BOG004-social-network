@@ -115,7 +115,7 @@ export const feed = () => {
             infoPostUser += divpostuser;
         });
         divPost.innerHTML = infoPostUser;
-
+// like del post 
         const btnsLike = divPost.querySelectorAll(".btn-likes");
         btnsLike.forEach((btn) => {
             btn.addEventListener("click", async(e) => {
