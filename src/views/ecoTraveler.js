@@ -66,19 +66,39 @@ export const paintPost = (idPost, post) =>{
         <div class='userName'>${post.userName}</div>
          <textarea name='post' id='textAreaPost' readonly="readonly">${post.post}</textarea>
       </div>
+      <div class='modalContainer' id='containerModal'>
+      <div class='modal' id='modal'>
+      <textarea name='post' id='editPost' rows= 4 placeholder='Comparte tu experiencia' autofocus>${post.post}</textarea>
+       <button class='btnEditPost' id='publicBtnEditPost'>Editar</button>
+      </div>
+     </div>
       <div class='containerIconsPost'>
         <img src='img/heart (1).png' alt='like' class='icons like' id='likePost' >
         <img src='img/pencil (1).png' alt='editPost' class='icons' id='edit'>
         <img src='img/bin.png' alt='deletePost' class='icons' ></img id='delete'>
       </div>
+
    </div>
    `;
 
    divPost.innerHTML = historyPost;
 //   pruebaedit.innerHTML= historyPost;
 const btnEdit = divPost.querySelector('#edit');
+const postEd = divPost.querySelector('#textAreaPost');
+const modal = divPost.querySelector('#containerModal');
+const edit = divPost.querySelector('#publicBtnEditPost');
 console.log(btnEdit, 'soy el boton edit')
-btnEdit.addEventListener('click', () => editFunction(idPost, 'Esta funcionando la funcion de editar   '));
+btnEdit.addEventListener('click', () => {
+   postEd.classList.add('hide');
+   modal.classList.add('show');
+})
+edit.addEventListener('click', () => {
+   modal.classList.remove('show');
+   const postEdited = divPost.querySelector('#editPost').value;
+   editFunction(idPost, postEdited);
+   postEd.value = postEdited;
+   postEd.classList.remove('hide');
+})
 
     return divPost; 
 }

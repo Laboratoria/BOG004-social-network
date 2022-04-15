@@ -189,14 +189,37 @@ margin-top: 18%;
     left: 13%;
 }
 .btnPublic{
-    height: 5%;
-    width: 50%;
+    height: 25px;
+    width: 80px;
     border: 0;
     border-radius: 20px;
     background-color: #838181;
     color: #FFFFFF;
     font-size: 14px;
-    justify-self: end;
+}
+.btnEditPost{
+    height: 25px;
+    width: 80px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #838181;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.modalContainer{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+    
+}
+.hide{
+    display:none;
+}
+.show{
+    pointer-events: auto;
+  display: block;
 }
 .icons{
    height: 3%;
@@ -207,7 +230,14 @@ margin-top: 18%;
     border: 2px solid blue;
 }
 #textAreaPost{
-     width: 80%;
+    width: 80%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #BAD7C1;
+    border: 2px solid #838181;
+}
+#editPost{
+    width: 80%;
     height: 100%;
     border-radius: 10px;
     background-color: #BAD7C1;
@@ -328,4 +358,7 @@ margin-top: 18%;
     .containerWallPost{
         border: 2px solid blue;
     }
+    .containerPost{
+       margin-bottom: 2%;
+   }
 }
