@@ -28,14 +28,15 @@ export const showsPaintPost = () => {
       )
    }
 const divEcotraveler = document.createElement('div');
+divEcotraveler.setAttribute("class", "gridDivEcotraveler")
 const divContainerPost = document.createElement('div');
-
+divContainerPost.setAttribute("class", "gridDivContainerPost")
 export default () => { 
   const viewEcotraveler = `
   <div class='containerWall'>
    <div class='gridHeaderWall'>
     <h1 class='tittleAccount' id='tittleWall'>EcoTraveler</h1>
-    <img src='img/cerrar-sesion.png' alt='signOut' class='signOut' id='signOutIcon' />
+    <img src='img/cerrar-sesion.png' alt='signOut' class='signOut' id='signOutIcon'/>
      </div>
         <div class='containerPost' id='formPost'>
        <textarea name='post' id='inputPost' rows= 4 placeholder='Comparte tu experiencia' autofocus></textarea>
