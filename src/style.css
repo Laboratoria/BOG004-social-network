@@ -245,7 +245,13 @@ margin-top: 18%;
     font-family: 'Lato', sans-serif;
 }
 .containerIconsPost{
-    margin-left: 10%;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 70%;
+    width: 75%;
+    justify-items: start;
+    height: 10%;
+    position: relative;
+    left: 13%;
 }
 #editPost{
     border: transparent;
@@ -376,9 +382,6 @@ margin-top: 18%;
     #signOutIcon{
         margin-top: 35%;
     }
-    .containerIconsPost{
-        margin-left: 10%;
-    }
     .containerWall{
         height: 100%;
     }
@@ -403,8 +406,9 @@ margin-top: 18%;
     font-size: medium;
 }
 .icons{
-    height: 3%;
-    width: 3%;
+    height: 20px;
+    width: 20px;
+    align-self: baseline;
  }
 #editPost{
     font-size: 15px;
@@ -412,5 +416,8 @@ margin-top: 18%;
 .gridDivContainerPost{
     margin-top:3%;
 }
-   
+#counter{
+    font-family: 'Lato', sans-serif;
+    font-size: medium;
+}
 }

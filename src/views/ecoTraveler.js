@@ -1,4 +1,4 @@
-import { savePost, showsPost, editPost, deletePost } from '../firebase/fbFunction.js';
+import { savePost, showsPost, editPost, deletePost, like } from '../firebase/fbFunction.js';
 import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
@@ -67,7 +67,8 @@ export const paintPost = (idPost, post) =>{
       </div>
      </div>
       <div class='containerIconsPost'>
-        <img src='img/heart (1).png' alt='like' class='icons like' id='likePost' >
+        <img src='img/heart (1).png' alt='like' class='icons' like' id='likePost'>
+        <p class='icons' id='counter'>${post.like.length}</p>
         <img src='img/pencil (1).png' alt='editPost' class='icons' id='edit'>
         <img src='img/bin.png' alt='deletePost' class='icons' id='delete'>
       </div>
@@ -98,6 +99,20 @@ btnDelete.addEventListener('click', () => {
        deleteFunction(idPost, post)
 }
 })
+const btnLike = divPost.querySelector('#likePost');
+btnLike.addEventListener('click', () => {
+console.log('Soy el boton de like');
+  showsPost()
+      .then((res) => res.forEach((e) => { 
+        if (e.id===idPost) {
+           if (e.data().like.includes(auth.currentUser.uid)){
+              likeFunction(idPost, auth.currentUser.uid, true)
+           } else {
+              likeFunction(idPost, auth.currentUser.uid, false)
+           }
+        }
+      }))
+})
     return divPost; 
 }
 window.onload = showsPaintPost;
@@ -105,3 +120,5 @@ window.onload = showsPaintPost;
 const editFunction = (id, post) => editPost( id, post);
 
 const deleteFunction = (id, posts) => deletePost(id, posts);
+
+const likeFunction = (idPost, idUser, isLike) => like(idPost, idUser, isLike);
