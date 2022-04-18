@@ -17,7 +17,7 @@ export const feed = () => {
         </div>
         <a href="" id="edit-profile" class="button-profile"><img src="../images/edit 1.png" alt="Edit"></a>
         <div id="div-speciality">
-            <div class="speciality">Js Code</div>
+            <div class="speciality">JavaScript</div>
             <div class="speciality">Angular</div>
             <div class="speciality">React</div>
         </div>
