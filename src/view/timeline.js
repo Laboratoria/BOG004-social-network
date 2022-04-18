@@ -1,5 +1,5 @@
-import {saveTask} from '../view-controler/firebase.js'
-import {changeView} from '../view-controler/router.js';
+import {saveTask,onGetTasks} from '../view-controler/firebase.js'
+//import {changeView} from '../view-controler/router.js';
 
 export default () => {
   const viewTimeLine = `
@@ -30,16 +30,37 @@ export default () => {
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
   
-  window.addEventListener('DOMContentLoaded', () =>{
-  })
-
   const taskForm = divElement.querySelector("#task-form")
+  const tasksContainer= divElement.querySelector("#tasks-container")
+ 
+  
+    onGetTasks((querySnapshot) => {
+        let commentList = "";
+  querySnapshot .forEach((doc) => {
+ console.log('doc: ', doc.data());
+  const task = doc.data();
+  commentList+= `     
+   <div style="color:white">
+   <h3>${task.title}</h3>
+   <p>${task.description}</p>
+   <button>Editar</button>
+    <button>Eliminar</button>
+   </div>
+  `;
+
+ 
+  });
+  tasksContainer.innerHTML= commentList;
+  
+    });
+    
   taskForm.addEventListener('submit', (e) =>{
       e.preventDefault()
       
       const title = taskForm['task-title']
       const description = taskForm['task-description']
       saveTask(title.value,description.value)
+      taskForm.reset()
     })
   return divElement;
 };

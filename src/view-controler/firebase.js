@@ -8,7 +8,7 @@ import {
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"
+import { getFirestore, collection, addDoc,getDocs,onSnapshot} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,8 +37,12 @@ const db= getFirestore()
 export const saveTask = (title, description) => 
 addDoc(collection(db,'tasks'),{title,description});
 
+export const getTasks = () => getDocs(collection(db,  'tasks' ) );
+
+export const onGetTasks = (callback) => onSnapshot (collection(db, 'tasks'), callback)
 
 export {
+
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
