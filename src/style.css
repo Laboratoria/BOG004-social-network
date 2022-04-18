@@ -135,13 +135,11 @@ a:visited {
     justify-items: center;
     font-size: revert;
 }
+
 .containerWall{
     width: 100%;
-    height: 50vh;
     margin: 0%;
-    background-image: url('./img/fondo.svg');
-    
-        }
+}
 .signOut{
     width: 25px;
     height: 25px;
@@ -158,7 +156,7 @@ align-items: center;
 }
 #tittleWall{
 justify-self: start;
-color: #838181;
+color: #3CA656;
 margin-top: 10%;
 }
 #signOutIcon{
@@ -166,18 +164,22 @@ justify-self: center;
 margin-top: 18%;
 }
 .containerPost{
-     display: grid;
+    display: grid;
     justify-items: center;
     height: 15vh;
     padding: 0%;
-    margin-bottom: 5%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #838181;
+    margin: 10px;
 }
 #inputPost{
-     width: 80%;
-    height: 100%;
+    width: 80%;
+    height: 60%;
+    border: transparent;
+    background: #F2F2F2;
+    margin-top: 3%;
     border-radius: 10px;
-    background-color: #BAD7C1;
-    border: 2px solid #838181;
+    font-family: 'Lato', sans-serif;
 }
 .containerIcons{
     display: grid;
@@ -189,45 +191,84 @@ margin-top: 18%;
     left: 13%;
 }
 .btnPublic{
-    height: 5%;
-    width: 50%;
+    height: 25px;
+    width: 80px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #3CA656;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.btnEditPost{
+    height: 25px;
+    width: 80px;
     border: 0;
     border-radius: 20px;
     background-color: #838181;
     color: #FFFFFF;
     font-size: 14px;
-    justify-self: end;
+}
+.modalContainer{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+    
+}
+.hide{
+    display:none;
+}
+.show{
+    pointer-events: auto;
+  display: block;
+}
+.gridDivContainerPost{
+    margin-top:10%;
 }
 .icons{
-   height: 3%;
-   width: 3%;
+   height: 5%;
+   width: 5%;
    margin-left: 2%;
 }
-.containerWallPost{
-    border: 2px solid blue;
+.userName{
+    color: #173C34;
+    font-family: 'Lato', cursive;
+    font-size: 14px;
 }
 #textAreaPost{
-     width: 80%;
-    height: 100%;
+    border: transparent;
+    width: 80%;
+    height: 60%;
+    background: #F2F2F2;
     border-radius: 10px;
-    background-color: #BAD7C1;
-    border: 2px solid #838181;
+    font-family: 'Lato', sans-serif;
+}
+.containerIconsPost{
+    margin-left: 10%;
+}
+#editPost{
+    border: transparent;
+    width: 80%;
+    height: 60%;
+    background: #F2F2F2;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
 }
 @media (min-width: 600px) {
-
-
-
 .gridHeader{
     display: grid;
-    width: 60%;
     grid-template-columns: 35% 65%;
     padding: 0;
-    margin-top:3%;
+    margin-top:2%;
     margin-bottom: 0;
     margin-left: 15%;
     margin-right: 15%;
     column-gap: 20px;;
     justify-items:center;
+}
+.gridBody{
+    row-gap: 0px;
 }
 .tittle{
     margin-top: 0px;
@@ -325,7 +366,51 @@ margin-top: 18%;
         margin-top: 0;
         margin-bottom: 0;
     }
-    .containerWallPost{
-        border: 2px solid blue;
+    .gridHeaderWall{
+        margin-top: 10%;
+        margin-bottom: 10%;
     }
+    #tittleWall{
+        justify-self: center;
+    }
+    #signOutIcon{
+        margin-top: 35%;
+    }
+    .containerIconsPost{
+        margin-left: 10%;
+    }
+    .containerWall{
+        height: 100%;
+    }
+    .containerPost{
+       margin: 20px;
+   }
+/*    .container{
+       display: grid;
+       grid-template-rows: 1fr 1fr;
+   } */
+   .gridDivEcotraveler{
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+   }
+   #inputPost{
+    font-size: 15px;
+}
+   #textAreaPost{
+   font-size: 15px;
+}
+.userName{
+    font-size: medium;
+}
+.icons{
+    height: 3%;
+    width: 3%;
+ }
+#editPost{
+    font-size: 15px;
+}
+.gridDivContainerPost{
+    margin-top:3%;
+}
+   
 }

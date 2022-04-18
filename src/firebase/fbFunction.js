@@ -97,7 +97,7 @@ export const signInUser = (auth, email, password) => {
       });
     }
 
-    export const savePost = (post, userName,date) => addDoc(collection(db, 'posts'), { post, userName, date});
+    export const savePost = (post, userName, date) => addDoc(collection(db, 'posts'), { post, userName, date});
 
   export const showsPost = async () => {
     const querySnapshot = await getDocs(collection(db, 'posts'),orderBy('date','desc'));
@@ -108,9 +108,7 @@ export const signInUser = (auth, email, password) => {
 return querySnapshot;
   }
   
-// export const editPost = (userName, post) => updateDoc(doc(db,'posts', userName),post)
 
-export const editPost = (userName, post) => {
-  console.log(userName, post)
-  return updateDoc(doc(db,'posts', userName),post)
+export const editPost = ( id, postUpdate) => {
+  return updateDoc(doc(db,'posts', id),{post:postUpdate})
 }
