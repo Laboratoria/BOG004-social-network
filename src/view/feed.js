@@ -10,15 +10,14 @@ export const feed = () => {
     <section id="info-user">
         <div id="div-profile">
             <img id="photo-profile" src="../images/Ellipse 1.png" alt="">
-            <div>
+            <div id="info-profile">
                 <h3 id="name-user">Nombre Apellido</h3>
                 <p id="type-user">Empresa</p>
-                <p id="description-user">Hola solicito información</p>
             </div>
         </div>
         <a href="" id="edit-profile" class="button-profile"><img src="../images/edit 1.png" alt="Edit"></a>
         <div id="div-speciality">
-            <div class="speciality">Developer Js</div>
+            <div class="speciality">Js Code</div>
             <div class="speciality">Angular</div>
             <div class="speciality">React</div>
         </div>

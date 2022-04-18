@@ -183,7 +183,7 @@ h1 .relevant {
     height: 2em;
 }
 
-.btn-center{
+.btn-center {
     align-self: center;
     background-color: transparent;
     border-color: transparent;
@@ -191,7 +191,7 @@ h1 .relevant {
     border: none;
 }
 
-.btn-likes{
+.btn-likes {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -203,7 +203,7 @@ h1 .relevant {
     border: none;
 }
 
-.btn-likes-on{
+.btn-likes-on {
     background-color: #04033B;
 }
 
@@ -228,7 +228,7 @@ h1 .relevant {
 
 #info-user #div-profile {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 50% 50%;
 }
 
 .button-profile {
@@ -238,6 +238,11 @@ h1 .relevant {
 #info-user #photo-profile {
     grid-column: 1/2;
     grid-row: 1/2;
+    margin: 0.5em;
+}
+
+#info-profile {
+    grid-column: 2/3;
 }
 
 #info-user #div-speciality {
@@ -245,6 +250,7 @@ h1 .relevant {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 0.5em;
 }
 
 #feed-template #section-post {
@@ -342,6 +348,7 @@ h1 .relevant {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 
 /* Links inside the dropdown */
 
@@ -577,15 +584,13 @@ h1 .relevant {
         height: 2.5em;
         margin-top: 0.5em;
     }
-
     #root #feed-template {
         display: flex;
         flex-direction: row;
         align-content: center;
-        background-color: #fff;
+        background-color: transparent;
         justify-content: space-between;
     }
-
     #feed-template #info-user {
         width: 28%;
         height: max-content;
@@ -596,9 +601,9 @@ h1 .relevant {
         grid-template-rows: auto auto;
         border: none;
         border-radius: 0.625em;
-        background-color: rgba(109, 184, 223, 0.37);
+        background-color: #ffffff9a;
+        /* background-color: rgba(109, 184, 223, 0.37); */
     }
-
     #feed-template #section-post {
         width: 28%;
         height: max-content;
@@ -608,15 +613,15 @@ h1 .relevant {
         grid-column: 1/2;
         border: none;
         border-radius: 0.625em;
-        background-color: rgba(109, 184, 223, 0.37);
+        background-color: #ffffff9a;
+        /* background-color: rgba(109, 184, 223, 0.37); */
     }
-
     #feed-template #feed-user {
         width: 28%;
         padding: 1.3em;
         margin: 20px 0;
         grid-template-rows: 20% 70% 10%;
-        background-color: #fff;
+        background-color: #ffffff9a;
         border: solid;
         border-width: 0.125em;
         border-radius: 0.625em;
@@ -624,4 +629,3 @@ h1 .relevant {
         margin-bottom: 20px;
     }
 }
-
