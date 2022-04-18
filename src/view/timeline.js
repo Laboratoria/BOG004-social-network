@@ -1,4 +1,4 @@
-import {saveTask,onGetTasks} from '../view-controler/firebase.js'
+import { saveTask, onGetTasks, deleteTask } from "../view-controler/firebase.js";
 //import {changeView} from '../view-controler/router.js';
 
 export default () => {
@@ -29,41 +29,43 @@ export default () => {
 
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
-  
-  const taskForm = divElement.querySelector("#task-form")
-  const tasksContainer= divElement.querySelector("#tasks-container")
- 
-  
-    onGetTasks((querySnapshot) => {
-        let commentList = "";
-  querySnapshot .forEach((doc) => {
- console.log('doc: ', doc.data());
-  const task = doc.data();
-  commentList+= `     
+
+  const taskForm = divElement.querySelector("#task-form");
+  const tasksContainer = divElement.querySelector("#tasks-container");
+
+  onGetTasks((querySnapshot) => {
+    let commentList = "";
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
+      commentList += `     
    <div style="color:white">
    <h3>${task.title}</h3>
    <p>${task.description}</p>
-   <button>Editar</button>
-    <button>Eliminar</button>
+   <button class='btn-edit'>Editar</button>
+    <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
    </div>
   `;
-
- 
-  });
-  tasksContainer.innerHTML= commentList;
-  
     });
-    
-  taskForm.addEventListener('submit', (e) =>{
-      e.preventDefault()
-      
-      const title = taskForm['task-title']
-      const description = taskForm['task-description']
-      saveTask(title.value,description.value)
-      taskForm.reset()
-    })
+    tasksContainer.innerHTML = commentList;
+
+     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete')   
+     
+     btnsDelete.forEach(btn => {
+       btn.addEventListener('click', ({target: {dataset }}) => {
+         deleteTask(dataset.id)
+       })
+     })
+     
+     
+  });
+
+  taskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = taskForm["task-title"];
+    const description = taskForm["task-description"];
+    saveTask(title.value, description.value);
+    taskForm.reset();
+  });
   return divElement;
 };
-
-  
-  
