@@ -1,4 +1,4 @@
-import { savePost, showsPost, editPost } from '../firebase/fbFunction.js';
+import { savePost, showsPost, editPost, deletePost } from '../firebase/fbFunction.js';
 import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
@@ -6,19 +6,15 @@ const auth = getAuth();
 
 const clickPost = (div) => {
    const userName = auth.currentUser;
-   console.log("user name", userName.email);
    const actualDate = serverTimestamp();
    const postValue = div.querySelector('#inputPost').value;
-   //   divEcotraveler.innerHTML = '';
    savePost(postValue, userName.email, actualDate).then(()=> {
-//   divContainerPost.innerHTML = '';
 showsPaintPost();
 const cleanPost = document.querySelector('#inputPost');
 cleanPost.value= '';
 })
 }
 export const showsPaintPost = () => {
-      console.log('Hola entre')
          showsPost()
       .then((res) => res.forEach((e) => { 
          divContainerPost.appendChild(paintPost(e.id, e.data()));
@@ -56,10 +52,7 @@ export default () => {
   return divEcotraveler;
 };
 
-
 export const paintPost = (idPost, post) =>{
-   console.log(auth.currentUser, "Esta es la prueba de si uid");
-   console.log(post, "Hola soy post user name")
    const divPost = document.createElement('div');
    let historyPost =  `
    <div class='containerWallPost'>
@@ -76,7 +69,7 @@ export const paintPost = (idPost, post) =>{
       <div class='containerIconsPost'>
         <img src='img/heart (1).png' alt='like' class='icons like' id='likePost' >
         <img src='img/pencil (1).png' alt='editPost' class='icons' id='edit'>
-        <img src='img/bin.png' alt='deletePost' class='icons' ></img id='delete'>
+        <img src='img/bin.png' alt='deletePost' class='icons' id='delete'>
       </div>
 
    </div>
@@ -88,7 +81,6 @@ const btnEdit = divPost.querySelector('#edit');
 const postEd = divPost.querySelector('#textAreaPost');
 const modal = divPost.querySelector('#containerModal');
 const edit = divPost.querySelector('#publicBtnEditPost');
-console.log(btnEdit, 'soy el boton edit')
 btnEdit.addEventListener('click', () => {
    postEd.classList.add('hide');
    modal.classList.add('show');
@@ -100,12 +92,16 @@ edit.addEventListener('click', () => {
    postEd.value = postEdited;
    postEd.classList.remove('hide');
 })
-
+const btnDelete = divPost.querySelector('#delete');
+btnDelete.addEventListener('click', () => {
+   if (window.confirm('¿Estás seguro de eliminar el post?')) {
+       deleteFunction(idPost, post)
+}
+})
     return divPost; 
 }
 window.onload = showsPaintPost;
 
+const editFunction = (id, post) => editPost( id, post);
 
-const editFunction = (id, post) => {
-   editPost( id, post);
-}
+const deleteFunction = (id, posts) => deletePost(id, posts);

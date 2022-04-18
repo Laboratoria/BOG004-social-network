@@ -1,13 +1,9 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc } from './firebaseImport.js'
-import { createUser, provider } from '../view-controler/controllers.js';
-import { signIn } from '../view-controler/controllers.js';
+import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc, GoogleAuthProvider, deleteDoc } from './firebaseImport.js'
+import { createUser, provider, signIn, signInWithGoogle } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
-import { signInWithGoogle } from '../view-controler/controllers.js';
-import { GoogleAuthProvider } from './firebaseImport.js';
 import { paintPost, showsPaintPost } from '../views/ecoTraveler.js';
-
 
 // const userEmail
 /* Creamos una funcion createUser para exportarla y activarla
@@ -100,7 +96,7 @@ export const signInUser = (auth, email, password) => {
     export const savePost = (post, userName, date) => addDoc(collection(db, 'posts'), { post, userName, date});
 
   export const showsPost = async () => {
-    const querySnapshot = await getDocs(collection(db, 'posts'),orderBy('date','desc'));
+    const querySnapshot = await getDocs(collection(db, 'posts'));
 /*     querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data().post);s
@@ -112,3 +108,5 @@ return querySnapshot;
 export const editPost = ( id, postUpdate) => {
   return updateDoc(doc(db,'posts', id),{post:postUpdate})
 }
+
+export const deletePost = async (id, posts) => await deleteDoc(doc(db, 'posts', id));
