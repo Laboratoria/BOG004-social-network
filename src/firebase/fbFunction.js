@@ -1,6 +1,6 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc, GoogleAuthProvider, deleteDoc } from './firebaseImport.js'
+import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc, GoogleAuthProvider, deleteDoc, arrayUnion, arrayRemove } from './firebaseImport.js'
 import { createUser, provider, signIn, signInWithGoogle } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
 import { paintPost, showsPaintPost } from '../views/ecoTraveler.js';
@@ -93,20 +93,27 @@ export const signInUser = (auth, email, password) => {
       });
     }
 
-    export const savePost = (post, userName, date) => addDoc(collection(db, 'posts'), { post, userName, date});
+    export const savePost = (post, userName, date) => addDoc(collection(db, 'posts'), { post, userName, date, like:[]});
 
   export const showsPost = async () => {
     const querySnapshot = await getDocs(collection(db, 'posts'));
 /*     querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data().post);s
+      console.log(doc.id, " => ", doc.data().post);
 }); */
 return querySnapshot;
   }
-  
 
 export const editPost = ( id, postUpdate) => {
   return updateDoc(doc(db,'posts', id),{post:postUpdate})
 }
 
 export const deletePost = async (id, posts) => await deleteDoc(doc(db, 'posts', id));
+
+export const like = (idPost, idUser, isLike) => {
+if (!isLike){
+  return updateDoc(doc(db,'posts', idPost),{like:arrayUnion(idUser)})
+} else{
+   return updateDoc(doc(db,'posts', idPost),{like:arrayRemove(idUser)})
+ }
+}
