@@ -274,6 +274,12 @@ margin-top: 18%;
 .dislike{
     border:5px solid green;
 }
+#errorMessageValidation{
+    margin-left: 13%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
 @media (min-width: 600px) {
 .gridHeader{
     display: grid;
@@ -429,5 +435,8 @@ margin-top: 18%;
 #counter{
     font-size: medium;
 }
-
+#errorMessageValidation{
+    margin-left: 30%;
+    font-size: 20px;
+}
 }
