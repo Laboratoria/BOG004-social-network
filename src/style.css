@@ -193,6 +193,10 @@ background-color: #48221836;
 text-align: center;
 }
 
+.btn-like-on
+{
+  display: none;
+}
 
 @media(min-width: 1200px)
 {

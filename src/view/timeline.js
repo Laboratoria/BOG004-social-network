@@ -54,6 +54,9 @@ export default () => {
 
   let id = "";
 
+
+  //creación de post y botones de post 
+
   onGetTasks((querySnapshot) => {
     let commentList = "";
     querySnapshot.forEach((doc) => {
@@ -62,28 +65,43 @@ export default () => {
    <div style="color:white">
    <h3>${task.title}</h3>
    <p>${task.description}</p>
-   <button class='btn-edit' data-id="${doc.id}">Editar</button>
-    <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
+    <button class='btn-like-off' data-id="btn-like-off'">Like-off</button>
+    <button class='btn-like-on' data-id="btn-like-on'">Like-on</button>
+    <span>${task.likes}</span>
+   <button class='btn-edit' data-id="${doc.id}">Edit</button>
+    <button class='btn-delete' data-id="${doc.id}">Delete</button>
    </div>
   `;
     });
     tasksContainer.innerHTML = commentList;
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
+    const btnsLikeOff= tasksContainer.querySelectorAll(".btn-like-off");
 
+//evento like 
+
+     btnsLikeOff.forEach((btn) => {
+      btn.addEventListener("click", ({ target: { dataset } }) => {
+      const userId=JSON.parse(localStorage.getItem("userInfo")).uid
+      console.log(userId)
+      const idPost=dataset.id;
+      getTask(idPost).then((response) => {
+      console.log(response.data())
+      })
+      });
+    });
+
+    //evento de borar
     btnsDelete.forEach((btn) => {
       btn.addEventListener("click", ({ target: { dataset } }) => {
         deleteTask(dataset.id);
       });
     });
 
+    //evento de editar
     const btnsEdit = tasksContainer.querySelectorAll(".btn-edit");
-    btnsEdit.forEach((btn) => {
-      /*btn.addEventListener('click', async (e) => {
-        const doc = await getTask (e.target.dataset.id)
-        console.log('doc await: ', doc)
-       })*/
 
+    btnsEdit.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         getTask(e.target.dataset.id).then((resolve) => {
           const task = resolve.data();
@@ -95,24 +113,21 @@ export default () => {
               .id; 
 
           taskForm["btn-task-save"].innerText = "update";
-          /*console.log('doc resolve: ', resolve)*/
         });
       });
     });
   });
 
+  //evento de guardar un post y guarda un post editado.
   taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = taskForm["task-title"];
     const description = taskForm["task-description"];
-
+//
     if (!editStatus) {
-      console.log('debería guardar: ', editStatus);
-      saveTask(title.value, description.value);
+      saveTask(title.value, description.value,0);
     } else {
-      console.log('debería actualizar: ', editStatus);
-      console.log('id: ', id);
       updateTask(id, {
         description: description.value,
         title: title.value,

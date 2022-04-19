@@ -26,8 +26,9 @@ import{changeView} from './router.js'
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;
+      localStorage.setItem("userInfo", JSON.stringify(user))
       //...
-      console.log("funciona")
+      console.log(user)
       changeView("#/timeLine");
     })
     .catch((error) => {
@@ -47,6 +48,7 @@ googlePopUp(auth, provider)
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+   localStorage.setItem("userGoogle", JSON.stringify(user))
  changeView("#/timeLine");
   // ...
   }).catch((error) => {
