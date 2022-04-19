@@ -8,6 +8,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from './firebase-utils.js';
 import {
+  updateProfile,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -46,17 +47,26 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const db = getFirestore(app);
 
 // New user registered
 export const signingUp = (nameFirst, nameLast, email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+    nameFirst,
+    nameLast,
+  )
     .then((userCredential) => {
       const user = userCredential.user;
       window.location.hash = '#/timeline';
       alert('user created!');
+      updateProfile(auth.currentUser, {
+        displayName: nameFirst,
+      });
     })
     .catch((error) => {
       const errorCode = error.code;

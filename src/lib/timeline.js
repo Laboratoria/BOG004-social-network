@@ -1,5 +1,5 @@
 import {
-  close, savingPost, onGettingPost, deletePosts, getPost, updatePost, idUser,
+  auth, close, savingPost, onGettingPost, deletePosts, getPost, updatePost, idUser,
 } from './firebase.js';
 
 export default () => {
@@ -7,10 +7,11 @@ export default () => {
   <div id ="menuTimeline">
     <button type="button" id="userLogOut">Log Out</button>
   </div>
+  <div id ="startPost">
     <form id= "post-form">
       <label for= "post-it"></label>
       <textarea id= "postIt-description" rows= "3" placeholder= "What do you want to share?"></textarea>
-
+      </div>
       <button type="button" id="save-postIt">Post!</button>
       <button type="button" id="update-postIt" style="display: none">Update!</button>
       <br>
@@ -31,6 +32,8 @@ export default () => {
       user: idUser().uid,
       postIt,
       likes: [],
+      name: auth.currentUser.displayName,
+      email: auth.currentUser.email,
     };
     savingPost(infoPost);
 
@@ -54,6 +57,10 @@ export default () => {
       html += `
                     <div>
                         <div>
+                        <div class= "startPost">
+                        <p style="font-size: 15px; font-weight: bolder;" ><img class='userpost' src='./img/giphyCat.gif'/ style="width: 30px;
+                        height: 30px;">${postData.name}</p>
+                        </div>
                         <textarea id= "postIt-description" rows= "3" " readonly>${postData.postIt}</textarea>
                         <button type="button" class="btndelete-postIt" data-id="${doc.id}">Delete</button>
                         <button type="button" class="btnedit-postIt" data-id="${doc.id}">Edit</button>

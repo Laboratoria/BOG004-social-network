@@ -2,6 +2,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 
 import {
+  updateProfile,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -25,6 +26,7 @@ import {
 export { initializeApp };
 
 export {
+  updateProfile,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
