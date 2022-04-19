@@ -5,8 +5,8 @@ padding:0;
 }
 body {
   font-family: sans-serif;
-  background-image : url('./img/mom-2208928_1280.jpg');
-  width: 100vw;
+ /* background-image : url('./img/mom-2208928_1280.jpg');
+  width: 100vw;*/
 }
 
 .header {
@@ -196,6 +196,13 @@ text-align: center;
 .btn-like-on
 {
   display: none;
+}
+
+.container-login
+{
+background-image : url('./img/mom-2208928_1280.jpg');
+object-fit: cover;
+min-height: 100vh;
 }
 
 @media(min-width: 1200px)

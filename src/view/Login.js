@@ -32,7 +32,7 @@ export default () => {
    //creación de elemento
   const divElement = document.createElement("div");
   divElement.innerHTML = viewLogin;
-
+  divElement.className="container-login"
  //Selectores del Dom
   const ingressButton = divElement.querySelector("#ingress");
   const createButton=divElement.querySelector("#create");

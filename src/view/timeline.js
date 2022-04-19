@@ -11,7 +11,6 @@ import { changeView } from "../view-controler/router.js";
 export default () => {
   const viewTimeLine = `
     <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
-     
     <form id= "task-form">
     
     <label for= "title">Title: </label> 
@@ -38,7 +37,7 @@ export default () => {
 
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
-
+  
   //Creación del botón "Cerrar Sesión"//
   const getOut = divElement.querySelector("#getOut");
   getOut.addEventListener("click", (event) => {
