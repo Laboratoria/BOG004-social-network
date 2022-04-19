@@ -53,6 +53,7 @@ export default () => {
         <div class='containerPost' id='formPost'>
        <textarea name='post' id='inputPost' rows= 4 placeholder='Comparte tu experiencia' autofocus></textarea>
        </div>
+         <p class='alertMessage' id='errorMessageValidation'></p>
        <div class='containerIcons'>
      <button class='btnPublic' id='publicBtn'>Publicar</button>
      <div id='publicPost'></div>
@@ -64,7 +65,15 @@ export default () => {
   
   const btnPost = divEcotraveler.querySelector('#publicBtn');
   // creamos un evento al boton publicar
-  btnPost.addEventListener('click', () => clickPost(divEcotraveler));
+  btnPost.addEventListener('click', () => {
+  const validationInputPost = divEcotraveler.querySelector('#inputPost').value;
+  const errorMessageValidation = divEcotraveler.querySelector('#errorMessageValidation');
+  if (validationInputPost!=''){
+  clickPost(divEcotraveler)
+   } else {
+errorMessageValidation.innerHTML = 'Por favor ingresa un valor en el campo';
+  }
+});
   const btnSignOut = divEcotraveler.querySelector('#signOutIcon');
   btnSignOut.addEventListener('click', () => signOut(auth));
   return divEcotraveler;
