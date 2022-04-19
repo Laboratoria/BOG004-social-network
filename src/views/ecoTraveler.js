@@ -1,5 +1,5 @@
 import { onSnapshotFunction, savePost, showsPost, editPost, deletePost, like, signOut } from '../firebase/fbFunction.js';
-import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
+import { getAuth, onSnapshot, serverTimestamp } from '../firebase/firebaseImport.js';
 
 
 const auth = getAuth();
