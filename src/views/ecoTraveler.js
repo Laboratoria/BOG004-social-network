@@ -1,4 +1,4 @@
-import { onSnapshotFunction, savePost, showsPost, editPost, deletePost, like } from '../firebase/fbFunction.js';
+import { onSnapshotFunction, savePost, showsPost, editPost, deletePost, like, signOut } from '../firebase/fbFunction.js';
 import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
@@ -65,6 +65,8 @@ export default () => {
   const btnPost = divEcotraveler.querySelector('#publicBtn');
   // creamos un evento al boton publicar
   btnPost.addEventListener('click', () => clickPost(divEcotraveler));
+  const btnSignOut = divEcotraveler.querySelector('#signOutIcon');
+  btnSignOut.addEventListener('click', () => signOut(auth));
   return divEcotraveler;
 };
 
