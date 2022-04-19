@@ -171,6 +171,7 @@ margin-top: 18%;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #838181;
     margin: 10px;
+    margin-bottom: 0;
 }
 #inputPost{
     width: 80%;
@@ -198,6 +199,7 @@ margin-top: 18%;
     background-color: #3CA656;
     color: #FFFFFF;
     font-size: 14px;
+    margin-top: 10px;
 }
 .btnEditPost{
     height: 25px;
@@ -227,9 +229,10 @@ margin-top: 18%;
     margin-top:10%;
 }
 .icons{
-   height: 5%;
-   width: 5%;
+   height: 10px;
+   width: 10px;
    margin-left: 2%;
+   align-self: baseline;
 }
 .userName{
     color: #173C34;
@@ -246,8 +249,8 @@ margin-top: 18%;
 }
 .containerIconsPost{
     display: grid;
-    grid-template-columns: 10% 10% 10% 70%;
-    width: 75%;
+    grid-template-columns: 10% 10% 10% 10% 60%;
+    width: 50%;
     justify-items: start;
     height: 10%;
     position: relative;
@@ -260,6 +263,16 @@ margin-top: 18%;
     background: #F2F2F2;
     border-radius: 10px;
     font-family: 'Lato', sans-serif;
+}
+#counter{
+    font-family: 'Lato', sans-serif;
+    font-size: x-small;
+}
+.like{
+    border:5px solid red;
+}
+.dislike{
+    border:5px solid green;
 }
 @media (min-width: 600px) {
 .gridHeader{
@@ -387,11 +400,8 @@ margin-top: 18%;
     }
     .containerPost{
        margin: 20px;
+       margin-bottom: 0;
    }
-/*    .container{
-       display: grid;
-       grid-template-rows: 1fr 1fr;
-   } */
    .gridDivEcotraveler{
        display: grid;
        grid-template-columns: 1fr 1fr;
@@ -408,7 +418,7 @@ margin-top: 18%;
 .icons{
     height: 20px;
     width: 20px;
-    align-self: baseline;
+    
  }
 #editPost{
     font-size: 15px;
@@ -417,7 +427,7 @@ margin-top: 18%;
     margin-top:3%;
 }
 #counter{
-    font-family: 'Lato', sans-serif;
     font-size: medium;
 }
+
 }
