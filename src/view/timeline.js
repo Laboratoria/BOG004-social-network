@@ -11,6 +11,7 @@ import { changeView } from "../view-controler/router.js";
 export default () => {
   const viewTimeLine = `
     <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
+     
     <form id= "task-form">
     
     <label for= "title">Title: </label> 
@@ -37,7 +38,8 @@ export default () => {
 
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
-  
+  divElement.className="container-timeline"
+
   //Creación del botón "Cerrar Sesión"//
   const getOut = divElement.querySelector("#getOut");
   getOut.addEventListener("click", (event) => {
@@ -82,9 +84,7 @@ export default () => {
      btnsLikeOff.forEach((btn) => {
       btn.addEventListener("click", ({ target: { dataset } }) => {
       const userId=JSON.parse(localStorage.getItem("userInfo")).uid
-      const userIdGoogle = JSON.parse(localStorage.getItem("userGoogle")).uid
       console.log(userId)
-      console.log(userIdGoogle)
       const idPost=dataset.id;
       getTask(idPost).then((response) => {
       console.log(response.data())
@@ -114,6 +114,7 @@ export default () => {
               .id; 
 
           taskForm["btn-task-save"].innerText = "update";
+          /*console.log('doc resolve: ', resolve)*/
         });
       });
     });

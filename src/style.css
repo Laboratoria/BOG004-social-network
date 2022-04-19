@@ -205,6 +205,10 @@ object-fit: cover;
 min-height: 100vh;
 }
 
+.container-timeline
+{
+  background-color:#ba6a43;
+}
 @media(min-width: 1200px)
 {
   .title-one{
