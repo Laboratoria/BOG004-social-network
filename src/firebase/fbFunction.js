@@ -1,6 +1,6 @@
 // Importamos app para inicializar firebase
 import { app, db } from './fbKeys.js'; 
-import {  addDoc, collection, query, getDocs, orderBy, onSnapshot, updateDoc, doc, GoogleAuthProvider, deleteDoc, arrayUnion, arrayRemove } from './firebaseImport.js'
+import {  query, addDoc, collection, getDocs, onSnapshot, updateDoc, doc, GoogleAuthProvider, deleteDoc, arrayUnion, arrayRemove } from './firebaseImport.js'
 import { createUser, provider, signIn, signInWithGoogle } from '../view-controler/controllers.js';
 import { changeView } from '../view-controler/route.js';
 import { paintPost, showsPaintPost } from '../views/ecoTraveler.js';
@@ -104,6 +104,11 @@ export const signInUser = (auth, email, password) => {
 return querySnapshot;
   }
 
+  export const onSnapshotFunction = () => {
+    const q = query(collection(db, 'posts'));
+    return q;
+  }
+
 export const editPost = ( id, postUpdate) => {
   return updateDoc(doc(db,'posts', id),{post:postUpdate})
 }
@@ -117,3 +122,4 @@ if (!isLike){
    return updateDoc(doc(db,'posts', idPost),{like:arrayRemove(idUser)})
  }
 }
+

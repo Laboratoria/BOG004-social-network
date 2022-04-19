@@ -1,8 +1,23 @@
-import { savePost, showsPost, editPost, deletePost, like } from '../firebase/fbFunction.js';
+import { onSnapshotFunction, savePost, showsPost, editPost, deletePost, like } from '../firebase/fbFunction.js';
 import { getAuth, onSnapshot, serverTimestamp } from '../Firebase/firebaseImport.js';
 
 
 const auth = getAuth();
+
+const callOnSnapShot = () => {
+const queryCollection = onSnapshotFunction();
+onSnapshot(queryCollection, (querySnapshot) => {
+   const collectionPost = [];
+   querySnapshot.forEach((doc) => {
+      collectionPost.push(doc.data());
+      showsPaintPost();
+      console.log ("Current cities in CA: ", collectionPost.join(", "));
+  });
+});
+}
+setTimeout(() => {
+   callOnSnapShot();
+}, 100);
 
 const clickPost = (div) => {
    const userName = auth.currentUser;
@@ -15,12 +30,13 @@ cleanPost.value= '';
 })
 }
 export const showsPaintPost = () => {
-         showsPost()
-      .then((res) => res.forEach((e) => { 
-         divContainerPost.appendChild(paintPost(e.id, e.data()));
-         console.log(e.id, "Esto es eeeeeeeeeeeeeeee");
-           divEcotraveler.appendChild(divContainerPost);
-      })
+         showsPost().then((res) =>{
+            divContainerPost.innerHTML=''
+            res.forEach((e) => { 
+               divContainerPost.appendChild(paintPost(e.id, e.data()));
+                 divEcotraveler.appendChild(divContainerPost);
+            })
+         } 
       )
    }
 const divEcotraveler = document.createElement('div');
