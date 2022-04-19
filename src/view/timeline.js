@@ -83,7 +83,9 @@ export default () => {
      btnsLikeOff.forEach((btn) => {
       btn.addEventListener("click", ({ target: { dataset } }) => {
       const userId=JSON.parse(localStorage.getItem("userInfo")).uid
+      const userIdGoogle = JSON.parse(localStorage.getItem("userGoogle")).uid
       console.log(userId)
+      console.log(userIdGoogle)
       const idPost=dataset.id;
       getTask(idPost).then((response) => {
       console.log(response.data())
