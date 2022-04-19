@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.container{
+    /* display: grid; */
+    font-family: 'Lato', sans-serif;
+}
+body{
+    margin: 0%;
+}
+.gridHeader{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 0;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-left: 15px;
+    margin-right: 15px;
+    justify-items: center;
+}
+.logo{
+    height: 78px;
+    width: 87.35px;
+    align-self: end;
+}
+.tittle{
+    /* align-self: center; */
+    margin-bottom: 2px;
+    font-size: 40px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.gridBody{
+    display: grid;
+    row-gap: 8px;
+    justify-items: center;
+}
+.inputStyle{
+    width: 90%;
+    height: 28px;
+    border:0;
+    border-radius: 10px;
+    background-color:#E1F0DC;
+    color: #838181;
+    text-align: center;
+} 
+#inputEmail{
+    margin-top:40px;
+}
+.btnLogin{
+    margin-top: 13px;
+    width: 100px;
+    height: 34px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 14px;
+    font-weight: 600;
+}
+.textGoogle{
+    font-size: 14px;
+    font-weight: 350;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.googleLogo{
+    height: 42px;
+    width: 42px;
+    margin-bottom: 20px;
+}
+.gridRegister{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: baseline;
+    justify-items: center;
+    margin-right: 15px;
+}
+.textAccount{
+    font-size: 14px;
+    font-weight: 350;
+}
+.btnRegister{
+    height: 34px;
+    width: 120px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 14px;
+    font-weight: 600;
+}
+a:link{
+    text-decoration: none;
+}
+a:visited {
+    color: #838181;
+  }
+.gridHeaderAccount {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin-top:7%;
+}
+.logoAccount {
+    height: 78px;
+    width: 87.35px;
+}
+.tittleAccount {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.gridBodyAccount {
+    display: grid;
+    row-gap: 15px;
+    justify-items: center;
+}
+#inputName {
+    margin-top: 20px;
+}
+#viewWall {
+    margin-top: 15px;
+}
+#successRegister{
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+.alertMessage {
+    color: #F35B5B;
+    margin: 0%;
+    justify-items: center;
+    font-size: revert;
+}
+
+.containerWall{
+    width: 100%;
+    margin: 0%;
+}
+.signOut{
+    width: 25px;
+    height: 25px;
+    }
+
+.gridHeaderWall{
+display: grid;
+grid-template-columns: 80% 20%;
+padding: 0;
+margin-left: 15px;
+margin-right: 15px;
+justify-items: center;
+align-items: center;
+}
+#tittleWall{
+justify-self: start;
+color: #3CA656;
+margin-top: 10%;
+}
+#signOutIcon{
+justify-self: center;
+margin-top: 18%;
+}
+.containerPost{
+    display: grid;
+    justify-items: center;
+    height: 15vh;
+    padding: 0%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #838181;
+    margin: 10px;
+    margin-bottom: 0;
+}
+#inputPost{
+    width: 80%;
+    height: 60%;
+    border: transparent;
+    background: #F2F2F2;
+    margin-top: 3%;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+}
+.containerIcons{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 70%;
+    width: 75%;
+    justify-items: start;
+    height: 10%;
+    position: relative;
+    left: 13%;
+}
+.btnPublic{
+    height: 25px;
+    width: 80px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #3CA656;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.btnEditPost{
+    height: 25px;
+    width: 80px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #838181;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.modalContainer{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+    
+}
+.hide{
+    display:none;
+}
+.show{
+    pointer-events: auto;
+  display: block;
+}
+.gridDivContainerPost{
+    margin-top:10%;
+}
+.icons{
+   height: 10px;
+   width: 10px;
+   margin-left: 2%;
+   align-self: baseline;
+}
+.userName{
+    color: #173C34;
+    font-family: 'Lato', cursive;
+    font-size: 14px;
+}
+#textAreaPost{
+    border: transparent;
+    width: 80%;
+    height: 60%;
+    background: #F2F2F2;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+}
+.containerIconsPost{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 60%;
+    width: 50%;
+    justify-items: start;
+    height: 10%;
+    position: relative;
+    left: 13%;
+}
+#editPost{
+    border: transparent;
+    width: 80%;
+    height: 60%;
+    background: #F2F2F2;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+}
+#counter{
+    font-family: 'Lato', sans-serif;
+    font-size: x-small;
+}
+.like{
+    border:5px solid red;
+}
+.dislike{
+    border:5px solid green;
+}
+#errorMessageValidation{
+    margin-left: 13%;
+    margin-top: 2%;
+    font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 600px) {
+.gridHeader{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    padding: 0;
+    margin-top:2%;
+    margin-bottom: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    column-gap: 20px;;
+    justify-items:center;
+}
+.gridBody{
+    row-gap: 0px;
+}
+.tittle{
+    margin-top: 0px;
+    font-size: 120px;
+    font-weight: 500;
+    justify-self: start;
+    }
+    .logo{
+    height: 180px;
+    width: 203.38px;
+    padding-right: 30px;
+    justify-self: end;
+    }
+    .inputStyle{
+    width: 50%;
+    height: 50px;
+    color: #aca5a5;
+    text-align: center;
+    font-size: 25px;
+    } 
+    #inputPassword {
+    margin-top: 8px;
+    }
+    .btnLogin{
+    margin-top: 13px;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    }
+.textGoogle{
+    font-size: 25px;
+    font-weight: 350;
+    margin-top: 25px;
+    margin-bottom: 0;
+    }
+    .googleLogo{
+    height: 50px;
+    width: 50px;
+    margin-top:10px;
+    margin-bottom: 20px;
+    }
+    .gridRegister{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: baseline;
+        /* justify-items: center; */
+    }
+    .gridHeaderAccount {
+        margin-top:2%;
+    }
+    .textAccount{
+    font-size: 25px;
+    font-weight: 350;
+    justify-self: end;
+    margin-right: 40px;
+    }
+    .btnRegister{
+    height: 50px;
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #005d164b;
+    color: #838181;
+    font-size: 25px;
+    font-weight: 600;
+    justify-self: start;
+    margin-left: 20px;
+    }
+    a:link{
+    text-decoration: none;
+    box-shadow: none; 
+    }
+    a:visited {
+    color: #838181;
+      }
+    #viewWall {
+    margin-top: 0px;
+    justify-self: center;
+    }
+.logoAccount {
+    height: 84px;
+    width: 93.35px;
+    }
+    .tittleAccount {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 60px;
+    color: #154D14;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+    }
+    .alertMessage {
+        font-size: x-large;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .gridHeaderWall{
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    #tittleWall{
+        justify-self: center;
+    }
+    #signOutIcon{
+        margin-top: 35%;
+    }
+    .containerWall{
+        height: 100%;
+    }
+    .containerPost{
+       margin: 20px;
+       margin-bottom: 0;
+   }
+   .gridDivEcotraveler{
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+   }
+   #inputPost{
+    font-size: 15px;
+}
+   #textAreaPost{
+   font-size: 15px;
+}
+.userName{
+    font-size: medium;
+}
+.icons{
+    height: 20px;
+    width: 20px;
+    
+ }
+#editPost{
+    font-size: 15px;
+}
+.gridDivContainerPost{
+    margin-top:3%;
+}
+#counter{
+    font-size: medium;
+}
+#errorMessageValidation{
+    margin-left: 30%;
+    font-size: 20px;
+}
+}
