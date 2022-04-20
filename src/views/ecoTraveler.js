@@ -6,12 +6,12 @@ import {
   deletePost,
   like,
   signOut,
-} from "../firebase/fbFunction.js";
+} from '../firebase/fbFunction.js';
 import {
   getAuth,
   onSnapshot,
   serverTimestamp,
-} from "../firebase/firebaseImport.js";
+} from '../firebase/firebaseImport.js';
 
 const auth = getAuth();
 
@@ -22,7 +22,6 @@ const callOnSnapShot = () => {
     querySnapshot.forEach((doc) => {
       collectionPost.push(doc.data());
       showsPaintPost();
-      console.log("Current cities in CA: ", collectionPost.join(", "));
     });
   });
 };
@@ -33,26 +32,26 @@ setTimeout(() => {
 const clickPost = (div) => {
   const userName = auth.currentUser;
   const actualDate = serverTimestamp();
-  const postValue = div.querySelector("#inputPost").value;
+  const postValue = div.querySelector('#inputPost').value;
   savePost(postValue, userName.email, actualDate).then(() => {
     showsPaintPost();
-    const cleanPost = document.querySelector("#inputPost");
-    cleanPost.value = "";
+    const cleanPost = document.querySelector('#inputPost');
+    cleanPost.value = '';
   });
 };
 export const showsPaintPost = () => {
   showsPost().then((res) => {
-    divContainerPost.innerHTML = "";
+    divContainerPost.innerHTML = '';
     res.forEach((e) => {
       divContainerPost.appendChild(paintPost(e.id, e.data()));
       divEcotraveler.appendChild(divContainerPost);
     });
   });
 };
-const divEcotraveler = document.createElement("div");
-divEcotraveler.setAttribute("class", "gridDivEcotraveler");
-const divContainerPost = document.createElement("div");
-divContainerPost.setAttribute("class", "gridDivContainerPost");
+const divEcotraveler = document.createElement('div');
+divEcotraveler.setAttribute('class', 'gridDivEcotraveler');
+const divContainerPost = document.createElement('div');
+divContainerPost.setAttribute('class', 'gridDivContainerPost');
 export default () => {
   const viewEcotraveler = `
   <div class='containerWall'>
@@ -72,29 +71,31 @@ export default () => {
 
   divEcotraveler.innerHTML = viewEcotraveler;
 
-  const btnPost = divEcotraveler.querySelector("#publicBtn");
+  const btnPost = divEcotraveler.querySelector('#publicBtn');
   // creamos un evento al boton publicar
-  btnPost.addEventListener("click", () => {
-    const validationInputPost =
-      divEcotraveler.querySelector("#inputPost").value;
-    const errorMessageValidation = divEcotraveler.querySelector(
-      "#errorMessageValidation"
-    );
-    if (validationInputPost != "") {
+  btnPost.addEventListener('click', () => {
+    const validationInputPost = divEcotraveler.querySelector('#inputPost').value;
+    const errorMessageValidation = divEcotraveler.querySelector('#errorMessageValidation');
+    if (validationInputPost !== '') {
       clickPost(divEcotraveler);
     } else {
-      errorMessageValidation.innerHTML =
-        "Por favor ingresa un valor en el campo";
+      errorMessageValidation.innerHTML = 'Por favor ingresa un valor en el campo';
     }
   });
-  const btnSignOut = divEcotraveler.querySelector("#signOutIcon");
-  btnSignOut.addEventListener("click", () => signOut(auth));
+  const btnSignOut = divEcotraveler.querySelector('#signOutIcon');
+  btnSignOut.addEventListener('click', () => signOut(auth));
   return divEcotraveler;
 };
 
+const editFunction = (id, post) => editPost(id, post);
+
+const deleteFunction = (id, posts) => deletePost(id, posts);
+
+const likeFunction = (idPost, idUser, isLike) => like(idPost, idUser, isLike);
+
 export const paintPost = (idPost, post) => {
-  const divPost = document.createElement("div");
-  let historyPost = `
+  const divPost = document.createElement('div');
+  const historyPost = `
    <div class='containerWallPost'>
       <div class='containerPost' id='postSpace'>
         <div class='userName'>${post.userName}</div>
@@ -118,48 +119,39 @@ export const paintPost = (idPost, post) => {
 
   divPost.innerHTML = historyPost;
   //   pruebaedit.innerHTML= historyPost;
-  const btnEdit = divPost.querySelector("#edit");
-  const postEd = divPost.querySelector("#textAreaPost");
-  const modal = divPost.querySelector("#containerModal");
-  const edit = divPost.querySelector("#publicBtnEditPost");
-  btnEdit.addEventListener("click", () => {
-    postEd.classList.add("hide");
-    modal.classList.add("show");
+  const btnEdit = divPost.querySelector('#edit');
+  const postEd = divPost.querySelector('#textAreaPost');
+  const modal = divPost.querySelector('#containerModal');
+  const edit = divPost.querySelector('#publicBtnEditPost');
+  btnEdit.addEventListener('click', () => {
+    postEd.classList.add('hide');
+    modal.classList.add('show');
   });
-  edit.addEventListener("click", () => {
-    modal.classList.remove("show");
-    const postEdited = divPost.querySelector("#editPost").value;
+  edit.addEventListener('click', () => {
+    modal.classList.remove('show');
+    const postEdited = divPost.querySelector('#editPost').value;
     editFunction(idPost, postEdited);
     postEd.value = postEdited;
-    postEd.classList.remove("hide");
+    postEd.classList.remove('hide');
   });
-  const btnDelete = divPost.querySelector("#delete");
-  btnDelete.addEventListener("click", () => {
-    if (window.confirm("¿Estás seguro de eliminar el post?")) {
+  const btnDelete = divPost.querySelector('#delete');
+  btnDelete.addEventListener('click', () => {
+    if (window.confirm('¿Estás seguro de eliminar el post?')) {
       deleteFunction(idPost, post);
     }
   });
-  const btnLike = divPost.querySelector("#likePost");
-  btnLike.addEventListener("click", () => {
-    console.log("Soy el boton de like");
-    showsPost().then((res) =>
-      res.forEach((e) => {
-        if (e.id === idPost) {
-          if (e.data().like.includes(auth.currentUser.uid)) {
-            likeFunction(idPost, auth.currentUser.uid, true);
-          } else {
-            likeFunction(idPost, auth.currentUser.uid, false);
-          }
+  const btnLike = divPost.querySelector('#likePost');
+  btnLike.addEventListener('click', () => {
+    showsPost().then((res) => res.forEach((e) => {
+      if (e.id === idPost) {
+        if (e.data().like.includes(auth.currentUser.uid)) {
+          likeFunction(idPost, auth.currentUser.uid, true);
+        } else {
+          likeFunction(idPost, auth.currentUser.uid, false);
         }
-      })
-    );
+      }
+    }));
   });
   return divPost;
 };
 window.onload = showsPaintPost;
-
-const editFunction = (id, post) => editPost(id, post);
-
-const deleteFunction = (id, posts) => deletePost(id, posts);
-
-const likeFunction = (idPost, idUser, isLike) => like(idPost, idUser, isLike);

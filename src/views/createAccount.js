@@ -17,7 +17,6 @@ export const clickRegister = (div) => {
   errorMessageInput.innerHTML = '';
 
   if (!confirmPassword) {
-    console.log(passwordConfirm);
     errorPasswordInput.innerHTML = 'Tus contraseñas no coinciden, intentalo de nuevo';
   }
   if (voidInput) {

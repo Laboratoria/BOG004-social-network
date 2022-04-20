@@ -1,10 +1,15 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider,signInWithPopup, signOut } from '../firebase/firebaseImport.js';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from '../firebase/firebaseImport.js';
 
 export const auth = getAuth();
 
-export const createUser = (email, password) => {
-  return createUserWithEmailAndPassword( auth, email, password);
-};
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
 export const signIn = (auth, email, password) => signInWithEmailAndPassword(auth, email, password);
 

@@ -1,8 +1,5 @@
-import { signInUser } from '../firebase/fbFunction.js';
-import { auth } from '../view-controler/controllers.js';
-import { loginGoogle } from '../firebase/fbFunction.js';
-import { provider } from '../view-controler/controllers.js';
-
+import { signInUser, loginGoogle } from '../firebase/fbFunction.js';
+import { auth, provider } from '../view-controler/controllers.js';
 
 export const clickSignIn = (div) => {
   const email = div.querySelector('#inputEmail').value;
@@ -11,7 +8,7 @@ export const clickSignIn = (div) => {
   signInUser(auth, email, password);
 };
 
-export const logoGoogleClick = (div) => {
+export const logoGoogleClick = () => {
   loginGoogle(auth, provider);
 };
 

@@ -32,7 +32,6 @@ describe('clickRegister', () => {
     btnTest.addEventListener('click', () => clickRegister(divTemplateTest));
     btnTest.dispatchEvent(new Event('click'));
     const messagePasswordTest = divTemplateTest.querySelector('#errorPassword');
-    console.log(messagePasswordTest.textContent, 'mensaje de error');
     expect(messagePasswordTest.textContent).toBe('Tus contraseñas no coinciden, intentalo de nuevo');
   });
   it('deberia mostrar mensaje de error campos vacios', () => {
