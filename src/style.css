@@ -205,10 +205,46 @@ object-fit: cover;
 min-height: 100vh;
 }
 
-.container-timeline
-{
-  background-color:#ba6a43;
+
+/*Aquí inicia el diseño del registro*/
+.title-register{
+  color: #ed008e;
 }
+
+.form-register{
+  margin: 0px;
+  padding: 0px;
+  border-left-style: solid;
+  border-color: #662c92;
+  /*background-color: red;*/
+  /*background-image : url('./img/Fondo-register.jpg');*/
+  object-fit: cover;
+  min-height: 100vh;
+ /*  display: flex;
+  flex-direction: column; */
+}
+
+.text-register{
+  background-color: green;
+
+}
+
+.box-text{
+  background-color: yellow;
+  color:rgb(32, 29, 29); 
+  border: 0px;
+  padding: 15px;
+  width: 250px;
+  border-radius: 11px 15px 11px 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* justify-content:space-around; */
+}
+
+
+
+
 @media(min-width: 1200px)
 {
   .title-one{
@@ -276,6 +312,8 @@ width: 25px;
   padding: 15px 25px;
   font-size: 17px;
 }
+
+
 
 }
   

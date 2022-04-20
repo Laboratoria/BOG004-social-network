@@ -47,7 +47,7 @@ const db = getFirestore();
 
 export const saveTask = (title, description,likes) =>{
 console.log({ title, description,likes });
-  addDoc(collection(db, "tasks"), { title, description,likes });
+  addDoc(collection(db, "tasks"), { title, description,likes});
 }
 export const getTasks = () => getDocs(collection(db, "tasks"));
 

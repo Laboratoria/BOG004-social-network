@@ -14,11 +14,11 @@ export default () => {
      
     <form id= "task-form">
     
-    <label for= "title">Title: </label> 
-    <input type= "text" placeholder = "Task Title" id="task-title">
+    <label for= "title"> ¿Cuál es tu pregunta?  </label> 
+    <input type= "text" placeholder = "Escribe una pregunta" id="task-title">
 
-    <label for= "description"> Description: </label>
-    <textarea id="task-description" rows="3" placeholder= "Task Description"></textarea>
+    <label for= "description"> </label>
+    <textarea id="task-description" rows="5" placeholder= "Cuentanos un poco más sobre la situación en la que te encuentras"></textarea>
        
     <button id="btn-task-save">Save</button> 
    
@@ -63,12 +63,14 @@ export default () => {
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       commentList += `     
-   <div style="color:white">
+   <div style="color:black">
    <h3>${task.title}</h3>
    <p>${task.description}</p>
-    <button class='btn-like-off' data-id="btn-like-off'">Like-off</button>
-    <button class='btn-like-on' data-id="btn-like-on'">Like-on</button>
-    <span>${task.likes}</span>
+    <button class='btn-like-off' > 
+    <img data-id="${doc.id}" src= "../img/dislike.png" width="15px" height="15px"> 
+    </button>
+    <button class='btn-like-on' data-id="${doc.id}">Like-on</button>
+    <span>${task.likes.length}</span>
    <button class='btn-edit' data-id="${doc.id}">Edit</button>
     <button class='btn-delete' data-id="${doc.id}">Delete</button>
    </div>
@@ -78,19 +80,52 @@ export default () => {
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
     const btnsLikeOff= tasksContainer.querySelectorAll(".btn-like-off");
+    const btnsLikeOn = tasksContainer.querySelectorAll(".btn-like-on");
 
 //evento like 
 
-     btnsLikeOff.forEach((btn) => {
-      btn.addEventListener("click", ({ target: { dataset } }) => {
+     btnsLikeOff.forEach((btnOne, i) => {
+      btnOne.addEventListener("click", ({ target: { dataset } }) => {
+        console.log(btnOne)
       const userId=JSON.parse(localStorage.getItem("userInfo")).uid
       console.log(userId)
-      const idPost=dataset.id;
+      const idPost=(dataset.id);
       getTask(idPost).then((response) => {
-      console.log(response.data())
+        const postClick = response.data() 
+
+        if (postClick.likes.length === 0) {
+          updateTask(idPost, {likes: [userId]
+                    })
+          
+        } else {
+          let likesExistentes = postClick.likes
+          if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
+            console.log("ya puso me gusta")
+            likesExistentes.splice(likesExistentes.indexOf(userId),1)
+            updateTask(idPost, {likes: likesExistentes})
+            console.log(btnOne.querySelector("img"))
+            /* btnOne.querySelector("img").removeAttribute("src") */
+            btnOne.querySelector("img").src("../img/like.png")
+          }else{
+            console.log("No he puesto like")
+          }
+        }
+          console.log(response.data())
       })
+    /* btnsLikeOn[i].style.display = "block"
+    btnsLikeOff[i].style.display ="none" */
       });
     });
+
+
+    /* 1. Guardar el ID del usuario 
+    2. Recuperar el ID del usuario 
+    3. Guardar el ID del post 
+    0
+    4. Crear una condicion que valide si este usuario ya dio click en el post 
+    5. Sí: no puede darle nuevamente click
+    No: Su click suma +1 al  contador de ese post
+    6.  */
 
     //evento de borar
     btnsDelete.forEach((btn) => {
@@ -128,7 +163,7 @@ export default () => {
     const description = taskForm["task-description"];
 //
     if (!editStatus) {
-      saveTask(title.value, description.value,0);
+      saveTask(title.value, description.value,[]);
     } else {
       updateTask(id, {
         description: description.value,

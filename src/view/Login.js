@@ -18,14 +18,17 @@ export default () => {
 <button type="submit" class="ingress" id="ingress">Sing in</button>
 </div>
 
-    <div >
+    <div>
     <button type="button" class="btn-google" id="btn-google">connect  with Google
     <img class="img-google"     src="img/google.png" alt="btn-google">
     </button>
     </div>
+    
 <div>
 <button type="button" class="create" id="create">Create your account</button>
 </div>
+
+<div class="message-text"> </div>
 </form>
     `;
     
@@ -46,6 +49,8 @@ export default () => {
     const emailUser= divElement.querySelector("#emailUser").value;
     
     loginUser(emailUser, passwordUser);
+
+
     
   });
 
