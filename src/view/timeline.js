@@ -93,7 +93,7 @@ export default () => {
       getTask(idPost).then((response) => {
         const postClick = response.data() 
 
-        if (postClick.likes.length === 0) {
+        if (!postClick.likes.length !== 0) {
           updateTask(idPost, {likes: [userId]
                     })
           
