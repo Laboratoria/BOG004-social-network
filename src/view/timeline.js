@@ -36,7 +36,7 @@ export default () => {
 </ul>
 
     `;
-
+  const userId=JSON.parse(localStorage.getItem("userInfo")).uid
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
   divElement.className="container-timeline"
@@ -68,9 +68,10 @@ export default () => {
    <h3>${task.title}</h3>
    <p>${task.description}</p>
     <button class='btn-like-off' > 
-    <img data-id="${doc.id}" src= "../img/dislike.png" width="15px" height="15px"> 
+    <img data-id="${doc.id}" src=${ 
+      task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
+    } "../img/dislike.png" width="15px" height="15px"> 
     </button>
-    <button class='btn-like-on' data-id="${doc.id}">Like-on</button>
     <span>${task.likes.length}</span>
    <button class='btn-edit' data-id="${doc.id}">Edit</button>
     <button class='btn-delete' data-id="${doc.id}">Delete</button>
@@ -81,14 +82,14 @@ export default () => {
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
     const btnsLikeOff= tasksContainer.querySelectorAll(".btn-like-off");
-    const btnsLikeOn = tasksContainer.querySelectorAll(".btn-like-on");
+    
 
 //evento like 
 
      btnsLikeOff.forEach((btnOne, i) => {
       btnOne.addEventListener("click", ({ target: { dataset } }) => {
         console.log(btnOne)
-      const userId=JSON.parse(localStorage.getItem("userInfo")).uid
+    
       console.log(userId)
       const idPost=(dataset.id);
       getTask(idPost).then((response) => {
@@ -101,12 +102,11 @@ export default () => {
         } else {
           let likesExistentes = postClick.likes
           if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
-            /*console.log("ya puso me gusta")
+           console.log("ya puso me gusta")
             likesExistentes.splice(likesExistentes.indexOf(userId),1)
             updateTask(idPost, {likes: likesExistentes})
-            console.log(btnOne)*/
-            btnOne.querySelector("img").setAttribute("src","../img/like.png")
-            /*btnOne.querySelector("img").src("../img/like.png")*/
+            console.log(btnOne)
+            btnOne.querySelector("img").setAttribute("src", "../img/like.png")
           }else{
             console.log("No he puesto like")
             likesExistentes.push(userId)
