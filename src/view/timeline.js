@@ -11,6 +11,7 @@ import { changeView } from "../view-controler/router.js";
 export default () => {
   const viewTimeLine = `
     <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
+    <img  class="img-timeline" src= "../img/mamapies.png"> 
      
     <form id= "task-form">
     
@@ -100,14 +101,17 @@ export default () => {
         } else {
           let likesExistentes = postClick.likes
           if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
-            console.log("ya puso me gusta")
+            /*console.log("ya puso me gusta")
             likesExistentes.splice(likesExistentes.indexOf(userId),1)
             updateTask(idPost, {likes: likesExistentes})
-            console.log(btnOne.querySelector("img"))
-            /* btnOne.querySelector("img").removeAttribute("src") */
-            btnOne.querySelector("img").src("../img/like.png")
+            console.log(btnOne)*/
+            btnOne.querySelector("img").setAttribute("src","../img/like.png")
+            /*btnOne.querySelector("img").src("../img/like.png")*/
           }else{
             console.log("No he puesto like")
+            likesExistentes.push(userId)
+            updateTask(idPost, {likes: likesExistentes
+                    })
           }
         }
           console.log(response.data())

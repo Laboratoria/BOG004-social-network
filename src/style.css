@@ -179,7 +179,6 @@ color:#a98b66;
 color:white;
 margin-bottom: 30px;
 font-size: 23px;
-text-align: center;
 }
 .footer{
 background-color: #48221836;
@@ -188,7 +187,6 @@ background-color: #48221836;
  color: white;
   font-size: 17px;
   margin: 0;
-  position: fixed;
  bottom: 0; 
 text-align: center;
 }
@@ -242,8 +240,27 @@ min-height: 100vh;
   /* justify-content:space-around; */
 }
 
+.container-timeline
+{
+  background-color: #dac3f59c;
+  text-align: center;
+  padding-bottom: 15%;
+}
 
+ #task-description
+ {
+   background-color: #456493;
+   width: 700px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:grey 2px 2px 3px;
+   margin: 10%;
+ }
 
+.img-timeline
+{
+  width: 300px;
+}
 
 @media(min-width: 1200px)
 {
