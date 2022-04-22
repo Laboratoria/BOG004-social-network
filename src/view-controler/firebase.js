@@ -42,6 +42,11 @@ export const auth = getAuth();
 
 export const provider = new GoogleAuthProvider();
 
+export const loginWithFirebase = (email, password) => {
+return  signInWithEmailAndPassword(auth, email, password)
+}
+
+
 const db = getFirestore();
 
 

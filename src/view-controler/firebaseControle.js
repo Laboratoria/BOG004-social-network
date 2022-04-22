@@ -1,7 +1,7 @@
 import {
     auth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,
+    signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider, loginWithFirebase,
 } from './firebase.js';
 
 import{changeView} from './router.js'
@@ -38,7 +38,8 @@ import{changeView} from './router.js'
     });
   }
    export const  loginUser = (email, password) =>{
- signInWithEmailAndPassword(auth, email, password)
+  return loginWithFirebase(email, password)
+//  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;

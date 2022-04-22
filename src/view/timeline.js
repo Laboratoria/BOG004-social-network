@@ -96,9 +96,10 @@ export default () => {
         const postClick = response.data() 
 
         if (postClick.likes.length === 0) {
+          console.log("entro")
           updateTask(idPost, {likes: [userId]
                     })
-          
+
         } else {
           let likesExistentes = postClick.likes
           if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
