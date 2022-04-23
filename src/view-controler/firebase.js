@@ -41,11 +41,18 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
 export const provider = new GoogleAuthProvider();
+export const googlePopUp = () => signInWithPopup(auth, provider);
 
 export const loginWithFirebase = (email, password) => {
 return  signInWithEmailAndPassword(auth, email, password)
 }
 
+// export const signInWithEmailAndPassword = () => Promise.resolve({});
+// export const getAuth = () => Promise.resolve({});
+
+export const loginWithGoogle = () => {
+return  googlePopUp(auth, provider)
+}
 
 const db = getFirestore();
 
