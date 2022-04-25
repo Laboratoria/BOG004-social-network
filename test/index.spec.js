@@ -1,21 +1,57 @@
 import { changeView  } from "../src/view-controler/router.js";
 
-const template = {
-  Login : '<p>template login</p>',
-  register: '<p>template register</p>'
+jest.mock("../src/view-controler/firebase.js")
+
+const pintarLogin  = () => {
+  const divElement = document.createElement("div");
+  const viewLogin = `<p>template login</p>`
+  divElement.innerHTML = viewLogin;
+  return divElement; 
 }
 
+const pintarRegister  = () => {
+  const divElement = document.createElement("div");
+  const viewRegister = `<p>template register</p>`
+  divElement.innerHTML = viewRegister;
+  return divElement; 
+}
 
-describe('chengeView', () => {
-  it('debería pintar el template Login cuando la ruta sea #/login', () => {  
+const pintarTimeline  = () => {
+  const divElement = document.createElement("div");
+  const viewTimeLine = `<p>template timeLine</p>`
+  divElement.innerHTML = viewTimeLine;
+  return divElement; 
+}
+
+const componentsTest = {
+  Login : pintarLogin,
+  register: pintarRegister, 
+  timeline: pintarTimeline,
+}
+
+describe('changeView', () => {
+  it('debería pintar el template Login cuando la ruta sea #/', () => {  
     document.body.innerHTML= '<section id="container"></section>'
-   
-    changeView('#/login', 'template')
-
-    expect(document.getElementById("container")).toEqual(template.Login);
+    changeView('#/', componentsTest)
+    expect(document.getElementById("container").textContent).toEqual('template login');
   });
 });
 
+describe('changeView', () => {
+  it('debería pintar el template register cuando la ruta sea #/register', () => {  
+    document.body.innerHTML= '<section id="container"></section>'
+    changeView('#/register', componentsTest)
+    expect(document.getElementById("container").textContent).toEqual('template register');
+  });
+});
+
+describe('changeView', () => {
+  it('debería pintar el template timeline cuando la ruta sea #/timeLine', () => {  
+    document.body.innerHTML= '<section id="container"></section>'
+    changeView('#/timeLine', componentsTest)
+    expect(document.getElementById("container").textContent).toEqual('template timeLine');
+  });
+});
 
 /*describe('casos de prueba de registro', () => {
   it('debería redireccionar a muro', () => {

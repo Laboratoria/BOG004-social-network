@@ -142,7 +142,6 @@ export default () => {
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        console.log(e.target);
         getTask(e.target.dataset.id).then((resolve) => {
           const task = resolve.data();
           taskForm["task-title"].value = task.title;

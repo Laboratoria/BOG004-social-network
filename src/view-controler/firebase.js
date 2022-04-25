@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -46,25 +46,7 @@ export const googlePopUp = () => signInWithPopup(auth, provider);
 export const loginWithFirebase = (email, password) => {
 return  signInWithEmailAndPassword(auth, email, password)
 }
-<<<<<<< HEAD
 
-// export const signInWithEmailAndPassword = () => Promise.resolve({});
-// export const getAuth = () => Promise.resolve({});
-//export const createUserWithEmailAndPassword = () => Promise.resolve({});
-// export const GoogleAuthProvider = () => Promise.resolve({});
-//export const signInWithPopup = () => Promise.resolve({});
- //export const getFirestore = () => Promise.resolve({});
- //export const collection = () => Promise.resolve({});
- //export const addDoc = () => Promise.resolve({});
- //export const getDocs= () => Promise.resolve({});
- //export const deleteDoc= () => Promise.resolve({});
- // export const onSnapshot= () => Promise.resolve({});
- //export const doc= () => Promise.resolve({});
- //export const getDoc= () => Promise.resolve({});
- //export const updateDoc= () => Promise.resolve({});
-
-=======
->>>>>>> f59bd8a67c20db2603222dfaa456728a1eb7cd7a
 export const loginWithGoogle = () => {
 return  googlePopUp(auth, provider)
 }

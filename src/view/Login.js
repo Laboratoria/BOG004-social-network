@@ -27,7 +27,6 @@ export default () => {
 <div>
 <button type="button" class="create" id="create">Create your account</button>
 </div>
-
 <div class="message-text"> </div>
 </form>
     `;
