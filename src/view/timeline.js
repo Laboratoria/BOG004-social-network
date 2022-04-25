@@ -10,24 +10,19 @@ import { changeView } from "../view-controler/router.js";
 
 export default () => {
   const viewTimeLine = `
+  <button id="getOut" class="getOut">
+  <img  class="img-getOut" src= "../img/salida.png">
+  </button>
     <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
     <img  class="img-timeline" src= "../img/mamapies.png"> 
      
     <form id= "task-form">
-    
-    <label for= "title"> ¿Cuál es tu pregunta?  </label> 
-    <input type= "text" placeholder = "Escribe una pregunta" id="task-title">
-
-    <label for= "description"> </label>
-    <textarea id="task-description" rows="5" placeholder= "Cuentanos un poco más sobre la situación en la que te encuentras"></textarea>
-       
+    <input type= "text" placeholder = "¿Cuál es tu pregunta?" class= 'task-title' id="task-title">
+    <textarea class= 'task-description' id="task-description" rows="5" placeholder= "Cuentanos un poco más sobre la situación en la que te encuentras"></textarea>
     <button id="btn-task-save">Save</button> 
-   
   </form>
   
   <div id="tasks-container"></div>
-
-<button id="getOut" class="getOut">Cerrar Sesión</button>
 
 <ul> 
 <li class="menu-two">
@@ -64,17 +59,21 @@ export default () => {
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       commentList += `     
-   <div style="color:black">
-   <h3>${task.title}</h3>
-   <p>${task.description}</p>
+   <div class='container-post' >
+   <h3 class='title-post' >${task.title}</h3>
+   <p class='description-post' >${task.description}</p>
     <button class='btn-like-off' > 
-    <img data-id="${doc.id}" src=${ 
+    <img class='img-like' data-id="${doc.id}" src=${ 
       task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
-    } "../img/dislike.png" width="15px" height="15px"> 
+    } "../img/dislike.png"> 
     </button>
     <span>${task.likes.length}</span>
-   <button class='btn-edit' data-id="${doc.id}">Edit</button>
-    <button class='btn-delete' data-id="${doc.id}">Delete</button>
+   <button class='btn-edit' >
+   <img  class="img-edit" data-id="${doc.id}" src= "../img/editar.png">
+   </button>
+    <button class="btn-delete" >
+    <img  class="img-delete" data-id="${doc.id}" src= "../img/eliminar.png">
+    </button>
    </div>
   `;
     });
@@ -143,6 +142,7 @@ export default () => {
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener("click", (e) => {
+        console.log(e.target);
         getTask(e.target.dataset.id).then((resolve) => {
           const task = resolve.data();
           taskForm["task-title"].value = task.title;

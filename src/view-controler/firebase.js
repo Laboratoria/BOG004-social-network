@@ -46,6 +46,7 @@ export const googlePopUp = () => signInWithPopup(auth, provider);
 export const loginWithFirebase = (email, password) => {
 return  signInWithEmailAndPassword(auth, email, password)
 }
+<<<<<<< HEAD
 
 // export const signInWithEmailAndPassword = () => Promise.resolve({});
 // export const getAuth = () => Promise.resolve({});
@@ -62,6 +63,8 @@ return  signInWithEmailAndPassword(auth, email, password)
  //export const getDoc= () => Promise.resolve({});
  //export const updateDoc= () => Promise.resolve({});
 
+=======
+>>>>>>> f59bd8a67c20db2603222dfaa456728a1eb7cd7a
 export const loginWithGoogle = () => {
 return  googlePopUp(auth, provider)
 }
