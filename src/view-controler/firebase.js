@@ -41,9 +41,29 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
 export const provider = new GoogleAuthProvider();
+export const googlePopUp = () => signInWithPopup(auth, provider);
 
 export const loginWithFirebase = (email, password) => {
-  return  signInWithEmailAndPassword(auth, email, password)
+return  signInWithEmailAndPassword(auth, email, password)
+}
+
+// export const signInWithEmailAndPassword = () => Promise.resolve({});
+// export const getAuth = () => Promise.resolve({});
+//export const createUserWithEmailAndPassword = () => Promise.resolve({});
+// export const GoogleAuthProvider = () => Promise.resolve({});
+//export const signInWithPopup = () => Promise.resolve({});
+ //export const getFirestore = () => Promise.resolve({});
+ //export const collection = () => Promise.resolve({});
+ //export const addDoc = () => Promise.resolve({});
+ //export const getDocs= () => Promise.resolve({});
+ //export const deleteDoc= () => Promise.resolve({});
+ // export const onSnapshot= () => Promise.resolve({});
+ //export const doc= () => Promise.resolve({});
+ //export const getDoc= () => Promise.resolve({});
+ //export const updateDoc= () => Promise.resolve({});
+
+export const loginWithGoogle = () => {
+return  googlePopUp(auth, provider)
 }
 
 const db = getFirestore();

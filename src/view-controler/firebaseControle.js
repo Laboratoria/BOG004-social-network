@@ -71,11 +71,13 @@ import{changeView} from './router.js'
     });
   }
 
-export const provider = new GoogleAuthProvider();
-export const googlePopUp = () => signInWithPopup(auth, provider);
+// export const provider = new GoogleAuthProvider();
+// export const googlePopUp = () => signInWithPopup(auth, provider);
 
 export const loginGoogle = () =>{
-googlePopUp(auth, provider)
+// googlePopUp(auth, provider)
+ /*return loginWithGoogle(auth, provider)*/
+ loginWithGoogle()
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
