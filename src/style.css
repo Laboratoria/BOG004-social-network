@@ -359,7 +359,7 @@ margin-right: 50px;
   height:25px;
 }
 
-.btn-edit-delete
+.btn-delete
 {
   background-color:#456493 ;
   border-radius: 10px;
@@ -368,17 +368,32 @@ margin-right: 50px;
   height:40px;
   margin-right: 12px;
   box-shadow: purple 4px 4px 8px;
- 
 }
 
-.img-edit-delete
+.img-delete
 {
   width:30px;
   height:30px;
   /*margin-top: 5px;*/
 }
 
+.img-edit
+{
+  width:30px;
+  height:30px;
+  /*margin-top: 5px;*/
+}
 
+.btn-edit
+{
+  background-color:#456493 ;
+  border-radius: 10px;
+  border: none;
+   width:40px;
+  height:40px;
+  margin-right: 12px;
+  box-shadow: purple 4px 4px 8px;
+}
 
 @media(min-width: 1200px)
 {

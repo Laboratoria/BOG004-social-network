@@ -68,11 +68,11 @@ export default () => {
     } "../img/dislike.png"> 
     </button>
     <span>${task.likes.length}</span>
-   <button class='btn-edit-delete' data-id="${doc.id}">
-   <img  class="img-edit-delete" src= "../img/editar.png">
+   <button class='btn-edit' >
+   <img  class="img-edit" data-id="${doc.id}" src= "../img/editar.png">
    </button>
-    <button class='btn-edit-delete' data-id="${doc.id}">
-    <img  class="img-edit-delete" src= "../img/eliminar.png">
+    <button class="btn-delete" >
+    <img  class="img-delete" data-id="${doc.id}" src= "../img/eliminar.png">
     </button>
    </div>
   `;
@@ -143,6 +143,7 @@ export default () => {
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener("click", (e) => {
+        console.log(e.target);
         getTask(e.target.dataset.id).then((resolve) => {
           const task = resolve.data();
           taskForm["task-title"].value = task.title;
