@@ -11,8 +11,7 @@ body {
 
 .header {
  background-color:white;
- padding: 10px 0 10px 0;
- margin-bottom: 30px;
+ padding: 30px;
 }
 
 .header .title {
@@ -20,13 +19,14 @@ body {
   font-size: large;
   color: white;
 justify-content: center;
+
 }
 
 .title-one{
- height: 25px;
-   width: 25px;
+ height: 28px;
+   width: 28px;
    border-radius:50px;
-  padding-top:2px;  
+  padding-top:4px;  
   background: #662c92;
  text-align: center;
 }
@@ -58,6 +58,7 @@ color:white;
 margin-bottom: 20px;
 font-size: 23px;
 text-align: center;
+padding: 20px;
 }
 
 form{
@@ -173,15 +174,8 @@ background-color: #f5ebe7;
 .text-register{
 color:#a98b66;
 }
-
-.title-timeline
-{
-color:white;
-margin-bottom: 30px;
-font-size: 23px;
-}
 .footer{
-background-color: #48221836;
+background-color: #502b1d;
   width: 100vw;
   height: 45px;
  color: white;
@@ -189,6 +183,7 @@ background-color: #48221836;
   margin: 0;
  bottom: 0; 
 text-align: center;
+padding: 10px;
 }
 
 .btn-like-on
@@ -199,7 +194,6 @@ text-align: center;
 .container-login
 {
 background-image : url('./img/mom-2208928_1280.jpg');
-object-fit: cover;
 min-height: 100vh;
 }
 
@@ -240,27 +234,151 @@ min-height: 100vh;
   /* justify-content:space-around; */
 }
 
+/*diseño de la vista muro*/
+
 .container-timeline
 {
   background-color: #dac3f59c;
   text-align: center;
-  padding-bottom: 15%;
+padding: 25px;
 }
 
- #task-description
- {
-   background-color: #456493;
-   width: 700px;
-   border-style: none;
-   border-radius: 5px;
-   box-shadow:grey 2px 2px 3px;
-   margin: 10%;
- }
+.getOut
+{
+margin-left: 90%;
+background-color:#662c92cb;
+border-radius: 10px;
+border: none;
+  width:70px;
+  height:70px;
+  margin-right: 12px;
+}
 
+.img-getOut
+{
+   width:60px;
+  height:60px;
+}
+.title-timeline
+{
+  margin-bottom: 25px;
+  color: rgb(32, 29, 29);
+}
 .img-timeline
 {
+  margin-bottom: 20px;
   width: 300px;
 }
+
+.task-title
+{
+   background-color: #8b44dc4e;
+   width: 700px;
+   height: 78px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+   margin: 5%;
+}
+
+.task-title::placeholder
+{
+  color: #160226;
+  text-align: center;
+}
+ .task-description
+ {
+   background-color: #8b44dc4e;
+   width: 700px;
+   height: 150px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+  margin: 10%;
+   padding-top: 50px;
+ }
+
+ .task-description::placeholder
+ {
+   color: #160226;
+ }
+ #btn-task-save
+ {
+   padding: 20px;
+   width: 217px;
+   background-color: #456493;
+   color: white;
+   border: none;
+   font-size: 20px;
+   border-radius: 20px 20px 20px 20px;
+   box-shadow:violet 5px 5px;
+ }
+
+
+ .title-post
+ {
+   background-color: #8b44dc4e;
+   width: 700px;
+   height: 78px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+   margin: 5%;
+margin-right: 50px;
+   padding-top: 25px;
+  color: rgb(32, 29, 29);
+ }
+
+ .description-post
+ {
+  background-color: #8b44dc4e;
+  width: 700px;
+   height: 150px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+   margin: 5%;
+  /* margin-left: 55px;*/
+   padding-top: 50px;
+   padding-right: 70%;
+  color: rgb(32, 29, 29);
+ }
+.btn-like-off
+{
+  background-color:#456493 ;
+  border-radius: 10px;
+  border: none;
+   width:40px;
+  height:40px;
+  padding-top: 5px;
+   box-shadow:purple 4px 4px 8px;
+}
+
+.img-like
+{
+  height:25px;
+}
+
+.btn-edit-delete
+{
+  background-color:#456493 ;
+  border-radius: 10px;
+  border: none;
+   width:40px;
+  height:40px;
+  margin-right: 12px;
+  box-shadow: purple 4px 4px 8px;
+ 
+}
+
+.img-edit-delete
+{
+  width:30px;
+  height:30px;
+  /*margin-top: 5px;*/
+}
+
+
 
 @media(min-width: 1200px)
 {
