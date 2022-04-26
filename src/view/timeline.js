@@ -10,7 +10,7 @@ import { changeView } from "../view-controler/router.js";
 
 export default () => {
   const viewTimeLine = `
-  <button id="getOut" class="getOut">
+  <button id="getOut" class="btn-getOut">
   <img  class="img-getOut" src= "../img/salida.png">
   </button>
     <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
@@ -24,11 +24,11 @@ export default () => {
   
   <div id="tasks-container"></div>
 
-<ul> 
+<!--<ul> 
 <li class="menu-two">
       <a class="menu-three" href="#/profile">Profile</a>
     </li>
-</ul>
+</ul>-->
 
     `;
   const userId=JSON.parse(localStorage.getItem("userInfo")).uid
@@ -60,11 +60,10 @@ export default () => {
       const task = doc.data();
       commentList += `     
    <div class='container-post' >
-   <h3 class='title-post' >${task.title}</h3>
-   <p class='description-post' >${task.description}</p>
+  <textarea  class='task-title' readonly="readonly"> ${task.title}</textarea>
+  <textarea id="description-post" readonly="readonly">${task.description}</textarea>
     <button class='btn-like-off' > 
-    <img class='img-like' data-id="${doc.id}" src=${ 
-      task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
+    <img class='img-like' data-id="${doc.id}" src=${task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
     } "../img/dislike.png"> 
     </button>
     <span>${task.likes.length}</span>

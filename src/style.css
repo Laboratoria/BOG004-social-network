@@ -294,7 +294,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 padding: 25px;
 }
 
-.getOut
+.btn-getOut
 {
 margin-left: 90%;
 background-color:#662c92cb;
@@ -318,7 +318,7 @@ border: none;
 .img-timeline
 {
   margin-bottom: 20px;
-  width: 300px;
+  width: 220px;
 }
 
 .task-title
@@ -329,7 +329,19 @@ border: none;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
+ margin: 3%;
+}
+
+#description-post{
+display: flex;
+margin-bottom: 2%;
+margin-left: 21.5%;
+  background-color: #8b44dc4e;
+   width: 700px;
+  height: 150px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
 }
 
 .task-title::placeholder
@@ -345,8 +357,9 @@ border: none;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-  margin: 10%;
-   padding-top: 50px;
+  margin: 7%;
+  padding-top: 50px;
+  align-self: center;
  }
 
  .task-description::placeholder
@@ -366,34 +379,6 @@ border: none;
  }
 
 
- .title-post
- {
-   background-color: #8b44dc4e;
-   width: 700px;
-   height: 78px;
-   border-style: none;
-   border-radius: 5px;
-   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
-margin-right: 50px;
-   padding-top: 25px;
-  color: rgb(32, 29, 29);
- }
-
- .description-post
- {
-  background-color: #8b44dc4e;
-  width: 700px;
-   height: 150px;
-   border-style: none;
-   border-radius: 5px;
-   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
-  /* margin-left: 55px;*/
-   padding-top: 50px;
-   padding-right: 70%;
-  color: rgb(32, 29, 29);
- }
 .btn-like-off
 {
   background-color:#456493 ;
