@@ -216,6 +216,7 @@ min-height: 100vh;
 /* Div de los mensajes */ 
 .message-text, .message--text{
   font-size: 15px;
+  margin: auto;
   text-align: center;
 padding: 20px;
 color: whitesmoke;
@@ -226,7 +227,8 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 /*Aquí inicia el diseño del registro*/
 .title-register{
   font-size: 23px;
-    text-align: center;
+  text-align: center;
+  margin: 10px;
   padding: 20px;
   color: whitesmoke;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -234,18 +236,18 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 .container-register{
   background-image: url('./img/register-fondo-dos.png');
- 
+  min-height: 100vh;
 }
 
 .form-register {
   margin: auto;
-  margin-top: 10px;
+  margin-top: 0%;
   padding: 30px;
   width: fit-content;
   height: auto;
-  margin-bottom: auto;
+  margin-bottom: 100px;
   box-sizing: border-box;
-  background-color: #24303c ;
+  background-color: #1a75bf ;
   border-style: solid;
   border-color: yellow;
   border: 4px;
@@ -256,7 +258,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 .text-register{
   padding: 10px;
   width: 105%;
-  background-color: #24303c ;
+  background-color: #1a75bf ;
   color: whitesmoke; 
   border: 1px;
   border-radius: 11px 15px 11px 15px;
