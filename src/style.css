@@ -174,17 +174,33 @@ background-color: #f5ebe7;
 .text-register{
 color:#a98b66;
 }
-.footer{
+
+/* .footer{ /* este es el que hizo Eli 
 background-color: #502b1d;
+color: white;
   width: 100vw;
   height: 45px;
- color: white;
   font-size: 17px;
   margin: 0;
  bottom: 0; 
 text-align: center;
 padding: 10px;
-}
+} */
+
+.footer{ /* este es el que hizo Marisol */
+  background-color: whitesmoke;
+  color: black;
+  width: 100vw;
+  height: 45px;
+  font-size: 17px;
+  margin: 0;
+  bottom: 0; 
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  border: black;
+  border: 4px;
+  }
 
 .btn-like-on
 {
@@ -197,42 +213,77 @@ background-image : url('./img/mom-2208928_1280.jpg');
 min-height: 100vh;
 }
 
+/* Div de los mensajes */ 
+.message-text, .message--text{
+  font-size: 15px;
+  text-align: center;
+padding: 20px;
+color: whitesmoke;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 /*Aquí inicia el diseño del registro*/
 .title-register{
-  color: #ed008e;
+  font-size: 23px;
+    text-align: center;
+  padding: 20px;
+  color: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.form-register{
-  margin: 0px;
-  padding: 0px;
-  border-left-style: solid;
-  border-color: #662c92;
-  /*background-color: red;*/
-  /*background-image : url('./img/Fondo-register.jpg');*/
-  object-fit: cover;
-  min-height: 100vh;
- /*  display: flex;
-  flex-direction: column; */
+.container-register{
+  background-image: url('./img/register-fondo-dos.png');
+ 
+}
+
+.form-register {
+  margin: auto;
+  margin-top: 10px;
+  padding: 30px;
+  width: fit-content;
+  height: auto;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  background-color: #24303c ;
+  border-style: solid;
+  border-color: yellow;
+  border: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 7px 13px 37px #000;
 }
 
 .text-register{
-  background-color: green;
-
+  padding: 10px;
+  width: 105%;
+  background-color: #24303c ;
+  color: whitesmoke; 
+  border: 1px;
+  border-radius: 11px 15px 11px 15px;
+  /* border-radius: 4px; */
+  border-style: solid;
+  border-color:#00adef ;
+  margin-bottom: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 5px;
+  
 }
 
-.box-text{
-  background-color: yellow;
-  color:rgb(32, 29, 29); 
-  border: 0px;
-  padding: 15px;
-  width: 250px;
+.SingUp{
+  width: 105%;
+  background-color: #00adef ;
+  color:white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
   border-radius: 11px 15px 11px 15px;
   font-size: 15px;
-  margin-top: 10px;
+ /*  text-align: center; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* justify-content:space-around; */
 }
+
+
 
 /*diseño de la vista muro*/
 

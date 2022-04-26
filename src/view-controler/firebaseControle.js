@@ -19,22 +19,22 @@ import{changeView} from './router.js'
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message; 
-      /* const errorMessageDiv = document.querySelectorAll('.message-text');
+      console.log("este error es ", errorMessage)
+       const errorMessageDiv = document.querySelector('.message--text');
       switch (errorCode) {
-        case 'auth/invalid-email':
+        case 'auth/internal-error':
           errorMessageDiv.innerHTML = 'Correo electrónico no válido';
           break;
-        case 'auth/user-not-found':
-          errorMessageDiv.innerHTML = 'Usuario no encontrado, ¡por favor registrate!';
+        case 'auth/email-already-in-use':
+          errorMessageDiv.innerHTML = 'Usuario encontrado, ¡por favor ingresa!';
           break;
-        case 'auth/wrong-password':
-            errorMessageDiv.innerHTML = 'Contraseña incorrecta';
+        case 'auth/weak-password':
+            errorMessageDiv.innerHTML = 'La contraseña debe tener al menos seis caracteres';
             break;
         default:
           errorMessageDiv.innerHTML = 'Rellena todos los campos';
           break;
       }
- */
     });
   }
    export const  loginUser = (email, password) =>{
