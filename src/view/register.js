@@ -21,14 +21,15 @@ export default () => {
 <div> 
 <input type="password" for="confirmPassword"  class="text-register" id="confirmPassword" name="confirmPassword" placeholder="Repite la contraseña">
 </div>
-
 </div>
 <div class="message--text"></div>
 </form>
 <div class="button">
 <button type="submit" class="SingUp" id="SingUp">Registrate</button>
 </div>
+
 </form>
+
 
 
 
