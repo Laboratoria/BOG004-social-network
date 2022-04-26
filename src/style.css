@@ -175,19 +175,7 @@ background-color: #f5ebe7;
 color:#a98b66;
 }
 
-/* .footer{ /* este es el que hizo Eli 
-background-color: #502b1d;
-color: white;
-  width: 100vw;
-  height: 45px;
-  font-size: 17px;
-  margin: 0;
- bottom: 0; 
-text-align: center;
-padding: 10px;
-} */
-
-.footer{ /* este es el que hizo Marisol */
+.footer{ 
   background-color: whitesmoke;
   color: black;
   width: 100vw;
@@ -262,7 +250,6 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: whitesmoke; 
   border: 1px;
   border-radius: 11px 15px 11px 15px;
-  /* border-radius: 4px; */
   border-style: solid;
   border-color:#00adef ;
   margin-bottom: 16px;
@@ -281,11 +268,8 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 16px 0;
   border-radius: 11px 15px 11px 15px;
   font-size: 15px;
- /*  text-align: center; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-
 
 /*diseño de la vista muro*/
 
@@ -299,8 +283,8 @@ padding: 25px;
 .btn-getOut
 {
 margin-left: 90%;
-background-color:#662c92cb;
-border-radius: 10px;
+background-color:#dac3f59c;
+border-radius: 100px;
 border: none;
   width:70px;
   height:70px;
@@ -412,14 +396,12 @@ margin-left: 21.5%;
 {
   width:30px;
   height:30px;
-  /*margin-top: 5px;*/
 }
 
 .img-edit
 {
   width:30px;
   height:30px;
-  /*margin-top: 5px;*/
 }
 
 .btn-edit

@@ -13,8 +13,9 @@ export default () => {
   <button id="getOut" class="btn-getOut">
   <img  class="img-getOut" src= "../img/salida.png">
   </button>
-    <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
-    <img  class="img-timeline" src= "../img/mamapies.png"> 
+  <img  class="img-timeline" src= "../img/mamapies.png"> 
+    <h2 class= 'title-timeline'>¡Escribe tu duda!</h2>
+    
      
     <form id= "task-form">
     <input type= "text" placeholder = "¿Cuál es tu pregunta?" class= 'task-title' id="task-title">
