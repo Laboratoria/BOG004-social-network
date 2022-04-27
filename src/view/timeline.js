@@ -32,10 +32,10 @@ export default () => {
 </ul>-->
 
     `;
-  const userId=JSON.parse(localStorage.getItem("userInfo")).uid
+  const userId = JSON.parse(localStorage.getItem("userInfo")).uid;
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
-  divElement.className="container-timeline"
+  divElement.className = "container-timeline";
 
   //Creación del botón "Cerrar Sesión"//
   const getOut = divElement.querySelector("#getOut");
@@ -52,8 +52,7 @@ export default () => {
 
   let id = "";
 
-
-  //creación de post y botones de post 
+  //creación de post y botones de post
 
   onGetTasks((querySnapshot) => {
     let commentList = "";
@@ -62,10 +61,13 @@ export default () => {
       commentList += `     
    <div class='container-post' >
   <textarea  class='task-title' readonly="readonly"> ${task.title}</textarea>
-  <textarea id="description-post" readonly="readonly">${task.description}</textarea>
+  <textarea id="description-post" readonly="readonly">${
+    task.description
+  }</textarea>
     <button class='btn-like-off' > 
-    <img class='img-like' data-id="${doc.id}" src=${task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
-    } "../img/dislike.png"> 
+    <img class='img-like' data-id="${doc.id}" src=${
+        task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
+      } "../img/dislike.png"> 
     </button>
     <span>${task.likes.length}</span>
    <button class='btn-edit' >
@@ -80,46 +82,44 @@ export default () => {
     tasksContainer.innerHTML = commentList;
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
-    const btnsLikeOff= tasksContainer.querySelectorAll(".btn-like-off");
-    
+    const btnsLikeOff = tasksContainer.querySelectorAll(".btn-like-off");
 
-//evento like 
+    //evento like
 
-     btnsLikeOff.forEach((btnOne, i) => {
+    btnsLikeOff.forEach((btnOne, i) => {
       btnOne.addEventListener("click", ({ target: { dataset } }) => {
-        console.log(btnOne)
-    
-      console.log(userId)
-      const idPost=(dataset.id);
-      getTask(idPost).then((response) => {
-        const postClick = response.data() 
+        console.log(btnOne);
 
-        if (!postClick.likes.length !== 0) {
-          updateTask(idPost, {likes: [userId]
-                    })
+        console.log(userId);
+        const idPost = dataset.id;
+        getTask(idPost).then((response) => {
+          const postClick = response.data();
 
-        } else {
-          let likesExistentes = postClick.likes
-          if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
-           console.log("ya puso me gusta")
-            likesExistentes.splice(likesExistentes.indexOf(userId),1)
-            updateTask(idPost, {likes: likesExistentes})
-            console.log(btnOne)
-            btnOne.querySelector("img").setAttribute("src", "../img/like.png")
-          }else{
-            console.log("No he puesto like")
-            likesExistentes.push(userId)
-            updateTask(idPost, {likes: likesExistentes
-                    })
+          if (postClick.likes.length === 0) {
+            updateTask(idPost, { likes: [userId] });
+          } else {
+            let likesExistentes = postClick.likes;
+            if (likesExistentes.includes(userId)) {
+              /*Si entre este if es por que el usuario ya puese me gusta*/
+              console.log("ya puso me gusta");
+              likesExistentes.splice(likesExistentes.indexOf(userId), 1);
+              updateTask(idPost, { likes: likesExistentes });
+              console.log(btnOne);
+              btnOne
+                .querySelector("img")
+                .setAttribute("src", "../img/like.png");
+            } else {
+              console.log("No he puesto like");
+              likesExistentes.push(userId);
+              updateTask(idPost, { likes: likesExistentes });
+            }
           }
-        }
-          console.log(response.data())
-      })
-    /* btnsLikeOn[i].style.display = "block"
+          console.log(response.data());
+        });
+        /* btnsLikeOn[i].style.display = "block"
     btnsLikeOff[i].style.display ="none" */
       });
     });
-
 
     /* 1. Guardar el ID del usuario 
     2. Recuperar el ID del usuario 
@@ -147,9 +147,7 @@ export default () => {
           taskForm["task-title"].value = task.title;
           taskForm["task-description"].value = task.description;
           editStatus = true;
-          id =
-            e.target.dataset
-              .id; 
+          id = e.target.dataset.id;
 
           taskForm["btn-task-save"].innerText = "update";
           /*console.log('doc resolve: ', resolve)*/
@@ -164,14 +162,13 @@ export default () => {
 
     const title = taskForm["task-title"];
     const description = taskForm["task-description"];
-//
+    //
     if (!editStatus) {
-      saveTask(title.value, description.value,[]);
+      saveTask(title.value, description.value, []);
     } else {
       updateTask(id, {
         description: description.value,
         title: title.value,
-        
       });
 
       editStatus = false;
