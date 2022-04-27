@@ -273,10 +273,11 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 /*diseño de la vista muro*/
 
 .container-timeline
-{
-  background-color: #dac3f59c;
-  text-align: center;
-padding: 25px;
+{  
+background-color: #dac3f59c; 
+text-align: center;
+padding: 25px; 
+min-height: 100vh;
 }
 
 .btn-getOut
