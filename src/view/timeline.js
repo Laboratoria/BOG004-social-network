@@ -63,7 +63,7 @@ export default () => {
    <div class='container-post' >
   <textarea  class='task-title' readonly="readonly"> ${task.title}</textarea>
   <textarea id="description-post" readonly="readonly">${task.description}</textarea>
-    <button class='btn-like-off' > 
+    <button class="btn-like-off" > 
     <img class='img-like' data-id="${doc.id}" src=${task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
     } "../img/dislike.png"> 
     </button>
@@ -94,7 +94,7 @@ export default () => {
       getTask(idPost).then((response) => {
         const postClick = response.data() 
 
-        if (!postClick.likes.length !== 0) {
+        if (postClick.likes.length == 0) {
           updateTask(idPost, {likes: [userId]
                     })
 

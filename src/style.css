@@ -11,7 +11,7 @@ body {
 
 .header {
  background-color:white;
- padding: 30px;
+padding: 17px;
 }
 
 .header .title {
@@ -185,7 +185,6 @@ color:#a98b66;
   bottom: 0; 
   margin-top: auto;
   text-align: center;
-  padding: 10px;
   border: black;
   border: 4px;
   }
@@ -198,7 +197,7 @@ color:#a98b66;
 .container-login
 {
 background-image : url('./img/mom-2208928_1280.jpg');
-min-height: 100vh;
+height: 84vh;
 }
 
 /* Div de los mensajes */ 
@@ -282,7 +281,7 @@ padding: 25px;
 
 .btn-getOut
 {
-margin-left: 90%;
+margin-left: 80%;
 background-color:#dac3f59c;
 border-radius: 100px;
 border: none;
@@ -293,38 +292,41 @@ border: none;
 
 .img-getOut
 {
-   width:60px;
-  height:60px;
+   width: 55px;
+  height:55px;
 }
 .title-timeline
 {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: rgb(32, 29, 29);
+   font-size: 15px;
 }
 .img-timeline
 {
   margin-bottom: 20px;
-  width: 220px;
+   width: 180px;
 }
 
 .task-title
 {
    background-color: #8b44dc4e;
-   width: 700px;
-   height: 78px;
+   height: 40px;
+   width: 217px;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
- margin: 3%;
+text-align: center;
 }
 
 #description-post{
 display: flex;
-margin-bottom: 2%;
-margin-left: 21.5%;
+margin-bottom: 5%;
+margin-top: 5%;
+ margin-left: auto;
+ margin-right: auto;
   background-color: #8b44dc4e;
-   width: 700px;
-  height: 150px;
+  height: 80px;
+   width: 217px;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
@@ -338,14 +340,12 @@ margin-left: 21.5%;
  .task-description
  {
    background-color: #8b44dc4e;
-   width: 700px;
-   height: 150px;
+   height: 80px;
+   width: 217px;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
   margin: 7%;
-  padding-top: 50px;
-  align-self: center;
  }
 
  .task-description::placeholder
@@ -354,14 +354,15 @@ margin-left: 21.5%;
  }
  #btn-task-save
  {
-   padding: 20px;
-   width: 217px;
+  height: 40px;
+  width: 120px;
    background-color: #456493;
    color: white;
    border: none;
    font-size: 20px;
    border-radius: 20px 20px 20px 20px;
    box-shadow:violet 5px 5px;
+   text-align: center;
  }
 
 
@@ -415,6 +416,10 @@ margin-left: 21.5%;
   box-shadow: purple 4px 4px 8px;
 }
 
+.container-post
+{
+  margin: 6%;
+}
 @media(min-width: 1200px)
 {
   .title-one{
@@ -483,6 +488,102 @@ width: 25px;
   font-size: 17px;
 }
 
+/*diseño del muro*/
+
+.container-timeline
+{
+padding: 25px;
+}
+
+.btn-getOut
+{
+margin-left: 90%;
+width:70px;
+height:70px;
+margin-right: 12px;
+}
+
+.img-getOut
+{
+  width:60px;
+  height:60px;
+}
+
+.title-timeline
+{
+  margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.img-timeline
+{
+  margin-bottom: 20px;
+  width: 220px;
+}
+.task-title
+{
+   width: 700px;
+   height: 78px;
+   padding: 30px;
+}
+
+
+#description-post{
+   width: 700px;
+  height: 150px;
+  padding-top: 50px;
+  margin-bottom: 4%;
+margin-top: 4%;
+}
+
+.task-title::placeholder
+{
+  color: #160226;
+}
+
+ .task-description
+ {
+   background-color: #8b44dc4e;
+   width: 700px;
+   height: 150px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+  margin: 7%;
+  padding-top: 50px;
+ }
+
+#btn-task-save
+ {
+   height: 60px;
+   width: 217px;
+  font-size: 20px;
+ }
+
+.btn-delete
+{
+   width:40px;
+  height:40px;
+  margin-right: 12px;
+}
+.img-delete
+{
+  width:30px;
+  height:30px;
+}
+.img-edit
+{
+  width:30px;
+  height:30px;
+}
+
+
+.btn-edit
+{
+  width:40px;
+  height:40px;
+  margin-right: 12px;
+}
 
 
 }

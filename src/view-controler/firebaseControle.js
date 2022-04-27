@@ -1,7 +1,6 @@
 import {
     auth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider, loginWithFirebase,
+    createUserWithEmailAndPassword,GoogleAuthProvider, loginWithFirebase,loginWithGoogle
 } from './firebase.js';
 
 import{changeView} from './router.js'
