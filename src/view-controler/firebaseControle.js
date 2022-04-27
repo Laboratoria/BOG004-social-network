@@ -1,7 +1,6 @@
 import {
     auth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider, loginWithFirebase, loginWithGoogle
+    createUserWithEmailAndPassword,GoogleAuthProvider, loginWithFirebase,loginWithGoogle
 } from './firebase.js';
 
 import{changeView} from './router.js'
@@ -12,38 +11,39 @@ import{changeView} from './router.js'
 
       // Signed in
       const user = userCredential.user;
+      
       // ...
         changeView("#/timeLine");
     })
     .catch((error) => {
       const errorCode = error.code;
-      /* const errorMessage = error.message; */
-      const errorMessageDiv = document.querySelector('.message-text');
+      const errorMessage = error.message; 
+      console.log("este error es ", errorMessage)
+       const errorMessageDiv = document.querySelector('.message--text');
       switch (errorCode) {
-        case 'auth/invalid-email':
+        case 'auth/internal-error':
           errorMessageDiv.innerHTML = 'Correo electrónico no válido';
           break;
-        case 'auth/user-not-found':
-          errorMessageDiv.innerHTML = 'Usuario no encontrado, ¡por favor registrate!';
+        case 'auth/email-already-in-use':
+          errorMessageDiv.innerHTML = 'Usuario encontrado, ¡por favor ingresa!';
           break;
-        case 'auth/wrong-password':
-            errorMessageDiv.innerHTML = 'Contraseña incorrecta';
+        case 'auth/weak-password':
+            errorMessageDiv.innerHTML = 'La contraseña debe tener al menos seis caracteres';
             break;
-
         default:
           errorMessageDiv.innerHTML = 'Rellena todos los campos';
           break;
       }
-
     });
   }
    export const  loginUser = (email, password) =>{
-  return loginWithFirebase(email, password)
+     return loginWithFirebase(email, password)
 //  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       //Signed in
       const user = userCredential.user;
       localStorage.setItem("userInfo", JSON.stringify(user))
+      console.log("hola")
       //...
       console.log(user)
       changeView("#/timeLine");
@@ -51,6 +51,22 @@ import{changeView} from './router.js'
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      const errorMessageDiv = document.querySelector('.message-text');
+      console.log("adios", errorMessageDiv) 
+      switch (errorCode) {
+        case 'auth/invalid-email':
+          errorMessageDiv.innerHTML = 'Correo electrónico no válido';
+          break;
+        case 'auth/user-not-found':
+          errorMessageDiv.innerHTML = 'Usuario no encontrado, ¡por favor registrate!';
+          break;
+        case 'auth/wrong-password': 
+            errorMessageDiv.innerHTML = 'Contraseña incorrecta';
+            break;
+        default:
+          errorMessageDiv.innerHTML = 'Rellena todos los campos';
+          break; 
+      }
     });
   }
 

@@ -9,19 +9,19 @@ window.location.hash=route;
       return container.appendChild(template.Login());
     }
     case "#/register": {
-  return container.appendChild(template.register());
+      return container.appendChild(template.register());
     }
     case "#/timeLine": {
         return container.appendChild(template.timeline());
       }
       case "#/profile": {
-         return container.appendChild(template.profile());
+        return container.appendChild(template.profile());
       }
       case "#/forum": {
         return container.appendChild(template.forum());
       }
       case "#/difference404": {
-      return container.appendChild(template.difference());
+        return container.appendChild(template.difference());
       }
     default:
       break;

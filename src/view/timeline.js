@@ -10,11 +10,12 @@ import { changeView } from "../view-controler/router.js";
 
 export default () => {
   const viewTimeLine = `
-  <button id="getOut" class="getOut">
+  <button id="getOut" class="btn-getOut">
   <img  class="img-getOut" src= "../img/salida.png">
   </button>
-    <h2 class= 'title-timeline'>¡Welcome to your timeline!</h2>
-    <img  class="img-timeline" src= "../img/mamapies.png"> 
+  <img  class="img-timeline" src= "../img/mamapies.png"> 
+    <h2 class= 'title-timeline'>¡Escribe tu duda!</h2>
+    
      
     <form id= "task-form">
     <input type= "text" placeholder = "¿Cuál es tu pregunta?" class= 'task-title' id="task-title">
@@ -24,17 +25,17 @@ export default () => {
   
   <div id="tasks-container"></div>
 
-<ul> 
+<!--<ul> 
 <li class="menu-two">
       <a class="menu-three" href="#/profile">Profile</a>
     </li>
-</ul>
+</ul>-->
 
     `;
-  const userId=JSON.parse(localStorage.getItem("userInfo")).uid
+  const userId = JSON.parse(localStorage.getItem("userInfo")).uid;
   const divElement = document.createElement("div");
   divElement.innerHTML = viewTimeLine;
-  divElement.className="container-timeline"
+  divElement.className = "container-timeline";
 
   //Creación del botón "Cerrar Sesión"//
   const getOut = divElement.querySelector("#getOut");
@@ -51,8 +52,7 @@ export default () => {
 
   let id = "";
 
-
-  //creación de post y botones de post 
+  //creación de post y botones de post
 
   onGetTasks((querySnapshot) => {
     let commentList = "";
@@ -60,11 +60,10 @@ export default () => {
       const task = doc.data();
       commentList += `     
    <div class='container-post' >
-   <h3 class='title-post' >${task.title}</h3>
-   <p class='description-post' >${task.description}</p>
-    <button class='btn-like-off' > 
-    <img class='img-like' data-id="${doc.id}" src=${ 
-      task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
+  <textarea  class='task-title' readonly="readonly"> ${task.title}</textarea>
+  <textarea id="description-post" readonly="readonly">${task.description}</textarea>
+    <button class="btn-like-off" > 
+    <img class='img-like' data-id="${doc.id}" src=${task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
     } "../img/dislike.png"> 
     </button>
     <span>${task.likes.length}</span>
@@ -80,12 +79,11 @@ export default () => {
     tasksContainer.innerHTML = commentList;
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
-    const btnsLikeOff= tasksContainer.querySelectorAll(".btn-like-off");
-    
+    const btnsLikeOff = tasksContainer.querySelectorAll(".btn-like-off");
 
-//evento like 
+    //evento like
 
-     btnsLikeOff.forEach((btnOne, i) => {
+    btnsLikeOff.forEach((btnOne, i) => {
       btnOne.addEventListener("click", ({ target: { dataset } }) => {
         console.log(btnOne)
     
@@ -95,7 +93,6 @@ export default () => {
         const postClick = response.data() 
 
         if (postClick.likes.length === 0) {
-          console.log("entro")
           updateTask(idPost, {likes: [userId]
                     })
 
@@ -103,24 +100,22 @@ export default () => {
           let likesExistentes = postClick.likes
           if (likesExistentes.includes(userId)) { /*Si entre este if es por que el usuario ya puese me gusta*/ 
            console.log("ya puso me gusta")
-            likesExistentes.splice(likesExistentes.indexOf(userId),1)
+            likesExistentes.splice(likesExistentes.indexOf(userId),1);
             updateTask(idPost, {likes: likesExistentes})
             console.log(btnOne)
             btnOne.querySelector("img").setAttribute("src", "../img/like.png")
           }else{
             console.log("No he puesto like")
             likesExistentes.push(userId)
-            updateTask(idPost, {likes: likesExistentes
-                    })
+            updateTask(idPost, {likes: likesExistentes });
           }
         }
-          console.log(response.data())
-      })
-    /* btnsLikeOn[i].style.display = "block"
+          console.log(response.data());
+        });
+        /* btnsLikeOn[i].style.display = "block"
     btnsLikeOff[i].style.display ="none" */
       });
     });
-
 
     /* 1. Guardar el ID del usuario 
     2. Recuperar el ID del usuario 
@@ -143,15 +138,12 @@ export default () => {
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        console.log(e.target);
         getTask(e.target.dataset.id).then((resolve) => {
           const task = resolve.data();
           taskForm["task-title"].value = task.title;
           taskForm["task-description"].value = task.description;
           editStatus = true;
-          id =
-            e.target.dataset
-              .id; 
+          id = e.target.dataset.id;
 
           taskForm["btn-task-save"].innerText = "update";
           /*console.log('doc resolve: ', resolve)*/
@@ -166,14 +158,13 @@ export default () => {
 
     const title = taskForm["task-title"];
     const description = taskForm["task-description"];
-//
+    //
     if (!editStatus) {
-      saveTask(title.value, description.value,[]);
+      saveTask(title.value, description.value, []);
     } else {
       updateTask(id, {
         description: description.value,
         title: title.value,
-        
       });
 
       editStatus = false;

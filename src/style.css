@@ -11,7 +11,7 @@ body {
 
 .header {
  background-color:white;
- padding: 30px;
+padding: 17px;
 }
 
 .header .title {
@@ -174,17 +174,20 @@ background-color: #f5ebe7;
 .text-register{
 color:#a98b66;
 }
-.footer{
-background-color: #502b1d;
+
+.footer{ 
+  background-color: whitesmoke;
+  color: black;
   width: 100vw;
   height: 45px;
- color: white;
   font-size: 17px;
   margin: 0;
- bottom: 0; 
-text-align: center;
-padding: 10px;
-}
+  bottom: 0; 
+  margin-top: auto;
+  text-align: center;
+  border: black;
+  border: 4px;
+  }
 
 .btn-like-on
 {
@@ -194,60 +197,94 @@ padding: 10px;
 .container-login
 {
 background-image : url('./img/mom-2208928_1280.jpg');
-min-height: 100vh;
+height: 84vh;
+}
+
+/* Div de los mensajes */ 
+.message-text, .message--text{
+  font-size: 15px;
+  margin: auto;
+  text-align: center;
+padding: 20px;
+color: whitesmoke;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
 /*Aquí inicia el diseño del registro*/
 .title-register{
-  color: #ed008e;
+  font-size: 23px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  color: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.form-register{
-  margin: 0px;
-  padding: 0px;
-  border-left-style: solid;
-  border-color: #662c92;
-  /*background-color: red;*/
-  /*background-image : url('./img/Fondo-register.jpg');*/
-  object-fit: cover;
+.container-register{
+  background-image: url('./img/register-fondo-dos.png');
   min-height: 100vh;
- /*  display: flex;
-  flex-direction: column; */
+}
+
+.form-register {
+  margin: auto;
+  margin-top: 0%;
+  padding: 30px;
+  width: fit-content;
+  height: auto;
+  margin-bottom: 100px;
+  box-sizing: border-box;
+  background-color: #1a75bf ;
+  border-style: solid;
+  border-color: yellow;
+  border: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 7px 13px 37px #000;
 }
 
 .text-register{
-  background-color: green;
-
+  padding: 10px;
+  width: 105%;
+  background-color: #1a75bf ;
+  color: whitesmoke; 
+  border: 1px;
+  border-radius: 11px 15px 11px 15px;
+  border-style: solid;
+  border-color:#00adef ;
+  margin-bottom: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 5px;
+  
 }
 
-.box-text{
-  background-color: yellow;
-  color:rgb(32, 29, 29); 
-  border: 0px;
-  padding: 15px;
-  width: 250px;
+.SingUp{
+  width: 105%;
+  background-color: #00adef ;
+  color:white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
   border-radius: 11px 15px 11px 15px;
   font-size: 15px;
-  margin-top: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* justify-content:space-around; */
 }
 
 /*diseño de la vista muro*/
 
 .container-timeline
-{
-  background-color: #dac3f59c;
-  text-align: center;
-padding: 25px;
+{  
+background-color: #dac3f59c; 
+text-align: center;
+padding: 25px; 
+min-height: 100vh;
 }
 
-.getOut
+.btn-getOut
 {
-margin-left: 90%;
-background-color:#662c92cb;
-border-radius: 10px;
+margin-left: 80%;
+background-color:#dac3f59c;
+border-radius: 100px;
 border: none;
   width:70px;
   height:70px;
@@ -256,29 +293,44 @@ border: none;
 
 .img-getOut
 {
-   width:60px;
-  height:60px;
+   width: 55px;
+  height:55px;
 }
 .title-timeline
 {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: rgb(32, 29, 29);
+   font-size: 15px;
 }
 .img-timeline
 {
   margin-bottom: 20px;
-  width: 300px;
+   width: 180px;
 }
 
 .task-title
 {
    background-color: #8b44dc4e;
-   width: 700px;
-   height: 78px;
+   height: 40px;
+   width: 217px;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
+text-align: center;
+}
+
+#description-post{
+display: flex;
+margin-bottom: 5%;
+margin-top: 5%;
+ margin-left: auto;
+ margin-right: auto;
+  background-color: #8b44dc4e;
+  height: 80px;
+   width: 217px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
 }
 
 .task-title::placeholder
@@ -289,13 +341,12 @@ border: none;
  .task-description
  {
    background-color: #8b44dc4e;
-   width: 700px;
-   height: 150px;
+   height: 80px;
+   width: 217px;
    border-style: none;
    border-radius: 5px;
    box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-  margin: 10%;
-   padding-top: 50px;
+  margin: 7%;
  }
 
  .task-description::placeholder
@@ -304,45 +355,18 @@ border: none;
  }
  #btn-task-save
  {
-   padding: 20px;
-   width: 217px;
+  height: 40px;
+  width: 120px;
    background-color: #456493;
    color: white;
    border: none;
    font-size: 20px;
    border-radius: 20px 20px 20px 20px;
    box-shadow:violet 5px 5px;
+   text-align: center;
  }
 
 
- .title-post
- {
-   background-color: #8b44dc4e;
-   width: 700px;
-   height: 78px;
-   border-style: none;
-   border-radius: 5px;
-   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
-margin-right: 50px;
-   padding-top: 25px;
-  color: rgb(32, 29, 29);
- }
-
- .description-post
- {
-  background-color: #8b44dc4e;
-  width: 700px;
-   height: 150px;
-   border-style: none;
-   border-radius: 5px;
-   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
-   margin: 5%;
-  /* margin-left: 55px;*/
-   padding-top: 50px;
-   padding-right: 70%;
-  color: rgb(32, 29, 29);
- }
 .btn-like-off
 {
   background-color:#456493 ;
@@ -374,14 +398,12 @@ margin-right: 50px;
 {
   width:30px;
   height:30px;
-  /*margin-top: 5px;*/
 }
 
 .img-edit
 {
   width:30px;
   height:30px;
-  /*margin-top: 5px;*/
 }
 
 .btn-edit
@@ -395,6 +417,10 @@ margin-right: 50px;
   box-shadow: purple 4px 4px 8px;
 }
 
+.container-post
+{
+  margin: 6%;
+}
 @media(min-width: 1200px)
 {
   .title-one{
@@ -463,6 +489,102 @@ width: 25px;
   font-size: 17px;
 }
 
+/*diseño del muro*/
+
+.container-timeline
+{
+padding: 25px;
+}
+
+.btn-getOut
+{
+margin-left: 90%;
+width:70px;
+height:70px;
+margin-right: 12px;
+}
+
+.img-getOut
+{
+  width:60px;
+  height:60px;
+}
+
+.title-timeline
+{
+  margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.img-timeline
+{
+  margin-bottom: 20px;
+  width: 220px;
+}
+.task-title
+{
+   width: 700px;
+   height: 78px;
+   padding: 30px;
+}
+
+
+#description-post{
+   width: 700px;
+  height: 150px;
+  padding-top: 50px;
+  margin-bottom: 4%;
+margin-top: 4%;
+}
+
+.task-title::placeholder
+{
+  color: #160226;
+}
+
+ .task-description
+ {
+   background-color: #8b44dc4e;
+   width: 700px;
+   height: 150px;
+   border-style: none;
+   border-radius: 5px;
+   box-shadow:rgb(38, 37, 37) 2px 2px 5px;
+  margin: 7%;
+  padding-top: 50px;
+ }
+
+#btn-task-save
+ {
+   height: 60px;
+   width: 217px;
+  font-size: 20px;
+ }
+
+.btn-delete
+{
+   width:40px;
+  height:40px;
+  margin-right: 12px;
+}
+.img-delete
+{
+  width:30px;
+  height:30px;
+}
+.img-edit
+{
+  width:30px;
+  height:30px;
+}
+
+
+.btn-edit
+{
+  width:40px;
+  height:40px;
+  margin-right: 12px;
+}
 
 
 }
