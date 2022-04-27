@@ -1,6 +1,5 @@
 import { authenticate } from "../view-controler/firebaseControle.js";
 
-
 export default () => {
   const viewRegister = `
     <h2 class= 'title-register'> ¡Llena todos los campos!</h2>
@@ -27,52 +26,21 @@ export default () => {
 <div class="button">
 <button type="submit" class="SingUp" id="SingUp">Registrate</button>
 </div>
-
 </form>
-
-
-
-
 </section>
     `;
-
+// Creación de elementos y selectores del DO; 
   const divElement = document.createElement("div");
-  //aquí se debe crear una clase al div //
   divElement.innerHTML = viewRegister;
-  divElement.className="container-register"
+  divElement.className = "container-register";
   const registerButton = divElement.querySelector("#SingUp");
   registerButton.addEventListener("click", (e) => {
     e.preventDefault();
-    
     const email = divElement.querySelector("#email").value;
     const password = divElement.querySelector("#ingressPassword").value;
-    //const confirmPassword = divElement.querySelector("#confirmPassword").value;
-    //const errorMessage = divElement.querySelector ('#errorMessage');
-    //errorMessage.innerHTML = '';
 
-    authenticate(email,password);
-  
-  })
-  console.log(divElement)
+    authenticate(email, password);
+  });
+  console.log(divElement);
   return divElement;
 };
-  
-
-
-  //autenticar datos para el registro
-//function authenticate (email, password){
-  //console.log(email, password)
-//const auth= getAuth();
-//createUserWithEmailAndPassword(auth, email, password)
-  
-  //}
-
-  //usuario existente
-  //function loginUser  (email, password) {
-//const auth = getAuth();
-//signInWithEmailAndPassword(auth, email, password)
-
-//authenticate(email, password, user)
-     //loginUser(email, password)
-     //changeView("#/timeLine")
-  
