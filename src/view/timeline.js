@@ -60,7 +60,7 @@ export default () => {
     <button class="btn-like-off" > 
     <img class='img-like' data-id="${doc.id}" src=${
         task.likes.includes(userId) ? "../img/like.png" : "../img/dislike.png"
-      } "../img/dislike.png"> 
+      } > 
     </button>
     <span>${task.likes.length}</span>
    <button class='btn-edit' >
@@ -84,22 +84,15 @@ export default () => {
         const idPost = dataset.id;
         getTask(idPost).then((response) => {
           const postClick = response.data();
-          if (postClick.likes.length === 0) {
-            updateTask(idPost, { likes: [userId] });
-          } else {
             let likesExistentes = postClick.likes;
             if (likesExistentes.includes(userId)) {
               /*Si entra este if es por que el usuario ya puede dar me gusta*/
               likesExistentes.splice(likesExistentes.indexOf(userId), 1);
               updateTask(idPost, { likes: likesExistentes });
-              btnOne
-                .querySelector("img")
-                .setAttribute("src", "../img/like.png");
             } else {
               likesExistentes.push(userId);
               updateTask(idPost, { likes: likesExistentes });
             }
-          }
         });
       });
     });
