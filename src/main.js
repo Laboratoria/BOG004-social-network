@@ -1,5 +1,11 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import { router } from './lib/index.js';
 
-myFunction();
+/* Colocamos el router antes para que cuanto arranque
+la app nos muestre nuestro inicio o home */
+
+router(window.location.hash);
+window.addEventListener('hashchange', () => {
+  router(window.location.hash);
+});

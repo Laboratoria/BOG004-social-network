@@ -1,8 +1,23 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { router } from '../src/lib/index.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock('../src/Configfirebase/firebase-imports.js');
+describe('router', () => {
+  it('debería cambiar la ruta', () => {
+    document.body.innerHTML = '';
+    const container = {
+      register: () => {
+        const divregister = document.createElement('div');
+        divregister.innerHTML = 'hola mundo';
+        return divregister;
+      },
+      error: () => {
+        const divregister = document.createElement('div');
+        divregister.innerHTML = 'oops esto es un error';
+        return divregister;
+      },
+    };
+    router('#register', container);
+    expect(container.register).not.toBe(container.error);
   });
 });
