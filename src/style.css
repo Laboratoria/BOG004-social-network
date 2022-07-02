@@ -1,0 +1,583 @@
+*{
+  margin : 0px;
+  padding: 0px;
+  font-family: 'Abel', sans-serif;
+}
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+
+#container {
+    min-height: 100vh;
+    width: 100vw;
+    border: 1px solid #ccc;
+}
+
+/* PANTALLA HOME */
+
+.contenedor-home{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./img/fondo2.jpeg);
+    background-size: cover;
+    background-position-y: -50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.div-home{
+    background: linear-gradient(180deg, rgba(1, 85, 121, 0) 19.09%, #015579 51.97%);
+}
+.logo-home,
+.botones-home {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-home img {
+    width: 248px;
+    height: 80px;
+    margin: 50px 0px 0px 0px;
+}
+
+.botones-home button {
+    margin: 20px 5px 30px 5px;
+    width: 160px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* PANTALLA LOGIN */
+.navbar-pantalla2{
+    height: 96px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-content: center;
+}
+
+.logo-login,
+#formularioLogin,
+.separador-login,
+.gyf-login {
+    background-color: #D4F6FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    position: relative;
+    top: 5%;
+}
+
+.logo-login{
+    padding: 30px 0px 15px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+#formularioLogin button{
+    width: 160px;
+    height: 35px;
+    background-color: #3134A1;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px 20px 0px;
+}
+
+#formularioLogin input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
+}
+
+.logo-login img {
+    width: 248px;
+    height: 80px;
+}
+
+.separador-login img {
+    width: 250px;
+    height: 14px;
+}
+.gyf-login {
+    padding: 20px 0px 20px 0px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.gyf-login button {
+    width: 250px;
+    height: 35px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
+}
+
+.boton-login img {
+    width: 15px;
+    height: 15px;
+}
+
+/* PANTALLA REGISTRO */
+
+.contenedor-register {
+    height: 100vh;
+    width: 100%;
+    background-image: url(./img/fondo-celular.png   );
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-pantalla{
+    height: 96px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-content: center;
+}
+
+.atras {
+    background-color: transparent;
+    border: none;
+    margin: 0px 0px 0px 20px;
+}
+
+.atras img{
+    width: 40px;
+    height: 40px;
+}
+
+.logo-formulario,
+#formularioRegister {
+    background-color: #E2E2E2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    position: relative;
+    top: 15%;
+}
+
+.logo-formulario{
+    padding: 30px 0px 30px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+#formularioRegister{
+    border-radius: 0 0 10px 10px;
+}
+
+#formularioRegister button{
+    width: 160px;
+    height: 35px;
+    background-color: #3134A1;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px 20px 0px;
+}
+
+#formularioRegister input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
+}
+
+.logo-formulario img {
+    width: 248px;
+    height: 80px;
+}
+
+.separador img {
+    width: 250px;
+    height: 14px;
+    margin: 10px 0px 10px 0px;
+}
+.gyf-register {
+    padding: 20px 0px 20px 0px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.gyf-register button {
+    width: 250px;
+    height: 35px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
+}
+
+.boton-gyf img {
+    width: 15px;
+    height: 15px;
+}
+
+/* PANTALLA FEED */
+.contenedor-feed {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbar-pantalla3{
+    height: 96px;
+    width: 100vw;
+    background-color: #015579;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#imgCodering{
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+.navbar-pantalla3 button {
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    margin: 10px
+}
+#buscar{
+    width: 193px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 5px 0 5px;
+    margin: .5em 0 .5em 0;
+}
+
+#imgBotonIr,
+#imgLogout {
+    height: 30px;
+    width: 30px;
+}
+.barra{
+    width: 100vw;
+    height: 50px;
+    background-color: #D4F6FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: small;
+    margin: 10px;
+}
+.barra img{
+    height: 30px;
+    width: 30px;
+    margin: 20px;
+}
+.postGeneral{
+    width: 90%;
+}
+.divForm{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background: lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 90%;
+    max-height: 500px;
+}
+.posts{
+    /* border-style:groove; */
+    width: 90%;
+    
+}
+.contentFeed{
+    padding: 10px;
+    max-height: 100px;
+    width: 90%;
+    font-family: 'Abel', sans-serif;
+    font-size: x-large;
+    border-style:none;
+    resize: none;
+}
+#submitPost{
+    background-color: #015579;
+    border-radius: 5px;
+    width: 100px;
+    color: white;
+    text-decoration: none;
+}
+.contenedorPost{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border: solid gray;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.contentPost{
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.contentPost p{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+.usuarioAutor{
+    background-color: #34495e;
+    width: 90%;
+    justify-content: left;
+    display: flex;
+    padding: 5px 0 5px 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: small;
+}
+.btnPost{
+    display: flex;
+    background: #CEF7FB;
+    height: 40px;
+    width: 90%;
+    justify-content: center;
+    border-radius: 5px;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.btnPost button{
+    height: 50%;
+    margin: 3px;
+    background: #015579;
+    color: white;
+    border-radius: 10px;
+    width: 80px;
+}
+/* VENTANA MODAL*/
+.flex{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal{
+    display: none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+     z-index:1;
+     width: 90%;
+     height: auto;
+     background: rgba ( 0,0,0,0.452);
+}
+.contenidoModal{
+    background-color: #fefefe;
+    margin: auto;
+    width: 100%;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+@keyframes modal{
+    from{top: -330px; opacity: 0;}
+    to{top: 0; opacity: 1;}
+}
+.cerrar{
+    color:#f2f2f2 ;
+    font-size: 30px;
+    font-weight: bold;
+}
+.cerrar:hover{
+    color:#7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modalHeader{
+    padding: 8px 16px;
+    background: #34495e;
+    color:#f2f2f2;
+}
+.modalBody{
+    height: 40px;
+}
+.modalBody p{
+    text-align: justify;
+    font-size: 20px;
+}
+
+/* BOTONES LIKE */
+.btnPost .like {
+    background-image: url('./img/like-rosa.png');
+    background-color: transparent;
+    background-size:cover;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+.btnPost .darLike{
+    background-image: url('./img/like-rosa2.png');
+    background-color: transparent;
+}
+.btnPost p{
+    margin-left: 5px;
+}
+
+@media (min-width: 768px){
+    #container {
+        min-height: 100vh;
+        width: 100%;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-home{
+        height: 100vh;
+        width: 100%;
+        background-image: url(./img/fondo5.jpeg);
+        background-position: -100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .contenedor-register {
+        height: 100vh;
+        width: 100%;
+        background-image: url(./img/fondo-tablet.jpeg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* pantalla login */
+    .navbar-pantalla2{
+        height: 96px;
+        width: 100%;
+    }
+    /* pantalla register */
+    .navbar-pantalla{
+        height: 96px;
+        width: 100%;
+    }
+    .logo-formulario{
+        padding: 30px 0px 20px 0px;
+    }
+    #formularioRegister{
+        padding: 0px 0px 30px 0px;
+    }
+    .modalBody p{
+        text-align: center;
+        font-size: 20px;
+    }
+    h2{
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px){
+    #container {
+        min-height: 100vh;
+        width: 100%;
+        border: 1px solid #ccc;
+    }
+    .div-home{
+        background: none;
+    }
+    .contenedor-home{
+        height: 100vh;
+        width: 100%;
+        background-image: url(./img/fondo3.jpeg);
+        background-size: cover;
+        background-position: -10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .logo-home,
+    .botones-home{
+        display: flex;
+        justify-content: center;
+        background: none;
+        width: 40%;
+        position: relative;
+        right: -59%;
+        top: -120%;
+    }
+
+    .contenedor-register{
+        background-image: url(./img/fondo4.jpeg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-formulario{
+        padding: 70px 50px 50px 50px;
+        position: relative;
+        right: -30%;
+        top: 12%;
+    }
+    #formularioRegister{
+        padding: 0px 50px 70px 50px;
+        position: relative;
+        right: -30%;
+        top: 12%;
+    }
+    .navbar-pantalla2{
+        margin: 0px;
+    }
+
+    .logo-login,
+    #formularioLogin,
+    .separador-login,
+    .gyf-login {
+        width: 400px;
+        position: relative;
+        right: -30%;
+        top: 8%;
+    }  
+    .postGeneral{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .divForm{
+        max-height: 100px;
+    }
+    .posts{
+        height: 90%;
+    }
+    .contentFeed{
+        height: 90%;
+    }
